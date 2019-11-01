@@ -14,7 +14,6 @@ permalink: /about/
 > 诗和远方
 
 <br>
-<br>
 
 Hey, 我是武敏(Simon Wu), 工业机器人工程师
 

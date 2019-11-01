@@ -1,7 +1,6 @@
-- name: Software Engineer Keywords
+- name: 职业技能
   keywords:
       - 机器人学
       - ROS
-      - C/C++
-      - C#
-      - Python
+      - C/C++/C#/Python
+      - Qt/PyQt

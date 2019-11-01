@@ -7,6 +7,12 @@ comments: true
 menu: 关于
 permalink: /about/
 ---
+
+> 生活
+> 除了眼前的苟且
+> 还有
+> 诗和远方
+
 Hey, 我是武敏(Simon Wu), 工业机器人工程师
 
 热爱读书，迷恋中国传统文化

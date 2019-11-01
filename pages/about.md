@@ -23,6 +23,10 @@ Hey, 我是武敏(Simon Wu), 工业机器人工程师
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
 {% endfor %}
 
+* 微信: Simon_wumin199
+* E-mail: wumin199@126.com
+* 坐标: 上海
+
 ## Skill Keywords
 
 {% for category in site.data.skills %}

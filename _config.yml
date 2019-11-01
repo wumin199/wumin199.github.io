@@ -104,8 +104,8 @@ comments_provider: gitalk
 gitalk:
     owner: wumin199
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+    clientID: 60c9a11ad9c45900df03
+    clientSecret: 33d7106b9e5acfb289d1b95f460a8a14cba3fdd0
 # 在使用其它评论组件时可点击显示 Disqus
 lazy_load_disqus : false
 

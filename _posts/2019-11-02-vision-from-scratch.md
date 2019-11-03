@@ -14,6 +14,8 @@ keywords: 机器视觉
 
 
 * [综述](#综述)
+* [OpenCV](#OpenCV)
+    * [OpenCV3安装](#OpenCV3安装)
 * [realSense](#realSense)
     * [SDK2 安装](#SDK2 安装)
 * [参考文献](#参考文献)
@@ -38,9 +40,18 @@ keywords: 机器视觉
 |书籍：[学习OpenCV3](https://book.douban.com/subject/30302142/)||[源代码](https://github.com/oreillymedia/Learning-OpenCV-3_examples)|
 
 
+## OpenCV
+
+### OpenCV3安装
+
+
+
+
 ## realSense
 
 ### SDK2 安装
+
+参考资料：[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)
 
 
 
@@ -48,6 +59,10 @@ keywords: 机器视觉
 参考资料：
 
 * [Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)
+
+
+
+
 
 
 ## 参考文献

@@ -47,12 +47,15 @@ keywords: 软件安装
 ![](/images/软件安装/opencv安装.PNG)
 
 ![](/images/软件安装/opencv安装2.PNG)
+
 (下载不完全后失败，软件也显示exe，也可以点开进行安装，但是会报错)
 
 ![](/images/软件安装/opencv安装3.PNG)
+
 (比如完整版位209M，但是上一张图片却只有144M)
 
 参考[OpenCV 第一课(安装与配置)](https://www.cnblogs.com/YiXiaoZhou/p/5901681.html)中的说明即可，环境配置啥的，不用参考这里。
+
 
 2. 一定要以管理员身份安装，否则安装过程中会报错
 

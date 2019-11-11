@@ -16,7 +16,7 @@ keywords: 机器视觉
 * [综述](#综述)
 * [机器人学、机器视觉与控制--MATLAB算法基础](#机器人学、机器视觉与控制--MATLAB算法基础)
 * [OpenCV](#OpenCV)
-    * [OpenCV3安装](#OpenCV3安装)
+  * [opencv-python](#opencv-python)
 * [realSense](#realSense)
     * [SDK2 安装](#SDK2 安装)
 * [参考文献](#参考文献)
@@ -26,19 +26,19 @@ keywords: 机器视觉
 
 1. 初步理解篇
 
-|课程|介绍|说明|
-|--|--|--|
-|[MATLAB图像处理案例](https://edu.51cto.com/course/16757.html)|通俗易懂，快速了解||
+| 课程                                                          | 介绍               | 说明 |
+| ------------------------------------------------------------- | ------------------ | ---- |
+| [MATLAB图像处理案例](https://edu.51cto.com/course/16757.html) | 通俗易懂，快速了解 |      |
 
 
 2. 基础理论篇
 
-|课程|介绍|说明|
-|--|--|--|
-|书籍：[机器人学、机器视觉与控制--MATLAB算法基础](https://book.douban.com/subject/26915869/)|基本理论介绍|[源代码](http://petercorke.com/wordpress/rvc/)|
-|网易云课堂： [Python+OpenCV图像处理](https://study.163.com/course/courseMain.htm?courseId=1005317018&share=1&shareId=2493122)|||
-|网易云课堂： [用Opencv处理图像【Python版】](https://study.163.com/course/courseMain.htm?courseId=1209425909)|||
-|书籍：[学习OpenCV3](https://book.douban.com/subject/30302142/)||[源代码](https://github.com/oreillymedia/Learning-OpenCV-3_examples)|
+| 课程                                                                                                                          | 介绍         | 说明                                                                 |
+| ----------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------------- |
+| 书籍：[机器人学、机器视觉与控制--MATLAB算法基础](https://book.douban.com/subject/26915869/)                                   | 基本理论介绍 | [源代码](http://petercorke.com/wordpress/rvc/)                       |
+| 网易云课堂： [Python+OpenCV图像处理](https://study.163.com/course/courseMain.htm?courseId=1005317018&share=1&shareId=2493122) |              |                                                                      |
+| 网易云课堂： [用Opencv处理图像【Python版】](https://study.163.com/course/courseMain.htm?courseId=1209425909)                  |              |                                                                      |
+| 书籍：[学习OpenCV3](https://book.douban.com/subject/30302142/)                                                                |              | [源代码](https://github.com/oreillymedia/Learning-OpenCV-3_examples) |
 
 
 ## 机器人学、机器视觉与控制--MATLAB算法基础
@@ -62,26 +62,12 @@ A 1 W incandescent lightbulb however produces a perceived visual sensation of le
 **Lightmeters**(光度计), **illuminance**(照度) and **luminance**(亮度). A photographic lightmeter measures luminous flux which has units of lm m–2 or lux (lx). The luminous intensity of a point light source is the luminous flux per unit solid angle measured in lm sr–1 or candelas (cd). For a point source of luminous intensity I the illuminance E falling normally onto a surface is where d is the distance between source and the surface. Outdoor illuminance on a bright sunny day is approximately 10000 lx whereas office lighting levels are typically around 1000 lx. The luminance or brightness of a surface is which has units of cd m–2 or nit (nt), and where Ei is the incident illuminance at an angle θ to the surface normal.
 
 
-|概念|单位|说明|
-|--|--|--|
-|Radiometric quantities(辐射量)|W|功率单位。包含所有的能量，包含可以看见的和不能看见的（比如热量）|
-|photometric quantities(光度量)<br>即luminous flux(光通量)|流明lumens（简写为lm）|功率单位。指人眼所能感觉到的辐射功率。|
-|Lightmeters(光照度)|lm m–2 or lux (lx勒克斯)|测量光通量luminous flux。每平米上的光通量|
-|Lightmeters(光度计)|lm m–2 or lux (lx勒克斯)|可以测量光通量(luminous flux)|
-||||
-||||
-||||
+| 概念                                                      | 单位                   | 说明                                                             |
+| --------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------- |
+| Radiometric quantities(辐射学)                            | W                      | 功率单位。包含所有的能量，包含可以看见的和不能看见的（比如热量） |
+| photometric quantities(光度学)<br>即luminous flux(光通量) | 流明lumens（简写为lm） | 功率单位。指人眼所能感觉到的辐射功率。                           |
+| 色度学                                                    |                        | RGB或者LAB等                                                     |
 
-
-
-
-intensity：一般表示功率(w或者lm)或者功率/m2之类的
-illumination：照度
-luminance≈luminosity:发光性(亮度)
-
-brightness≈intensity≈luminance≈luminosity(亮度或者光强或者明度或明亮程度)
-
-color:
 
 **立体角和球面度概念**
 
@@ -92,8 +78,6 @@ color:
 
 
 
-
-
 参考资料：
 
 * [半球积分](https://chengkehan.github.io/HemisphericalCoordinates.html)
@@ -101,12 +85,91 @@ color:
 * [辐射照度、辐射强度、光照度、发光强度（差异以及如何相互转换）（易懂讲解）](https://blog.csdn.net/a6333230/article/details/90036993)
 * [发光强度/光通量/光照度/亮度/坎德拉/流明/勒克斯/尼特之间的关系和换算](https://blog.csdn.net/LEON1741/article/details/81237576)
 
+
+
+**一元操作**
+
+彩色图(RGB) --> 灰度化(0~255，代表亮度：0表示黑色，255表示白色) --> 二值化(0或1)
+
+```python
+import cv2
+import numpy as np
+o = cv2.imread('image\\contours.bmp')  
+gray = cv2.cvtColor(o,cv2.COLOR_BGR2GRAY)    # 灰度化
+ret, binary = cv2.threshold(gray,127,255,cv2.THRESH_BINARY)   #二值化，阈值是127，阈值以上取255，以下去0
+image,contours, hierarchy = cv2.findContours(binary,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)  
+co=o.copy()
+r=cv2.drawContours(co,contours,2,(0,0,255),6)  
+cv2.imshow("original",o)
+cv2.imshow("contours",r)
+cv2.waitKey()
+cv2.destroyAllWindows()
+```
+
+从**机器人学、机器视觉与控制--MATLAB算法基础**这本书也知道，RGB对图像处理，并没有给出更多的信息。灰度值是RGB的加权值，并没有丢失RGB的信息。
+
+RGB==>灰度图：一般用在模式识别、图像检索等场合的预处理。
+
 ## OpenCV
 
-### OpenCV3安装
+opencv一般用于图像处理，主要不是用于图形处理。
+
+opencv中,图像表示是BGR，和一般说的RGB顺序反了
+
+
+图像边缘不等于图像轮廓
+
+图像轮廓(封闭的区间)是指将没有连在一起的图像边缘(散落的区间,小的线段的集合)连在一起。
+
+图像梯度(sobel/scharr/leplacian算子)==>边缘检测(canny算子)==>图像轮廓(需要是二值图：彩色==>灰度==>二值)
+
+![](/images/视觉/图像轮廓.PNG)
+
+![](/images/视觉/图像轮廓2.PNG)
+
+![](/images/视觉/图像轮廓3.PNG)
 
 
 
+- 对图像进行傅里叶变换是什么意思
+
+
+![](/images/视觉/傅里叶变换.png)
+
+![](/images/视觉/傅里叶变换2.png)
+
+![](/images/视觉/傅里叶变换3.png)
+
+![](/images/视觉/傅里叶变换4.png)
+
+![](/images/视觉/傅里叶变换5.png)
+(x可以理解为时间，也可以理解为空间)
+
+![](/images/视觉/图像的傅里叶变换.png)
+
+(白色的低频部分)
+
+(右边图就是频率分布图谱，其中越靠近中心的位置频率越低，越亮（灰度值越高）的位置代表该频率的信号振幅越大。fft的结果是复数形式，保留了图像的全部信息，但去绝对值得到的频谱图只表现了振幅而没有体现相位。)
+
+![](/images/视觉/图像的傅里叶变换2.png)
+
+一般的波形或者说信号（Signal）都是基于时间尺度上的采样结果，因此也称为时域（Time Domain），而上面泡面的例子和我们将要处理的图像信号则是基于空间尺度上的采样，但好像并没有“空域（Space Domain）”这一说，毕竟我们对空间的感知仍然依赖于时间。不过在空间尺度上我们可以更直观地认为信号是静止，例如下面这张图像（灰度图），其实是由250x250个像素点组成，每个像素点的灰度值（$[0, 255]$）就是基于像素坐标的空间采样的结果:
+
+![](https://upload-images.jianshu.io/upload_images/21342-0cd675f781c098fa.png?imageMogr2/auto-orient/strip|imageView2/2/w/900/format/webp)
+
+
+跟一维信号处理一样，傅里叶变化，把图像从“空域”变为“频率”。对于一幅图像，高频部分代表了图像的细节、纹理信息；低频部分代表了图像的轮廓信息。如果对一幅精细的图像使用低通滤波器，那么滤波后的结果就剩下了轮廓了。这与信号处理的基本思想是相通的。如果图像受到的噪声恰好位于某个特定的“频率”范围内，则可以通过滤波器来恢复原来的图像。
+
+
+参考链接:
+* [图像的傅里叶变换](https://www.jianshu.com/p/2704b5d1d6bb)
+* [图像的傅里叶变换](https://wenku.baidu.com/view/c5e2cca8fab069dc502201db.html)
+* [图像的傅里叶变换](https://www.jianshu.com/p/89ce7fdb9e12)
+
+
+
+
+## opencv-python
 
 ## realSense
 

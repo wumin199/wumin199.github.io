@@ -1,9 +1,9 @@
 ---
 layout: post
 title: Better Explained
-categories: 分类Tag
-description: 描述
-keywords: 关键词
+categories: 其他
+description: 
+keywords: 教材推荐
 ---
 
 

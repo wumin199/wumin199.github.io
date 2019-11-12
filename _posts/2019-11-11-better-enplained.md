@@ -31,10 +31,18 @@ keywords: 关键词
 
 ## 短篇
 
-* [复数的物理意义是什么？](https://www.zhihu.com/question/23234701/answer/26017000)
-* [为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/552617806)
-* [为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/498939249)
-* [傅里叶分析之掐死教程](https://zhuanlan.zhihu.com/p/19763358)
+
+- 傅里叶变换
+
+|名称|内容介绍|其他|
+|--|--|--|
+|[如何理解傅立叶级数公式？](https://www.matongxue.com/madocs/619.html)||理解eit和sin及cos的关系|
+|[如何通俗地理解傅立叶变换？](https://www.matongxue.com/madocs/473.html)|![](/images/视觉/傅里叶公式.PNG)||
+|[从傅立叶级数到傅立叶变换](https://www.matongxue.com/madocs/712.html)|![](/images/视觉/傅里叶变换6.png)|曲线可以理解为无数旋转的叠加:f(x)是时域，而其系数Cn和e均是复数，所以相乘后的相加，最后会自行抵消|
+|[二维图像的傅立叶变换](https://imlogm.github.io/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/image-fft/)|![](/images/视觉/二维傅里叶变换.PNG)|注意原图是(x,y),变换后的图是(u,v)|
+|[图像的傅里叶变换.ppt](/images/视觉/图像的傅里叶变换.ppt)|![](/images/视觉/二维傅里叶变换2.PNG)||
+|其他||[复数的物理意义是什么？](https://www.zhihu.com/question/23234701/answer/26017000)<br>[为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/552617806)<br>[为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/498939249)<br>[傅里叶分析之掐死教程](https://zhuanlan.zhihu.com/p/19763358)<br>[如何理解 图像傅里叶变换的频谱图](https://blog.csdn.net/ViatorSun/article/details/82387854)|
+
 
 
 ## 博客
@@ -45,6 +53,12 @@ keywords: 关键词
 ## 网站
 
 
+|网站|内容介绍|其他|
+|--|--|--|
+|[马同学](https://www.matongxue.com/)|线性代数<br>单变量微积分<br>多变量微积分<br>概率与数理统计<br>||
+||||
+
+* 
 
 ### 说明
 

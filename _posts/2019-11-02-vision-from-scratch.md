@@ -145,6 +145,16 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 ![](/images/视觉/傅里叶变换5.png)
 (x可以理解为时间，也可以理解为空间)
 
+一维连续函数的傅里叶变换：
+
+![](https://pic2.zhimg.com/v2-c74b91f76940126737d3216d4b377f31_r.jpg)
+
+一维离散函数的傅里叶变换：
+
+![](https://www.zhihu.com/equation?tex=%5Ccolor%7Bpurple%7D%7BX%7D_%7B%5Ccolor%7Bgreen%7D%7Bk%7D%7D+%3D%5Ccolor%7Bred%7D%7B%5Cfrac%7B1%7D%7BN%7D+%5Csum_%7Bn%3D0%7D%5E%7BN-1%7D%7D%5Ccolor%7Bblue%7D+%7Bx_n%7D%5Ccdot+e%5E%7B-i%5Cfrac+%7B%5Ccolor%7Bfuchsia%7D%7B2%5Cpi%7D+%5Ccolor%7Bgreen%7D%7Bk%7D%7D%7B%5Ccolor%7Bpurple%7D%7BN%7D%7D%5Ccolor%7Bpurple%7D%7Bn%7D%7D)
+
+![](https://pic3.zhimg.com/v2-1398ee91d420d89ffab923a920110e0a_r.jpg)
+
 ![](/images/视觉/图像的傅里叶变换.png)
 
 (白色的低频部分)
@@ -161,7 +171,10 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 跟一维信号处理一样，傅里叶变化，把图像从“空域”变为“频率”。对于一幅图像，高频部分代表了图像的细节、纹理信息；低频部分代表了图像的轮廓信息。如果对一幅精细的图像使用低通滤波器，那么滤波后的结果就剩下了轮廓了。这与信号处理的基本思想是相通的。如果图像受到的噪声恰好位于某个特定的“频率”范围内，则可以通过滤波器来恢复原来的图像。
 
 
+![](/images/视觉/滤波.PNG)
+
 参考链接:
+* [如何理解 图像傅里叶变换的频谱图](https://blog.csdn.net/viatorsun/article/details/82387854)
 * [图像的傅里叶变换](https://www.jianshu.com/p/2704b5d1d6bb)
 * [图像的傅里叶变换](https://wenku.baidu.com/view/c5e2cca8fab069dc502201db.html)
 * [图像的傅里叶变换](https://www.jianshu.com/p/89ce7fdb9e12)

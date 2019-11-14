@@ -27,7 +27,6 @@ Hey, 我是武敏(Simon Wu), 工业机器人工程师
 
 * 微信: Simon_wumin199
 * E-mail: wumin199@126.com
-* 知乎: [@云梦泽](https://www.zhihu.com/people/min-min-66-90)
 * GitHub: [@wumin199](https://github.com/wumin199)
 * 坐标: 上海
 

@@ -18,7 +18,8 @@ keywords: 机器视觉
 * [OpenCV](#OpenCV)
   * [opencv-python](#opencv-python)
 * [realSense](#realSense)
-    * [SDK2 安装](#SDK2 安装)
+    * [SDK2安装](#SDK2安装)
+    * [相机标定](#相机标定)
 * [参考文献](#参考文献)
 
 
@@ -186,20 +187,56 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 ## realSense
 
-### SDK2 安装
-
-参考资料：[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)
-
+### SDK2安装
 
 
 
 参考资料：
 
+* [Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)
 * [Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)
 
 
 
+### 相机标定
 
+
+![](https://upload-images.jianshu.io/upload_images/11040803-31bc57bfe4602fea?imageMogr2/auto-orient/strip|imageView2/2/w/792/format/webp)
+
+> 手眼标定的目的就是获取机器人坐标系和相机坐标系的关系，最后将视觉识别的结果转移到机器人坐标系下
+
+> 手眼标定行业内分为两种形式，根据相机固定的地方不同，如果相机和机器人末端固定在一起，就称之为“眼在手”（eye in hand），如果相机固定在机器人外面的底座上，则称之为“眼在外”（eye to hand）。两者本质是一样的，对于(eye in hand)，相机拍照的时候，也不是随便在什么地方拍照的，而是在固定的地方(可能有几处)，所以对于(eye in hand)，实际上就是有多套(eye to hand)
+
+
+参考资料：
+
+* [让机械臂自动进行手眼标定---以Dobot Magician和Realsense为例](https://www.three.ml/2018/08/hand-eye-calibration/#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE&%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7)
+* [深入浅出地理解机器人手眼标定](https://blog.csdn.net/qq_16481211/article/details/79764730)
+* [手眼标定之基本原理](https://www.jianshu.com/p/3e302adc7aa5)(AX=XB)
+* [手眼标定的两种方式](https://blog.csdn.net/u011089570/article/details/47945733)(标定坐标转换讲得最清楚,其中obj表示标定板)
+* [计算机视觉：相机成像原理：世界坐标系、相机坐标系、图像坐标系、像素坐标系之间的转换](https://blog.csdn.net/chentravelling/article/details/53558096)(坐标系图)
+* [机器人手眼标定Ax=xB（eye to hand和eye in hand）及平面九点法标定](https://blog.csdn.net/yaked/article/details/77161160)(杂项)
+
+
+-------
+
+
+**[industrial_calibration标定包](https://github.com/ros-industrial/industrial_calibration)**
+
+
+
+**robot_cal_tools标定包**
+
+
+
+**robot_calibration标定包**
+
+
+**[image_pipeline](http://wiki.ros.org/image_pipeline?distro=melodic)**
+
+该功能包包含内外参标定，也是古月居教学中采用的方法。
+
+内外参标定支持2D相机和3D相机。
 
 
 ## 参考文献

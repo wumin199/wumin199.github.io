@@ -185,6 +185,26 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 ## realSense
 
+> 用primesense做安防，也是好好笑，记得该公司创始人在描绘美好未来时说曾说在天安door布满他们的深度摄像头...我就日了狗了，他们做了2年难道不知道无论是primesense的红外结构光深度传感器还是intel那个tof传感器在日光下不可用么……更何况，贵公司那套primesense的方案rgbd的有效范围只有6米啊大哥......拿primesense在室外你搞个蛋的深度摄像头安防......该公司当年拿到钱的时候，我就觉得蹊跷，翻开来他们几个创始人的简历看......我只能说你们牛逼，你们太能吹了......
+
+> 哈哈，确实是红外摄像头室外干扰太严重了，用time of fly方案硬件成本很高啊，看来在室外想获取三维信息貌似剩下双目立体的方案了
+
+> 傻子也知道结构光不能用于室外，他们的室外产品用的是双目......
+
+
+> 06年做三维重建，单结构光，多频相移，双目视觉，都用过了，目前深度探测不外乎这几个：1.微软Kinect就是个红外结构光（散点光斑）原理；2.后面随着处理器和硬件的发展，采用激光TOF的LiDAR在工业上应用比较多，比如徕卡，velodyne，北科天绘（国产）等；3.双目视觉一直都存在，但是需要足够的特征和要求严格的应用环境，但是不需要投射的被动采样有他的先天优势；4.建立在机器人，汽车上的需求，借助IMU（组合惯性单元）的绝对定位，单目系统也在特定的场合应用，比如，机器人和驾车辅助有的用单目，利用动态轨迹和高度不变来解算。
+
+参考资料：[知乎](https://www.zhihu.com/question/27072526/answer/88130349)
+
+
+> (1)结构光（structured-light），如Prime Sense，Kinect-1，Inter RealSense等；
+
+> (2)双目视觉（Stereo），如Leap Motion，ZED，大疆；
+
+> (3)光飞行 时间法(TOF)，Kinect-2，PMD，SoftKinect。
+
+参考资料：[3D相机原理—结构光、双目视觉和光飞行时间法](https://zhuanlan.zhihu.com/p/48129306)
+
 ### SDK2安装
 
 
@@ -220,10 +240,18 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 |--|--|--|
 |**[industrial_calibration标定包](https://github.com/ros-industrial/industrial_calibration)**|||
 |**[robot_cal_tools标定包](https://github.com/Jmeyer1292/robot_cal_tools)**|||
-|**[robot_calibration标定包](http://wiki.ros.org/robot_calibration)**|包含内外参以及机器人关节零位标定，也是Doug中采用的(内外参)标定法||
+|**[robot_calibration标定包](http://wiki.ros.org/robot_calibration)**|包含内外参以及机器人关节零位标定，也是Doug中采用的(内外参)标定法|相机内参标定结果：yaml<br>其他标定结果：更新的URDF|
 |**[image_pipeline](http://wiki.ros.org/image_pipeline?distro=melodic)**|该功能包包含内外参标定，内外参标定支持2D相机和3D相机。也是古月居教学中采用的（内参标定）方法。||
 |**[easy_handeye](https://github.com/IFL-CAMP/easy_handeye)**|古月中用到的外参标定法||
 
+
+- robot_calibration用法
+
+|步骤|说明|备注|
+|--|--|--|
+|获取机器人关节位置+观察位置（如视觉观察/机械手观察)|视觉观察。比如：checkerboard上的corners点(相对相机坐标系)<br>机械手观察||
+|计算|||
+||||
 
 
 

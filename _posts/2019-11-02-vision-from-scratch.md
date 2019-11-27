@@ -25,19 +25,19 @@ keywords: 机器视觉
 
 1. 初步理解篇
 
-| 课程                                                          | 介绍               | 说明 |
-| ------------------------------------------------------------- | ------------------ | ---- |
-| [MATLAB图像处理案例](https://edu.51cto.com/course/16757.html) | 通俗易懂，快速了解 |      |
+| 课程| 介绍 | 说明 |
+| -- | ---| ---|
+| [MATLAB图像处理案例](https://edu.51cto.com/course/16757.html) | 通俗易懂，快速了解 ||
 
 
 2. 基础理论篇
 
-| 课程                                                                                                                          | 介绍         | 说明                                                                 |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------------- |
-| 书籍：[机器人学、机器视觉与控制--MATLAB算法基础](https://book.douban.com/subject/26915869/)                                   | 基本理论介绍 | [源代码](http://petercorke.com/wordpress/rvc/)                       |
-| 网易云课堂： [Python+OpenCV图像处理](https://study.163.com/course/courseMain.htm?courseId=1005317018&share=1&shareId=2493122) |              |                                                                      |
-| 网易云课堂： [用Opencv处理图像【Python版】](https://study.163.com/course/courseMain.htm?courseId=1209425909)                  |              |                                                                      |
-| 书籍：[学习OpenCV3](https://book.douban.com/subject/30302142/)                                                                |              | [源代码](https://github.com/oreillymedia/Learning-OpenCV-3_examples) |
+| 课程 | 介绍 | 说明 |
+| --- | --- | --- |
+| 书籍：[机器人学、机器视觉与控制--MATLAB算法基础](https://book.douban.com/subject/26915869/) | 基本理论介绍 | [源代码](http://petercorke.com/wordpress/rvc/) |
+| 网易云课堂： [Python+OpenCV图像处理](https://study.163.com/course/courseMain.htm?courseId=1005317018&share=1&shareId=2493122) |||
+| 网易云课堂：[用Opencv处理图像【Python版】](https://study.163.com/course/courseMain.htm?courseId=1209425909) |||
+| 书籍：[学习OpenCV3](https://book.douban.com/subject/30302142/)||[源代码](https://github.com/oreillymedia/Learning-OpenCV-3_examples) |
 
 
 ## 机器人学、机器视觉与控制--MATLAB算法基础
@@ -61,11 +61,11 @@ A 1 W incandescent lightbulb however produces a perceived visual sensation of le
 **Lightmeters**(光度计), **illuminance**(照度) and **luminance**(亮度). A photographic lightmeter measures luminous flux which has units of lm m–2 or lux (lx). The luminous intensity of a point light source is the luminous flux per unit solid angle measured in lm sr–1 or candelas (cd). For a point source of luminous intensity I the illuminance E falling normally onto a surface is where d is the distance between source and the surface. Outdoor illuminance on a bright sunny day is approximately 10000 lx whereas office lighting levels are typically around 1000 lx. The luminance or brightness of a surface is which has units of cd m–2 or nit (nt), and where Ei is the incident illuminance at an angle θ to the surface normal.
 
 
-| 概念                                                      | 单位                   | 说明                                                             |
-| --------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------- |
-| Radiometric quantities(辐射学)                            | W                      | 功率单位。包含所有的能量，包含可以看见的和不能看见的（比如热量） |
-| photometric quantities(光度学)<br>即luminous flux(光通量) | 流明lumens（简写为lm） | 功率单位。指人眼所能感觉到的辐射功率。                           |
-| 色度学                                                    |                        | RGB或者LAB等                                                     |
+| 概念  | 单位 | 说明|
+| --- | --- | --- |
+| Radiometric quantities(辐射学)| W | 功率单位。包含所有的能量，包含可以看见的和不能看见的（比如热量） |
+| photometric quantities(光度学)<br>即luminous flux(光通量) | 流明lumens（简写为lm） | 功率单位。指人眼所能感觉到的辐射功率。|
+| 色度学|| RGB或者LAB等 |
 
 
 **立体角和球面度概念**
@@ -198,8 +198,8 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 ### 相机标定
 
+![](/images/视觉/相机标定.jpg)
 
-![](https://upload-images.jianshu.io/upload_images/11040803-31bc57bfe4602fea?imageMogr2/auto-orient/strip|imageView2/2/w/792/format/webp)
 
 > 手眼标定的目的就是获取机器人坐标系和相机坐标系的关系，最后将视觉识别的结果转移到机器人坐标系下
 
@@ -216,25 +216,16 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 * [机器人手眼标定Ax=xB（eye to hand和eye in hand）及平面九点法标定](https://blog.csdn.net/yaked/article/details/77161160)(杂项)
 
 
--------
+|功能包|说明|备注|
+|--|--|--|
+|**[industrial_calibration标定包](https://github.com/ros-industrial/industrial_calibration)**|||
+|**[robot_cal_tools标定包](https://github.com/Jmeyer1292/robot_cal_tools)**|||
+|**[robot_calibration标定包](http://wiki.ros.org/robot_calibration)**|包含内外参以及机器人关节零位标定，也是Doug中采用的(内外参)标定法||
+|**[image_pipeline](http://wiki.ros.org/image_pipeline?distro=melodic)**|该功能包包含内外参标定，内外参标定支持2D相机和3D相机。也是古月居教学中采用的（内参标定）方法。||
+|**[easy_handeye](https://github.com/IFL-CAMP/easy_handeye)**|古月中用到的外参标定法||
 
 
-**[industrial_calibration标定包](https://github.com/ros-industrial/industrial_calibration)**
 
-
-
-**robot_cal_tools标定包**
-
-
-
-**robot_calibration标定包**
-
-
-**[image_pipeline](http://wiki.ros.org/image_pipeline?distro=melodic)**
-
-该功能包包含内外参标定，也是古月居教学中采用的方法。
-
-内外参标定支持2D相机和3D相机。
 
 
 ## 参考文献

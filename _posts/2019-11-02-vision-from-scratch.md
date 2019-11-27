@@ -7,8 +7,6 @@ keywords: 机器视觉
 ---
 
 
-![](/images/posts/xxx/xx.png)
-
 
 **目录**
 

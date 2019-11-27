@@ -7,9 +7,6 @@ keywords: 软件安装
 ---
 
 
-![](/images/posts/android/toast.png)
-
-
 
 **目录**
 

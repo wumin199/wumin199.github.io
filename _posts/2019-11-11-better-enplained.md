@@ -6,10 +6,6 @@ description:
 keywords: 教材推荐
 ---
 
-
-![](/images/posts/xxx/xx.png)
-
-
 **目录**
 
 

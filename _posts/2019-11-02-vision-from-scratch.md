@@ -253,7 +253,9 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 |计算|||
 ||||
 
+参考资料：
 
+* [机器人操作系统ROS从入门到放弃(七):使用rosbag](https://www.jianshu.com/p/901c2ebb4e7f)
 
 
 ## 参考文献

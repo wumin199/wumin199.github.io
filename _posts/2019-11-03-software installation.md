@@ -31,6 +31,7 @@ keywords: 软件安装
 |OpenCV3|[OpenCV3 下载地址](https://opencv.org/releases/)||这个是C++库|
 |opencv-python||`python -m pip install --user opencv-python`<br>同时因为经常要绘图和用到数组，可以同步安装如下两个库<br>`python -m pip install --user numpy` <br> `python -m pip install --user matplotlib`|下载的是最新版的opencv，比如4.1.1.26<br>查看python库版本的方法<br>`python -m pip list`(所有库)<br>`python -m pip | grep opencv`(查看单一库，grep是linux下指令)<br>`python -m pip | findstr opencv`(查看单一库，findstr是windows下指令)<br>在python中，用法都是`import cv2`(不代表是opencv2)|
 |intel RealSense SDK2|[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)||直接安装|
+|导入虚拟机||问题1：导入后，报虚拟机不支持USB设备<br>方法1：![](/images/软件安装/虚拟机设置.PNG)<br>方法2:安装[VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads),但公司电脑可能不给安装权限，家里电脑可以。<br>-----<br>问题2：启动导入的虚拟机后，提示"VT-x is not available"<br>方法：[VirtualBox VT-x is not available ](https://blog.csdn.net/imilano/article/details/83038682)和 [Win10怎么以管理员身份运行CMD命令提示符](https://jingyan.baidu.com/article/ceb9fb10b53ab88cac2ba05b.html)||
 
 
 

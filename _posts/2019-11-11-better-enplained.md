@@ -43,6 +43,12 @@ keywords: 教材推荐
 
 ## 博客
 
+- ROS相关
+|名称|内容介绍|其他|
+|--|--|--|
+|[我才睡醒](https://blog.csdn.net/wxflamy?t=1)|ros中的点云、相机、Rviz标记、Eigen库||
+|[白巧克力亦唯心](https://blog.csdn.net/heyijia0327/article/list/3?t=1&)|ros之vision启动、标定等；卡尔曼滤波||
+
 
 
 
@@ -54,7 +60,7 @@ keywords: 教材推荐
 |[马同学](https://www.matongxue.com/)|线性代数<br>单变量微积分<br>多变量微积分<br>概率与数理统计<br>||
 ||||
 
-* 
+
 
 ### 说明
 

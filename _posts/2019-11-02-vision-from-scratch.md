@@ -240,15 +240,90 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 |--|--|--|
 |**[industrial_calibration标定包](https://github.com/ros-industrial/industrial_calibration)**|||
 |**[robot_cal_tools标定包](https://github.com/Jmeyer1292/robot_cal_tools)**|||
-|**[robot_calibration标定包](http://wiki.ros.org/robot_calibration)**|包含内外参以及机器人关节零位标定，也是Doug中采用的(内外参)标定法|相机内参标定结果：yaml<br>其他标定结果：更新的URDF|
+|**[robot_calibration标定包](http://wiki.ros.org/robot_calibration)**|包含内外参以及机器人关节零位标定，也是Doug中采用的(内外参)标定法|相机内参标定结果：yaml<br>其他标定结果：更新的URDF。[功能表讨论区](https://github.com/mikeferguson/robot_calibration/issues)有使用方法的一些讨论|
 |**[image_pipeline](http://wiki.ros.org/image_pipeline?distro=melodic)**|该功能包包含内外参标定，内外参标([image_pipeline/camera_calibration](https://blog.csdn.net/xinwenfei/article/details/81235072))定支持2D相机和3D相机。也是古月居教学中采用的（内参标定）方法。||
 |**[easy_handeye](https://github.com/IFL-CAMP/easy_handeye)**|古月中用到的外参标定法||
 
 
 - robot_calibration用法
 
-![](/images/视觉/robot_calibration.jpg)
+![](/images/视觉/robot_calibration.PNG)
 
+```C++
+/** \mainpage
+ * \section parameters Parameters of the Optimization:
+ *   - joint angle offsets 关节零位校准
+ *   - frame 6DOF corrections (currently head pan frame, and camera frame) TCP校准（？）相机外参校准
+ *   - camera intrinsics (2d & 3d) 相机内参校准
+ *
+ * \section residuals Residual Blocks:
+ *   - difference of reprojection through the arm and camera
+ *   - residual blocks that limit offsets from growing outrageously large
+ *
+ * \section modules Modules:
+ *   - Capture: 拍照
+ *     - move joints to a particular place   移动机器人到特定地方
+ *     - wait to settle   等待机器人到达特定点（在calibration_poses.bag中规定的点位）
+ *     - find target (led or checkerboard)   找到模板（led或者标定板）
+ *     - write sample to bag file: joint angles, position of targets in camera. 将sample写到bag中（机器人关节值、在相机下的位置值）
+ *   - Calibrate:校准
+ *     - load urdf, samples from bag file.  加载urdf和samples（来自bag）
+ *     - create arm and camera reprojection chains.  创建arm和相机的重映射链
+ *     - create residual blocks.    创建误差块（解释见上面）
+ *     - run calibration.   开始校准
+ *     - write results to URDF.  更新结果到urdf
+ */
+
+/*
+ * usage:
+ *  calibrate --manual
+ *  calibrate calibration_poses.bag  标定的机器人运动位置来自于calibration_poses.bag ，同时在每一步的时候，还需要重新采集（capturing）相机下的位置信息，构成calibration_data
+ *  calibrate --from-bag calibration_data.bag (calibration_data.bag包含了机器人关节点位和相机识别下的点位：一一对应的)
+ */
+
+```
+
+
+```yaml
+I've been thinking about how to create a wizard for this, so that people don't have to create/update lots of YAML files manually (which is also error-prone). In the mean-time, this ticket serves as somewhat of a brief HOW-TO to manually create the files.
+
+Load and parse the URDF (from parameter server?)
+User selects the "base_link" which is the frame into which all points will be projected during calibration step.
+User defines the "chains" by:
+Entering a name for each
+Selecting set of active joints that constitute the chain
+Selecting the follow_joint_trajectory action namespace (introspect options from running system?)
+Selecting the planning_group to use with MoveIt (if any)
+User defines the models by adding a model of a given type and then configuring the following:
+For "chain" - select end effector frame.
+For "camera3d" - select camera frame, select topic (introspect options from running system?)
+User defines the finders by adding a finder of a given type and then configuring the following:
+PlaneFinder
+Select "camera_sensor_name" from available "models"
+Select "topic" to subscribe to
+Select "transform_frame" (defaults to base_link selected above)
+Set min/max x/y/z
+Set "points_max"
+Select true/false for "debug"
+CheckerboardFinder
+Select "camera_sensor_name" from available "models"
+Select "chain_sensor_name" from available "models"
+Select "topic" to subscribe to
+Set points_x, points_y, size
+Select true/false for "debug"
+LedFinder - probably not worth adding to wizard (just preserve if it exists)
+User defines error_blocks by selecting/adding by type first:
+chain3d_to_chain3d - Select model_a, model_b from models.
+chain3d_to_plane - Select model_a from models. Set a, b, c, d and scale.
+plane_to_plane - Select model_a, model_b from models. Set scale_normal, scale_offset.
+outrageous - Select param from list of possible free params. Set joint_scale, position_scale, rotation_scale.
+User selects free params through a series of checkboxes
+Available names are each joint name, fx/fy/cx/cy/z_offset/z_scaling for each camera)
+User selects free frames through a series of checkboxes
+For each free frame, select x/y/z/r/p/y. Also do check that 0, 1, or 3 of r/p/y are set (setting two to true doesn't do what you think -- these are axis-magnitude internally).
+Finally have user manually move arm while both capturing data for the first calibration and creating the bag file for export.
+As with the MoveIt wizard, we would want to be able to reload the YAML files exported and edit them.
+```
 
 |步骤|说明|备注|
 |--|--|--|
@@ -256,10 +331,23 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 |计算|||
 ||||
 
+
+![](/images/视觉/robot_calibration_pkg.PNG)
+
+![](/images/视觉/calibrate1.PNG)
+
+![](/images/视觉/calibrate2.PNG)
+
+
+
+![](/images/视觉/robot_calibration_msgs.png)
+
+
+
 该功能表涉及的数据类型：
 
 `CameraParameter.msg`
-
+相机其他信息
 ```
 string name
 float64 value
@@ -267,7 +355,7 @@ float64 value
 
 
 `ExtendedCameraInfo.msg`
-
+相机相关信息(内参及其他信息)
 ```
 sensor_msgs/CameraInfo  camera_info
 CameraParameter[]       parameters
@@ -286,6 +374,8 @@ string[] features
 
 `Observation.msg`
 
+观察点信息(传感器名称+点+相机信息+点云/图像信息)
+
 ```
 # Name of the "sensor" that generate this data.
 string sensor_name
@@ -303,6 +393,8 @@ sensor_msgs/Image image
 
 
 `CalibrationData.msg`
+
+包含关节位置信息和观察点信息（如用摄像头观察的点的信息）
 
 ```
 # State of the robot when this data was collected
@@ -590,6 +682,10 @@ bool do_rectify
 * [机器人操作系统ROS从入门到放弃(七):使用rosbag](https://www.jianshu.com/p/901c2ebb4e7f)
 * [sensor_msgs](http://wiki.ros.org/sensor_msgs)
 * [在ROS中使用相机](https://blog.csdn.net/wxflamy/article/details/79351102)
+
+
+
+
 
 
 ## 参考文献

@@ -2,11 +2,10 @@
 layout: post
 title: 机器视觉入门
 categories: 机器视觉
-description: 
+description: 机器视觉学习汇总
 keywords: 机器视觉
 ---
 
-机器视觉学习汇总
 
 **目录**
 

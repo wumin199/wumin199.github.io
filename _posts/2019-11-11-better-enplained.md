@@ -2,11 +2,9 @@
 layout: post
 title: Better Explained
 categories: 其他
-description: 
+description: 各类网站、博客、教材等优秀资源整合
 keywords: 教材推荐
 ---
-
-各类网站、博客、教材等优秀资源整合
 
 
 **目录**

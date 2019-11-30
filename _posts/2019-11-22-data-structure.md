@@ -1,12 +1,10 @@
 ---
 layout: post
-title: 数据结构
+title: 数据结构与算法
 categories: 数据结构
-description: 
+description: 学习记录
 keywords: 数据结构
 ---
-
-数据结构和算法学习记录
 
 
 **目录**

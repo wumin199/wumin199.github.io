@@ -10,7 +10,7 @@ description: "武敏的博客"
 keywords: wumin199, 武敏
 timezone: Asia/Shanghai
 encoding: "utf-8"
-side_bar_repo_limit: 5
+side_bar_repo_limit: 0
 
 # ---------------- #
 #      Author      #
@@ -121,5 +121,5 @@ simple_jekyll_search:
 # ---------------- #
 #    Analytics     #
 # ---------------- #
-google:
-    analytics_id: UA-80669434-1
+#google:
+#    analytics_id: UA-80669434-1

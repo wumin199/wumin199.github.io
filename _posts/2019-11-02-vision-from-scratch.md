@@ -225,12 +225,31 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 ### SDK2安装
 
+SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
+
+建议SDK2最新版本(build xxx)会领先于wrapper版本，建议SDK2版本和wrapper版本一致。
+
+- windows平台：
+
+|项目|配置|备注|
+| --- | --- | --- |
+|Viewer和SDK安装|在[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/releases)中选择`Assets`下的Viewer和SKD直接进行安装(最新版本下，安装SDK的时候回同时安装viewer和案例等)<br>![](/images/视觉/SDK_installation.PNG)<br>具体参考[Windows Distribution](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)|安装这2个的时候，需要同步查看下wrapper支持的版本，要根据wrapper的版本信息选择SDK和Viewer版本<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper.PNG)<br>如果不打算在windows下开发，可以直接下最新版的|
+|wrapper|以[python为例](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/python)<br>用户自己尝试，这里不测试了||
 
 
-参考资料：
 
-* [Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)
-* [Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)
+- linux 平台：
+
+由于使用到USB3.0, 而虚拟机对USB3.0的支持有限，所以不可以在Oracle的VM中使用，建议在实际的电脑上使用，一定要用也建议采用VMWare
+
+安装测试见虚拟机：RealSense Test
+
+|项目|说明|备注|
+| --- | --- | --- |
+|SDK安装|总的安装方法：[Ubuntu 16.04安装RealSense ROS功能包](https://blog.csdn.net/qq_38649880/article/details/91975100)或[ubuntu 16.04 lts 安装intel realsense 步骤](https://blog.csdn.net/smilestone_322/article/details/78066885)<br>以上可能写得不清楚，具体分步骤为：<br>1. linux环境配置:[ubuntu环境配置](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages) 或 [Ubuntu 16.04 安装Intel RealSense及环境配置之 CMake + OpenCV](https://blog.csdn.net/u012180635/article/details/82143340)<br>2. [SDK2 Linux Ubuntu Installation](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)或[Ubuntu16.04下Realsense环境搭建](https://blog.csdn.net/u010284636/article/details/80449116)|打开方法:`realsense-viewr`<br>![](/images/视觉/ubuntu-realsense1.png)<br>![](/images/视觉/ubuntu-realsense2.png)|
+|wrapper|以[ros wrapper](https://github.com/IntelRealSense/realsense-ros/releases)为例<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper2.PNG)|![](/images/视觉/ubuntu-realsense3.png)|
+
+
 
 
 

@@ -184,6 +184,25 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 ## realSense
 
+
+
+|模块|说明|备注|
+|--|--|--|
+|D435i|![](/images/视觉/D435i.PNG)<br>![](/images/视觉/d435_inside_depth_camera.jpg)|[D435i参数](https://www.intelrealsense.com/depth-camera-d435i/)(包含分辨率，视野，帧率等)<br>[Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)|
+|D415|D415的硬件包含了两个深度相机，一个RGB相机和一个结构光红外投影仪。深度卷帘相机（逐行扫描），红外结构光深度测距。<br>![](/images/视觉/D415.jpg)<br>![](/images/视觉/D415原理.png)(待定)|Doug用的相机|
+|原理|![](/images/视觉/D400原理.PNG)<br>![](/images/视觉/realSense.jpg)<br>![](/images/视觉/D400集成.jpg)||
+
+其他资料：
+
+* [官网文档](https://dev.intelrealsense.com/docs)
+* [哪款适合你？一览英特尔实感摄像头D415、D435、D435i、T265的差异](https://yivian.com/news/60075.html)
+* [直击英特尔IDF2015：RealSense技术实现真正的3D图像识别](http://pieeco.com/news/586_1.html)(卖控制板，方便集成)
+
+
+> KinectV2是ToF技术，除了对屏幕这种吸收红外光线的物体效果不好之外，精度相对最高，物体边缘也很准确。 Realsense是用双IR（红外）相机打出结构图案做stereo matching，类似于双镜头深度计算，精度是最差的（噪声最大），而且也很容易被物体边缘影响。但是这个方法的优点是可以做得很快，所以可以到90fps，kinect的帧率貌似是60fps，driver限制到了30fps。这俩设备的自带驱动有效距离都是1.5-8m左右，kinect用第三方驱动可以到16m。 只看分辨率我觉得没啥意思，就算直接把kinect的分辨率插值提高一倍，效果也要比realsense的好得多。大概就这样吧，你有机会拿个kinect和realsense对着同一个场景就能看出个大概了。如果室外使用的话，realsense对环境红外光的敏感度较低，kinect性能就下降很厉害。
+
+
+
 > 用primesense做安防，也是好好笑，记得该公司创始人在描绘美好未来时说曾说在天安door布满他们的深度摄像头...我就日了狗了，他们做了2年难道不知道无论是primesense的红外结构光深度传感器还是intel那个tof传感器在日光下不可用么……更何况，贵公司那套primesense的方案rgbd的有效范围只有6米啊大哥......拿primesense在室外你搞个蛋的深度摄像头安防......该公司当年拿到钱的时候，我就觉得蹊跷，翻开来他们几个创始人的简历看......我只能说你们牛逼，你们太能吹了......
 
 > 哈哈，确实是红外摄像头室外干扰太严重了，用time of fly方案硬件成本很高啊，看来在室外想获取三维信息貌似剩下双目立体的方案了

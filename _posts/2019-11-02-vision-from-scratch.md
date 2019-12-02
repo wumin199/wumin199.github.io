@@ -233,8 +233,8 @@ SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
 
 |项目|配置|备注|
 | --- | --- | --- |
-|Viewer和SDK安装|在[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/releases)中选择`Assets`下的Viewer和SKD直接进行安装(最新版本下，安装SDK的时候回同时安装viewer和案例等)<br>![](/images/视觉/SDK_installation.PNG)<br>具体参考[Windows Distribution](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)|安装这2个的时候，需要同步查看下wrapper支持的版本，要根据wrapper的版本信息选择SDK和Viewer版本<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper.PNG)<br>如果不打算在windows下开发，可以直接下最新版的|
-|wrapper|以[python为例](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/python)<br>用户自己尝试，这里不测试了||
+|Viewer和SDK安装|在[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/releases)中选择`Assets`下的Viewer和SKD直接进行安装(最新版本下，安装SDK的时候回同时安装viewer和案例等)<br>![](/images/视觉/SDK_installation.PNG)<br>具体参考[Windows Distribution](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)|安装这2个的时候，需要同步查看下wrapper支持的版本，要根据wrapper的版本信息选择SDK和Viewer版本<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper2.PNG)<br>如果不打算在windows下开发，可以直接下最新版的|
+|wrapper|以[python]为例(https://github.com/IntelRealSense/librealsense/tree/development/wrappers/python)<br>用户自己尝试，这里不测试了||
 
 
 
@@ -250,6 +250,12 @@ SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
 |wrapper|以[ros wrapper](https://github.com/IntelRealSense/realsense-ros/releases)为例<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper2.PNG)|![](/images/视觉/ubuntu-realsense3.png)|
 
 
+|项目|说明|备注|
+|--|--|--|
+|[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 1](https://blog.csdn.net/weixin_38543989/article/details/80578405)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 2](https://blog.csdn.net/weixin_38543989/article/details/80695341)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 3](https://blog.csdn.net/weixin_38543989/article/details/80885173)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 4](https://blog.csdn.net/weixin_38543989/article/details/81537984)|1. 可以了解realsense中点云的处理<br>2. 可以了解realsense文件夹下`wrappers`,`tools`,`third-party`等的作用<br>**3. [了解动态标定工具(Calibration Tools)](https://dev.intelrealsense.com/docs/intel-realsensetm-d400-series-calibration-tools-user-guide)**|动态标定工具用于标定相机**外参**, 但这里的外参，指的是：<br> ![](/images/视觉/realsense-内外参.PNG)<br>相机的RGB相机内参标定，需要用一般的功能包来标定<br>|
+||||
+||||
+||||
 
 
 

@@ -188,9 +188,10 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 |模块|说明|备注|
 |--|--|--|
-|D435i|![](/images/视觉/D435i.PNG)<br>![](/images/视觉/d435_inside_depth_camera.jpg)|[D435i参数](https://www.intelrealsense.com/depth-camera-d435i/)(包含分辨率，视野，帧率等)<br>[Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)|
-|D415|D415的硬件包含了两个深度相机，一个RGB相机和一个结构光红外投影仪。深度卷帘相机（逐行扫描），红外结构光深度测距。<br>![](/images/视觉/D415.jpg)<br>![](/images/视觉/D415原理.png)(待定)|Doug用的相机|
+|[D435i](https://www.intelrealsense.com/depth-camera-d435i/)|![](/images/视觉/D435i.PNG)<br>![](/images/视觉/d435_inside_depth_camera.jpg)|[D435i参数](https://www.intelrealsense.com/depth-camera-d435i/)(包含分辨率，视野，帧率等)<br>[Intel RealSense Depth Camera D435i 开箱拆解](https://www.chiphell.com/thread-1945054-1-1.html)|
+|[D415](https://www.intelrealsense.com/depth-camera-d415/)|D415的硬件包含了两个深度相机，一个RGB相机和一个结构光红外投影仪。深度卷帘相机（逐行扫描），红外结构光深度测距。<br>![](/images/视觉/D415.jpg)<br>![](/images/视觉/D415原理.png)(待定)|Doug用的相机|
 |原理|![](/images/视觉/D400原理.PNG)<br>![](/images/视觉/realSense.jpg)<br>![](/images/视觉/D400集成.jpg)||
+|说明|realsense的视野有范围限制，太近不行，太远也不行！！具体请看指标||
 
 其他资料：
 
@@ -246,13 +247,13 @@ SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
 
 |项目|说明|备注|
 | --- | --- | --- |
-|SDK安装|总的安装方法：[Ubuntu 16.04安装RealSense ROS功能包](https://blog.csdn.net/qq_38649880/article/details/91975100)或[ubuntu 16.04 lts 安装intel realsense 步骤](https://blog.csdn.net/smilestone_322/article/details/78066885)<br>以上可能写得不清楚，具体分步骤为：<br>1. linux环境配置:[ubuntu环境配置](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages) 或 [Ubuntu 16.04 安装Intel RealSense及环境配置之 CMake + OpenCV](https://blog.csdn.net/u012180635/article/details/82143340)<br>2. [SDK2 Linux Ubuntu Installation](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)或[Ubuntu16.04下Realsense环境搭建](https://blog.csdn.net/u010284636/article/details/80449116)|打开方法:`realsense-viewr`<br>![](/images/视觉/ubuntu-realsense1.png)<br>![](/images/视觉/ubuntu-realsense2.png)|
+|SDK安装|总的安装方法：[Setting up a 3D sensor](https://industrial-training-master.readthedocs.io/en/melodic/_source/demo3/Setting-up-a-3D-sensor.html) 或 [Ubuntu 16.04安装RealSense ROS功能包](https://blog.csdn.net/qq_38649880/article/details/91975100)或[ubuntu 16.04 lts 安装intel realsense 步骤](https://blog.csdn.net/smilestone_322/article/details/78066885)<br>以上可能写得不清楚，具体分步骤为：<br>1. linux环境配置:[ubuntu环境配置](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md#installing-the-packages) 或 [Ubuntu 16.04 安装Intel RealSense及环境配置之 CMake + OpenCV](https://blog.csdn.net/u012180635/article/details/82143340)<br>2. [SDK2 Linux Ubuntu Installation](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)或[Ubuntu16.04下Realsense环境搭建](https://blog.csdn.net/u010284636/article/details/80449116)|打开方法:`realsense-viewr`<br>![](/images/视觉/ubuntu-realsense1.png)<br>![](/images/视觉/ubuntu-realsense2.png)|
 |wrapper|以[ros wrapper](https://github.com/IntelRealSense/realsense-ros/releases)为例<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper2.PNG)|![](/images/视觉/ubuntu-realsense3.png)|
 
 
 |项目|说明|备注|
 |--|--|--|
-|[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 1](https://blog.csdn.net/weixin_38543989/article/details/80578405)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 2](https://blog.csdn.net/weixin_38543989/article/details/80695341)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 3](https://blog.csdn.net/weixin_38543989/article/details/80885173)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 4](https://blog.csdn.net/weixin_38543989/article/details/81537984)|1. 可以了解realsense中点云的处理<br>2. 可以了解realsense文件夹下`wrappers`,`tools`,`third-party`等的作用<br>**3. [了解动态标定工具(Calibration Tools)](https://dev.intelrealsense.com/docs/intel-realsensetm-d400-series-calibration-tools-user-guide)**|动态标定工具用于标定相机**外参**, 但这里的外参，指的是：<br> ![](/images/视觉/realsense-内外参.PNG)<br>相机的RGB相机内参标定，需要用一般的功能包来标定<br>|
+|[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 1](https://blog.csdn.net/weixin_38543989/article/details/80578405)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 2](https://blog.csdn.net/weixin_38543989/article/details/80695341)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 3](https://blog.csdn.net/weixin_38543989/article/details/80885173)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 4](https://blog.csdn.net/weixin_38543989/article/details/81537984)|1. 可以了解realsense中点云的处理<br>2. 可以了解realsense文件夹下`wrappers`,`tools`,`third-party`等的作用<br>**3. [了解动态标定工具(Calibration Tools)](https://dev.intelrealsense.com/docs/intel-realsensetm-d400-series-calibration-tools-user-guide)**|官方提供的动态标定工具用于标定相机**外参**,标定好外参后，会自动load到realsense的firmware中。不过这里的外参，指的是：<br> ![](/images/视觉/realsense-内外参.PNG)<br>相机的内参和真正的外参标定，需要用其他的功能包来标定<br>具体可以参考：[How can I calibrate D415 or D435](https://github.com/IntelRealSense/librealsense/issues/2329), [Calibration of D415 in ROS](https://github.com/IntelRealSense/realsense-ros/issues/508), [Calibration of D415 in ROS](https://github.com/IntelRealSense/librealsense/issues/2666)|
 ||||
 ||||
 ||||

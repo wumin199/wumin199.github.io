@@ -234,7 +234,7 @@ SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
 |项目|配置|备注|
 | --- | --- | --- |
 |Viewer和SDK安装|在[Intel® RealSense™ SDK 2.0](https://github.com/IntelRealSense/librealsense/releases)中选择`Assets`下的Viewer和SKD直接进行安装(最新版本下，安装SDK的时候回同时安装viewer和案例等)<br>![](/images/视觉/SDK_installation.PNG)<br>具体参考[Windows Distribution](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_windows.md)|安装这2个的时候，需要同步查看下wrapper支持的版本，要根据wrapper的版本信息选择SDK和Viewer版本<br>![](/images/视觉/wrapper.PNG)<br>![](/images/视觉/wrapper2.PNG)<br>如果不打算在windows下开发，可以直接下最新版的|
-|wrapper|以[python]为例(https://github.com/IntelRealSense/librealsense/tree/development/wrappers/python)<br>用户自己尝试，这里不测试了||
+|wrapper|以[python](https://github.com/IntelRealSense/librealsense/tree/development/wrappers/python)为例<br>用户自己尝试，这里不测试了||
 
 
 

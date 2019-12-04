@@ -61,6 +61,7 @@ keywords: 教材推荐
 |--|--|--|
 |[马同学](https://www.matongxue.com/)|线性代数<br>单变量微积分<br>多变量微积分<br>概率与数理统计<br>||
 |[ros-industrial-training](https://industrial-training-master.readthedocs.io/en/melodic/index.html)|||
+|[MoveIt Tutorials](http://docs.ros.org/melodic/api/moveit_tutorials/html/index.html#)|||
 
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: 机器视觉入门
 categories: 机器视觉
-description: 
+description: 及NEDO项目介绍
 keywords: 机器视觉
 ---
 
@@ -17,7 +17,9 @@ keywords: 机器视觉
 * [realSense](#realSense)
     * [SDK2安装](#SDK2安装)
     * [相机标定](#相机标定)
+    * [RA605_316工程讲解](#RA605_316工程讲解)
 * [参考文献](#参考文献)
+
 
 
 ## 综述
@@ -254,7 +256,7 @@ SDK2是简单调试用的，真正开发，应该是用wrapper开发的。
 |项目|说明|备注|
 |--|--|--|
 |[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 1](https://blog.csdn.net/weixin_38543989/article/details/80578405)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 2](https://blog.csdn.net/weixin_38543989/article/details/80695341)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 3](https://blog.csdn.net/weixin_38543989/article/details/80885173)<br>[INTEL RealSense-D415 在 Ubuntu 16.04 开发流程 4](https://blog.csdn.net/weixin_38543989/article/details/81537984)|1. 可以了解realsense中点云的处理<br>2. 可以了解realsense文件夹下`wrappers`,`tools`,`third-party`等的作用<br>**3. [了解动态标定工具(Calibration Tools)](https://dev.intelrealsense.com/docs/intel-realsensetm-d400-series-calibration-tools-user-guide)**|官方提供的动态标定工具用于标定相机**外参**,标定好外参后，会自动load到realsense的firmware中。不过这里的外参，指的是：<br> ![](/images/视觉/realsense-内外参.PNG)<br>相机的内参和真正的外参标定，需要用其他的功能包来标定<br>具体可以参考：[How can I calibrate D415 or D435](https://github.com/IntelRealSense/librealsense/issues/2329), [Calibration of D415 in ROS](https://github.com/IntelRealSense/realsense-ros/issues/508), [Calibration of D415 in ROS](https://github.com/IntelRealSense/librealsense/issues/2666)|
-||||
+|[OpenCV-Python Camera Calibration and 3D Reconstruction](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_calib3d/py_calibration/py_calibration.html)|1. 了解畸变、内外参的含义<br>||
 ||||
 ||||
 
@@ -727,6 +729,35 @@ bool do_rectify
 * [机器人操作系统ROS从入门到放弃(七):使用rosbag](https://www.jianshu.com/p/901c2ebb4e7f)
 * [sensor_msgs](http://wiki.ros.org/sensor_msgs)
 * [在ROS中使用相机](https://blog.csdn.net/wxflamy/article/details/79351102)
+
+
+### RA605_316工程讲解
+
+|工程|内容介绍|其他|
+|--|--|--|
+|RA605_315 365-2150.project||1.初始版本默认应该是3.16<br>2. |
+||||
+
+
+- 汇总
+
+![](/images/视觉/RA605_315/Content.PNG)
+
+![](/images/视觉/RA605_315/Content2.PNG)
+
+|工程|内容介绍|其他|
+|--|--|--|
+|RA605_315 365-2150.project||1.初始版本默认应该是3.16<br>|
+||||
+
+- IO文件夹
+
+
+
+- Hiwin文件夹
+
+
+- FromHiwin文件夹
 
 
 

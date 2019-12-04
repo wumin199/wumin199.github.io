@@ -1,0 +1,44 @@
+变量定义：
+
+
+/Program
+
+
+/Project
+
+os200 : OVLSUPPOS := ()
+dFast : DYNAMIC := (velAxis:=100, accAxis:=100, decAxis:=100, jerkAxis:=80, vel:=200, acc:=500, dec:=500,
+jerk:=10000, velOri:=900, accOri:=2000, decOri:=2000, jerkOri:=1000000)
+oa0 : OVLABS := (posDist:=15)
+
+
+/Machine
+
+gROS_TC1 : ROSTC := (cpIec1 := (x := MAPX("IEC.ROS.gROS_TC1.cpIec1@0"), y := MAPX("IEC.ROS.gROS_TC1.cpIec1@8"),
+z := MAPX("IEC.ROS.gROS_TC1.cpIec1@16"), a := MAPX("IEC.ROS.gROS_TC1.cpIec1@24"), b := MAPX("IEC.ROS.gROS_TC1.cpIec1@32"),
+c := MAPX("IEC.ROS.gROS_TC1.cpIec1@40"), p1 := MAPX("IEC.ROS.gROS_TC1.cpIec1@48"), p2 := MAPX("IEC.ROS.gROS_TC1.cpIec1@56"),
+p1Type := MAPX("IEC.ROS.gROS_TC1.cpIec1@64"), p2Type := MAPX("IEC.ROS.gROS_TC1.cpIec1@68"), mode := MAPX("IEC.ROS.gROS_TC1.cpIec1@72"),
+aux1 := MAPX("IEC.ROS.gROS_TC1.cpIec1@76"), aux2 := MAPX("IEC.ROS.gROS_TC1.cpIec1@84"), aux3 := MAPX("IEC.ROS.gROS_TC1.cpIec1@92"),
+aux4 := MAPX("IEC.ROS.gROS_TC1.cpIec1@100"), aux5 := MAPX("IEC.ROS.gROS_TC1.cpIec1@108"), aux6 := MAPX("IEC.ROS.gROS_TC1.cpIec1@116")),
+rosTool := (guard := (vector := ((active := TRUE, type := BEGINTRANSFORMATION), (), (), (), (), (), (),
+(), (), (), (), (), (), (), (), (), (), (), (), (), (), (), (), ()))))
+
+
+/Application
+
+
+
+
+
+
+*************************************
+
+
+// KAIROVersion 2.20
+CALL mapio()
+Dyn(dFast)
+Ovl(os200)
+gROS_TC1.Begin()
+WHILE TRUE DO
+   gROS_TC1.PlcControl()
+END_WHILE

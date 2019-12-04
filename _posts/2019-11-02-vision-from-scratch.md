@@ -739,6 +739,48 @@ bool do_rectify
 ||||
 
 
+ros版本说明:
+
+|版本|内容介绍|其他|
+|--|--|--|
+|0.0.8|只试用于V3.14<br>指令只支持：TTcPlcCommandInvalid := 0,<br>TTcPlcCommandLin := 1,<br>TTcPlcCommandOvl := 2,<br>TTcPlcCommandDyn := 3,<br>TTcPlcCommandWaitIsFinished := 4,<br>TTcPlcCommandPTP := 5,<br>TTcPlcCommandSync999 := 6,<br>TTcPlcCommandSetting := 7,<br>TTcPlcCommandTool := 8<br>|工博会上绘图机器人用的就是V3.14工程，对应的ROS版本为0.0.8|
+|0.0.10|试用于V3.16a/b，V3.18应该也可以<br>|||
+
+
+- ROS之IO通讯说明
+
+
+**CheckBit**
+
+Checks if a specific bit is set in the specified word.
+```
+CheckBit (
+val : LWORD
+bitNr : DINT
+) : BOOL
+```
+
+Parameter:
+
+|版本|内容介绍|
+|--|--|
+|valBit| Value which shall be checked for the given bit|
+|bitNr|Bit to be checked (least significant bit = bit 0)|
+
+Example:
+
+```
+d :=17 // 16#0011
+IF CheckBit(d, 4) THEN     // check bit 4
+Info("Bit 4 is set")    // display result as info
+END_IF
+```
+
+
+参考资料：[KeMotion KAIRO Language Reference Programming manual V3.16](/images/视觉/docs/KeMotion3_KAIRO_LanguageReference_en.pdf)
+
+
+
 - 汇总
 
 ![](/images/视觉/RA605_315/Content.PNG)

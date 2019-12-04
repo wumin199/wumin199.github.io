@@ -1,0 +1,2 @@
+PROPERTY CommandStr: STRING (GET)
+

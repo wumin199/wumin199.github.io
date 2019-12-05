@@ -107,7 +107,7 @@ VAR
 	
 	
 	
-	active_command_	: RMI_Command;
+	active_command_	: RMI_Command;//RMI_Command是个类，专门处理从ros发过来的一条command（一条命令只包含如一个PTP或者一个Lin等，不会包含几条命令），用来提取其中的Dyn,Ovl,Tool等信息
 	//dynJntStateGrp	: ROS_DynamicJointStateGrp;
 	pParams: POINTER TO TRMI_Command;
 	bHasDynamic: BOOL;
@@ -312,8 +312,8 @@ IF fbRecvLine.Done THEN
 		END_IF
 	
    ELSIF (command = 'set do') THEN
-      doutValue := STRING_TO_LWORD(active_command_.GetParams('')^.Parameters[1]);
-	   flags_.bExecSetDO := TRUE;
+      doutValue := STRING_TO_LWORD(active_command_.GetParams('')^.Parameters[1]);//active_command_.GetParams('')返回值是个POINTER TO TRMI_Command，最后的doutValue是个doutValue值，比如1,8等值
+	   flags_.bExecSetDO := TRUE;//这里设置为True，会造成下面对应的FB上升沿，执行相关的功能
 	ELSIF FIND(command, 'test') = 1 THEN
 		strSend := 'done$n';
 		bSend := TRUE;		
@@ -512,7 +512,7 @@ END_IF
 fbSetDO(
 	RosTC:= TC, 
 	DOut:= doutValue, 
-	Execute:= flags_.bExecSetDO, 
+	Execute:= flags_.bExecSetDO, //上面接受到set do命令后，会置位flags_.bExecSetDO，从而造成上升沿
 	ExecuteLocked=> , 
 	Error=> );
 	
@@ -525,7 +525,7 @@ IF fbSetDO.ExecuteLocked THEN
       ExecuteLocked=> , 
       Error=> );	
 		
-	strSend := 'done';
+	strSend := 'done';//返回完成信息给ros
 	strSend := CONCAT(strSend, '$n');
 	bSend := TRUE;		
 END_IF

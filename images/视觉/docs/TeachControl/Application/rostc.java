@@ -292,7 +292,12 @@ ROUTINE INIT()
    
    WAIT gEquipmentReady; 
    
-   strInst := "IEC.ROS." + INSTANCE_NAME();
+   strInst := "IEC.ROS." + INSTANCE_NAME(); //和IEC中的ROS_TC取得通讯
+   //INSTANCE_NAME 是由示教器中中定义的变量名称觉得的，我们的案例中，示教器上面定义了一个gROS_TC1 : ROSTC，所以此时INSTANCE_NAME就为gROS_TC1
+  
+  //和IEC的ROS_TC的共享内存交互，用instanceName交互，这就要求两边定义的名字必须一样，比如此例中必须都叫gROS_TC1
+  
+  //IEC的ROS_TC必须是全局变量，示教器的ROSTC必须是Machine变量
   
    mIecControl := MAPX(strInst); 
    
@@ -311,7 +316,7 @@ ROUTINE INIT()
       HasAxisPos := MAP(mIecControl.HasAxisPos);
       
       digitalIn := MAP(mIecControl.DIn);
-      digitalOut := MAP(mIecControl.DOut);
+      digitalOut := MAP(mIecControl.DOut);//可能是5,6,1,8,0等值
    ELSE
       mbEnabled := FALSE;
       Error("Failed to map IEC interface mIecControl struct " + strInst);

@@ -1,0 +1,1 @@
+SysMemSet(ADR(flags_), 0, SIZEOF(flags_));

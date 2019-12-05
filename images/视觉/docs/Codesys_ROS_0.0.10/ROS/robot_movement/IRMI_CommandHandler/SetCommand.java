@@ -1,0 +1,7 @@
+METHOD SetCommand
+VAR_IN_OUT CONSTANT
+	CommandStr	: STRING;
+	
+END_VAR
+VAR_INPUT	
+END_VAR

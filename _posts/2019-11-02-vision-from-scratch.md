@@ -750,6 +750,90 @@ ros版本说明:
 - ROS之IO通讯说明
 
 
+用法：
+
+**示教器程序**
+
+
+`mapio:`
+
+```java
+// KAIROVersion 2.20
+gROS_TC1.MapDO(0, IEC.DOut32)//IEC.Dout32要是全局变量，最终是关联到了硬件DO输出上了
+gROS_TC1.MapDO(1, IEC.DOut33)//示教器内部:DOut[1] = MAP(IEC.DOut33)。共享内存连接上了
+gROS_TC1.MapDO(1, IEC.DOut34)
+// IEC.DOut32 := TRUE  (需要在Codesys的Symbol Configuration中设置可读可写，比如在线情况下设置：这样这一句才有效)
+// IEC.DOut33 := FALSE (赋给DO的初始值，这样IEC对应的DOut33也会为False)
+```
+
+`ros_control:`
+
+```java
+// KAIROVersion 2.20
+//Ramp(MINJERK)
+//Lin(cpUnlock)
+//Lin(cpUnlockApproach)
+##PTP(apHome)
+CALL mapio()
+Dyn(dFast)
+Ovl(os200)
+gROS_TC1.Begin()
+WHILE TRUE DO
+   gROS_TC1.PlcControl()
+   ##WaitJustInTime(ASSUREOVL)
+END_WHILE
+```
+
+说明：
+
+1. 目前不支持ros和控制器的di交互，只支持do交互
+2. 实际中与ros交互，用到几个DO，就要在示教器上MAP几个DO
+3. ros端使用方法：
+
+```C++
+  robot_movement_interface::CommandList cmd_list;
+  robot_movement_interface::Command cmd;
+
+  auto current_pose_place = move_group.getCurrentPose().pose;
+  current_pose_place.position.z += 0.040;
+
+  cmd.command_type = "IO_OUT";
+  cmd.pose_reference = "DO";
+  cmd.pose.push_back(0);//或push_back(XX)
+
+  cmd_list.commands.push_back(wait_is_finished());
+  cmd_list.commands.push_back(cmd);
+
+  cmd_list.commands.push_back(wait_is_finished());
+
+    if (!execute_rmi_and_wait(cmd_list))//execute_rmi_and_wait是对pub_rmi_.publish(cmd_list);的封装
+    return 0;
+
+  // pub_rmi_.publish(cmd_list);
+
+```
+
+4. 说明：ros端不能单独set或reset某个do，设置时，必须把示教器上的MAP到的东西，全部下发设置一遍
+
+假设示教器上MAP如下：
+
+```java
+gROS_TC1.MapDO(0, IEC.my0)//示教器内部:DOut[0] = MAP(IEC.my0)。共享内存连接上了
+gROS_TC1.MapDO(1, IEC.my1)//my0~my1最终关联硬件DO上
+gROS_TC1.MapDO(2, IEC.my2)
+```
+
+|说明|DO映射|DO映射|DO映射|DO映射|
+|--|--|--|--|--|
+|IEC(Codesys)上的||my2|my1|my0|
+|示教器上的|其他未Map|DOut[2]|DOut[1]|DOut[0]|
+|如果想DO输出||1|1|1|
+|ROS端的值(2#111)||1|1|1|
+|如果想DO输出||0|1|1|
+|ROS端的值(2#11)||0|1|1|
+
+
+
 **CheckBit**
 
 Checks if a specific bit is set in the specified word.

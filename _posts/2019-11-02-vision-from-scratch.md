@@ -12,12 +12,12 @@ keywords: 机器视觉
 
 * [综述](#综述)
 * [机器人学、机器视觉与控制--MATLAB算法基础](#机器人学、机器视觉与控制--MATLAB算法基础)
-* [OpenCV](#OpenCV)
+* [OpenCV](#openCV)
   * [opencv-python](#opencv-python)
 * [realSense](#realSense)
-    * [SDK2安装](#SDK2安装)
+    * [SDK2安装](#sdk2安装)
     * [相机标定](#相机标定)
-    * [RA605_316工程讲解](#RA605_316工程讲解)
+    * [RA605_316工程讲解](#ra605_316工程讲解)
 * [参考文献](#参考文献)
 
 

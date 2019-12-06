@@ -12,7 +12,7 @@ keywords: 软件安装
 
 
 * [安装汇总](#安装汇总)
-    * [OpenCV3安装](#OpenCV3安装)
+    * [OpenCV3安装](#opencv3安装)
 * [参考文献](#参考文献)
 
 

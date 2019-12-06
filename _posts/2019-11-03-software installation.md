@@ -34,6 +34,7 @@ keywords: 软件安装
 |导入虚拟机||问题1：导入后，报虚拟机不支持USB设备<br>方法1：![](/images/软件安装/虚拟机设置.PNG)<br>方法2:安装[VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads),但公司电脑可能不给安装权限，家里电脑可以。<br>-----<br>问题2：启动导入的虚拟机后，提示"VT-x is not available"<br>方法：[VirtualBox VT-x is not available ](https://blog.csdn.net/imilano/article/details/83038682)和 [Win10怎么以管理员身份运行CMD命令提示符](https://jingyan.baidu.com/article/ceb9fb10b53ab88cac2ba05b.html)||
 |V3.16a/V3.16b||1.虚拟机不需要自己安装！默认会帮你安装<br>2.生成simulation的时候，可能会报虚拟化相关错误，需要进行如下设置：<br>![](/images/软件安装/KeMotion-HyperV.PNG)<br>具体看help文档:右键右下角的`simulation service systray`后点`help`|账号:Administrator<br>密码:pass|
 |V3.18||V3.18支持C5，安装完后需要license，否则只能试用30天||
+|freeCAD|[freeCAD](https://www.freecadweb.org/)|直接安装|1. 免费<br>2. 支持常见的3D格式，如`dae`,`stp`,`step`等<br>stl不能打开，得用3D Max或者Pro/E或者SolidWorks或者Win10自带的画图3D软件打开。STL是最多快速原型系统所应用的标准文件类型。STL是用三角网格来表现3D CAD模型|
 
 
 

@@ -1,4 +1,4 @@
-{ attribute 'teachcontroldatatype' := 'CARTFRAMEIEC' }
+{ attribute 'teachcontroldatatype' := 'CARTFRAMEIEC' }//指定在TC中的变量名称为CARTFRAMEIEC
 TYPE TCartFrameIEC :
 STRUCT
 	x	: LREAL;

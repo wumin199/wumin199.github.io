@@ -60,6 +60,7 @@ keywords: 教材推荐
 |网站|内容介绍|其他|
 |--|--|--|
 |[马同学](https://www.matongxue.com/)|线性代数<br>单变量微积分<br>多变量微积分<br>概率与数理统计<br>||
+|[沉浸式线性代数](http://immersivemath.com/ila/index.html)||[知乎说明](https://zhuanlan.zhihu.com/p/65802462)|
 |[ros-industrial-training](https://industrial-training-master.readthedocs.io/en/melodic/index.html)|||
 |[MoveIt Tutorials](http://docs.ros.org/melodic/api/moveit_tutorials/html/index.html#)|||
 |[github Search](https://github.com/search)|||

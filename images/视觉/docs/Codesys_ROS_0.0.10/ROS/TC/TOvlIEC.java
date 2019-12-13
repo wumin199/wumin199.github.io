@@ -1,4 +1,4 @@
-{ attribute 'teachcontroldatatype' := 'OVLIEC' }
+{ attribute 'teachcontroldatatype' := 'OVLIEC' }//指定在TC中的变量名称为OVLIEC
 TYPE TOvlIEC :
 STRUCT
 	ovlType	  : TOvlIecType := 0;		//Overlap type. 0 = None, 1 = OVLABS, 2 = OVLREL, 3 = OVLSUPPOS

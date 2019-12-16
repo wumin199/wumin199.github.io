@@ -886,6 +886,312 @@ END_IF
 - FromHiwin文件夹
 
 
+- 增加对LinRelTCP的支持
+
+![](/images/视觉/LinRelTCP_program.png)
+
+![](/images/视觉/LinRelTCP.PNG)
+
+![](/images/视觉/distance_.PNG)
+
+![](/images/视觉/distance_1.PNG)
+
+![](/images/视觉/distance_2.PNG)
+
+1. TeachControl
+
+```java
+TYPE
+   TTcPlcCommand :(
+      TTcPlcCommandInvalid := 0,
+      TTcPlcCommandLin := 1,
+      TTcPlcCommandOvl := 2,
+      TTcPlcCommandDyn := 3,
+      TTcPlcCommandWaitIsFinished := 4,
+      TTcPlcCommandPTP := 5,
+      TTcPlcCommandSync999 := 6,
+      TTcPlcCommandSetting := 7,
+      TTcPlcCommandTool := 8,
+      TTcPlcCommandSetDO := 9,
+      TTcPlcCommandReadDI := 10,
+      TTcPlcCommandLinRelTCP := 11 //TODO
+   );
+END_TYPE
+
+ELSE (iCommandNum = TTcPlcCommandLinRelTCP) THEN
+  IF NOT HasError THEN                
+      IF HasDyn AND HasOvl THEN
+        ovlIec.GetOvl();
+        LinRelTCP(pos1, dynIec1, ovlIec.mOvl);
+      ELSIF HasDyn THEN            
+        LinRelTCP(pos1, dynIec1);
+      ELSIF HasOvl THEN
+        ovlIec.GetOvl();
+        LinRelTCP(pos1, ,ovlIec.mOvl);
+      ELSE
+        LinRelTCP(pos1);
+      END_IF;
+  END_IF;
+
+```
+
+2. ROS.library
+
+```java
+//GVL_ROS
+VAR_GLOBAL CONSTANT
+	g_RMILibVersion	: STRING := '0.0.12';
+END_VAR
+
+//TTcPlcCommand(ENUM)
+{attribute 'strict'}
+TYPE TTcPlcCommand :
+(
+	TTcPlcCommandInvalid := 0,
+	TTcPlcCommandLin := 1,
+	TTcPlcCommandOvl := 2,
+	TTcPlcCommandDyn := 3,
+	TTcPlcCommandWaitIsFinished := 4,
+	TTcPlcCommandPTP := 5,
+	TTcPlcCommandSync999 := 6,
+	TTcPlcCommandSetting := 7,
+	TTcPlcCommandTool := 8,
+   TTcPlcCommandSetDO := 9,
+   TTcPlcCommandReadDI := 10,
+   TTcPlcCommandLinRelTCP := 11
+);
+END_TYPE
+
+
+//TCartDistIEC
+{ attribute 'teachcontroldatatype' := 'CARTDISTIEC' }
+TYPE TCartDistIEC :
+STRUCT
+	dx : REAL :=0;
+	dy : REAL :=0;
+	dz : REAL :=0;
+	da : REAL :=0;
+	db : REAL :=0;
+	dc : REAL :=0;
+	dp1 : TAdditionalPositionType := TAdditionalPositionType.eAddPosDefault;
+	dp2 : TAdditionalPositionType := TAdditionalPositionType.eAddPosDefault;
+	daux1 : REAL :=0;
+	daux2 : REAL :=0;
+	daux3 : REAL :=0;
+	daux4 : REAL :=0;
+	daux5 : REAL :=0;
+	daux6 : REAL :=0;		
+END_STRUCT
+END_TYPE
+
+//ROS_TC
+mCartDistIECSharedMem : K_Base.KSharedMemory;
+mpCartDistIECSharedMem : POINTER TO TCartDistIEC;
+
+//ROS_TC==>Init()
+IF NOT mCartDistIECSharedMem.IsValid THEN
+	mCartDistIECSharedMem.InitShMem(CONCAT(strMemName, '.cartDistIec'), SIZEOF(TCartDistIEC));
+	IF mCartDistIECSharedMem.IsValid THEN
+		mpCartDistIECSharedMem := mCartDistIECSharedMem.Addr;
+	ELSE
+		RETURN;
+	END_IF
+END_IF
+
+//SetCartDist
+METHOD SetCartDist : BOOL
+VAR_IN_OUT CONSTANT
+	cartDist : TCartDistIEC;
+END_VAR
+
+SetCartDist := FALSE;
+IF mpCartDistIECSharedMem <> 0 THEN
+	mpCartDistIECSharedMem^ := cartDist;
+	SetCartDist := TRUE;
+END_IF
+
+//SetHasCartDist
+METHOD SetHasCartDist : BOOL
+VAR_INPUT
+	HasCartDist : BOOL;
+END_VAR
+
+VAR_OUTPUT
+	//Done : BOOL;
+END_VAR
+
+SetHasCartDist := FALSE;
+IF mpTcIECInterface <> 0 THEN
+	mpTcIECInterface^.HasCartDist := HasCartDist;
+	SetHasCartDist := TRUE;
+END_IF
+
+//ROS_TRosControlIEC
+
+//{ attribute 'teachcontroldatatype' := 'ROSCONTROLIEC' }
+TYPE ROS_TRosControlIEC :
+STRUCT
+	Version	: STRING(16);
+	CommandNum	: DINT;
+	Execute	: BOOL;
+	ExecuteLocked: BOOL;	
+	HasDyn	: BOOL;
+	HasOvl	: BOOL;
+	Ready	: BOOL;	//Set by TC when Begin is called.  
+	HasError	: BOOL;	//Set by TC
+	HasCartPos  : BOOL;
+	HasAxisPos  : BOOL;	
+	HasCartDist : BOOL; //support CartDist
+   
+   DOut  : LWORD;
+   DIn   : LWORD;
+END_STRUCT
+END_TYPE
+
+//ROS_TC==>ResetFlags
+
+ResetFlags := FALSE;
+IF SetExecute(FALSE) AND_THEN SetExecuteLocked(FALSE) (*AND_THEN SetAbort(FALSE)*) AND_THEN SetHasDyn(FALSE) 
+	AND_THEN SetHasCartPos(FALSE) AND_THEN SetHasAxisPos(FALSE) AND_THEN SetHasOvl(FALSE) AND_THEN SetHasCartDist(FALSE) THEN 
+	
+	ResetFlags := TRUE;
+END_IF
+
+
+// FB_LinRelTCP
+
+METHOD FB_INIT : BOOL
+VAR_INPUT
+	bInitRetains : BOOL; // TRUE: the Retain-variables are initialized (reset warm / reset cold)
+ 	bInCopyCode : BOOL;  // TRUE  the instance will be copied to the copy-code afterward (online change)
+END_VAR
+
+iCmdNum_ := TTcPlcCommand.TTcPlcCommandLinRelTCP;
+
+FUNCTION_BLOCK FB_LinRelTCP
+VAR_IN_OUT
+	RosTC	: ROS_TC;
+END_VAR
+
+VAR_INPUT
+	pCartDist : POINTER TO TCartDistIEC;
+	pDyn : POINTER TO TDynamic;
+	pOvl : POINTER TO TOvlIEC;
+	Execute : BOOL;
+END_VAR
+
+VAR_OUTPUT
+	ExecuteLocked : BOOL;
+	Error : BOOL;
+END_VAR
+
+VAR
+	iState : DINT;
+	iCmdNum_ : DINT;
+END_VAR
+
+IF Execute THEN
+	CASE iState OF
+	0:
+		ExecuteLocked := FALSE;
+		IF RosTC.Busy THEN
+			RETURN;
+		END_IF
+		
+		//Check that a CartDist has been set
+		Error := NOT(pCartDist <> 0);
+		IF Error THEN
+			iState := 40;
+			ExecuteLocked := TRUE;
+			RETURN;
+		END_IF
+		
+		//reset flags
+		RosTC.ResetFlags();
+		
+		//set cartDist flag
+		RosTC.SetHasCartDist(TRUE);
+		RosTC.SetCartDist(pCartDist^);
+		
+		IF pDyn <> 0 THEN
+			RosTC.SetDyn(pDyn^);
+			RosTC.SetHasDyn(TRUE);
+		END_IF
+		
+		IF pOvl <> 0 THEN
+			RosTC.SetOvl(pOvl^);
+			RosTC.SetHasOvl(TRUE);
+		END_IF
+		
+		RosTC.SetCommandNum(CommandNum := iCmdNum_);
+		RosTC.SetExecute(TRUE);
+		iState := 10;
+	10:
+		ExecuteLocked := RosTC.ExecuteLocked;
+		IF ExecuteLocked THEN
+			iState := 40;
+		END_IF		
+	END_CASE
+ELSE
+	iState := 0;
+	ExecuteLocked :=FALSE;
+	Error := FALSE;	
+END_IF
+
+
+//TRMI_Flags(STRUCT)
+//Flags used to exec the TC blocks in ROS_RobotMovementInterface.  Abort is special and gets to exist outside of this.
+TYPE TRMI_Flags :
+STRUCT
+	bExecLinFlex : BOOL;
+	bExecPTPFlex : BOOL;
+	bExecLinRelTCP : BOOL;//新增
+	bExecSync : BOOL;
+	//bExecDyn : BOOL;	//Not used
+	bExecSetting	: BOOL;
+	bExecWaitIsFinished : BOOL;
+	bExecTool	: BOOL;
+   bExecSetDO   : BOOL;
+END_STRUCT
+END_TYPE
+
+
+//ROS_RobotMovementInterface
+fbLinRelTCP : FB_LinRelTCP;
+
+
+fbLinRelTCP(
+	RosTC := TC,
+	pCartDist := pCdItf,
+	pDyn := pDyn_,
+	pOvl := pOvl_,
+	Execute := flags_.bExecLinRelTCP,
+	ExecuteLocked=> ,
+	Error =>);
+
+IF fbLinRelTCP.ExecuteLocked THEN
+	flags_.bExecLinRelTCP := FALSE;
+	
+	IF fbLinRelTCP.Error THEN
+		strSend := 'error$n';
+	ELSE 
+		strSend := 'done$n';
+	END_IF
+	
+	fbLinRelTCP(
+		RosTC := TC,
+		pCartDist :=0,
+		pDyn := 0,
+		pOvl := 0,
+		Execute := flags_.bExecLinRelTCP,
+		ExecuteLocked=> ,
+		Error =>);
+		
+	bSend := TRUE;		
+END_IF
+	
+
+```
 
 
 

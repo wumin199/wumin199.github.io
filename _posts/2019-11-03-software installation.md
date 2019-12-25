@@ -11,15 +11,16 @@ keywords: 软件安装
 **目录**
 
 
-* [安装汇总](#安装汇总)
+* [Windows安装汇总](#windows安装汇总)
     * [OpenCV3安装](#opencv3安装)
+* [Ubuntu安装汇总](#ubuntu安装汇总)
 * [参考文献](#参考文献)
 
 
 
 
 
-## 安装汇总
+## Windows安装汇总
 
 安装环境：win10，64位
 
@@ -69,6 +70,29 @@ keywords: 软件安装
 
 
 
+
+
+
+
+
+## Ubuntu安装汇总
+
+安装环境：ubuntu18.04
+
+### 录屏软件
+
+`sudo apt-get install kazam`
+
+`sudo apt-get install mplayer`
+
+`sudo apt-get install imagemagick`
+
+参考文献：[Ubuntu16.0.4 kazam 的安装和使用](https://blog.csdn.net/uniqueyyc/article/details/81210243)
+
+
+### 视频播放软件
+
+`sudo apt-get install totem`
 
 ## 参考文献
 

@@ -14,11 +14,13 @@ keywords: 机器视觉
 * [机器人学、机器视觉与控制--MATLAB算法基础](#机器人学、机器视觉与控制--MATLAB算法基础)
 * [OpenCV](#openCV)
   * [opencv-python](#opencv-python)
+* [相机介绍](#相机介绍)
 * [realSense](#realSense)
     * [SDK2安装](#sdk2安装)
     * [相机标定](#相机标定)
     * [RA605_316工程讲解](#ra605_316工程讲解)
 * [参考文献](#参考文献)
+
 
 
 
@@ -183,6 +185,54 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 
 
 ### opencv-python
+
+
+
+## 相机介绍
+
+
+[UVC=USB Video Class compliant devices in Linux。 This include a V4L2 kernel device driver and patches for user-space tools. The UVC specification covers webcams, digital camcorders, analog video converters, analog and digital television tuners, and still-image cameras that support video streaming for both video input and output.](http://www.ideasonboard.org/uvc/)
+
+USB video class（又称为USB video device class or UVC）就是USB device class视频产品在不需要安装任何的驱动程序下即插即用，包括摄像头、数字摄影机、模拟视频转换器、电视卡及静态视频相机。usv在linux内核中已经实现了支持，所以如果一个设备支持usv，那么一般是免驱的。
+
+
+ROS下usb摄像头的驱动方式有很多(大多数摄像头都支持uvc标准)，自己在开发摄像头驱动的说话，需要知道自己当前的摄像头属于哪一类，否则很容易安装错误的包。
+
+下面是一些常见的[ros相机相关驱动功能包](https://github.com/ros-drivers)介绍。
+
+|功能包|说明|其他|
+|--|--|--|
+|libuvc_camera|采用UVC标准的相机接口功能包，大部分摄像头都支持uvc标准|[ROS中UVC_Camera的使用。](https://blog.csdn.net/qq_24894159/article/details/82939542)|
+|uvc_camera|因为有相对详细的相机设置功能，所以非常方便。此外，如果您因为有两个相机，所以考虑使用立体相机，那么这将是一个比较合适的功能包|[Linux学习之ROS的uvc camera（笔记本的摄像头）](https://blog.csdn.net/qq_43433255/article/details/89332667)|
+|usb_cam|这是Bosch使用的非常简单的摄像头驱动程序|[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)。可以简单认为，如果相机支持uvc的，那么优先用uvc或libuvc功能包，否则只能用usb_cam功能包了|
+|freenect_camara, openni_camera, openni2_camera|所有这3个功能包名称中都有相机，但是他们是深度相机(如Kinect或Xtion)的功能包。这些传感器也被称为RGB-D相机，因为它们也包含彩色相机。如果要利用彩色图像，则需要使用这些功能包||
+|camera1394|它是使用FireWire(IEEE 1394接口)的相机的驱动程序||
+|prosilica_camera|它被用于AVS的prosilica相机，被广泛用于研究目的||
+|pointgrey_camera_driver|它是Point Grey Research公司的Point Gray相机的一个驱动程序，被关于用于科研||
+|camera_calibration|应用了OpenCV的校准功能的相机校准功能包。许多相机相关的功能包需要这个功能包。||
+
+![](/images/视觉/功能包.PNG)
+
+对于很普通的usb相机，一般在ros中用到的会是usb_cam或者libuvc_cam的比较多。如果相机支持uvc，那么就用libuvc_camera，否则就用usb_cam。可供参考的有：[ROS中UVC_Camera的使用。](https://blog.csdn.net/qq_24894159/article/details/82939542)、[摄像头是usb_camera还是uvc_camera判定方法及ros usb_cam测试](https://www.cnblogs.com/qixianyu/p/6575276.html)、[Linux USB 摄像头驱动](https://www.cnblogs.com/alan666/p/8311898.html)。
+
+在Doug的画图案例中，用到的相机信息如下：
+
+![](/images/视觉/相机.jpg)
+
+![](/images/视觉/相机2.jpg)
+
+我们的这个相机是支持uvc的。
+
+|launch文件|说明|其他|
+|--|--|--|
+|`usb.launch`|使用`libuvc_camera`启动|[测试视频](/images/视觉/libuvc_camera.mp4)和[ROS中libuvc_camera的使用。](https://blog.csdn.net/qq_24894159/article/details/82939542)|
+|`usb_cam-test.launch`|使用`usb_cam`启动|[测试视频](/images/视觉/usb_cam.mp4)和[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)。|
+|`image.launch`|加载来自本地的图片，用到了`nodelet`|[测试视频](/images/视觉/image_from_file.mp4)|
+|`rgb8.launch`|基于`ueye_cam`||
+
+不过不管是用什么驱动，他们的标定一般都是类似的。如[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)(使用usb_cam启动)以及[Linux学习之ROS的uvc camera](https://blog.csdn.net/qq_43433255/article/details/89332667)(使用uvc_camera启动，注意不是libuvc_camera)。但是都采用了`camera_calibration `功能包进行了标定。
+
+
 
 ## realSense
 

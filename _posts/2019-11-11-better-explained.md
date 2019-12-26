@@ -64,6 +64,8 @@ keywords: 教材推荐
 |[ros-industrial-training](https://industrial-training-master.readthedocs.io/en/melodic/index.html)|||
 |[MoveIt Tutorials](http://docs.ros.org/melodic/api/moveit_tutorials/html/index.html#)|||
 |[github Search](https://github.com/search)|||
+|[ROS小课堂](https://www.corvin.cn/?v=1c2903397d88)|||
+|[树莓派实验室](http://shumeipai.nxez.com/)|||
 
 
 

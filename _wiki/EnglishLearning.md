@@ -165,3 +165,4 @@ I still keep contacting with some of my friends in my high school，like my best
 * [Collins](https://www.collinsdictionary.com/dictionary/english)
 * [造句网](https://zaojv.com/)(中文造句)
 * [YouDict](https://www.youdict.com/)
+* [海词词典](https://dict.cn/)(查询同义词/反义词)

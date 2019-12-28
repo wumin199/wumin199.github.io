@@ -13,6 +13,7 @@ permalink: /about/
 > 还有<br>
 > 诗和远方
 
+
 Hey, 我是武敏(Simon Wu), 工业机器人工程师
 
 热爱读书，迷恋中国传统文化

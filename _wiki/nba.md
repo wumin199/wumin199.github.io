@@ -44,12 +44,15 @@ keywords: 其他
 
 ## 专业英语
 
-* [urban词典](https://www.urbandictionary.com)
+* [urban词典](https://www.urbandictionary.com)(俚语词典)
+* [The Free Dictionary](https://www.thefreedictionary.com/)(查阅各类短语)
 * [NBA/篮球术语翻译对照 V2.0](https://m.hupu.com/bbs/1902529-2.html)
 * [Pro Basketball Statistics ](http://www.nbastats.net/#Main%20Information)(这个网站以Excel表格形式存储着各种各样的纪录)
 * [bbs 词汇缩写](https://www.basketball-reference.com/about/glossary.html)
 * [stat 词汇缩写](http://www.stat-nba.com/about.php#glossary)
+* [NBA Dictionary](https://www.sportingcharts.com/nba/dictionary/)
 * [quotefancy](https://quotefancy.com/)
+* [BasketballForCoaches](https://www.basketballforcoaches.com/pick-and-roll/)
 
 
 ## 技战术
@@ -59,7 +62,14 @@ keywords: 其他
 * [声色NBA](https://www.weibo.com/sinanbavideo)
 * [有哪些篮球教学视频值得推荐？](https://www.zhihu.com/question/24646439)
 * [Youtube 上面哪些篮球频道值得订阅？](https://www.zhihu.com/question/20805135)
+* [老徐（oldwu）篮球技战术问答专栏](https://bbs.hupu.com/16265.html)
 
  
+## 社交媒体
 
-
+* [Instagram](https://www.instagram.com/)
+* [YouTube](https://www.youtube.com/)
+* [Twitter](https://twitter.com/home)
+* [Facebook](https://www.facebook.com/)
+* [The Players Tribune](https://www.theplayerstribune.com/en-us/collections/most-recent-nba)
+* [GapingVoid](https://www.gapingvoid.com/)

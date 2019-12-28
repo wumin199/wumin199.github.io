@@ -154,3 +154,14 @@ I still keep contacting with some of my friends in my high school，like my best
 1. 感兴趣
 2. 特定领域不要多，要深入，形成积累
 3. 积累包括：听力敏感性积累+口语预料积累
+
+
+## 常用网站
+
+* [urban词典](https://www.urbandictionary.com)(俚语词典)
+* [The Free Dictionary](https://www.thefreedictionary.com/)(查阅各类短语)
+* [Your Dictionary](https://www.yourdictionary.com/)
+* [Dictionary.com](https://www.dictionary.com/)
+* [Collins](https://www.collinsdictionary.com/dictionary/english)
+* [造句网](https://zaojv.com/)(中文造句)
+* [YouDict](https://www.youdict.com/)

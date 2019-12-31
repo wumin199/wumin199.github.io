@@ -226,7 +226,7 @@ ROS下usb摄像头的驱动方式有很多(大多数摄像头都支持uvc标准)
 |launch文件|说明|其他|
 |--|--|--|
 |`usb.launch`|使用`libuvc_camera`启动|[测试视频](/images/视觉/libuvc_camera.mp4)和[ROS中libuvc_camera的使用。](https://blog.csdn.net/qq_24894159/article/details/82939542)|
-|`usb_cam-test.launch`|使用`usb_cam`启动|[测试视频](/images/视觉/usb_cam.mp4)和[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)。|
+|`usb_cam-test.launch`|使用`usb_cam`启动|测试视频：链接：https://pan.baidu.com/s/1OuZkmZtCE0jQHophyIiosQ  提取码：fi22和[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)。|
 |`image.launch`|加载来自本地的图片，用到了`nodelet`|[测试视频](/images/视觉/image_from_file.mp4)|
 |`rgb8.launch`|基于`ueye_cam`||
 

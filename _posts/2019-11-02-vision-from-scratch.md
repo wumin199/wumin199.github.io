@@ -12,6 +12,7 @@ keywords: 机器视觉
 
 * [综述](#综述)
 * [机器人学、机器视觉与控制--MATLAB算法基础](#机器人学、机器视觉与控制--MATLAB算法基础)
+* [透视投影](#透视投影)
 * [OpenCV](#openCV)
   * [opencv-python](#opencv-python)
 * [相机介绍](#相机介绍)
@@ -111,6 +112,15 @@ cv2.destroyAllWindows()
 从**机器人学、机器视觉与控制--MATLAB算法基础**这本书也知道，RGB对图像处理，并没有给出更多的信息。灰度值是RGB的加权值，并没有丢失RGB的信息。
 
 RGB==>灰度图：一般用在模式识别、图像检索等场合的预处理。
+
+## 透视投影
+
+参考文献：
+
+
+* [Opencv日常之Homography](https://blog.csdn.net/liuphahaha/article/details/50719275)
+* [透视投影的原理和实现](https://blog.csdn.net/gloriazhang2013/article/details/69400152)(里面的LUD是姿态表示法)
+* [findHomography](https://www.cnblogs.com/canyeweiwei/p/10597474.html)
 
 ## OpenCV
 
@@ -228,7 +238,7 @@ ROS下usb摄像头的驱动方式有很多(大多数摄像头都支持uvc标准)
 |`usb.launch`|使用`libuvc_camera`启动|[测试视频](/images/视觉/libuvc_camera.mp4)和[ROS中libuvc_camera的使用。](https://blog.csdn.net/qq_24894159/article/details/82939542)|
 |`usb_cam-test.launch`|使用`usb_cam`启动|测试视频：链接：https://pan.baidu.com/s/1OuZkmZtCE0jQHophyIiosQ  提取码：fi22和[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)。|
 |`image.launch`|加载来自本地的图片，用到了`nodelet`|[测试视频](/images/视觉/image_from_file.mp4)|
-|`rgb8.launch`|基于`ueye_cam`||
+|`rgb8.launch`|基于[ueye_cam](http://wiki.ros.org/ueye_cam)功能包，用于[IDS公司](https://cn.ids-imaging.com/home.html)的工业相机||
 
 不过不管是用什么驱动，他们的标定一般都是类似的。如[使用usb_cam软件包调试usb摄像头](https://www.corvin.cn/535.html?v=1c2903397d88)(使用usb_cam启动)以及[Linux学习之ROS的uvc camera](https://blog.csdn.net/qq_43433255/article/details/89332667)(使用uvc_camera启动，注意不是libuvc_camera)。但是都采用了`camera_calibration `功能包进行了标定。
 

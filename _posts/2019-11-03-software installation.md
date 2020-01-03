@@ -28,6 +28,7 @@ keywords: 软件安装
 |--|--|--|--|
 |git|[Git For Windows下载地址](https://www.git-scm.com/download/win)|`git config --global  user.name 'wumin199'`<br>`git config --global  user.email 'wumin199@126.com'`|[git第一节----git config配置](https://www.cnblogs.com/kkz-org/p/9312035.html)|
 |matlab 2018a|链接<br>https://pan.baidu.com/s/1iSSJYEyZWvuw0AS3uiz9Rw<br>提取码：yrzm |关闭杀毒软件（含360）|安装说明见安装包|
+|qtcreator|[下载地址](https://www.qt.io/)|直接安装|1. 可以用来当个轻量级C++的IDE|
 |python3|[python3下载](https://www.python.org/downloads/)|1. 可以在安装visual studio community的时候，直接安装python，那样python的可执行程序一般在`...\Microsoft Visual Studio\Shared\Python37_64\python`中<br>2. 如果不安装visual studio，则可以直接安装Python下载包即可。<br>3. 添加python环境变量，这样powershell就可以用了<br>![](/images/软件安装/环境变量.PNG)|1. 在vs code中执行python程序时，要保证Terminal路径在当前脚本路径下，否则有可能会执行出错|
 |visual studio Community 2019|[VS下载地址](https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DWSZGEpjqOZGj9oYQdHkpgfYZFptSsBgFhOAQZcjDP9uYWxVjAUof94ch1rnqEkQi%26wd%3D%26eqid%3Dd60b7d54000cfd96000000045dbe4d46)|![](/images/软件安装/python环境变量.PNG)|同时也把python3安装了|
 |OpenCV3|[OpenCV3 下载地址](https://opencv.org/releases/)||这个是C++库|
@@ -37,6 +38,7 @@ keywords: 软件安装
 |V3.16a/V3.16b||1.虚拟机不需要自己安装！默认会帮你安装<br>2.生成simulation的时候，可能会报虚拟化相关错误，需要进行如下设置：<br>![](/images/软件安装/KeMotion-HyperV.PNG)<br>具体看help文档:右键右下角的`simulation service systray`后点`help`|账号:Administrator<br>密码:pass|
 |V3.18||V3.18支持C5，安装完后需要license，否则只能试用30天||
 |freeCAD|[freeCAD](https://www.freecadweb.org/)|直接安装|1. 免费<br>2. 支持常见的3D格式，如`dae`,`stp`,`step`等<br>stl不能打开，得用3D Max或者Pro/E或者SolidWorks或者Win10自带的画图3D软件打开。STL是最多快速原型系统所应用的标准文件类型。STL是用三角网格来表现3D CAD模型|
+
 
 
 
@@ -75,6 +77,8 @@ keywords: 软件安装
 
 
 6. opencv-python 的安装方法见上方！ 同时要记住，在用vs code执行python程序的时候，一定要保证Terminal是在当前脚本文件夹下~
+
+同时可以vs code下的opencv常见问题：[解决vscode报错: Module 'cv2' has no 'imshow' member](https://blog.csdn.net/qq_23676873/article/details/88537420)
 
 
 ## Ubuntu安装汇总

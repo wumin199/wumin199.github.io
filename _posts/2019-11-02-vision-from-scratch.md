@@ -14,6 +14,8 @@ keywords: 机器视觉
 * [机器人学、机器视觉与控制--MATLAB算法基础](#机器人学、机器视觉与控制--MATLAB算法基础)
 * [透视投影](#透视投影)
 * [OpenCV](#openCV)
+  * [OpenCV数据结构](#opencv数据结构)
+  * [常见处理](#常见处理)
   * [opencv-python](#opencv-python)
 * [相机介绍](#相机介绍)
 * [realSense](#realSense)
@@ -190,6 +192,46 @@ opencv中,图像表示是BGR，和一般说的RGB顺序反了
 * [图像的傅里叶变换](https://www.jianshu.com/p/2704b5d1d6bb)
 * [图像的傅里叶变换](https://wenku.baidu.com/view/c5e2cca8fab069dc502201db.html)
 * [图像的傅里叶变换](https://www.jianshu.com/p/89ce7fdb9e12)
+
+
+### opencv数据结构
+
+
+在OpenCV中,可以用C++语法的Mat类来表示一张图像,也可以用C语法的lpllmage或CvMat结构体来表示一张图像.
+
+参考资料：[C++下的OpenCV中Mat类型存储的图像格式](https://segmentfault.com/a/1190000015653101), [OpenCV2:总结篇 cv::Mat 类](https://www.cnblogs.com/k5bg/p/11136926.html)
+
+Matx 是个轻量级的Mat，必须在使用前确定其尺寸，比如一个2*3的float型Matx，可以声明为：Matx23f;
+
+详见：[opencv 中常用的数据类](https://blog.csdn.net/qq_35859033/article/details/77367086) 和 [第四章 OpenCv的数据类型](http://www.manongjc.com/article/32578.html)
+
+
+
+
+### 常见处理
+
+
+阈值分割：
+
+阈值分割其实就是图像分离，对于阈值内的你想如何操作，一个最简单的例子就是二值图像。
+
+二值化算法是用输入像素的值I与一个值C来比较，根据比较结果确定输出值。
+
+自适应二值化的每一个像素的比较值C都不同，比较值C由这个像素为中心的一个块范围计算在减去差值delta得到。
+
+在图像阈值化操作中，更关注的是从二值化图像中，分离目标区域和背景区域，但是仅仅通过设定固定阈值很难达到理想的分割效果。而自适应阈值，则是根据像素的邻域块的像素值分布来确定该像素位置上的二值化阈值。
+
+* [常见阈值分割处理](https://www.learnopencv.com/opencv-threshold-python-cpp/)(二值化、反二值化、截断等)
+* [自适应二值化介绍](https://www.cnblogs.com/shangd/p/6094547.html)(概念介绍)
+* [自适应阈值化操作](https://www.cnblogs.com/GaloisY/p/11037350.html)(配合了高斯滤波去除小噪声)
+
+
+轮廓检测：
+
+输入是单通道图像矩阵，可以是灰度图，但更常用的是二值图像，一般是经过Canny、拉普拉斯等边缘检测算子处理过的二值图像
+
+* [轮廓检测](https://www.cnblogs.com/GaloisY/p/11062065.html)
+
 
 
 

@@ -66,6 +66,7 @@ keywords: 教材推荐
 |[github Search](https://github.com/search)|||
 |[ROS小课堂](https://www.corvin.cn/?v=1c2903397d88)|||
 |[树莓派实验室](http://shumeipai.nxez.com/)|||
+|[Learning OpenCV]()|1. C++/Python版本|1. [github 代码](https://github.com/spmallick/learnopencv)|
 
 
 

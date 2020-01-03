@@ -28,6 +28,7 @@ keywords: 软件安装
 |--|--|--|--|
 |git|[Git For Windows下载地址](https://www.git-scm.com/download/win)|`git config --global  user.name 'wumin199'`<br>`git config --global  user.email 'wumin199@126.com'`|[git第一节----git config配置](https://www.cnblogs.com/kkz-org/p/9312035.html)|
 |matlab 2018a|链接<br>https://pan.baidu.com/s/1iSSJYEyZWvuw0AS3uiz9Rw<br>提取码：yrzm |关闭杀毒软件（含360）|安装说明见安装包|
+|python3|[python3下载](https://www.python.org/downloads/)|1. 可以在安装visual studio community的时候，直接安装python，那样python的可执行程序一般在`...\Microsoft Visual Studio\Shared\Python37_64\python`中<br>2. 如果不安装visual studio，则可以直接安装Python下载包即可。<br>3. 添加python环境变量，这样powershell就可以用了<br>![](/images/软件安装/环境变量.PNG)|1. 在vs code中执行python程序时，要保证Terminal路径在当前脚本路径下，否则有可能会执行出错|
 |visual studio Community 2019|[VS下载地址](https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DWSZGEpjqOZGj9oYQdHkpgfYZFptSsBgFhOAQZcjDP9uYWxVjAUof94ch1rnqEkQi%26wd%3D%26eqid%3Dd60b7d54000cfd96000000045dbe4d46)|![](/images/软件安装/python环境变量.PNG)|同时也把python3安装了|
 |OpenCV3|[OpenCV3 下载地址](https://opencv.org/releases/)||这个是C++库|
 |opencv-python||`python -m pip install --user opencv-python`<br>同时因为经常要绘图和用到数组，可以同步安装如下两个库<br>`python -m pip install --user numpy` <br> `python -m pip install --user matplotlib`|下载的是最新版的opencv，比如4.1.1.26<br>查看python库版本的方法<br>`python -m pip list`(所有库)<br>`python -m pip | grep opencv`(查看单一库，grep是linux下指令)<br>`python -m pip | findstr opencv`(查看单一库，findstr是windows下指令)<br>在python中，用法都是`import cv2`(不代表是opencv2)|
@@ -66,13 +67,14 @@ keywords: 软件安装
 
 4. 环境变量配置，参考[opencv3.4的安装（VS2017及win10）](https://blog.csdn.net/qq_34463441/article/details/82669628)
 
-这一点需要说明的有：visual studio中的工程，如果电脑是64位的，那么就不要用x86运行；其次是debug和release都可以且推荐都配置好；另外`opencv_world340d.lib`和`opencv_world340.lib`是根据opencv的版本来的，如果是3.4.7，则以上数字为`xxx347d.lib`和`xxxx347.lib`
+这一点需要说明的有：visual studio中的工程，如果电脑是64位的，那么就不要用x86运行，要选择X64，否则程序会报错；其次是debug和release都可以且推荐都配置好；另外`opencv_world340d.lib`和`opencv_world340.lib`是根据opencv的版本来的，如果是3.4.7，则以上数字为`xxx347d.lib`和`xxxx347.lib`
+
+5. 说明，在添加环境变量的时候，可以添加到系统中，也可以添加到用户中。由于keba的电脑，添加到系统后，除非用管理员权限运行，否则不会执行系统参数，所以建议环境变量在系统的Path和用户的Path中都添加。
+
+![](/images/软件安装/环境变量.PNG)
 
 
-
-
-
-
+6. opencv-python 的安装方法见上方！ 同时要记住，在用vs code执行python程序的时候，一定要保证Terminal是在当前脚本文件夹下~
 
 
 ## Ubuntu安装汇总

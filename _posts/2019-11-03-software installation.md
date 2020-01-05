@@ -40,7 +40,7 @@ keywords: 软件安装
 |freeCAD|[freeCAD](https://www.freecadweb.org/)|直接安装|1. 免费<br>2. 支持常见的3D格式，如`dae`,`stp`,`step`等<br>stl不能打开，得用3D Max或者Pro/E或者SolidWorks或者Win10自带的画图3D软件打开。STL是最多快速原型系统所应用的标准文件类型。STL是用三角网格来表现3D CAD模型|
 |PDF Acrobat|[百度网盘](https://pan.baidu.com/s/1JyvlfKGKE_ryiY0P1dfOAw), 提取码：3jpe||1. 版本：PDF 2019<br>2. 支持加密、PDF各类编辑等操作|
 |APowersoft Screen Record Pro|[百度网盘](https://pan.baidu.com/s/1GV9YolS_4Jyw2sIj8q3rUw), 提取码：ka9j|![](/images/软件安装/录屏软件设置.PNG)<br>该值如果设置比较大，则录屏会比较高清，但是视频就会比较大|1. 支持录屏，录音及视频的简单剪辑|
-|截图软件HyperSnap|[百度网盘](https://pan.baidu.com/s/1aTrF0KFn-d7SaohIRAeeEA), 提取码：6zad|直接解压到C盘program file目录下，然后把可执行文件设置成快捷方式即可|支持各类截图及截图后的图片备注编辑等功能|
+|截图软件HyperSnap|[百度网盘](https://pan.baidu.com/s/1aTrF0KFn-d7SaohIRAeeEA), 提取码：6zad|直接解压到C盘program file目录下，然后把可执行文件设置成快捷方式即可|1. 支持各类截图及截图后的图片备注编辑等功能<br> 2. 在线拾色器功能|
 
 
 

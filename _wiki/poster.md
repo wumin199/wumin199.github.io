@@ -26,6 +26,12 @@ keywords: 其他
 * [unsplash](https://unsplash.com/)
 * [foter](https://foter.com/)
 
+## 工具
+
+* [在线ps](https://www.uupoop.com/)(不是真正的ps，可以完成一般的功能，可以参考[怎么制作透明背景图片](https://zhidao.baidu.com/question/536276224.html))
+
+
+
 ## 纸张大小
 
 A0纸张：尺寸为841mm*1189mm

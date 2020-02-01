@@ -27,7 +27,7 @@ keywords: 软件安装
 |软件|软件下载地址|基本配置要点|其他说明|
 |--|--|--|--|
 |git|[Git For Windows下载地址](https://www.git-scm.com/download/win)|`git config --global  user.name 'wumin199'`<br>`git config --global  user.email 'wumin199@126.com'`|[git第一节----git config配置](https://www.cnblogs.com/kkz-org/p/9312035.html)|
-|matlab 2018a|链接<br>https://pan.baidu.com/s/1iSSJYEyZWvuw0AS3uiz9Rw<br>提取码：yrzm |关闭杀毒软件（含360）|安装说明见安装包|
+|matlab 2018a|[matlab 2018a下载地址](https://pan.baidu.com/s/1iSSJYEyZWvuw0AS3uiz9Rw), 提取码：yrzm |关闭杀毒软件（含360）|安装说明见安装包|
 |qtcreator|[下载地址](https://www.qt.io/)|直接安装|1. 可以用来当个轻量级C++的IDE|
 |python3|[python3下载](https://www.python.org/downloads/)|1. 可以在安装visual studio community的时候，直接安装python，那样python的可执行程序一般在`...\Microsoft Visual Studio\Shared\Python37_64\python`中<br>2. 如果不安装visual studio，则可以直接安装Python下载包即可。<br>3. 添加python环境变量，这样powershell就可以用了<br>![](/images/软件安装/环境变量.PNG)|1. 在vs code中执行python程序时，要保证Terminal路径在当前脚本路径下，否则有可能会执行出错|
 |visual studio Community 2019|[VS下载地址](https://visualstudio.microsoft.com/zh-hans/?rr=https%3A%2F%2Fwww.baidu.com%2Flink%3Furl%3DWSZGEpjqOZGj9oYQdHkpgfYZFptSsBgFhOAQZcjDP9uYWxVjAUof94ch1rnqEkQi%26wd%3D%26eqid%3Dd60b7d54000cfd96000000045dbe4d46)|![](/images/软件安装/python环境变量.PNG)|同时也把python3安装了|

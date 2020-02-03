@@ -41,6 +41,17 @@ keywords: 教材推荐
 |其他||[复数的物理意义是什么？](https://www.zhihu.com/question/23234701/answer/26017000)<br>[为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/552617806)<br>[为什么傅里叶变换可以把时域信号变为频域信号？](https://www.zhihu.com/question/279808864/answer/498939249)<br>[傅里叶分析之掐死教程](https://zhuanlan.zhihu.com/p/19763358)<br>[如何理解 图像傅里叶变换的频谱图](https://blog.csdn.net/ViatorSun/article/details/82387854)|
 
 
+- 范数
+
+范数包含向量范数和矩阵范数
+
+|名称|内容介绍|其他|
+|--|--|--|
+|[范数对于数学的意义？1范数、2范数、无穷范数该怎么用？](https://www.zhihu.com/question/21868680/answer/389440726)|1. 主要针对向量范数<br>2. 范数的快速理解||
+|[矩阵的诱导范数(1,2,∞)证明](https://zhuanlan.zhihu.com/p/98978495)|1. 涉及向量范数和矩阵范数<br>2. 给出范数很重要的定义和性质||
+|[第八课：向量的范数](https://zhuanlan.zhihu.com/p/30279795)|1. 涉及向量范数更多的重要性质||
+|[第九课：矩阵的范数](https://zhuanlan.zhihu.com/p/30485749)|1. 涉及矩阵范数更多的重要性质||
+
 
 ## 博客
 

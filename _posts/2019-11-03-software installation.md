@@ -39,7 +39,8 @@ keywords: 软件安装
 |V3.18||V3.18支持C5，安装完后需要license，否则只能试用30天||
 |freeCAD|[freeCAD](https://www.freecadweb.org/)|直接安装|1. 免费<br>2. 支持常见的3D格式，如`dae`,`stp`,`step`等<br>stl不能打开，得用3D Max或者Pro/E或者SolidWorks或者Win10自带的画图3D软件打开。STL是最多快速原型系统所应用的标准文件类型。STL是用三角网格来表现3D CAD模型|
 |PDF Acrobat|[百度网盘](https://pan.baidu.com/s/1JyvlfKGKE_ryiY0P1dfOAw), 提取码：3jpe||1. 版本：PDF 2019<br>2. 支持加密、PDF各类编辑等操作|
-|APowersoft Screen Record Pro|[百度网盘](https://pan.baidu.com/s/1GV9YolS_4Jyw2sIj8q3rUw), 提取码：ka9j|![](/images/软件安装/录屏软件设置.PNG)<br>该值如果设置比较大，则录屏会比较高清，但是视频就会比较大|1. 支持录屏，录音及视频的简单剪辑|
+|录屏破解软件：APowersoft Screen Record Pro|[百度网盘](https://pan.baidu.com/s/1GV9YolS_4Jyw2sIj8q3rUw), 提取码：ka9j|![](/images/软件安装/录屏软件设置.PNG)<br>该值如果设置比较大，则录屏会比较高清，但是视频就会比较大|1. 支持录屏，录音及视频的简单剪辑|
+|录屏软件：KKSetup|[百度网盘](https://pan.baidu.com/s/1cy1QyNkH7IwUuaj9pwO97A),提取码：fyn0|-|1. 适用于需要装正版的电脑|
 |截图软件HyperSnap|[百度网盘](https://pan.baidu.com/s/1aTrF0KFn-d7SaohIRAeeEA), 提取码：6zad|直接解压到C盘program file目录下，然后把可执行文件设置成快捷方式即可|1. 支持各类截图及截图后的图片备注编辑等功能<br> 2. 在线拾色器功能|
 |XMind思维导图|[ZEN破解版](https://pan.baidu.com/s/1xTKj_GXpNkrwdmjiNP3zKw), 提取码：5axy |1. 绿色软件，直接解压后点击`XMind ZEN`即可使用，有弹窗提示更新则不要进行更新<br>2. 可以解压后放到C盘下，或者`C:\\Program Files`下，然后发送快捷键到桌面。<br>3. 如果解压到`C:\\Program Files (x86)`，打开软件会找不到模板，打开其他xmind文件会崩溃|1. 支持导入图片<br>2. 导出图片无水印等|
 |pdf加密软件|[下载地址](https://pan.baidu.com/s/1rf5AbBrAr_cjJ0s18JYfEg)||1. 店家说win7和win10都测试过<br>2. 可以一机一码|

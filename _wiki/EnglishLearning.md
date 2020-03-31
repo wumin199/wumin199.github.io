@@ -179,6 +179,7 @@ I still keep contacting with some of my friends in my high school，like my best
 
 ## 常用网站
 
+
 * [urban词典](https://www.urbandictionary.com)(俚语词典)
 * [The Free Dictionary](https://www.thefreedictionary.com/)(查阅各类短语)
 * [Your Dictionary](https://www.yourdictionary.com/)
@@ -193,3 +194,7 @@ I still keep contacting with some of my friends in my high school，like my best
 * [柯南秀中英双语](https://space.bilibili.com/20729460/#/)(并不是你想象中的柯南，这可是一档炙手可热的夜间脱口秀节目，没错，主持人叫柯南)
 * [Omegle](https://www.omegle.com/)(Meet strangers with your interests!)
 * [艾伦秀中英双语](https://search.bilibili.com/all?keyword=%E8%89%BE%E5%80%AB%E7%A7%80%20%E4%B8%AD%E8%8B%B1)(美国版的《金星秀》)
+* [观察者网](https://www.guancha.cn/)
+* [CNBC](https://www.cnbc.com/world/)(美国全国广播公司财经频道)
+* [Bravo Hainan 点赞海南](https://www.iqiyi.com/a_19rrhu0tc1.html)(海南卫视出的日播英语服务类节目，通过把英语知识点融汇在海南的风情介绍中，让全民轻松学英语！培养公民的开放意识，提升公民的外语文化素养和跨文化交际能力)
+* [上海外语频道ICS](https://www.shanghaieye.com.cn/)(All About Shanghai and China)

@@ -198,3 +198,5 @@ I still keep contacting with some of my friends in my high school，like my best
 * [CNBC](https://www.cnbc.com/world/)(美国全国广播公司财经频道)
 * [Bravo Hainan 点赞海南](https://www.iqiyi.com/a_19rrhu0tc1.html)(海南卫视出的日播英语服务类节目，通过把英语知识点融汇在海南的风情介绍中，让全民轻松学英语！培养公民的开放意识，提升公民的外语文化素养和跨文化交际能力)
 * [上海外语频道ICS](https://www.shanghaieye.com.cn/)(All About Shanghai and China)
+* [TED](https://www.ted.com/)(包含官方人工翻译字幕)
+* [中国日报](http://www.chinadaily.com.cn/)(右上角可以切换双语版)

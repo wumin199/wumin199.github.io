@@ -19,6 +19,12 @@ keywords: 数据结构
 
 主要参考资料：浙江大学陈越[数据结构(第2版)](https://book.douban.com/subject/26955385/)以及MOOC视频教程、[算法（第4版）](https://book.douban.com/subject/19952400/)
 
+|课程|参考资料|备注|
+|--|--|--|
+|[数据结构(第2版)](https://book.douban.com/subject/26955385/)|[上课笔记(含源码)](https://github.com/callmePicacho/Data-Structres)||
+||||
+
+
 
 ### 复杂度
 

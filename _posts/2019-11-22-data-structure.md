@@ -22,7 +22,7 @@ keywords: 数据结构
 |课程|参考资料|备注|
 |--|--|--|
 |[数据结构(第2版)](https://book.douban.com/subject/26955385/)|[上课笔记(含源码)](https://github.com/callmePicacho/Data-Structres)||
-||||
+|[算法笔记](https://book.douban.com/subject/26827295/)|||
 
 
 

@@ -228,11 +228,79 @@ Matx 是个轻量级的Mat，必须在使用前确定其尺寸，比如一个2*3
 
 轮廓检测：
 
-输入是单通道图像矩阵，可以是灰度图，但更常用的是二值图像，一般是经过Canny、拉普拉斯等边缘检测算子处理过的二值图像
+输入是单通道图像矩阵，可以是灰度图，但更常用的是二值图像，一般是经过Canny、拉普拉斯等边缘检测算子，或使用cv::threshold()或者cv::adaptiveThreshold()处理过的二值图像
 
-* [轮廓检测](https://www.cnblogs.com/GaloisY/p/11062065.html)
+这是检测出轮廓，提取出轮廓到vector是用cv::findContour
+
+* [findContours轮廓检测](https://www.cnblogs.com/GaloisY/p/11062065.html)
 
 
+最近一直忙着提取物体轮廓的相关算法问题，这里就说一下提取物体轮廓的常用的三种方法：sobel算子边缘检测，canny算子边缘检测，以及laplacian算子边缘检测。
+
+[使用OPENCV提取物体轮廓](https://zhuanlan.zhihu.com/p/44855115)
+
+soble算子：
+
+![](https://pic2.zhimg.com/80/v2-a90225a066a509badfa6b325fd8e53ed_720w.jpg)
+
+canny算子：
+
+![](https://pic2.zhimg.com/80/v2-9d2dec7358f0ff0545daa3a11434f35d_720w.jpg)
+
+laplacian算子：
+
+![](https://pic3.zhimg.com/80/v2-57a98dd2e81af0ef44ebb773d558d3e6_720w.jpg)
+
+注意以上只是在图片中提取了轮廓，并没有提取到vector中，要提取到vector中，需要使用findContours函数
+
+
+
+展会轮廓提取（内外部轮廓)：
+
+总体思路：
+函数cv::findContour是从二值图像中来计算轮廓的，它可以使用cv::Canny()函数处理的图像，因为这样的图像含有边缘像素；也可以使用cv::threshold()或者cv::adaptiveThreshold()处理后的图像，其边缘隐含在正负区域的交界处
+
+[【OpenCV3】图像轮廓查找与绘制——cv::findContours()与cv::drawContours()详解](https://blog.csdn.net/guduruyu/article/details/69220296)
+
+为了提取轮廓，就涉及到图像处理的一些问题，还有轮廓如何精简的问题（轮廓点太密，如何设置稀疏一点etc）。细化好点后（仍然可以有很多点），最终都会转化为cmdlist
+
+
+
+ContourVec（向量内每个元素保存了一组由连续的Point构成的点的集合的向量），每一组点集就是一个轮廓，有多少轮廓，contours就有多少元素
+
+
+
+
+
+方法：
+
+灰度图==>图像翻转(flimage函数：flip Y)==>自适应阈值化操作（二值化图)   --> findContours(输入：二值化图，输出：轮廓点，轮廓点模式：仅保存轮廓的拐点信息)--->轮廓点排序（应该是先画里面的轮廓，再画外面的轮廓，即现在的contour，先放最内圈轮廓，然后是最外圈轮廓。比较各个轮廓的第一个点，也就是机器人这个轮廓的第一个走点，x*x + y*y 比较小先走，保证大体是从左到右边画过去，从外到内画过去）-->轮廓点精简(approxPolyDP:approxPolyDP主要功能是把一个连续光滑曲线折线化,对图像轮廓点进行多边形拟合)
+
+
+
+图像翻转：将图像绕y轴翻转。翻转的意思是对称。沿着y轴翻转图形，即沿着y轴对称图形，或者沿着竖直轴对称图形。
+
+  目的：是从视觉图中恢复出原始图的样子
+
+自适应阈值：在图像阈值化操作中，更关注的是从二值化图像中，分离目标区域和背景区域，但是仅仅通过设定固定阈值很难达到理想的分割效果。而自适应阈值，则是根据像素的邻域块的像素值分布来确定该像素位置上的二值化阈值。这样做的好处
+
+
+提取内部轮廓：
+
+思路1：还是上面提取轮廓的步骤，只是在cv::findContours()中，具有提取内部轮廓的选项，参考[【OpenCV3】图像轮廓查找与绘制——cv::findContours()与cv::drawContours()详解](https://blog.csdn.net/guduruyu/article/details/69220296)
+
+下一个参数，轮廓的模式，将会告诉OpenCV你想用何种方式来对轮廓进行提取，有四个可选的值，具体如下图：
+
+cv::RETR_EXTERNAL：表示只提取最外面的轮廓；
+
+cv::RETR_LIST：表示提取所有轮廓并将其放入列表；
+
+cv::RETR_CCOMP:表示提取所有轮廓并将组织成一个两层结构，其中顶层轮廓是外部轮廓，第二层轮廓是“洞”的轮廓；
+
+cv::RETR_TREE：表示提取所有轮廓并组织成轮廓嵌套的完整层级结构。
+
+
+思路2：
 
 
 

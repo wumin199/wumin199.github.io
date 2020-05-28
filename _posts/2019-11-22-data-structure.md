@@ -63,4 +63,6 @@ S(n)具有同T(n)类似的概念
 
 - [五分钟学算法](https://www.cxyxiaowu.com/)
 - [LeetCodeAnimation](https://github.com/MisterBooo)
+- [LeetCode](https://leetcode.com/)
+- [LeetCode CN](https://leetcode-cn.com/)
 - [visualgo](https://visualgo.net/en)

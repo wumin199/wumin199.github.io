@@ -90,4 +90,8 @@ keywords: 教材推荐
 
 ## 参考文献
 
-
+* [运动控制/规划-睿慕课](https://www.aiimooc.com/mall/list-htm-catid-762.html)
+* [机器人开发-睿慕课](https://www.aiimooc.com/mall/list-htm-catid-760.html)
+* [运动学-睿慕课](https://www.aiimooc.com/mall/list-htm-catid-758.html)
+* [机械臂控制-深蓝学院](https://www.shenlanxueyuan.com/orientation/control)
+* [运动规划-深蓝学院](https://www.shenlanxueyuan.com/orientation/motion_planning)

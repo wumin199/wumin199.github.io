@@ -25,6 +25,7 @@ keywords: 其他
 * [bbr](https://www.basketball-reference.com/)(最全的NBA英文数据库)
 * [stat-nba](http://www.stat-nba.com/)(最全的中文NBA数据库)
 * [直播吧历史新闻](https://news.zhibo8.cc/nba/more.htm)
+* [直播吧历史视频](https://www.zhibo8.cc/nba/index_old.htm)
 * [ESPN 文字直播](https://www.espn.com/nba/scoreboard)
 * [虎扑 中文文字直播](https://nba.hupu.com/games)
 * [APP: 球长社圈](http://www.qiuzhang.com/)

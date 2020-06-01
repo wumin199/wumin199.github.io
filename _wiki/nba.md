@@ -79,3 +79,18 @@ keywords: 其他
 ## 在线资源
 
 * [MP4 to MP3](https://www.mp4tomp3.org/)
+
+
+## 营销渠道
+
+* [可可英语](http://www.kekenet.com/)
+* [每日英语听力](http://dict.eudic.net/ting/)(微信登录)
+* [喜马拉雅](https://www.ximalaya.com/)
+* [今日头条](https://www.toutiao.com/)
+* [搜狐号](https://mp.sohu.com/mpfe/v3/login)
+* [豆瓣](https://www.douban.com/)(百度排名高，如dear basketball 文本；回答时进行优化；另外关注豆瓣小组)
+* [抖音](https://www.douyin.com/)
+* [快手](https://www.kuaishou.com/)
+* [百度贴吧](https://tieba.baidu.com/)
+* [知乎英语类相关话题]()(以及其中推荐的英文资料高频网站)
+* [资料分享平台]()(各类资料分享平台)

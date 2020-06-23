@@ -95,3 +95,5 @@ keywords: 教材推荐
 * [运动学-睿慕课](https://www.aiimooc.com/mall/list-htm-catid-758.html)
 * [机械臂控制-深蓝学院](https://www.shenlanxueyuan.com/orientation/control)
 * [运动规划-深蓝学院](https://www.shenlanxueyuan.com/orientation/motion_planning)
+* [书栈网](https://www.bookstack.cn/)
+* [菜鸟教程](https://www.runoob.com/)

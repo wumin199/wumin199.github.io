@@ -102,6 +102,12 @@ keywords: 软件安装
 参考文献：[Ubuntu16.0.4 kazam 的安装和使用](https://blog.csdn.net/uniqueyyc/article/details/81210243)
 
 
+### git installation
+
+`sudo apt-get install git gitk git-gui`
+
+git setting refers to [Ubuntu 安装git及git命令](https://www.cnblogs.com/sunshinekevin/p/11617562.html)
+
 ### 视频播放软件
 
 `sudo apt-get install totem`

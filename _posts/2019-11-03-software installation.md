@@ -44,6 +44,7 @@ keywords: 软件安装
 |截图软件HyperSnap|[百度网盘](https://pan.baidu.com/s/1aTrF0KFn-d7SaohIRAeeEA), 提取码：6zad|直接解压到C盘program file目录下，然后把可执行文件设置成快捷方式即可|1. 支持各类截图及截图后的图片备注编辑等功能<br> 2. 在线拾色器功能|
 |XMind思维导图|[ZEN破解版](https://pan.baidu.com/s/1xTKj_GXpNkrwdmjiNP3zKw), 提取码：5axy |1. 绿色软件，直接解压后点击`XMind ZEN`即可使用，有弹窗提示更新则不要进行更新<br>2. 可以解压后放到C盘下，或者`C:\\Program Files`下，然后发送快捷键到桌面。<br>3. 如果解压到`C:\\Program Files (x86)`，打开软件会找不到模板，打开其他xmind文件会崩溃|1. 支持导入图片<br>2. 导出图片无水印等|
 |pdf加密软件|[下载地址](https://pan.baidu.com/s/1rf5AbBrAr_cjJ0s18JYfEg)||1. 店家说win7和win10都测试过<br>2. 可以一机一码|
+|chm制作工具：Adobe RoboHelp||||
 
 
 

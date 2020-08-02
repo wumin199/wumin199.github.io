@@ -79,6 +79,7 @@ keywords: 其他
 ## 在线资源
 
 * [MP4 to MP3](https://www.mp4tomp3.org/)
+* [讯飞听见翻译](https://www.iflyrec.com/)
 
 
 ## 营销渠道

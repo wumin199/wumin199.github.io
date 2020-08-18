@@ -14,6 +14,7 @@ keywords: 其他
 * [搞定设计](https://www.gaoding.com/)
 * [fotor懒设计](https://www.fotor.com.cn/)
 * [Draw.io](https://www.draw.io/)(取代visual，用来会流程图的)
+* [在线思维导图](https://www.edrawsoft.cn/mindmaster/)
 
 ## 素材资源
 

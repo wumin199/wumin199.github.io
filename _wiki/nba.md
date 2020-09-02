@@ -80,7 +80,10 @@ keywords: 其他
 
 * [MP4 to MP3](https://www.mp4tomp3.org/)
 * [讯飞听见翻译](https://www.iflyrec.com/)
-
+* [讯飞配音](http://peiyin.xunfei.cn/)(文字转语音，在线版)
+* [讯飞开发平台-配音](https://www.xfyun.cn/page/online_dub?ch=bd10)(文字转语音，在线版)
+* [朗读女](http://jxpro.miaoying1.cn/yuyinzhuanhuan/)(文字转语音，PC桌面版，英文读得不错)
+* [标贝阅读](https://yuedu.data-baker.com/)(文字转语音，在线版)
 
 ## 营销渠道
 

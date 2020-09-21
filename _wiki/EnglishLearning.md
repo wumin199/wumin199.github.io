@@ -208,3 +208,4 @@ I still keep contacting with some of my friends in my high school，like my best
 * [中国日报双语](http://language.chinadaily.com.cn/)(符合中国人的表述习惯)
 * [中国日报中文](http://cn.chinadaily.com.cn/)(包含漫画等)
 * [盘点中国本土的英文媒体](https://blog.shuziyimin.org/705)
+* [INDIA TODAY](https://www.indiatoday.in/)(可以练习印度英语听力：看VIDEOS栏目)

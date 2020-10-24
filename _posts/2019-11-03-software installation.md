@@ -45,6 +45,7 @@ keywords: 软件安装
 |XMind思维导图|[ZEN破解版](https://pan.baidu.com/s/1xTKj_GXpNkrwdmjiNP3zKw), 提取码：5axy |1. 绿色软件，直接解压后点击`XMind ZEN`即可使用，有弹窗提示更新则不要进行更新<br>2. 可以解压后放到C盘下，或者`C:\\Program Files`下，然后发送快捷键到桌面。<br>3. 如果解压到`C:\\Program Files (x86)`，打开软件会找不到模板，打开其他xmind文件会崩溃|1. 支持导入图片<br>2. 导出图片无水印等|
 |pdf加密软件|[下载地址](https://pan.baidu.com/s/1rf5AbBrAr_cjJ0s18JYfEg)||1. 店家说win7和win10都测试过<br>2. 可以一机一码|
 |chm制作工具：Adobe RoboHelp||||
+|TamperMonkey插件|[tampermonkey插件](https://www.tampermonkey.net/)<br>[greasyfork插件库](https://greasyfork.org/zh-CN)||1. [灰太狼的平底锅](https://greasyfork.org/en/scripts/388744-%E7%BA%A2%E5%A4%AA%E7%8B%BC%E7%9A%84%E5%B9%B3%E5%BA%95%E9%94%85/code)(用来下载电子书，比淘宝便宜)<br>2. |
 
 
 

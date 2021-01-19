@@ -79,6 +79,8 @@ keywords: 其他
 ## 在线资源
 
 * [MP4 to MP3](https://www.mp4tomp3.org/)
+* [pdf提取页面](http://www.pdfdo.com/pdf-extract-page.aspx)
+* [科大讯飞翻译机在线提取](http://fanyi.xunfei.cn/index)(账号：手机号)
 * [讯飞听见翻译](https://www.iflyrec.com/)
 * [讯飞配音](http://peiyin.xunfei.cn/)(文字转语音，在线版)
 * [讯飞开发平台-配音](https://www.xfyun.cn/page/online_dub?ch=bd10)(文字转语音，在线版)

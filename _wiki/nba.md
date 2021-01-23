@@ -28,6 +28,7 @@ keywords: 其他
 * [直播吧历史视频](https://www.zhibo8.cc/nba/index_old.htm)
 * [ESPN 文字直播](https://www.espn.com/nba/scoreboard)
 * [虎扑 中文文字直播](https://nba.hupu.com/games)
+* [雅虎NBA](https://sports.yahoo.com/nba/)(也可以查看历史比赛的文字直播，如[2017061209:骑士VS勇士](https://sports.yahoo.com/nba/cleveland-cavaliers-golden-state-warriors-2017061209/?section=stats))
 * [APP: 球长社圈](http://www.qiuzhang.com/)
 * [NBA视频资源](http://www.ziyuannba.com/)
 

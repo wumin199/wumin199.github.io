@@ -24,7 +24,7 @@ head:
         # The default theme color for the application
         theme_color: 
         # A placeholder background color for the application page to display
-        # before its stylesheet is loaded
+        # before its stylesheet is loadedicarus
         background_color: 
         # The preferred display mode for the website
         display: standalone
@@ -242,7 +242,7 @@ widgets:
         # Whether show the rounded avatar image
         avatar_rounded: false
         # Email address for the Gravatar
-        gravatar: 
+        # gravatar: 
         # URL or path for the follow button
         follow_link: https://github.com/wumin199
         # Links to be shown on the bottom of the profile widget

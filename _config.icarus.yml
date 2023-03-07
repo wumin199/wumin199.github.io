@@ -238,6 +238,7 @@ widgets:
         # Author's current location
         location: Shanghai
         # URL or path to the avatar image
+        # don't use /img/xxx as /img is automatically created
         avatar: /images/avatar.png
         # Whether show the rounded avatar image
         avatar_rounded: false

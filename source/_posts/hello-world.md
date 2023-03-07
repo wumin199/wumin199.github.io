@@ -2,8 +2,15 @@
 title: Hello World
 toc: true
 updated: 2023-03-07 13:29:00
+# cover: /gallery/covers/cover.jpg
+# thumbnail: /gallery/thumbnails/thumbnail.jpg
+# excerpt: 可以在这里写摘要，也可以用
+# password: hello
 ---
+
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+
+<!-- more -->
 
 ## Quick Start
 

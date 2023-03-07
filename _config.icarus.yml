@@ -245,7 +245,7 @@ widgets:
         # Author title
         author_title: 我愿是满山的杜鹃，只为一次无憾的春天
         # Author's current location
-        location: Shanghai
+        # location: Shanghai
         # URL or path to the avatar image
         # don't use /img/xxx as /img is automatically created
         avatar: /images/icon/avatar.png

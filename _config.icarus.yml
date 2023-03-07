@@ -247,19 +247,19 @@ widgets:
         # URL or path for the follow button
         follow_link: https://github.com/wumin199
         # Links to be shown on the bottom of the profile widget
-        # social_links:
-        #     Github:
-        #         icon: fab fa-github
-        #         url: https://github.com/wumin199
-        #     Zhihu:
-        #         icon: fab fa-zhihu
-        #         url: https://www.zhihu.com/
-        #     Twitter:
-        #         icon: fab fa-twitter
-        #         url: https://twitter.com
-        #     Notion:
-        #         icon: fab fa-notion
-        #         url: https://www.notion.so/wumin199/2023-9d35785d7d4d40818aad1e931bf6fd8a
+        social_links:
+            Github:
+                icon: fab fa-github
+                url: https://github.com/wumin199
+            Zhihu:
+                icon: fab fa-zhihu
+                url: https://www.zhihu.com/
+            Twitter:
+                icon: fab fa-twitter
+                url: https://twitter.com
+            Notion:
+                icon: fa-solid fa-n
+                url: https://www.notion.so/wumin199/2023-9d35785d7d4d40818aad1e931bf6fd8a
             # RSS:
             #     icon: fas fa-rss
             #     url: /

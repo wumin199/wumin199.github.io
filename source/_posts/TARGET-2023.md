@@ -34,7 +34,7 @@ password: target2023
     - [ ] ruckig
 
 - [ ] 数学
-    - [ ] 线性过一遍
+    - [ ] Power-of-Matrix
 
 - [ ] 工作效率
     - [ ] ChatGPT

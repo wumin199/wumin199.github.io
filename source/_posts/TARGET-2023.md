@@ -37,5 +37,5 @@ password: target2023
     - [ ] Power-of-Matrix
 
 - [ ] 工作效率
-    - [ ] ChatGPT
+    - [x] ChatGPT
     - [ ] 维护一个工具页面

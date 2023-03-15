@@ -291,8 +291,10 @@ widgets:
         type: links
         # Names and URLs of the sites
         links:
-            Zhihu: https://www.zhihu.com/
-            Notion: https://www.notion.so/wumin199/2023-9d35785d7d4d40818aad1e931bf6fd8a
+            YouTube: https://www.youtube.com/
+            ChatGPT: https://chat.openai.com/chat
+            ZLibrary: https://lib-igucbsbsfx5cpiy3gvzjgci2.must.wf/
+            
     # Categories widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar

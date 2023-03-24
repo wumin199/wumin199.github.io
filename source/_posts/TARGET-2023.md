@@ -43,4 +43,5 @@ password: target2023
 
 - [ ] 工作效率
     - [x] ChatGPT
+    - [ ] ChatGPT Prompt
     - [ ] 维护一个工具页面

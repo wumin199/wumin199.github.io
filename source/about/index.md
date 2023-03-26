@@ -1,5 +1,5 @@
 ---
-title: about
+title: 关于
 date: 2023-03-07 17:25:52
 toc: true
 ---
@@ -12,11 +12,17 @@ toc: true
     - 2012-2015: ZJU -->
 
 
-### Skills
+<article class="message message-immersive is-primary">
+<div class="message-body">
+读万卷书，行万里路
+</div>
+</article>
+
+<!-- ### Skills
 
 - Industrial Robot development
 - Industrial automation development
-- Linux; C/C++/Python
+- Linux; C/C++/Python -->
 
 
 

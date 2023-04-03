@@ -19,11 +19,14 @@ date: 2023-04-03 14:18:28
 <!-- endtab -->
 
 
-<!-- tab id:install-source 'icon:fas fa-file-code' title:python -->
+<!-- tab id:install-npm 'icon:fas fa-file-code' title:python -->
 {% codeblock "vision bridge" lang:python %}
 
 {% endcodeblock %}
 <!-- endtab -->
 
 {% endtabs %}
+
+
+
 

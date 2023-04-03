@@ -12,9 +12,12 @@ comment: false
 
 
 {% tabs align:left style:boxed %}
-<!-- tab id:install-source 'icon:fas fa-file-code' title:C++ -->
 
-{% codeblock "vision bridge" lang:cpp %}
+<!-- tab id:vsion-bridge-cpp 'icon:fas fa-file-code' title:C++ -->
+
+``wm_vision_bridge.hpp``
+
+```cpp
 #pragma once
 
 #include <map>
@@ -76,14 +79,15 @@ class WMVisionBrdige {
 };
 
 } 
-
-{% endcodeblock %}
+```
 <!-- endtab -->
 
 
-<!-- tab active id:install-npm 'icon:fas fa-cubes' title:python -->
-{% codeblock "vision bridge" lang:python %}
+<!-- tab active id:vsion-bridge-python 'icon:fas fa-cubes' title:python新版 -->
 
+``wm_vision_bridge.py``
+
+```python
 import json
 
 import cyber.cyber_py3.cyber as cyber
@@ -167,7 +171,237 @@ if __name__ == '__main__':
     res = b.run(0, "calculate_object_dimension", primitives_3d=[res.primitives_3d[0]])
     print(res)
 
-{% endcodeblock %}
+```
+
+<!-- endtab -->
+
+
+
+
+<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:python老版 -->
+
+``wm_vision_bridge.py``
+```python
+
+import inspect
+import sys
+import time
+
+try:
+    from queue import Queue, Empty
+except ImportError:
+    from Queue import Queue, Empty
+
+import cyber.cyber_py3.cyber as cyber
+
+from wm_msgs.vision_msgs import VisionSrv_pb2
+
+from .vision_bridge_base import *
+# from .image_converter import *
+
+def capture_image_wrapper(func):
+    def wrapper(self, *args, **kwargs):
+        if kwargs.pop("capture_image", None):
+            self.capture_images(args[0])
+        return func(self, *args, **kwargs)
+
+    return wrapper
+
+
+class WMVisionBridge(VisionBridgeBase):
+    """
+    This bridge class provides convenient API functions for other programs, such as task planner and rafcon.
+    """
+
+    def __init__(self, **kw):
+        try:
+            super(WMVisionBridge, self) .__init__()
+        except TypeError:
+            super().__init__()
+        self._proxies = {}
+        self._mutexes = {}
+        self.inited = False
+
+        print("init vision bridge")
+        try :
+            self ._init()
+        except Exception as e :
+            print(e)
+            print("connect to vision service failed, you can use "
+                  "`connect` method to establish connection later")
+
+    def connect(self, timeout = 0):
+        t_beg = time.time()
+        print("waiting for vision service...")
+        while not self.inited:
+            try:
+                self._init()
+            except Exception:
+                pass
+            if 0 < timeout < time.time() - t_beg:
+                break
+            time.sleep(1)
+        if self.inited:
+            print("vision service connection status: success")
+        else:
+            print("vision service connection status: fail")
+
+    def _init(self):
+        self.inited = True
+
+    def run(self, tote_id, cmd, info = "", primitives_2d = [], primitives_3d = [], background = False):
+        # tote_id == ws_id
+        if not isinstance(tote_id, str):
+            tote_id = str(tote_id)
+        if tote_id not in self._proxies:
+            self._proxies[tote_id] = self._node.create_client("vision_" + tote_id, VisionSrv_pb2.Request, VisionSrv_pb2.Response)
+            self._mutexes[tote_id] = threading.Lock()
+        with self._mutexes[tote_id]:
+            request = VisionSrv_pb2.Request()
+            request.mode = cmd
+            request.info = info
+            request.primitives_2d.extend(primitives_2d)
+            request.primitives_3d.extend(primitives_3d)
+            try:
+                if background:
+                       response = self._proxies[tote_id].async_send_request(request)
+                else:
+                       response = self._proxies[tote_id].send_request(request)
+            except:
+                response = VisionSrv_pb2.Response()
+                response.error = -1
+                response.error_msg = "vision service not start"
+        return response
+
+    ########################################  API  ######################################
+    def load_flow_file(self, flow_file):
+        try:
+            res = super(WMVisionBridge, self).load_flow_file(flow_file)
+        except TypeError:
+            res = super().load_flow_file(flow_file)
+        if res.error == 0:
+            self._init()
+        return res
+
+    def capture_images(self, tote_id, background=False):
+        # tote_id相当于ws_id
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    @capture_image_wrapper
+    def calculate_object_poses(self, tote_id, info="", primitives_2d = [], primitives_3d = [], background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info,
+                        primitives_2d, primitives_3d, background=background)
+
+    @capture_image_wrapper
+    def collect_partition_data(self, tote_id, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    def clear_collection(self, tote_id, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    def calculate_partition(self, tote_id, partition_info=None, background=False):
+        if partition_info is not None:
+            info_string = json.dumps(partition_info)
+        else:
+            info_string = ''
+        return self.run(tote_id, inspect.currentframe().f_code.co_name,
+                        info=info_string, background=background)
+
+    @capture_image_wrapper
+    def calculate_barcode_poses(self, tote_id, info="", background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info, background=background)
+
+    @capture_image_wrapper
+    def calculate_tote_pose(self, tote_id, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    @capture_image_wrapper
+    def calculate_object_dimension(self, tote_id, obj, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, primitives_3d = obj, background=background)
+
+    @capture_image_wrapper
+    def get_safe_height(self, tote_id, object_point=None, background=False):
+        if object_point:
+            info_string = str(object_point[0]) + "," + str(object_point[1])
+        else:
+            info_string = ""
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info_string, background=background)
+
+    @capture_image_wrapper
+    def calculate_layer_num(self, tote_id, layer_height=.0, background=False):
+        info_string = str(layer_height)
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info_string, background=background)
+
+    @capture_image_wrapper
+    def calculate_place_poses(self, tote_id, dimension=(.1, .1, .1), background=False):
+        info_string = json.dumps({
+            "dimension": {"length": dimension[0], "width": dimension[1], "height": dimension[2]}
+        })
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info_string, background=background)
+
+    @capture_image_wrapper
+    def double_picking_check(self, tote_id, dimension=(.1, .1, .1), background=False):
+        def post_fun(resp):
+            res = {
+                "error": resp.error,
+                "error_message": resp.error_msg,
+                "results": False,
+                "dimension": [],
+                "timestamp": resp.timestamp,
+                "info": resp.info
+            }
+            if res["error"] == 0:
+                for obj_idx, obj in enumerate(resp.objects):
+                    # confidence of double
+                    # double picking if results is True
+                    # confidence == 1.0 if it is highly confident double picking
+                    # confidence <= 0.0 if it is a single picking
+                    # confidence == -1.0 if there is no object detected
+                    res["results"] = obj.score > 0
+                    res["dimension"] = point_msg_to_list(obj.dimension)
+                    res["info"] = str(obj.score)
+            return res
+
+        info_string = json.dumps({
+            "dimension": {"length": dimension[0], "width": dimension[1], "height": dimension[2]}
+        })
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info_string, background=background)
+
+    @capture_image_wrapper
+    def calculate_object_poses_by_depth(self, tote_id, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    @capture_image_wrapper
+    def check_primitive_cloud(self, tote_id, background=False):
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, background=background)
+
+    @capture_image_wrapper
+    def check_collision_free(self, tote_id, point_info=[1, 1, 1, 1, 0, 0, 0.1, 0.1, 0.1],
+                             background=False):
+        info_string = json.dumps(
+            {"suction_point": [point_info[0], point_info[1], point_info[2]],
+             "suction_normal": [point_info[3], point_info[4], point_info[5]],
+             "tool_radius": point_info[6],
+             "tool_length": point_info[7],
+             "collision_th_area": point_info[8]})
+
+        return self.run(tote_id, inspect.currentframe().f_code.co_name, info=info_string, background=background)
+
+if __name__ == '__main__':
+    b = WMVisionBridge()
+    ### how to use
+    # 1. capture image
+    b.run("0", "capture_images")
+    # 2. calculate object poses
+    res = b.run("0", "calculate_object_poses")
+    # 3. use whole primitive info
+    b.run("0", "get_safe_height", primitives_3d = res.primitives_3d)
+    # 4. use single primitive info
+    b.run("0", "get_safe_height", primitives_3d = [res.primitives_3d[0]])
+    # 5. check primitive cloud completeness
+    b.run("0", "check_primitive_cloud")
+```
+
 <!-- endtab -->
 
 

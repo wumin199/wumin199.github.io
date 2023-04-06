@@ -11,9 +11,106 @@ comment: false
 ### 单例模式
 
 
+单例模式是日常应用中最广泛的模式了，其目的就是令到单个进程中只存在一个类的实例，从而可以实现数据的共享，节省系统开销，防止io阻塞等等。
+
+但是在多进程的应用中，单例模式就实现不了了，例如一些web应用，django，这些，因为会启动多条进程来监听http请求，这样的会通过单例模式是实现不了数据共享的，也就是实现不了单例模式的目的了，这时需要用进程间通信方法来实现数据共享。
+
+
+**[Q]**
+c++的``static a``; 这个``a``是多线程下的``static``值，还是多进程下的``static``值
+
+**[A]**
+C++中的``static``变量是多线程下的静态值，而不是多进程下的静态值。每个进程都有自己独立的内存空间，所以进程之间的静态变量是不共享的。如果需要在多进程之间共享变量，可以使用共享内存等机制。
+
+---
+
+**[Q]**
+什么叫一个进程，我有一个仓库，里面有很多代码，代码有很多模块，其中有一个模块下面有个单例模式。这个仓库运行起来的时候只有一个可执行程序，那我在这个仓库代码下使用这个单例模式，算多线程还是多进程
+
+**[A]**
+在你的描述中，如果这个仓库运行起来只有一个可执行程序，那么这个程序只有一个进程。而单例模式是在同一个进程内实现，因此在这个情况下，使用单例模式算是多线程。
+
+不过需要注意的是，如果你将这个可执行程序在多台机器上运行，每台机器只有一个进程，那么这时使用单例模式就是多进程的了。
+
+或者这个程序开了2次（类似开了2个QQ），这也算多进程了。
+
+
+
+
+
+
+
+
+
 {% tabs align:left style:boxed %}
 
-<!-- tab id:vsion-bridge-cpp 'icon:fas fa-file-code' title:C++ -->
+
+<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:chat_gpt/python -->
+
+```python
+import threading
+import time
+
+def singleton(cls):
+    instances = {}
+    lock = threading.Lock()
+
+    def get_instance(*args, **kwargs):
+        with lock:
+            if cls not in instances:
+                instances[cls] = cls(*args, **kwargs)
+            return instances[cls]
+    return get_instance
+
+@singleton
+class MyClass:
+    def __init__(self):
+        self.data = []
+
+    def add_data(self, value):
+        self.data.append(value)
+
+    def print_data(self):
+        print(self.data)
+
+
+
+
+def worker():
+    obj = MyClass()
+    obj.add_data(threading.current_thread().name)
+    obj.print_data()
+
+if __name__ == "__main__":
+    threads = []
+    for i in range(5):
+        t = threading.Thread(target=worker)
+        threads.append(t)
+        t.start()
+
+    for t in threads:
+        t.join()
+
+```
+
+
+```shell
+(sss) xyz@xyz-Workstation:~/xyz_app/software/xyz-robot-toolbox$ /usr/bin/python3.8 /home/xyz/xyz_app/software/xyz-robot-toolbox/test.py
+['Thread-1']
+['Thread-1', 'Thread-2']
+['Thread-1', 'Thread-2', 'Thread-3']
+['Thread-1', 'Thread-2', 'Thread-3', 'Thread-4']
+['Thread-1', 'Thread-2', 'Thread-3', 'Thread-4', 'Thread-5']
+```
+在主程序中，我们创建了5个线程并将它们都分配到worker函数中。在worker函数中，我们创建了一个MyClass的实例，向数据列表中添加了线程的名字，并打印出所有已经添加的数据。这里由于MyClass是单例模式，所以我们可以保证只会创建一个实例。
+
+我们可以看到，所有的线程都共享了同一个MyClass实例，并且数据也被正确地添加到了数据列表中。
+
+<!-- endtab -->
+
+
+
+<!-- tab id:vsion-bridge-cpp 'icon:fas fa-file-code' title:vision_bridge/C++ -->
 
 ``wm_vision_bridge.hpp``
 
@@ -136,7 +233,7 @@ int main(int argc, char* argv[]) {
 <!-- endtab -->
 
 
-<!-- tab active id:vsion-bridge-python 'icon:fas fa-cubes' title:python-max-新版 -->
+<!-- tab active id:vsion-bridge-python 'icon:fas fa-cubes' title:vision_bridge/python-max-新版 -->
 
 ``wm_vision_bridge.py``
 
@@ -264,8 +361,7 @@ print(res)
 
 
 
-
-<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:python-max-老版 -->
+<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:vision_bridge/python-max-老版 -->
 
 ``wm_vision_bridge.py``
 ```python
@@ -493,6 +589,8 @@ if __name__ == '__main__':
 
 
 
+
+
 {% endtabs %}
 
 
@@ -503,9 +601,11 @@ if __name__ == '__main__':
 {% tabs align:left style:boxed %}
 
 
-<!-- tab id:xyz-max-bridge 'icon:fas fa-file-code' title:Queue做异步 -->
+<!-- tab id:max-bridge 'icon:fas fa-file-code' title:Queue做异步 -->
 
-``xyz_max_bridge.py``
+如果api本身不提供异步功能，则这里使用了多线程配合queue的方法来实现异步的功能
+
+老版的``xyz_max_bridge.py``
 
 
 ```python
@@ -529,6 +629,8 @@ class Getter:
         self.ret = None
 
     def get(self, timeout=60):
+        ## 因为我们是用queue来实现数据存储的，queue获得内容的函数是get()
+        ## 所以这里也封装了个get()
         t = time.time()
         while self.ret is None:
             if time.time() - t >= timeout:
@@ -589,7 +691,10 @@ class WMMaxBridge():
             request.primitives_2d.extend(primitives_2d)
             request.primitives_3d.extend(primitives_3d)
             try:
+                ## 这么写，就是同步访问
                 response = self._proxies[tote_id].send_request(request)
+
+                ## call back的写法
                 if cb:
                     response = cb(response)
             except:
@@ -599,6 +704,7 @@ class WMMaxBridge():
                          "dimension": [],
                          "timestamp": 0,
                          "info": "" }
+        # 上面执行完毕以后，如果是异步的，则会去将等了很久的结果设置进去，之后对getter.get()就可以拿到数据了
         if getter:
             getter.set(response)
         return response
@@ -614,8 +720,11 @@ class WMMaxBridge():
             else:
                 threading.Thread(target=self._start(tote_id)).start()
         if background:
+            # 立马返回一个 getter（有点像自己构建的cyber future）
+            # 这个getter其实是个queue，在下一次真的想拿结果的时候，再去get()
             return self._add_task([tote_id, cmd_name, info_str, post_fun])
         else:
+            # 马上同步执行并等对方的结果
             return self.run(tote_id, cmd_name, info_str, post_fun)
 
     def _start(self, t_id):
@@ -627,8 +736,18 @@ class WMMaxBridge():
         return _start_fun
 
     def _add_task(self, task):
+        ## 返回getter
+        ## 参数task是个list: [tote_id, cmd_name, info_str, post_fun]
         getter = Getter()
         self._task_queue[str(task[0])].put(tuple(task + [getter]))  # task[0] = tote_id
+
+
+        """
+        self._task_queue : {
+        tote_id: [tote_id, cmd_name, info_str, post_fun, getter]
+        }
+        """
+
 
         return getter
 
@@ -840,7 +959,112 @@ if __name__ == '__main__':
 <!-- endtab -->
 
 
+<!-- tab id:vision-bridge 'icon:fas fa-file-code' title:ros/cyber -->
+
+cyber client本身就提供异步功能，所以可以直接拿异步的返回值
+
+``xyz_vision_bridge.py``
+
+```python
+'''
+Copyright (c) XYZ Robotics Inc. - All Rights Reserved
+Unauthorized copying of this file, via any medium is strictly prohibited
+Proprietary and confidential
+Author: kennycsh <shuohan.chen@xyzrobotics.ai>, Nov, 2021
+'''
+
+import json
+
+import cyber.cyber_py3.cyber as cyber
+from xyz_msgs.vision_msgs import VisionSrv_pb2
+
+
+def singleton(cls):
+    instances = {}
+
+    def get_instance(*args, **kwargs):
+        if cls not in instances:
+            instances[cls] = cls(*args, **kwargs)
+        return instances[cls]
+    return get_instance
+
+
+@singleton
+class XYZVisionBridge:
+    """
+    This bridge class provides convenient API functions for other programs.
+    """
+
+    def __init__(self, node_name="vision_bridge_py"):
+        if not cyber.ok():
+            cyber.init()
+        self._node = cyber.Node(node_name)
+        self._env_client = self._node.create_client("env_server", VisionSrv_pb2.Request, VisionSrv_pb2.Response)
+        self._vision_clients = {}
+
+    def async_run(self, service_id, cmd, info="", primitives_2d=[], primitives_3d=[]):
+        if not isinstance(service_id, int):
+            raise TypeError("service id shoud be int")
+        if service_id not in self._vision_clients:
+            self._vision_clients[service_id] = self._node.create_client("vision_" + str(service_id), VisionSrv_pb2.Request, VisionSrv_pb2.Response)
+        request = VisionSrv_pb2.Request()
+        request.mode = cmd
+        request.info = info
+        request.primitives_2d.extend(primitives_2d)
+        request.primitives_3d.extend(primitives_3d)
+        return self._vision_clients[service_id].async_send_request(request)
+
+    def run(self, service_id, cmd, info="", primitives_2d=[], primitives_3d=[]):
+        return self.async_run(service_id, cmd, info, primitives_2d, primitives_3d).get()
+
+    def load_flow_file(self, flow_file):
+        """
+        THIS API IS FOR XVL TEST ONLY
+        """
+        req = VisionSrv_pb2.Request()
+        req.info = flow_file
+        req.mode = "load_flow"
+        rsp = self._env_client.send_request(req)
+        return rsp
+
+
+if __name__ == '__main__':
+    # how to use
+    b = XYZVisionBridge()
+
+    # capture image
+    res = b.run(0, "capture_images")
+    print(res)
+
+    # async run
+    future_res = b.async_run(0, "capture_images")
+    res = future_res.get()
+    print(res)
+
+    # eye in hand: capture image with specific tf_world_hand([x,y,z,qx,qy,qz,qw])
+    res = b.run(0, "capture_images", info=json.dumps({"tf_world_hand": [0.1, 0.2, 0.3, 0, 0, 0, 1]}))
+
+    # calculate object poses
+    res = b.run(0, "calculate_object_poses")
+    print(res)
+
+    # calculate with local help
+    res = b.run(0, "calculate_object_poses", primitives_2d=res.primitives_2d)
+    print(res)
+
+    # calculate given object's dimension
+    res = b.run(0, "calculate_object_dimension", primitives_3d=[res.primitives_3d[0]])
+    print(res)
+
+
+```
+
+<!-- endtab -->
+
 {% endtabs %}
+
+
+
 
 
 ### 多线程同步

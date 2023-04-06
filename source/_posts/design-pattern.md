@@ -80,6 +80,59 @@ class WMVisionBrdige {
 
 } 
 ```
+
+``test.cc``
+
+```cpp
+#include <nlohmann/json.hpp>
+
+#include "xyz_vision_lib/xyz_vision_bridge.hpp"
+
+using json = nlohmann::json;
+
+int main(int argc, char* argv[]) {
+  apollo::cyber::Init(argv[0], true);
+  auto& b = xyz_vision_bridge::XYZVisionBrdige::get_instance();
+
+  // capture image
+  auto res = b.run(0, "capture_images");
+  std::cout << res->error_msg() << std::endl;
+
+  // async run
+  auto future_res = b.async_run(0, "capture_images");
+  res = future_res.get();
+  std::cout << res->error_msg() << std::endl;
+
+  // eye in hand: capture image with specific tf_world_hand([x,y,z,qx,qy,qz,qw])
+  std::vector<double> tf_world_hand{
+      1.9139124755492403, 0.025414824065364546,   1.1459845120164724,   0.007480194470095221,
+      0.9999685137439158, -0.0011243741082982916, 0.0023987484942481984};
+  json info;
+  info["tf_world_hand"] = tf_world_hand;
+  res = b.run(0, "capture_images", info.dump());
+  std::cout << res->error_msg() << std::endl;
+
+  // calculate object poses
+  res = b.run(0, "calculate_object_poses");
+  std::cout << res->error_msg() << std::endl;
+
+  // calculate with local help
+  res = b.run(0, "calculate_object_poses", "", res->primitives_2d());
+  std::cout << res->error_msg() << std::endl;
+
+  // calculate given object's dimension
+  if (res->primitives_3d_size() > 0) {
+    xyz_vision_bridge::XYZVisionBrdige::Primitive3DVector primitives_3d;
+    *primitives_3d.Add() = res->primitives_3d(0);
+    res = b.run(0, "calculate_object_poses", "", {}, primitives_3d);
+    std::cout << res->error_msg() << std::endl;
+  }
+
+  return 0;
+}
+```
+
+
 <!-- endtab -->
 
 
@@ -170,6 +223,40 @@ if __name__ == '__main__':
     # calculate given object's dimension
     res = b.run(0, "calculate_object_dimension", primitives_3d=[res.primitives_3d[0]])
     print(res)
+
+```
+
+
+``test.py``
+
+```python
+from xyz_vision_lib.xyz_vision_bridge import XYZVisionBridge
+    
+b = XYZVisionBridge()
+
+# capture image
+res = b.run(0, "capture_images")
+print(res)
+
+# async run
+future_res = b.async_run(0, "capture_images")
+res = future_res.get()
+print(res)
+
+# eye in hand: capture image with specific tf_world_hand([x,y,z,qx,qy,qz,qw])
+res = b.run(0, "capture_images", info=json.dumps({"tf_world_hand": [0.1, 0.2, 0.3, 0, 0, 0, 1]}))
+
+# calculate object poses
+res = b.run(0, "calculate_object_poses")
+print(res)
+
+# calculate with local help
+res = b.run(0, "calculate_object_poses", primitives_2d=res.primitives_2d)
+print(res)
+
+# calculate given object's dimension
+res = b.run(0, "calculate_object_dimension", primitives_3d=[res.primitives_3d[0]])
+print(res)
 
 ```
 

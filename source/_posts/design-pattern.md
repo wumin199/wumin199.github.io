@@ -83,7 +83,7 @@ class WMVisionBrdige {
 <!-- endtab -->
 
 
-<!-- tab active id:vsion-bridge-python 'icon:fas fa-cubes' title:python新版 -->
+<!-- tab active id:vsion-bridge-python 'icon:fas fa-cubes' title:python-max-新版 -->
 
 ``wm_vision_bridge.py``
 
@@ -178,7 +178,7 @@ if __name__ == '__main__':
 
 
 
-<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:python老版 -->
+<!-- tab id:vsion-bridge-python-old 'icon:fas fa-file-code' title:python-max-老版 -->
 
 ``wm_vision_bridge.py``
 ```python
@@ -405,8 +405,357 @@ if __name__ == '__main__':
 <!-- endtab -->
 
 
+
 {% endtabs %}
 
 
 
 
+### 异步
+
+{% tabs align:left style:boxed %}
+
+
+<!-- tab id:xyz-max-bridge 'icon:fas fa-file-code' title:Queue做异步 -->
+
+``xyz_max_bridge.py``
+
+
+```python
+import inspect
+import sys
+import time
+import threading
+
+try:
+    from queue import Queue, Empty
+except ImportError:
+    from Queue import Queue, Empty
+
+import yaml
+import cyber.cyber_py3.cyber as cyber
+from wm_msgs.vision_msgs import VisionSrv_pb2
+from .msg_utils import *
+
+class Getter:
+    def __init__(self):
+        self.ret = None
+
+    def get(self, timeout=60):
+        t = time.time()
+        while self.ret is None:
+            if time.time() - t >= timeout:
+                print("reach out timeout, return none")
+                raise Exception("reach out timeout, return none")
+        return self.ret
+
+    def set(self, r):
+        self.ret = r
+
+def capture_image_wrapper(func):
+    def wrapper(self, *args, **kwargs):
+        if kwargs.pop("capture_image", None):
+            self.capture_images(args[0])
+        return func(self, *args, **kwargs)
+
+    return wrapper
+
+
+class WMMaxBridge():
+    """
+    This bridge class provides convenient API functions for other programs, such as task planner and rafcon.
+    """
+
+    def __init__(self, **kw):
+        if not cyber.ok():
+            cyber.init()
+        self._node = cyber.Node("Max Client")
+        self._client = self._node.create_client("project_server", VisionSrv_pb2.Request, VisionSrv_pb2.Response)
+        self._base_mutex = threading.Lock()
+        self._proxies = {}
+        self._mutexes = {}
+        self._task_queue = {}
+        self._inited = True
+        print("init max bridge success")
+
+    def connect(self, timeout = 0):
+        t_beg = time.time()
+        print("waiting for vision service...")
+        while not self._inited:
+            try:
+                self._inited = True
+            except Exception:
+                pass
+            if 0 < timeout < time.time() - t_beg:
+                break
+            time.sleep(1)
+        if self._inited:
+            print("vision service connection status: success")
+        else:
+            print("vision service connection status: fail")
+
+    def run(self, tote_id, cmd, info = "", cb = None, getter = None, primitives_2d = [], primitives_3d = []):
+        with self._mutexes[tote_id]:
+            request = VisionSrv_pb2.Request()
+            request.mode = cmd
+            request.info = info
+            request.primitives_2d.extend(primitives_2d)
+            request.primitives_3d.extend(primitives_3d)
+            try:
+                response = self._proxies[tote_id].send_request(request)
+                if cb:
+                    response = cb(response)
+            except:
+                response =  {"error": -1,
+                         "error_message": "vision service not start",
+                         "results": False,
+                         "dimension": [],
+                         "timestamp": 0,
+                         "info": "" }
+        if getter:
+            getter.set(response)
+        return response
+
+    def _call(self, background, tote_id, cmd_name, info_str, post_fun):
+        tote_id=str(tote_id)
+        if tote_id not in self._proxies:
+            self._proxies[tote_id] = self._node.create_client("vision_" + tote_id, VisionSrv_pb2.Request, VisionSrv_pb2.Response)
+            self._mutexes[tote_id] = threading.Lock()
+            self._task_queue.update({tote_id: Queue()})
+            if sys.version_info.major > 2:
+                threading.Thread(target=self._start(tote_id), daemon=True).start()
+            else:
+                threading.Thread(target=self._start(tote_id)).start()
+        if background:
+            return self._add_task([tote_id, cmd_name, info_str, post_fun])
+        else:
+            return self.run(tote_id, cmd_name, info_str, post_fun)
+
+    def _start(self, t_id):
+        def _start_fun():
+            while True:
+                item = self._task_queue[t_id].get()
+                self.run(*item)
+                self._task_queue[t_id].task_done()
+        return _start_fun
+
+    def _add_task(self, task):
+        getter = Getter()
+        self._task_queue[str(task[0])].put(tuple(task + [getter]))  # task[0] = tote_id
+
+        return getter
+
+    def __delete__(self, instance):
+        [q.join() for q in self._task_queue.values()]
+
+    def __del__(self):
+        [q.join() for q in self._task_queue.values()]
+
+    ########################################  API  ######################################
+    def load_project_file(self, project_file):
+        """load env file
+
+        Args:
+            env_file (str): env file path
+
+        Returns:
+            dict: {"results": bool, "error": int, "error_message": str}
+        """
+        with self._base_mutex:
+            req = VisionSrv_pb2.Request()
+            req.mode = "load_project_file"
+            req.info = str(project_file)
+            rsp = self._client.send_request(req)
+        res = {"error": rsp.error,
+               "error_message": rsp.error_msg}
+        if res["error"] == 0:
+            res["results"] = True
+        return res
+
+    def load_flow_file(self, tote_id, flow_name):
+        with self._base_mutex:
+            req = VisionSrv_pb2.Request()
+            req.mode = "load_flow_file"
+            req.info = str(tote_id) + "," + str(flow_name)
+            rsp = self._client.send_request(req)
+        res = {"error": rsp.error,
+               "error_message": rsp.error_msg}
+        if res["error"] == 0:
+            res["results"] = True
+        return res
+
+    def set_tote_scan_pose(self, tote_id, pose):
+        """set scan pose for specific tote id
+        Args:
+            tote_id (str): tote_id
+            pose (list): [x, y, z, qx, qy, qz, qw] (unit: meter)
+
+        Returns:
+            dict: {"results": bool, "error": int, "error_message": str, "timestamp": int64}
+        """
+        info = str(tote_id) + ',' + ','.join(list(map(str, pose)))
+        with self._base_mutex:
+            req = VisionSrv_pb2.Request()
+            req.mode = "set_tote_scan_pose"
+            req.info = info
+            rsp = self._client.send_request(req)
+        res = {"error": rsp.error,
+               "error_message": rsp.error_msg}
+        if res["error"] == 0:
+            res["results"] = True
+        return res
+
+    def capture_images(self, tote_id, background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "",
+                          normal_msg_to_dict)
+
+    @capture_image_wrapper
+    def calculate_object_poses(self, tote_id, annotation_json_string="", background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, annotation_json_string,
+                          lambda resp: primitive_msg_to_dict(resp))
+
+    @capture_image_wrapper
+    def collect_partition_data(self, tote_id, background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "",
+                          normal_msg_to_dict)
+
+    def clear_collection(self, tote_id, background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "reset",
+                          normal_msg_to_dict)
+
+    def calculate_partition(self, tote_id, partition_info=None, background=False):
+        if partition_info is not None:
+            info_string = json.dumps(partition_info)
+        else:
+            info_string = ''
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          lambda resp: dict(results=partition_info_to_list(resp.info), **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def calculate_barcode_poses(self, tote_id, annotation_json_string="", background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, annotation_json_string,
+                          lambda resp: primitive_msg_to_dict(resp, self._subscribe_cloud))
+
+    @capture_image_wrapper
+    def calculate_tote_pose(self, tote_id, background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "",
+                          lambda resp: dict(results=[{
+                              "pose": pose_msg_to_list(obj.pose),
+                              "dimension": point_msg_to_list(obj.dimension),
+                          } for obj_idx, obj in enumerate(resp.objects)] if resp.error == 0 else [], **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def calculate_object_dimension(self, tote_id, obj, background=False):
+        info_string = json.dumps(obj)
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          lambda resp: dict(results={
+                              "id": -1,
+                              "pose": pose_msg_to_list(resp.objects[0].pose),
+                              "dimension": point_msg_to_list(resp.objects[0].dimension),
+                              "name": resp.objects[0].name,
+                              "score": resp.objects[0].score,
+                              "grasp_poses": [pose_msg_to_list(x) for x in resp.objects[0].grasp_poses.poses]
+                          }, **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def get_safe_height(self, tote_id, object_point=None, background=False):
+        if object_point:
+            info_string = str(object_point[0]) + "," + str(object_point[1])
+        else:
+            info_string = ""
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          lambda resp: dict(results={"height": float(resp.info)} if resp.error == 0 else None,
+                                            **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def calculate_layer_num(self, tote_id, layer_height=.0, background=False):
+        info_string = str(layer_height)
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          lambda resp: dict(results=int(resp.info) if resp.error == 0 else -1,
+                                            **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def calculate_place_poses(self, tote_id, dimension=(.1, .1, .1), background=False):
+        info_string = json.dumps({
+            "dimension": {"length": dimension[0], "width": dimension[1], "height": dimension[2]}
+        })
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          primitive_msg_to_dict)
+
+    @capture_image_wrapper
+    def double_picking_check(self, tote_id, dimension=(.1, .1, .1), background=False):
+        def post_fun(resp):
+            res = {
+                "error": resp.error,
+                "error_message": resp.error_msg,
+                "results": False,
+                "dimension": [],
+                "timestamp": resp.timestamp,
+                "info": resp.info
+            }
+            if res["error"] == 0:
+                for obj_idx, obj in enumerate(resp.objects):
+                    # confidence of double
+                    # double picking if results is True
+                    # confidence == 1.0 if it is highly confident double picking
+                    # confidence <= 0.0 if it is a single picking
+                    # confidence == -1.0 if there is no object detected
+                    res["results"] = obj.score > 0
+                    res["dimension"] = point_msg_to_list(obj.dimension)
+                    res["info"] = str(obj.score)
+            return res
+
+        info_string = json.dumps({
+            "dimension": {"length": dimension[0], "width": dimension[1], "height": dimension[2]}
+        })
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          post_fun)
+
+    @capture_image_wrapper
+    def calculate_object_poses_by_depth(self, tote_id, background=False):
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "",
+                          primitive_msg_to_dict)
+
+    def collision_check(self, tote_id, tf_robot_hand_vector, primitive, background=False):
+        primitive["grasp_poses"] = [tf_robot_hand for tf_robot_hand in tf_robot_hand_vector]
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, "",
+                          lambda resp: dict(results=[int(x) for x in resp.info.split(",")] if resp.error == 0 else [],
+                                            **normal_msg_to_dict(resp)))
+
+    @capture_image_wrapper
+    def check_collision_free(self, tote_id, point_info=[1, 1, 1, 1, 0, 0, 0.1, 0.1, 0.1],
+                             background=False):
+        info_string = json.dumps(
+            {"suction_point": [point_info[0], point_info[1], point_info[2]],
+             "suction_normal": [point_info[3], point_info[4], point_info[5]],
+             "tool_radius": point_info[6],
+             "tool_length": point_info[7],
+             "collision_th_area": point_info[8]})
+
+        return self._call(background, tote_id, inspect.currentframe().f_code.co_name, info_string,
+                          lambda resp: dict(results={"collision_free": int(resp.info)},
+                                            **normal_msg_to_dict(resp)))
+
+if __name__ == '__main__':
+    b = WMMaxBridge()
+    ### how to use
+    # 1. load project
+    b.load_project_file("xxx")
+    # 2. load flow
+    b.load_flow_file("xxx.flow")
+    # 1. capture image
+    b.capture_images(0)
+    # 2. calculate object poses
+    b.calculate_object_poses(0)
+
+```
+
+<!-- endtab -->
+
+
+{% endtabs %}
+
+
+### 多线程同步
+
+参考python代码

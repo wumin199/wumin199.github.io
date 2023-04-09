@@ -70,6 +70,11 @@ comment: false
 
 - [Markdown Tables](https://www.tablesgenerator.com/markdown_tables#)
 
+- [typst](https://typst.app/)
+  - [Tutorial](https://typst.app/docs/tutorial/)
+  - [Ref > Math](https://typst.app/docs/reference/math/), [Ref > Syntax](https://typst.app/docs/reference/syntax/#math), [Ref -> Symbols](https://typst.app/docs/reference/symbols/sym/)
+  - [awesome-typst-cn](https://github.com/typst-cn/awesome-typst-cn)
+
 ## 其他
 
 - [Clash_For_Windows](https://github.com/Fndroid/clash_for_windows_pkg)

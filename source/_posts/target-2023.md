@@ -52,6 +52,10 @@ comment: false
     - [ ] 维护一个工具页面
     - [x] Typst维护数学知识
 
+- [ ] 数学工具
+  - [ ] GeoGebra
+  - [ ] Matlab/simulink/matrix/robotics
+
 ---
 
 ## 生活

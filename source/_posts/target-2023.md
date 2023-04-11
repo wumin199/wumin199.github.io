@@ -50,6 +50,7 @@ comment: false
     - [ ] ChatGPT Prompt
     - [ ] copilot/cursor
     - [ ] 维护一个工具页面
+    - [x] Typst维护数学知识
 
 ---
 

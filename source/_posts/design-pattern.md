@@ -598,6 +598,8 @@ if __name__ == '__main__':
 
 ### 异步
 
+异步：立马返回，结果在后面拿，而不是死等
+
 {% tabs align:left style:boxed %}
 
 
@@ -1065,8 +1067,177 @@ if __name__ == '__main__':
 
 
 
+### 状态机
+
+状态机（State Machine）是一种常见的编程模型，用于描述系统的不同状态以及状态之间的转换规则。状态机通常被用于编写复杂的控制逻辑，例如嵌入式系统、自动化控制、游戏等领域。
+
+在C++中，状态机通常使用状态模式（State Pattern）实现，它将不同的状态封装成不同的类，并通过一定的方式实现状态之间的转换。
+
+以下是一个简单的状态机示例，该状态机用于控制一个电梯的运行。电梯可以在停止、上行和下行三种状态之间切换，具体的状态转换规则如下：
+
+当电梯处于停止状态时，可以切换到上行或下行状态；
+
+当电梯处于上行状态时，可以切换到停止或下行状态；
+
+当电梯处于下行状态时，可以切换到停止或上行状态。
+
+
+{% tabs align:left style:boxed %}
+
+<!-- tab id:boot_order 'icon:fas fa-file-code' title:开机顺序 -->
+
+```cpp
+#include <iostream>
+
+enum class State {
+    INIT,
+    COUNTING,
+    PAUSED
+};
+
+class Counter {
+public:
+    Counter(int init_value) : value_(init_value), state_(State::INIT) {}
+
+    void start() {
+        std::cout << "Start counting." << std::endl;
+        state_ = State::COUNTING;
+    }
+
+    void pause() {
+        std::cout << "Pause counting." << std::endl;
+        state_ = State::PAUSED;
+    }
+
+    void reset() {
+        std::cout << "Reset counter." << std::endl;
+        state_ = State::INIT;
+        value_ = 0;
+    }
+
+    void increment() {
+        if (state_ == State::COUNTING) {
+            ++value_;
+            std::cout << "Increment counter: " << value_ << std::endl;
+        }
+    }
+
+    void decrement() {
+        if (state_ == State::COUNTING && value_ > 0) {
+            --value_;
+            std::cout << "Decrement counter: " << value_ << std::endl;
+        }
+    }
+
+private:
+    int value_;
+    State state_;
+};
+
+int main() {
+    Counter counter(0);
+    counter.start();
+    counter.increment();
+    counter.increment();
+    counter.pause();
+    counter.increment();
+    counter.start();
+    counter.increment();
+    counter.decrement();
+    counter.reset();
+    return 0;
+}
+
+```
+
+
+<!-- endtab -->
+
+
+
+<!-- tab id:elevator_control 'icon:fas fa-file-code' title:电梯控制 -->
+
+```c++
+#include <iostream>
+
+// 电梯状态枚举
+enum class ElevatorState {
+  IDLE,
+  MOVING_UP,
+  MOVING_DOWN,
+  DOOR_OPEN
+};
+
+class Elevator {
+public:
+  Elevator() : currentFloor(0), state(ElevatorState::IDLE) {}
+
+  // 上升方法
+  void moveUp() {
+    if (state == ElevatorState::IDLE || state == ElevatorState::MOVING_DOWN) {
+      state = ElevatorState::MOVING_UP;
+      currentFloor++;
+      std::cout << "电梯上升至 " << currentFloor << " 层" << std::endl;
+      state = ElevatorState::IDLE;
+    } else {
+      std::cout << "电梯当前无法上升" << std::endl;
+    }
+  }
+
+  // 下降方法
+  void moveDown() {
+    if (currentFloor == 0) {
+      std::cout << "电梯已在最低层，无法下降" << std::endl;
+      return;
+    }
+    if (state == ElevatorState::IDLE || state == ElevatorState::MOVING_UP) {
+      state = ElevatorState::MOVING_DOWN;
+      currentFloor--;
+      std::cout << "电梯下降至 " << currentFloor << " 层" << std::endl;
+      state = ElevatorState::IDLE;
+    } else {
+      std::cout << "电梯当前无法下降" << std::endl;
+    }
+  }
+
+  // 开门方法
+  void openDoor() {
+    if (state == ElevatorState::IDLE) {
+      state = ElevatorState::DOOR_OPEN;
+      std::cout << "电梯门已打开" << std::endl;
+      state = ElevatorState::IDLE;
+    } else {
+      std::cout << "电梯正在运动，无法开门" << std::endl;
+    }
+  }
+
+private:
+  int currentFloor;
+  ElevatorState state;
+};
+
+int main() {
+  Elevator elevator;
+
+  elevator.openDoor();
+  elevator.moveUp();
+  elevator.moveUp();
+  elevator.moveDown();
+  elevator.openDoor();
+
+  return 0;
+}
+
+
+```
+
+<!-- endtab -->
+
+{% endtabs %}
 
 
 ### 多线程同步
 
 参考python代码
+
+

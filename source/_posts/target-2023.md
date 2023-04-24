@@ -27,7 +27,9 @@ comment: false
     - [x] 维护一个docker
     - [x] GitPage
     - [ ] test_cpp_template/test_python_template
-    - [ ] Clion/VSCode Code Indexing, Debugging in Linux/Windows 
+    - [ ] Clion/VSCode Code Indexing, Debugging in Linux/Windows
+    - [ ] CI/CD
+    - [ ] k8s
 
 - [ ] 编程
     - [ ] 阅读python snap7

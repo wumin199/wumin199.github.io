@@ -7,6 +7,9 @@ password: target2023
 comment: false
 ---
 
+案例学习
+
+<!-- more -->
 
 ### 单例模式
 

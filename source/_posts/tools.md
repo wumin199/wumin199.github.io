@@ -78,7 +78,7 @@ comment: false
 ## 其他
 
 - [Clash_For_Windows](https://github.com/Fndroid/clash_for_windows_pkg)
-  - [流量购买](https://alpha.yahagi.vip/)(多刷几次可以登录上去)
+  - [流量购买](https://beta.yahagi.vip/user)(多刷几次可以登录上去)
   - [设置方法](https://www.zrzz.site/posts/5760e5b0/)
     ![](/images/2023/net_work_setting.png)
     ```

@@ -1,11 +1,21 @@
----
-title: 草稿测试
-date: 2023-04-03 14:18:28
-# tags: 草稿
-# toc: true
-# password: target2023
-# comment: false
----
+
+### info
+
+<article class="message message-immersive is-primary" style="margin: 10px;">
+    <div class="message-body">
+    可以从 <矩阵力量> 笔记中做进一步检索
+    </div>
+</article>
+
+
+
+
+### images
+
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵，注意特征值又和行列式有关系" style="width:100%;">
+    <div style="width: 100%;"></div>
+</div>
 
 
 ### tabs

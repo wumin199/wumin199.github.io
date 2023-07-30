@@ -5,6 +5,12 @@ tags: 工欲善其事
 toc: true
 password: target2023
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 必先利其器

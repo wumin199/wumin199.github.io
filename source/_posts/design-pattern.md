@@ -5,6 +5,12 @@ tags: 编程笔记
 toc: true
 password: target2023
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 案例学习

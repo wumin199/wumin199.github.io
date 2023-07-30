@@ -4,6 +4,12 @@ date: 2023-05-26 23:24:04
 toc: true
 tags: 读书笔记
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 [潘老师] 新手经理必修课 - 帮你转型成优秀管理者

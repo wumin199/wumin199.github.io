@@ -3,6 +3,12 @@ title: 读书笔记-普通人的职场进阶课
 date: 2023-03-07 21:49:29
 toc: true
 tags: 读书笔记
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 [潘老师] 职场实战课 - 普通人的职场进阶课

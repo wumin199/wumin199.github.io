@@ -4,6 +4,12 @@ date: 2023-07-11 23:04:43
 tags: 读书笔记
 toc: true
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 先把书读厚，再把书读薄

@@ -3,6 +3,12 @@ title: 2023 Mood Journal
 date: 2023-05-08 22:20:43
 toc: true
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 此情可待成追忆

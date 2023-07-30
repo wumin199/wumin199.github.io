@@ -4,6 +4,12 @@ date: 2023-06-18 10:36:14
 tags: 生活笔记
 toc: true
 comment: false
+widgets:
+  - type: toc
+    position: right
+    index: true
+    collapsed: false
+    depth: 3
 ---
 
 唯有美食与爱不可辜负

@@ -27,8 +27,15 @@ PLC型号：
 
 ## Tips
 
+### In/Out/InOut/Static/Temp
 
-**大端模式**
+Static: 我们一般理解的功能块作用域的局部变量
+Temp：临时变量，在运行时分配和释放内存，超出最小作用域后即释放内存。
+InOut：输出输出变量，类似于指针或者引用做参数
+
+![](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc-variable-type.png)
+
+### 大端模式
 
 
 西门子PLC是大端。
@@ -48,7 +55,7 @@ ARM既可以工作在大端模式，也可以工作在小端模式，一般ARM�
 - [Siemens data format](https://snap7.sourceforge.net/siemens_dataformat.html)
 
 
-**WORD/DWORD和INT/UINT/DINT**
+### WORD/DWORD和INT/UINT/DINT
 
 WORD/DWORD 和 INT/UINT/DINT 在数据类型上属于不同分类。
 

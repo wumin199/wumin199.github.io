@@ -27,6 +27,19 @@ PLC型号：
 
 ## Tips
 
+### 扫描PLC地址
+
+一般先设置本机是DHCP，然后扫描PLC地址，扫描到以后，再将PLC的地址设置到组态网络的网口中并下载进去。
+
+
+### CPU循环周期
+
+使用PLC默认的150ms循环周期
+
+肖强经验：一般不改
+
+房姿凯经验：100ms。一般会要求1S内10次接收，所以换算成时间的话差不多就是100ms。
+
 ### In/Out/InOut/Static/Temp
 
 Static: 我们一般理解的功能块作用域的局部变量
@@ -82,6 +95,7 @@ WORD表示一个字，可以存放16位的数据，可以表示有符号也可�
 
 - [PLC数据类型INT 和WORD的区别点](https://www.ad.siemens.com.cn/service/answer/solved_141681_1029.html)
 - [S7_300PLC里面编程WORD比较](https://www.ad.siemens.com.cn/service/answer/solved_67925_1029.html)
+
 
 
 

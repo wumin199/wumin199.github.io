@@ -40,13 +40,31 @@ PLC型号：
 
 房姿凯经验：100ms。一般会要求1S内10次接收，所以换算成时间的话差不多就是100ms。
 
+
+### CPU重置
+
+![有时候PLC指示灯会报警闪，报LED(SF)故障](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_reset.jpg)
+
+
 ### In/Out/InOut/Static/Temp
 
-Static: 我们一般理解的功能块作用域的局部变量
-Temp：临时变量，在运行时分配和释放内存，超出最小作用域后即释放内存。
-InOut：输出输出变量，类似于指针或者引用做参数
+- In：程序输入参数
+  在程序内部使用时，该参数只能读，不能写（不能给它赋值）
+- Out：程序输出参数
+  一个参数是Out类型，则在程序内部，只能用作输出，不能做输入（不能读），否则会有警告。虽然也可以运行，但是有一定的风险。
+- Static: 我们一般理解的功能块作用域的局部变量。这个变量在程序里面可以读写。
+- Temp：临时变量，在运行时分配和释放内存，超出最小作用域后即释放内存。
+- InOut：输出输出变量，类似于指针或者引用做参数。
+  这种变量在程序内部可以读也可以写
+
 
 ![](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc-variable-type.png)
+
+![](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_out_1.PNG)
+
+![iCmd这里是Out参数，编译器会有警告。建议换成Static类型，这样可读可写](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_out_2.PNG)
+
+
 
 ### 大端模式
 

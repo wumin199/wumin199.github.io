@@ -27,23 +27,22 @@ PLC型号：
 
 ## Tips
 
-### 扫描PLC地址
+### 常见问题
 
-一般先设置本机是DHCP，然后扫描PLC地址，扫描到以后，再将PLC的地址设置到组态网络的网口中并下载进去。
+1. 一般先设置本机是DHCP，然后扫描PLC地址，扫描到以后，再将PLC的地址设置到组态网络的网口中并下载进去。
+2. V17和V16
+   V17导出的.scl可以在V16中导入，但是如果是V17中导出的梯形图则不支持在V16中导入
+3. CPU循环周期
+   
+   使用PLC默认的150ms循环周期
 
+   肖强经验：一般不改
 
-### CPU循环周期
+   房姿凯经验：100ms。一般会要求1S内10次接收，所以换算成时间的话差不多就是100ms。
 
-使用PLC默认的150ms循环周期
-
-肖强经验：一般不改
-
-房姿凯经验：100ms。一般会要求1S内10次接收，所以换算成时间的话差不多就是100ms。
-
-
-### CPU重置
-
-![有时候PLC指示灯会报警闪，报LED(SF)故障](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_reset.jpg)
+4. 指示灯报警
+   
+   ![有时候PLC指示灯会报警闪，报LED(SF)故障](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_reset.jpg)
 
 
 ### In/Out/InOut/Static/Temp

@@ -36,7 +36,7 @@ PLC型号：
 
 ![系统时钟](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F.png)
 
-![访问级别](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%AE%BF%E9%97%AE%E7%BA%A7%E5%88%AB.png)
+
 
 ![查看固件](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%9B%BA%E4%BB%B6.png)
 
@@ -50,6 +50,8 @@ PLC型号：
 
 ## ModbusTcp设置
 
+![访问级别](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%AE%BF%E9%97%AE%E7%BA%A7%E5%88%AB.png)
+
 ![连接机制](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%BF%9E%E6%8E%A5%E6%9C%BA%E5%88%B6.png)
 
 ![端口号和Slave_ID](https://ghproxy.com/?q=https%3A%2F%2Fgithub.com%2Fwumin199%2Fwm-blog-image%2Fblob%2Fmain%2Fimages%2F2023%2Fplc%2Fmodbus%2FMB_SERVER%25E8%25AE%25BE%25E7%25BD%25AE.png)
@@ -58,6 +60,11 @@ PLC型号：
 
 
 ## S7设置
+
+
+![访问级别](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%AE%BF%E9%97%AE%E7%BA%A7%E5%88%AB.png)
+
+![连接机制](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%BF%9E%E6%8E%A5%E6%9C%BA%E5%88%B6.png)
 
 ![rack和slot](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_rack_slot.png)
 

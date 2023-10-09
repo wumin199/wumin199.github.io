@@ -25,15 +25,51 @@ PLC型号：
 
 
 
+
+## 常规设置
+
+![启动方式](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC%E6%9A%96%E5%90%AF%E5%8A%A8.png)
+
+![IP地址](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/%E8%AE%BE%E7%BD%AEPLCIP%E5%9C%B0%E5%9D%80.png)
+
+![默认是150ms，一般可以设置为100ms，当然也可以考虑启动最短循环时间](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%BE%AA%E7%8E%AF%E5%91%A8%E6%9C%9F.png)
+
+![系统时钟](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F.png)
+
+![访问级别](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%AE%BF%E9%97%AE%E7%BA%A7%E5%88%AB.png)
+
+![查看固件](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%9B%BA%E4%BB%B6.png)
+
+![资源查看](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%B5%84%E6%BA%90%E6%9F%A5%E7%9C%8B.png)
+
+![PLC常规](https://ghproxy.com/?q=https%3A%2F%2Fgithub.com%2Fwumin199%2Fwm-blog-image%2Fblob%2Fmain%2Fimages%2F2023%2Fplc%2Fmodbus%2FPLC%25E5%25B8%25B8%25E8%25A7%2584.png)
+
+![PLC诊断](https://ghproxy.com/?q=https%3A%2F%2Fgithub.com%2Fwumin199%2Fwm-blog-image%2Fblob%2Fmain%2Fimages%2F2023%2Fplc%2Fmodbus%2FPLC%25E8%25AF%258A%25E6%2596%25AD.png)
+
+![PLC复位](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_reset.jpg)
+
 ## ModbusTcp设置
 
+![连接机制](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E8%BF%9E%E6%8E%A5%E6%9C%BA%E5%88%B6.png)
+
+![端口号和Slave_ID](https://ghproxy.com/?q=https%3A%2F%2Fgithub.com%2Fwumin199%2Fwm-blog-image%2Fblob%2Fmain%2Fimages%2F2023%2Fplc%2Fmodbus%2FMB_SERVER%25E8%25AE%25BE%25E7%25BD%25AE.png)
+
+![硬件标志符，一般是64](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/MB_InterfaceID.png)
 
 
 ## S7设置
 
+![rack和slot](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_rack_slot.png)
+
+![共享全局数据块的设置](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_%E5%85%A8%E9%83%A8db%E5%9D%97%E8%AE%BE%E7%BD%AE.png)
+
+![不优化的全局db块](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_DB%E5%9D%97%E6%B2%A1%E6%9C%89%E4%BC%98%E5%8C%96.png)
+
+![全局db块](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_%E5%85%A8%E5%B1%80db%E5%9D%97.png)
+
 ## Tips
 
-### 常见问题
+### 常见经验
 
 1. 一般先设置本机是DHCP，然后扫描PLC地址，扫描到以后，再将PLC的地址设置到组态网络的网口中并下载进去。
 2. V17和V16
@@ -49,6 +85,8 @@ PLC型号：
 4. 指示灯报警
    
    ![有时候PLC指示灯会报警闪，报LED(SF)故障](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/siemens/plc_reset.jpg)
+
+5. 一般Real类型用的比LReal多
 
 
 ### In/Out/InOut/Static/Temp

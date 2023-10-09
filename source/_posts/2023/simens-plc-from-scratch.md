@@ -28,6 +28,8 @@ PLC型号：
 
 ## 常规设置
 
+![PLC属性](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%B1%9E%E6%80%A7.png)
+
 ![启动方式](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC%E6%9A%96%E5%90%AF%E5%8A%A8.png)
 
 ![IP地址](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/%E8%AE%BE%E7%BD%AEPLCIP%E5%9C%B0%E5%9D%80.png)
@@ -35,6 +37,7 @@ PLC型号：
 ![默认是150ms，一般可以设置为100ms，当然也可以考虑启动最短循环时间](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%BE%AA%E7%8E%AF%E5%91%A8%E6%9C%9F.png)
 
 ![系统时钟](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%92%9F.png)
+
 
 
 
@@ -58,6 +61,10 @@ PLC型号：
 
 ![硬件标志符，一般是64](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/MB_InterfaceID.png)
 
+![MB_Server设置](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/MB_SERVER%E8%AE%BE%E7%BD%AE.png)
+
+![硬件标识符](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_Hw_Interface.png)
+
 
 ## S7设置
 
@@ -73,6 +80,20 @@ PLC型号：
 ![不优化的全局db块](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_DB%E5%9D%97%E6%B2%A1%E6%9C%89%E4%BC%98%E5%8C%96.png)
 
 ![全局db块](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/S7/S7_%E5%85%A8%E5%B1%80db%E5%9D%97.png)
+
+
+## 仿真
+
+[长图片](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/plc/modbus/PLC_%E4%BB%BF%E7%9C%9F%E6%B5%8B%E8%AF%95.png)
+
+![项目属性](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E9%A1%B9%E7%9B%AE%E5%B1%9E%E6%80%A7.png)
+
+![编译时支持仿真](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E5%9D%97%E7%BC%96%E8%AF%91%E6%97%B6%E6%94%AF%E6%8C%81%E4%BB%BF%E7%9C%9F.png)
+
+
+![启动](https://ghproxy.com/https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/plc/modbus/PLC_%E4%BB%BF%E7%9C%9F.png)
+
+
 
 ## Tips
 

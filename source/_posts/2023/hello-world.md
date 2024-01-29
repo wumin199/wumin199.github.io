@@ -18,21 +18,38 @@ widgets:
 
 <!-- more -->
 
-## Quick Start
+## hexo Start
+
+```bash
+# 确认并安装npm
+npm -v
+# 如果不存在，则安装npm
+# https://nodejs.org/en/download/
+
+# 安装hexo
+npm install -g hexo-cli
+hexo -v
+```
 
 ```bash
 # 
 #
 hexo clean
-hexo g
-hexo s
+hexo g  # 重新generate
+hexo s  # 启动server
+# windows下如果启动不起来，则：
+# 1. 用Edge浏览器
+# 2. 防火墙中允许npm: 控制面板 -> “系统和安全” > “Windows 防火墙” -> “允许应用通过 Windows 防火墙” -> “更改设置” -> “允许其他应用...” -> “添加” -> "C:\Program Files\nodejs\node.exe" -> 确保“公用”和“专用”两个复选框都被选中 -> “确定” -> 再用Edge浏览器打开
+
+# 
+# 新建post
+hexo new "my_new_pose"
+
+# add and push
 git add .
 git commit -am ""
 git push
 
-# 
-# 
-hexo new "my_new_pose"
 ```
 
 ## 选择Hexo

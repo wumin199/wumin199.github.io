@@ -1,0 +1,21 @@
+# Automatically normalize line endings (to LF) for all text-based files.
+* text eol=lf
+
+# Do not modify line endings for binary files
+*.STL binary
+*.stl binary
+*.STEP binary
+
+
+# block docs
+docs/pics/** binary
+
+
+# Make sure windows batch files preserve CRLF ending
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.jpg binary
+*.png binary
+*.gif binary
+*.bmp binary

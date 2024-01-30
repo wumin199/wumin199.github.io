@@ -33,7 +33,7 @@ TODO
 已知历史commit如下：
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/blob/main/images/2024/git/git_history_1.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_history_1.png" alt="" style="width:50%;">
   <div style="width: 50%;"></div>
 </div>
 
@@ -99,7 +99,7 @@ f 62359e03 update xxx info          ↑
 然后保存退出，之后的历史如下：
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/blob/main/images/2024/git/git_rebase_1.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_rebase_1.png" alt="" style="width:50%;">
   <div style="width: 50%;"></div>
 </div>
 
@@ -116,7 +116,7 @@ git push -f  # f是 --force-with-lease，因为之前的操作改变了Git的线
 **案例2：将中间的2个commit合并到一个**
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/blob/main/images/2024/git/git_history_2.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_history_2.png" alt="" style="width:50%;">
   <div style="width: 50%;"></div>
 </div>
 
@@ -154,7 +154,7 @@ pick 62359e03 update xxx info          不变
 现在历史如下：
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/blob/main/images/2024/git/git_rebase_2.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_rebase_2.png" alt="" style="width:50%;">
   <div style="width: 50%;"></div>
 </div>
 

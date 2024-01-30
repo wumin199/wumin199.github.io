@@ -18,8 +18,13 @@ hello git
 
 ### rebase和merge区别
 
+TODO
 
 ### 版本策略
+
+包含仓库设置
+
+TODO
 
 ### 使用rebase合并
 
@@ -190,6 +195,8 @@ git push -f
 ```
 
 ### git reset
+
+TODO
 
 ### cherry-pick
 

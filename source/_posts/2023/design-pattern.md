@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
 
 ```shell
-(sss) xyz@xyz-Workstation:~/xyz_app/software/xyz-robot-toolbox$ /usr/bin/python3.8 /home/xyz/xyz_app/software/xyz-robot-toolbox/test.py
+(sss) wumin@wumin-Workstation:~/wumin_app/software/wumin-robot-toolbox$ /usr/bin/python3.8 /home/wumin199/wumin_app/software/wumin-robot-toolbox/test.py
 ['Thread-1']
 ['Thread-1', 'Thread-2']
 ['Thread-1', 'Thread-2', 'Thread-3']
@@ -192,13 +192,13 @@ class WMVisionBrdige {
 ```cpp
 #include <nlohmann/json.hpp>
 
-#include "xyz_vision_lib/xyz_vision_bridge.hpp"
+#include "wm_vision_lib/wm_vision_bridge.hpp"
 
 using json = nlohmann::json;
 
 int main(int argc, char* argv[]) {
   apollo::cyber::Init(argv[0], true);
-  auto& b = xyz_vision_bridge::XYZVisionBrdige::get_instance();
+  auto& b = wm_vision_bridge::WMVisionBrdige::get_instance();
 
   // capture image
   auto res = b.run(0, "capture_images");
@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
 
   // calculate given object's dimension
   if (res->primitives_3d_size() > 0) {
-    xyz_vision_bridge::XYZVisionBrdige::Primitive3DVector primitives_3d;
+    wm_vision_bridge::WMVisionBrdige::Primitive3DVector primitives_3d;
     *primitives_3d.Add() = res->primitives_3d(0);
     res = b.run(0, "calculate_object_poses", "", {}, primitives_3d);
     std::cout << res->error_msg() << std::endl;
@@ -336,9 +336,9 @@ if __name__ == '__main__':
 ``test.py``
 
 ```python
-from xyz_vision_lib.xyz_vision_bridge import XYZVisionBridge
+from wm_vision_lib.wm_vision_bridge import WMVisionBridge
     
-b = XYZVisionBridge()
+b = WMVisionBridge()
 
 # capture image
 res = b.run(0, "capture_images")
@@ -616,7 +616,7 @@ if __name__ == '__main__':
 
 如果api本身不提供异步功能，则这里使用了多线程配合queue的方法来实现异步的功能
 
-老版的``xyz_max_bridge.py``
+老版的``wm_max_bridge.py``
 
 
 ```python
@@ -974,20 +974,14 @@ if __name__ == '__main__':
 
 cyber client本身就提供异步功能，所以可以直接拿异步的返回值
 
-``xyz_vision_bridge.py``
+``wm_vision_bridge.py``
 
 ```python
-'''
-Copyright (c) XYZ Robotics Inc. - All Rights Reserved
-Unauthorized copying of this file, via any medium is strictly prohibited
-Proprietary and confidential
-Author: kennycsh <shuohan.chen@xyzrobotics.ai>, Nov, 2021
-'''
 
 import json
 
 import cyber.cyber_py3.cyber as cyber
-from xyz_msgs.vision_msgs import VisionSrv_pb2
+from wm_msgs.vision_msgs import VisionSrv_pb2
 
 
 def singleton(cls):
@@ -1001,7 +995,7 @@ def singleton(cls):
 
 
 @singleton
-class XYZVisionBridge:
+class WMVisionBridge:
     """
     This bridge class provides convenient API functions for other programs.
     """
@@ -1041,7 +1035,7 @@ class XYZVisionBridge:
 
 if __name__ == '__main__':
     # how to use
-    b = XYZVisionBridge()
+    b = WMVisionBridge()
 
     # capture image
     res = b.run(0, "capture_images")

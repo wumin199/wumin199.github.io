@@ -48,8 +48,8 @@ widgets:
 
 
 - [ ] 运动学
-    - [ ] xyz-world
-    - [ ] xyz-kdl
+    - [ ] wm-world
+    - [ ] wm-kdl
     - [ ] ruckig
     - [ ] topp-ra
     - [ ] morden-robotics

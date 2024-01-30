@@ -18,7 +18,65 @@ hello git
 
 ### rebase和merge区别
 
-TODO
+当前开发者在 feature 分支，现在想和master同步，让自己的分支包含master所有最新的内容
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/test_case_1.png" alt="" style="width:50%;">
+  <div style="width: 50%;"></div>
+</div>
+
+以下是feature分支下的 `rebase` 的方案：
+
+```bash
+# 确保master最新
+git checkout master
+git pull
+
+# 把master rebase到feature 
+git checkout feature
+git rebase -i master
+```
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_rebase_result.png" alt="" style="width:50%;">
+  <div style="width: 50%;"></div>
+</div>
+
+`rebase` 特点：
+
+1. feature的3个commit会放在master后面，最后branch的commit历史相对master的commit历史是线性的
+   1. 所以这对后面提PR非常有用
+2. feature的3个commit会同时被添加进master的内容！
+   1. 所以如果3个commit都和master有冲突，需要解决3次
+   2. 解决方法是：先把这3个分支自己用rebase压缩成一个(见下文)，然后再把master rebase进来，这样只需要解决一次冲突即可
+
+以下是feature分支下的 `merge` 的方案：
+
+```bash
+# 确保master最新
+git checkout master
+git pull
+
+# 把master rebase到feature 
+git checkout feature
+git merge master
+```
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_merge_result.png" alt="" style="width:50%;">
+  <div style="width: 50%;"></div>
+</div>
+
+`merge` 特点：
+
+1. feature后面会生成一个新的commit
+   1. 最后branch的commit历史相对master的commit历史不是线性的
+   2. 提PR的时候，别人看你的分支会比较混乱，因为不是线性的
+2. 只有这个新生成的commit包含了master的最新提交历史
+   1. 优点：冲突只解决最新的这次
+
+结论：一般都用 `rebase`
+
 
 ### 版本策略
 
@@ -248,3 +306,5 @@ git cherry-pick commit-id # 来源于上面那个唯一的commit_id
 ```
 
 **案例2：将release/0.11 rebase到master**
+
+TODO

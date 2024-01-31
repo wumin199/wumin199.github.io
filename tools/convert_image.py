@@ -11,6 +11,8 @@ import os
 
 script_dir = os.path.dirname(os.path.realpath(__file__))
 
+# https://blog.51cto.com/u_16131663/6416229
+
 
 def read_md_files():
     """
@@ -35,10 +37,11 @@ def replace_url_to_raw(md_file_path: str):
     """
     with open(md_file_path, "r", encoding='utf-8') as f:
         content = f.read()
-    if re.search(r"https://github.com/wumin199/(.*)/blob/main", content) is None:
+    if re.search(r"https://github.com/wumin199/(.*)/blob/main/(.*\.(jpg|png|gif|bmp))",
+                 content) is None:
         return
-    new_content = re.sub(r"https://github.com/wumin199/(.*)/blob/main",
-                         r"https://github.com/wumin199/\1/raw/main", content)
+    new_content = re.sub(r"https://github.com/wumin199/(.*)/blob/main/(.*\.(jpg|png|gif|bmp))",
+                         r"https://github.com/wumin199/\1/raw/main/\2", content)
     with open(md_file_path, "w", encoding='utf-8') as f:
         f.write(new_content)
     print("update: {}".format(md_file_path))
@@ -46,7 +49,7 @@ def replace_url_to_raw(md_file_path: str):
 
 def replace_url_to_main(md_file_path: str):
     """
-    Replaces the URL in the given Markdown file with the raw URL.
+    Replaces the URL in the given Markdown file with the main URL.
 
     Args:
         md_file_path (str): The path to the Markdown file.
@@ -56,10 +59,11 @@ def replace_url_to_main(md_file_path: str):
     """
     with open(md_file_path, "r", encoding='utf-8') as f:
         content = f.read()
-    if re.search(r"https://github.com/wumin199/(.*)/raw/main", content) is None:
+    if re.search(r"https://github.com/wumin199/(.*)/raw/main/(.*\.(jpg|png|gif|bmp))",
+                 content) is None:
         return
-    new_content = re.sub(r"https://github.com/wumin199/(.*)/raw/main",
-                         r"https://github.com/wumin199/\1/blob/main", content)
+    new_content = re.sub(r"https://github.com/wumin199/(.*)/raw/main/(.*\.(jpg|png|gif|bmp))",
+                         r"https://github.com/wumin199/\1/blob/main/\2", content)
     with open(md_file_path, "w", encoding='utf-8') as f:
         f.write(new_content)
     print("update: {}".format(md_file_path))
@@ -69,3 +73,4 @@ if __name__ == "__main__":
     md_files = read_md_files()
     for md_file in md_files:
         replace_url_to_raw(md_file)
+        # replace_url_to_main(md_file)

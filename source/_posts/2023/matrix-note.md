@@ -38,17 +38,17 @@ widgets:
    - 对坐标系的“变换” or “拉扯”，坐标系中的图像也跟着“变换”或“拉扯”
    
    <div style="display: flex; justify-content: center; align-items: center;">
-   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/coordinate_transform.png" alt="" style="width:100%;">
+   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/coordinate_transform.png" alt="" style="width:100%;">
    <div style="width: 100%;"></div>
    </div>
 
-   [坐标变换.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/coordinate_transform.excalidraw)
+   [坐标变换.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/coordinate_transform.excalidraw)
 
 2. 齐次变换T含义
    - 齐次矩阵/齐次变换含义：表示先旋转再平移，而不是先平移再旋转
      - y=Ax+b；而不是y=A(x+b)
       <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/euclidian_trans.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/euclidian_trans.png" alt="" style="width:100%;">
       <div style="width: 100%;"></div>
       </div>
    - [notion: 仿射变换 4x4 Affine transformation 链式法则](https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#3760afb9e2264a2ba257d12ade122926)
@@ -64,23 +64,23 @@ widgets:
          - 旋转轴：右乘
    3. sxyz和rxyz
       <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rot_maxtix.png" alt="" style="width:100%;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx.png" alt="" style="width:100%;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx_summary.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/rot_maxtix.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/rxyz_szyx.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/rxyz_szyx_summary.png" alt="" style="width:100%;">
       </div>
 
       - [notion: 欧拉角与旋转](https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#3a51f6f96dc64e53894e47b084e6a008)
 
 4. 注册抓取/跟踪抓取
-   [注册抓取.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/register_pick.excalidraw)
+   [注册抓取.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/register_pick.excalidraw)
 
    1. 物体在哪里(vision捕捉)，就去哪里抓
    2. LeapMotion(跟踪抓取)：手势在哪里，机械臂就走到哪里
 5. 点动机器人；眼在手上和眼在手外标定
    
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/jog_abc.png" alt="点动机器人" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/camera_calib.png" alt="眼在手上和眼在手外标定" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/jog_abc.png" alt="点动机器人" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/camera_calib.png" alt="眼在手上和眼在手外标定" style="width:100%;">
     </div>
 
    - [notion:点动机器人](https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#5b28af54a9ce43b3b311ec580fcb5b6f)
@@ -96,7 +96,7 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 </div>
 </article>
 
-[特征值分解和椭圆.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/EVD_ellipse.excalidraw)
+[特征值分解和椭圆.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/EVD_ellipse.excalidraw)
 
 1. 距离：x^Tx，general版本都可以往距离上考虑：x^TQx，(x-μ)^TQ(x-μ)  -> 这里有二次型
    1. 一些变种：x^Ty, (x-μ)^T(Σ)^(-1)(x-μ)
@@ -134,7 +134,7 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 6. 矩阵正定性主要和二次型 有关系，即x^TAx，其中的x是多元向量，如x=(x1,x2,x3)。而这正好和优化问题产生关系，因为多元泰勒展开的二次项，即黑塞矩阵，就是二次型！ -> 这里有二次型
 7. 判断正定性的方法：
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵，注意特征值又和行列式有关系" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵，注意特征值又和行列式有关系" style="width:100%;">
     <div style="width: 100%;"></div>
     </div>
     第一点，如果不满秩，则特征值会有0的部分，则不是正定矩阵，最多半正定！
@@ -154,17 +154,17 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 1. 常见矩阵分解的使用场景
    
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_1.png" alt="" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_2.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/decomposition_1.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/decomposition_2.png" alt="" style="width:100%;">
    </div>
 
 2. <矩阵力量>中用到的会被进行矩阵分解的相关数据
    `P554` 介绍了本书中用到的会对其进行分解的矩阵，如X，Σ，G等
 
    <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/related_X.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/related_X.png" alt="" style="width:100%;">
       <div style="width:100%;"></div>
    </div>
 
@@ -175,7 +175,7 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
    - `<矩阵力量> P552` 谱分解、特征值分解和奇异值分解的关系
 
       <div style="display: flex; justify-content: center; align-items: center;">
-         <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/relation_decomposition.png" alt="" style="width:100%;">
+         <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/relation_decomposition.png" alt="" style="width:100%;">
          <div style="width:100%;"></div>
       </div>
    
@@ -197,9 +197,9 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 
 集合了投影，正定性等的综合结论
 
-[4个空间.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/4_spaces.excalidraw)(包含对XV和X^TU的理解，以及`<矩阵力量> P538`对X^TX和XX^T理解)
+[4个空间.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/4_spaces.excalidraw)(包含对XV和X^TU的理解，以及`<矩阵力量> P538`对X^TX和XX^T理解)
 
-[XV和XVV^T的理解.drawio](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/power-of-matrix.drawio)
+[XV和XVV^T的理解.drawio](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/power-of-matrix.drawio)
 
 
 
@@ -208,13 +208,13 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 1. 泰勒展开可以用于一元/多元函数的逼近，包括一次逼近(线性逼近)和二次逼近。
    
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png" alt="一元函数的泰勒展开" style="width: 100%; height: auto;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear_2.png" alt="从一元到二元的线性逼近" style="width: 100%; height: auto;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png" alt="一元函数的泰勒展开" style="width: 100%; height: auto;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/mv_linear_2.png" alt="从一元到二元的线性逼近" style="width: 100%; height: auto;">
     </div>
 
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear.png" alt="多元函数的线性逼近(一次逼近)" style="width: 100%; height: auto;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/second_order.png" alt="多元函数的二次逼近" style="width: 100%; height: auto;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/mv_linear.png" alt="多元函数的线性逼近(一次逼近)" style="width: 100%; height: auto;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/second_order.png" alt="多元函数的二次逼近" style="width: 100%; height: auto;">
     </div>
 
 
@@ -225,13 +225,13 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
    梯度向量（gradient vector） -- 上山方向
 
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png" alt="梯度定义" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png" alt="梯度向量--上山方向" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png" alt="梯度定义" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png" alt="梯度向量--上山方向" style="width:100%;">
    </div>
 
 
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/hessian_matrix.png" alt="黑塞矩阵" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/hessian_matrix.png" alt="黑塞矩阵" style="width:100%;">
     <div style="width: 100%;">黑塞矩阵，图片中的(19)指的是对f(x)=x^TQx记性对x求二阶偏导</div>
    </div>
 
@@ -243,14 +243,14 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
    - 1个点(是个向量)，往一个方向，如坐标轴x方向回归/拟合 -> 一元线性回归
 
       <div style="display: flex; justify-content: center; align-items: center;">
-        <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_4.png" alt="一元线性回归" style="width:100%;">
+        <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_4.png" alt="一元线性回归" style="width:100%;">
         <div style="width: 100%;">1个点的一元线性回归(二维)，hat(y)=bx，其中x,y都是向量！，x表示横坐标，如用向量(1,0)表示, y是空间一点，比如（4，5）, hat(y)表示y点往x正交投影的结果为hat(y), 如(4,0)。当然中间会有残差，就是y-hat(y)</div>
       </div>
 
    - 1个点(是个向量)，往多个方向，如x1方向(第一个方向),x2方向(第二个方向)回归/拟合 -> 多元线性回归
 
       <div style="display: flex; justify-content: center; align-items: center;">
-        <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_6.png" alt="多元线性回归" style="width:100%;">
+        <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_6.png" alt="多元线性回归" style="width:100%;">
         <div style="width: 100%;">是个三维空间，往二维平面投影。注意hat(y)=Xb，表示y往X各列span的空间投影，得到的线性组合是b</div>
       </div>
 
@@ -267,8 +267,8 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
       </article>
 
       <div style="display: flex; justify-content: center; align-items: center;">
-        <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_8.png" alt="多项式拟合" style="width:100%;">
-        <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_9.png" alt="采集到的其实是y，而不是hat(y)，两者之间其实有gap，就是残差。注意hat(y)=Xb的公式同上面，图片中最左边的是hat(y)]，就是[y1,y2,y3..]^T。注意这个公式和多元线性回归的图是一致的" style="width:100%;">
+        <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_8.png" alt="多项式拟合" style="width:100%;">
+        <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_9.png" alt="采集到的其实是y，而不是hat(y)，两者之间其实有gap，就是残差。注意hat(y)=Xb的公式同上面，图片中最左边的是hat(y)]，就是[y1,y2,y3..]^T。注意这个公式和多元线性回归的图是一致的" style="width:100%;">
       </div>
 5. 拉格朗日乘子法：拉格朗日乘子法就是一种能够把有约束优化问题转化成无约束优化问题的方法
 
@@ -278,14 +278,14 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 
 ## 方差/标准差/协方差
 
-[协方差.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/covariance.excalidraw)
+[协方差.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/covariance.excalidraw)
 
 1. 涉及到这些统计量的，都是有很多个样本。一个典型的数据矩阵X是[x1, x2, x3, ...] 或者 [x, y, z, ...]，其中x1/x2/x3或者x/y/z都是列向量，每一列都是一个特征的n个样本集合。比如x是150个样本的花瓣长列向量， y是150个样本的花瓣宽列向量
    
 
    <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
-      <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
    </div>
 
 2. 记住一个：统计学中x, y都是某个特征的n个样本集合：**相同特征都放到一个列向量中即可，每个特征都是由很多个样本组成的**

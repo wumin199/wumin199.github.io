@@ -51,7 +51,7 @@ widgets:
 - `VI页` 介绍了如何用python包 [streamlit](https://streamlit.io/)制作数学动画，并配套了
   - [Streamlit做数学动画、机器学习App](https://www.bilibili.com/video/BV1oV4y1E7GZ/?spm_id_from=333.999.0.0&vd_source=991bc0898d44d84ddbbb0469ce816e70)
   - [运动的椭圆---Streamlit做数学动画、机器学习APP](https://www.bilibili.com/video/BV1CT411J7Ey/?spm_id_from=333.999.0.0&vd_source=991bc0898d44d84ddbbb0469ce816e70)
-  - [圆周率 0~9 出现频率---Streamlit做数学动画、机器学习APP ](https://www.bilibili.com/video/BV1nd4y1D7f7/?spm_id_from=333.999.0.0&vd_source=991bc0898d44d84ddbbb0469ce816e70)
+  - [圆周率 0~9 出现频率---Streamlit做数学动画、机器学习APP](https://www.bilibili.com/video/BV1nd4y1D7f7/?spm_id_from=333.999.0.0&vd_source=991bc0898d44d84ddbbb0469ce816e70)
 - 纸质书有一些错误，可以参考开源的pdf
 
   - 参考
@@ -63,26 +63,26 @@ widgets:
 ### 不止向量
 
 - `P8` 基本概念：花萼长度（sepal length）、花萼宽度（sepal width）、花瓣长度（petal length）、花瓣宽度（petal width），以及最重要的本书的鸢尾花数据矩阵X，并给出了数据矩阵列向量和行向量的符号表示
-  ![鸢尾花数据矩阵X](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png)
-  ![行向量，用上标；列向量，用下标](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png)
+  ![鸢尾花数据矩阵X](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/IrisDataSet.png)
+  ![行向量，用上标；列向量，用下标](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/X_notation.png)
 - `P12` 正交是线性代数的概念，是垂直的推广
 - `P15` 成对特征散点图的纵坐标画错了，纵坐标从低到高应该是P、P、S、S。这幅图的详细介绍可以看《数学要素》P420。成对特征散点图可以用来可视化4个特征的数据集（花萼长度、花萼宽度、花瓣长度、花瓣宽度）。对角线的4幅图叫概率密度估计曲线。作者将在《统计至简》中讲述概率密度估计。
 - `P16` 将数据云的质心平移到原点，这个过程叫去均值化过程
 - `P17` 代数视角：矩阵乘法代表线性映射，具体参考[Typst: power-of-matrix](https://typst.app/project/pIVVvBW-Q4xUWGthZc6PjN)
 - `P17` 几何视角：矩阵完成的是线性变换，平面是由矩阵各列的base（基底）张成的
-  ![可以利用这个变化，将单位圆转换为椭圆](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-linear-transformation.png)
+  ![可以利用这个变化，将单位圆转换为椭圆](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-linear-transformation.png)
 - `P18` 利用矩阵A，可以将单位圆转化为旋转椭圆，要了解椭圆的信息，需要用到特征值分解。需要注意的是，鸢尾花数据矩阵不能完成特征值分解，但是格拉姆矩阵（对称矩阵）可以完成特征值分解
 - `P18` 不同于特征值分解，不管形状如何，任何实数矩阵都可以完成奇异值分解（SVD）
 - `P20` 多个特征之间的关系，如花萼长度、花萼宽度、花瓣长度、花瓣宽度，可以使用格拉姆矩阵（方阵）、协方差矩阵、相关性系数矩阵等矩阵来描述。而某个特征内部，可以用均值、均方差、概率密度估计进行表征。
 - `P21` 总结了鸢尾花数据矩阵X（nx4）衍生出的各种矩阵，并在后续章节中介绍
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-derived-matrix.png)  
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-derived-matrix.png)  
 
 ---
 
 ### 向量运算
 
 - `P24` 向量运算汇总
-  ![向量运算汇总](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-vector-calculations.jpg)
+  ![向量运算汇总](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-vector-calculations.jpg)
 - `P26` 使用`pylot.quiver()`绘制矢量箭头图
   `plt.quiver(X, Y, U, V, angles='xy', scale_units='xy')` 中，
   X 和 Y：箭头的起始位置坐标，可以是数组、列表或网格。
@@ -91,10 +91,10 @@ widgets:
   本书中，我们会使用向量场来描述函数在一系列排列整齐点的梯度向量。
   梯度下降方向 -- 下山方向
   梯度向量（gradient vector） -- 上山方向
-  ![梯度定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png)
-  ![梯度向量--上山方向](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png)
+  ![梯度定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png)
+  ![梯度向量--上山方向](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png)
 - `P28` 观察数据矩阵的两个视角
-  ![行列向量](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-matrix-view.png)
+  ![行列向量](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-matrix-view.png)
   - `P28` 用numpy构造行向量，`numpy的array默认是行向量`，测试可以看[github: wm-test-case](https://github.com/wumin199/wm-test-case)，下同
   - `P29` 数据分析偏爱用行向量表达样本点，`本书默认的向量指列向量`
   - `P30` 用numpy构造列向量
@@ -103,12 +103,12 @@ widgets:
   - `P32` 函数np.linalg.norm默认计算L^2范数
   - `P33` python中绘制等高线
 - `P35` 理解向量a-b
-  ![向量减法](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-vector-subtraction.png)
+  ![向量减法](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-vector-subtraction.png)
 - `P37` 向量内积(dot product/inner product)：结果为标量
   - 向量内积 (inner product)，又叫标量积 (scalar product)、点积 (dot product)、点乘
   - 定义、公式（符号）、常见公式
-    ![内积公式](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-inner-product.png)
-    ![常见内积案例](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-cases.png)
+    ![内积公式](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-inner-product.png)
+    ![常见内积案例](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-cases.png)
   - `P38` python的内积
     - np.inner(a,b)
     - np.dot(m1,m2) -> 矩阵乘积
@@ -118,16 +118,16 @@ widgets:
     - np.vdot(a,b) 或这 np.vdot(m1,m2)  -> 都是向量内积，会把矩阵转换为向量。
   - `P39` 几何意义
     - 从几何角度看，向量内积相当于两个向量的模 (L^2 范数) 与它们之间夹角余弦值三者之积
-      ![内积几何定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-geometric-perspective-2.png)
-      ![内积几何意义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-geometric-perspective.png)
+      ![内积几何定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-geometric-perspective-2.png)
+      ![内积几何意义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-inner-product-geometric-perspective.png)
   - `P39` 柯西-施瓦茨不等式的推导，核心推导公式是(2.42)
-    ![内积取值范围](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-cauchy-derivation.png)
+    ![内积取值范围](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-cauchy-derivation.png)
   - `P42` 两点之间的欧式距离
   - `P42` 向量内积无处不在，比如：样本方差公式、样本协方差公式
-    ![样本X的方差、协方差。这里的n是样本点个数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_1.png)
-    ![样本X的方差、协方差。这里的n是样本点个数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_2.png)
-    ![样本X的方差、协方差。这里的n是样本点个数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_2.png)
-    ![广播原则](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/numpy_broadcast.png)
+    ![样本X的方差、协方差。这里的n是样本点个数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_1.png)
+    ![样本X的方差、协方差。这里的n是样本点个数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_2.png)
+    ![样本X的方差、协方差。这里的n是样本点个数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/inner_product_in_stats_2.png)
+    ![广播原则](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/numpy_broadcast.png)
 
 
 - 向量夹角：反余弦
@@ -155,8 +155,8 @@ widgets:
   - `P51` 向量的矩阵表达法
   - `P53` 几何视角：2个向量张起空间，新的空间中的行列和2个向量之间有相似性
     - a ⊗ b 的秩为1； a ⊗ a 为对称阵
-    ![张量积的几何视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-tensor-product.png)
-    ![张量积](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch02/Ch02-tensor-product-2.png)
+    ![张量积的几何视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-tensor-product.png)
+    ![张量积](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch02/Ch02-tensor-product-2.png)
   - `P53` python实现
     - np.outer
   - `P54` 2个离散随机变量的联合概率，可以看成是张量积
@@ -169,23 +169,23 @@ widgets:
 
 - overview
   ``P58``
-  ![向量范数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-overview.png)
+  ![向量范数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-overview.png)
 - L^p范数
   - ``P58``，p>=1时才是范数，L^p范数非负，代表距离，是一种“向量”->"标量"的运算
   - ``P60``，对同一个向量，Lp范数随p增大而减小，Lp范数丈量一个向量的“大小”。p取值不同时，丈量的方式略有差别。在数据科学、机器学习算法中，Lp范数扮演重要角色，比如距离度量、正则化(regularization)
 - L^p范数和超椭圆的联系
   - 等高线的含义是：z = f(x,y)，是个三维图，然后投影到取不同的z值，投影到x,y平面中
     ``P62``
-    ![Lp等高线](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-contour.png)
+    ![Lp等高线](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-contour.png)
   - ``P63`` p>=1时， Lp范数具有次可加性
   - ``P63`` 代码中给出了用plotly绘制2维/3维可缩放图的方法，并且在streamlit中用到了可折叠的方法(expander)
 - 常见距离汇总
   - ``P72`` python实现各类距离，使用plotly，在一张图中绘制等高线和散点图
-    ![常见距离](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-distance.png)
+    ![常见距离](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-distance.png)
 - 高斯核函数：从距离到亲进度
   - ``P73`` 在很多应用场合，我们需要把“距离”转化为“亲近度”，就好比上一章余弦距离和余弦相似度之间的关系。为了把距离||p−x||_q转化成亲近度，我们需要借助复合函数这个工具。本系列丛书《数学要素》一册介绍过高斯函数(Gaussian function)
-  ![高斯核函数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-Gausian.png)
-  ![e^(-x)](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-e-x.png)
+  ![高斯核函数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-Gausian.png)
+  ![e^(-x)](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-e-x.png)
 
 ---
 
@@ -197,7 +197,7 @@ widgets:
   - ``P83`` 对角矩阵也可以是长方形矩阵， 这在SVD分解中有用到
   - ``P84`` 如果矩阵A为可逆矩阵(invertible matrix, non-singularmatrix)，A可以通过LU分解变成一个下三角矩阵L与一个上三角矩阵U的乘积
   - ``P84`` 计算时，长方形矩阵的形状并不“友好”。比如，很多矩阵分解都是针对方阵。可以将长方形矩阵转换为方阵（格拉姆矩阵）
-    ![格拉姆矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-gram-matrix.png)
+    ![格拉姆矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-gram-matrix.png)
   - ``P84`` 处理长方形矩阵有一个利器，这就是奇异值分解(SVD)
 - 矩阵乘法
   - ``P88`` 矩阵两大主要功能：1)表格；2) 线性映射。线性映射就体现在矩阵乘法中。比如Ax= b完成→xb的线性映射；反之，如果A可逆，A−1完成→bx的线性映射。
@@ -214,7 +214,7 @@ widgets:
   - ``P93`` 列向量和自身的张量积，是对称矩阵
   - ``P93`` 列出了矩阵转置的一些性质，和内积的一些关系
     - <span id="ch04_transpose">向量内积的矩阵表示法，以及矩阵平方和</span>
-      ![转置](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch03/Ch03-transpose.png)
+      ![转置](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch03/Ch03-transpose.png)
 - 逆矩阵：相当于除法运算
   - ``P94`` 矩阵可逆(invertible) 也称非奇异(non-singular)；否则就称矩阵不可逆(non-invertible)，或称奇异(singular)
   - ``P94`` 矩阵求逆“相当于”除法运算，但是两者有本质上的区别。矩阵的逆本质上还是矩阵乘法。
@@ -247,7 +247,7 @@ widgets:
     - 如果可以对角化，则对角化方法为：**特征值分解**，而且前后方阵的trace一样
   - [线性代数为什么要研究行列式？](https://www.zhihu.com/question/615552517/answer/3151269382)
     矩阵的行列式与矩阵的关系类似向量的模长与向量的关系。模长是向量的某种几何尺度，是向量非零端与零点之间的距离，而矩阵的行列式也是由矩阵的列向量们围成的几何体的“体积”
-    ![线性代数为什么要研究行列式？](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch04/ch04-determinant.png)
+    ![线性代数为什么要研究行列式？](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch04/ch04-determinant.png)
 
 ---
 
@@ -255,49 +255,49 @@ widgets:
 
 - overview
   - ``106``
-    ![矩阵乘法](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/overview.png)
+    ![矩阵乘法](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/overview.png)
 - <span id="ch05_vector_vector">向量和向量</span>
   - ``P107`` 向量·向量的几何含义是向量内积，`向量内积的运算中间有点，矩阵相乘中间没有点`, 同[矩阵转置](#ch04_transpose)
-    ![向量内积的矩阵乘法表示](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/vector_in_matrix.png)
+    ![向量内积的矩阵乘法表示](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/vector_in_matrix.png)
   - ``P108`` 全1列向量具有复制功能：全1列向量1乘行向量a，相当于对行向量a进行复制、向下叠放。列向量b乘全1列向量1转置，相当于对列向量b复制、左右排列
   - ``P109`` 全1对列向量x元素求和；向量x·向量x，可以求元素平方和。这在统计学的方差、协方差中有用到
-    ![向量元素和](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/vector_mean.png)
-    ![向量元素平方和](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/vector_variance.png)
+    ![向量元素和](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/vector_mean.png)
+    ![向量元素平方和](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/vector_variance.png)
   - ``P110`` 向量相乘（·） -- 内积（<>） -- 矩阵相乘(没有点或者是@) -- 范数 -- 标量
     提醒大家注意，但凡遇到矩阵乘积结果为标量的情况，请考虑是否能从“距离”角度理解这个矩阵乘积
-    ![向量相乘](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/vector_inner_matrix.png)
+    ![向量相乘](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/vector_inner_matrix.png)
   - ``P111`` 向量的张量积也可以写成矩阵形式
-    ![向量的张量积](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/vector_tensor.png)
+    ![向量的张量积](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/vector_tensor.png)
 - 全1列向量在求和方面的用途
   - ``P112`` 全1矩阵具有复制的功能：可以用于求数据矩阵的行元素的和、列元素的和、所有元素的和
-    ![每列元素求和](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/sum_in_column.png)
-    ![每行元素求和](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/sum_in_row.png)
-    ![所有元素求和](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/sum_in_matrix_all.png)
-    ![应用：去均值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/one_vector_mean.png)
-    ![应用：成绩分布、成绩变化趋势](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/application_in_sum.png)
+    ![每列元素求和](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/sum_in_column.png)
+    ![每行元素求和](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/sum_in_row.png)
+    ![所有元素求和](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/sum_in_matrix_all.png)
+    ![应用：去均值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/one_vector_mean.png)
+    ![应用：成绩分布、成绩变化趋势](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/application_in_sum.png)
   - ``P114`` 张量积1⊗1是个n×n方阵，矩阵的元素都是1
 - 矩阵乘向量：线性方程组
   - ``P117`` 解的个数:若线性方程组有唯一一组解，矩阵A可逆；如果A^TA可逆，则可以用广义逆或伪逆来求解；如果A^TA非满秩，则A^TA不可逆，这种情况需要用摩尔-彭若斯广义逆(Moore–Penrose inverse)。函数numpy.linalg.pinv() 计算摩尔-彭若斯广义逆。这个函数用的实际上是奇异值分解获得的摩尔-彭若斯广义逆。
-    ![广义逆、伪逆](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/pseudoinverse.png)
+    ![广义逆、伪逆](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/pseudoinverse.png)
   - ``P117`` 从向量、几何、空间、数据等视角理解Ax= b。
     - ``P118`` A的列向量的线性组合系数x构成线性组合
     - ``P118`` 其中如果x和b在同一个空间，没有降维，则成为线性映射
     - ``P119`` 几何变换：x经过各类线性变换（缩放/平移/旋转/...）后变成b
-      ![旋转矩阵1和矩阵乘向量理解1](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/geo_view.png)
-      ![旋转矩阵1和矩阵乘向量理解2](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/geo_view2.png)
+      ![旋转矩阵1和矩阵乘向量理解1](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/geo_view.png)
+      ![旋转矩阵1和矩阵乘向量理解2](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/geo_view2.png)
     - ``P119`` 向量模：x^TA^TAx这种矩阵乘法的结果为非负标量，其中A^TA叫做A的格拉姆矩阵。x^TA^TAx就是下一节要介绍的二次型
 - 向量乘矩阵乘向量：二次型 x^TQx = q，其中Q为对称矩阵
-  ![二次型，Q是对称矩阵， 单项式变量的最高次数是2，这就是x^TQx被成为二次型的原因](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/quadratic_form.png)
+  ![二次型，Q是对称矩阵， 单项式变量的最高次数是2，这就是x^TQx被成为二次型的原因](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/quadratic_form.png)
   - y=f(x) -> 一元函数
   - z=f(x,y) 或 y=f(x1,x2) -> 二元函数
-  ![二次型和二元函数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/quadratic_form_curve.png)
+  ![二次型和二元函数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/quadratic_form_curve.png)
   - 三个方阵连乘
     - ``P122`` V^TΣV, V和Σ都是D×D方阵，上式结果也是D×D方阵。特别地，实际应用中V多为正交矩阵。矩阵(i,j)元素v_i^TΣv_j便是一个二次型，viTΣvj对应的运算示意图如图21所示。这说明，上式包含了D×D个二次型。
 - 方阵乘方阵：矩阵分解
 - 对角阵：批量缩放
   - ``P124`` 左乘、右乘、行乘、列乘、左右都乘
-    ![Λ的对角线元素相当于缩放系数，分别对矩阵X的每一列数值进行不同比例缩放。如果缩放系数都是1，且对角阵的每列顺序有交换则就起到置换矩阵交换每列的作用](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/dia_matrix.png)
-    ![Λ的对角线元素分别对矩阵X 的每一行数值进行批量缩放。如果缩放系数为1，且对角镇的每行顺序发生交换，则起到置换矩阵交换每行的作用](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/dia_matrix_2.png)
+    ![Λ的对角线元素相当于缩放系数，分别对矩阵X的每一列数值进行不同比例缩放。如果缩放系数都是1，且对角阵的每列顺序有交换则就起到置换矩阵交换每列的作用](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/dia_matrix.png)
+    ![Λ的对角线元素分别对矩阵X 的每一行数值进行批量缩放。如果缩放系数为1，且对角镇的每行顺序发生交换，则起到置换矩阵交换每行的作用](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/dia_matrix_2.png)
     以上对Permutation矩阵也是一样的道理。口诀：单行矩阵@单列矩阵=数，多行矩阵@单列矩阵=单列矩阵，多行矩阵@多列矩阵=多行多列矩阵
   - ``P126`` 特殊的二次型，只有x_1^2项目，没有x1*x2项
 - 置换矩阵：调换元素顺序
@@ -307,28 +307,28 @@ widgets:
 - 矩阵乘向量：映射到一维
   这里的矩阵在左边，是样本点数据矩阵
   视角：矩阵各列的线性组合 -> 一维
-  ![矩阵乘向量的理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/matrix_vector.png)
+  ![矩阵乘向量的理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/matrix_vector.png)
   - `P129` 以鸢尾花数据为例理解矩阵乘向量
 - 矩阵乘矩阵：映射到多维
   这个案例中，样本点矩阵在左边，右边的矩阵是方向矩阵（或者叫新的坐标系的各个坐标轴。方向矩阵还是以列为基础表示坐标，和数据矩阵是用行还是列表示无关）
-  ![样本点矩阵乘矩阵：2个方向映射的理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/matrix_matrix.png)
-  ![样本点矩阵乘新矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/matrix_matrix_many.png)
+  ![样本点矩阵乘矩阵：2个方向映射的理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/matrix_matrix.png)
+  ![样本点矩阵乘新矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/matrix_matrix_many.png)
   理解：每一行是一个样本，变换后的每一行是一个样本在新的坐标系下的坐标值。原来是一行代表一个点，现在也是一行代表一个点。但是方向矩阵/旋转矩阵依然是以列来衡量的
-  ![一个样本点，可以写成列形式或行形式](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/matrix_matrix_vector.png)
+  ![一个样本点，可以写成列形式或行形式](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/matrix_matrix_vector.png)
   - `P132` 约定俗成，各种线性代数工具定义偏好列向量；但是，在实际应用中，更常用行向量代表数据点。两者之间的桥梁就是——转置。
   **如果样本点的矩阵是：一个行向量代表一个样本点，则一般是XM=Z，这里X和Z都是行向量代表一个点。但是线性代数中的工具样本点一般每一列代表一个样本点，则MX=Z，X和Z都一个列向量代表一个样本点！！**
 - 长方阵：奇异值分解、格拉姆矩阵、张量积
   - `P133` 格拉姆矩阵G=X^TX,其对角线元素含有L^2范数信息；每个元素也可以从向量内积角度考虑
   - `P133` 格拉姆矩阵之所以重要，一方面是因为它集成了向量长度(L2范数)和相对夹角(夹角余弦值)两部分重要信息。另一方面，格拉姆矩阵G为对称矩阵。一般情况，数据矩阵X都是“细高”长方形矩阵，矩阵运算时这种形状不够友好。比如，细高的X显然不存在转置。而把X转化为方阵G(=XTX)之后，很多运算都变得更加容易
   - `P136` 矩阵元素平方和，理解连续2个求和符号：相当于程序中的连续2个for循环
-    ![求和符号](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/sum_in_matrix.png)
+    ![求和符号](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/sum_in_matrix.png)
   - `P136` 一个矩阵的所有元素平方和、再开方叫做矩阵F-范数
 - 爱因斯坦求和约定
   - `P136` Python中Xarray专门用来存储和运算高阶矩阵
 - 矩阵乘法的几个雷区
   - `P139` A(B-C)=O，不能直接得出B= C，这是因为矩阵A不一定可逆
   - `P139` 求逆和转置的顺序
-    ![求逆和转置的顺序](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/sequence_in_inv_trans.png)
+    ![求逆和转置的顺序](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/sequence_in_inv_trans.png)
   - `P139` 逆矩阵和转置矩阵中带乘法和标量的情况；如果分子、分母上都出现同一个矩阵，绝不能消去
 
 ---
@@ -339,9 +339,9 @@ widgets:
   - `P147` 分块矩阵的转置有2层
 - 矩阵乘法的2个视角
   - `P149～P150` 标量积展开 和 外积(张量积)展开
-    ![第一视角：标量积展开](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch06/view1.png)
-    ![第一视角：标量积展开](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch06/view2.png)
-    ![第二视角：外积(张量积)展开](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch06/view3.png)
+    ![第一视角：标量积展开](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch06/view1.png)
+    ![第一视角：标量积展开](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch06/view2.png)
+    ![第二视角：外积(张量积)展开](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch06/view3.png)
   - 展开的意思是：一个值是由很多个值叠加起来的
   - 它这里的外积，是指有多个：列矩阵和行矩阵乘法运算后得到的矩阵的叠加
     - 外积展开的思路：将A看成一系列的列向量，B看成一系列的行向量，之后就是这些列和行各自的外积/张量积的展开
@@ -349,8 +349,8 @@ widgets:
     - `P153` 还给出了矩阵运算的可视化图来帮助理解
     - 这个思路对于特征值分解(Eigen Decomposition)、奇异值分解(Singular Value Decomposition, SVD)、主成分分析(Principal Component Analysis, PCA) 非常重要。
     - 学好特征值分解、奇异值分解的关键就是“多视角”——数据视角、向量视角、几何视角、空间视角、统计视角等等。
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch06/matrix_in_tensor.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch06/matrxi_in_tensor_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch06/matrix_in_tensor.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch06/matrxi_in_tensor_2.png)
 - 矩阵乘法更多视角：分块多样化
   `P154` C=AB，分块完，都可以化为以上2个视角来理解！
   - B切成列向量：相当于每个列向量是个样本，A的各列相当于坐标系
@@ -371,22 +371,22 @@ widgets:
   - `P168` v1、v2...vD所有线性组合的集合称作v1、v2...vD的张成(span)，记做span(v1,v2...vD)  -> 展成一个空间
     相关：你的条件有多余的，有些是做了重复的工作，有冗余量
     无关：每个都是独立的，有贡献的，不能完全被其他表示出来的
-    ![线性相关和线性无关](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/linearly-independant.png)
+    ![线性相关和线性无关](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/linearly-independant.png)
   - `P169` 一个矩阵X的列秩(columnrank) 是X的线性无关的列向量数量最大值。类似地，行秩(row rank) 是X的线性无关的行向量数量最大值.
   - `P169` 极大线性无关组的元素数量r为V={x1, x2, ...,xD}的秩，也称为V的维数或维度。 r <=D
-    ![rank(X)的秩和span(X)的空间](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/span_rank.png)
+    ![rank(X)的秩和span(X)的空间](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/span_rank.png)
   - `P169` 矩阵的列秩和行秩总是相等的，因此就叫它们为矩阵X的秩(rank)，记做rank(X)。rank(X)小于等于min(D, n)
   - `P169` 当rank(X)的秩取不同值时，span(X) 所代表的空间: 1维/2维/3维/...
     - 特别地，若矩阵X的列数为D，当rank(X) = D时，矩阵X列满秩，列向量x1, x2, ...,xD线性无关。
   - `P170` 秩的性质：乘法中/转置矩阵中的秩
   - `P170` 一个向量空间V的基底向量(basis vector)指V中线性无关的v1、v2 ... vD，它们张成(span) 向量空间V，即V= span(v1,v2,...,vD)
   - `P170` 向量空间的维数(dimension) 是基底中基底向量的个数，本书采用的维数记号为dim()
-    ![维度为2的向量空间](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/dim_2.png)
+    ![维度为2的向量空间](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/dim_2.png)
   - `P172` “过原点”这一点对于向量空间极为重要。向量空间平移后得到的空间叫做仿射空间(affinespace)，几何变换中点仿射变换涉及这一点
   - `P173` 基底中基底向量若两两正交，该基底叫正交基(orthogonal basis)。如果正交基中每个基底向量的模都为1，则称该基底为规范正交基(orthonormal basis)。更特殊的是，[e1, e2]叫做平面2的标准正交基(standard orthonormal basis)，或称标准基(standardbasis)。“标准”这个字眼给了[e1, e2]，是因为用这个基底表示平面2最为自然。[e1, e2]也是平面直角坐标系最普遍的参考系。
   - `P174` 基底转换(change of basis)完成不同基底之间变换，而标准正交基是常用的桥梁
-    ![坐标系和坐标值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/coordinate-values.png)
-    ![坐标系和坐标值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/matrix-basis.png)
+    ![坐标系和坐标值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/coordinate-values.png)
+    ![坐标系和坐标值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/matrix-basis.png)
 - 给向量空间涂颜色：RGB色卡
   - `P178` 强调一下，红、绿、蓝不是调色盘的涂料。RGB中，红、绿、蓝均匀调色得到白色；而在调色盘中，红、绿、蓝三色颜料均匀调色得到黑色
   - `P178` 在三原色模型这个空间中，任意一个颜色可以视作基底 [e1, e2, e3] 中三个基底向量构成线性组合。RGB三原色可以用10进制/8进制/16进制表示，每个颜色的10进制分量为0 ~ 255 之间整数
@@ -438,7 +438,7 @@ widgets:
 
 投影是个矢量，有大小（标量投影）和方向（向量投影）。大小就是影子的长度，方向就是规定的方向（用向量表示，方向都会用单位向量来衡量）。注意影子大小和规定方向的大小无关。但是整体来说就是大小*单位投影方向。
 
-![正交投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/projection_intuition.png)
+![正交投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/projection_intuition.png)
 
 
 可以往单一方向正交投影，这个单一方向可以构造出投影矩阵出来，这个投影矩阵可以作用到某个向量上完成这个方向的投影计算。
@@ -473,31 +473,31 @@ widgets:
 
 往多个方向投影，标量和方向向量都可以从1个方向上投影推广。帽子矩阵（多个方向的投影矩阵）也是从投影矩阵（一个方向）推广过来的。同时注意如果投影向量是单位正交向量，那么帽子矩阵具有简洁形式（投影矩阵也有简洁形式）。
 
-![summary_1：将x扩大到数据集X，如果v是单位向量，则Xv表示往v方向的投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_1.png)
-![summary_2：这里x是列向量。但在数据矩阵中x一般用行向量表示，所有后续拓展x到数据集X的时候是Xv](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_2.png)
-![summary_3。注意这里的Z=Xv中的X是行表示的数据集,v是单位向量，这样Xv才是X向v方向正交投影的投影公式。否则投影公式复杂一点，见后面。n个样本点(每个样本点一行)往单位v方向正交](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_3.png)
-![summary_4](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_4.png)
-![summary_5：b是投影矩阵的理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_5.png)
-![summary_6：往多个方向的正交投影 == 往各个方向的正交投影的线性组合](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_6.png)
-![summary_7](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_7.png)
-![summary_8](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_8.png)
-![summary_9：对个采样点y构成一个向量，这个向量有n个维度。这就将多个点转换为一个具有多个特征值的点](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_9.png)
-![summary_10:简化的前提是要求X的列向量两两正交且列向量都是单位向量，但不要求X是标准正交基，即X可以不是方阵，即X^TX=I，但XX^T不一定是I。如果X是方阵的话，那么可以进一步简化：hat(y) = XX^Ty=(x1⊗x1+x2⊗x2+...)y=Iy=y](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_10.png)
-![summary_11：往多个方向的正交投影 == 往各个方向的正交投影的线性组合](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_11.png)
+![summary_1：将x扩大到数据集X，如果v是单位向量，则Xv表示往v方向的投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_1.png)
+![summary_2：这里x是列向量。但在数据矩阵中x一般用行向量表示，所有后续拓展x到数据集X的时候是Xv](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_2.png)
+![summary_3。注意这里的Z=Xv中的X是行表示的数据集,v是单位向量，这样Xv才是X向v方向正交投影的投影公式。否则投影公式复杂一点，见后面。n个样本点(每个样本点一行)往单位v方向正交](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_3.png)
+![summary_4](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_4.png)
+![summary_5：b是投影矩阵的理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_5.png)
+![summary_6：往多个方向的正交投影 == 往各个方向的正交投影的线性组合](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_6.png)
+![summary_7](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_7.png)
+![summary_8](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_8.png)
+![summary_9：对个采样点y构成一个向量，这个向量有n个维度。这就将多个点转换为一个具有多个特征值的点](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_9.png)
+![summary_10:简化的前提是要求X的列向量两两正交且列向量都是单位向量，但不要求X是标准正交基，即X可以不是方阵，即X^TX=I，但XX^T不一定是I。如果X是方阵的话，那么可以进一步简化：hat(y) = XX^Ty=(x1⊗x1+x2⊗x2+...)y=Iy=y](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_10.png)
+![summary_11：往多个方向的正交投影 == 往各个方向的正交投影的线性组合](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/summary_11.png)
 
-![summary_12：理解Z=XV](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/general_projection.png)
+![summary_12：理解Z=XV](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/general_projection.png)
 
 
 - 标量投影：结果为标量
   - `P218` 标量投影公式，注意正交投影和向量内积不一样！！！，标量投影和方向向量的大小无关！！
-    ![标量投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/projection.png)
-    ![标量投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/projection_2.png)
+    ![标量投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/projection.png)
+    ![标量投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/projection_2.png)
 
   - 标量：坐标系的含义。往i轴的标量投影，就是i的坐标；往j轴的标量投影，就是j轴的坐标
 - 向量投影：结果为向量
   - `P218` 向量投影公式，包含推导点投影到切向量的公式
 
-    ![标量投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/vector_projection.png)
+    ![标量投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/vector_projection.png)
 
   - `P218/P219` 向量投影公式。向量x在v方向的投影公式，包括如果v是单位向量的公式和v不是单位向量的公式
     向量投影 = 标量投影 * 单位向量方向（注意是单位向量方向，方向都会被归一化）
@@ -509,8 +509,8 @@ widgets:
     - 列向量只能向列向量投影，一般意义上行向量不能向列向量投影。书里面的行向量(X)向列向量投影，是因为把行向量看成了列向量(或者说把X处理成左乘还是右乘来解决)，然后套用的还是列向量投影公式
     - 投影矩阵可以将 列向量x向**单位列向量v**的向量投影(内积x·v)v，变成矩阵运算 -> (v⊗v)x
     - `P222` 向量x 向v 方向(v方向表示特征方向，如花瓣长度方向，或者组合方向)投影，这可以视作x 向v 张起的向量空间span(v) 投影。v如果是个向量，span(v)就是沿着这条向量的向量空间
-    ![投影矩阵；注意v一直是列向量或者列矩阵或者多列矩阵。(22/23)和(25)区别是x是行还是列代表样本。标量投影Z=Xv，可以从行*列=值来理解 -> 向量投影Z=(Xv)v^T=X(v⊗v)；行向量X的投影可以从转置的角度理解；如果X是列向量代表一个样本点，则标量Z=v^TX,向量Z=(v^TX)v= v(v^TX)=(v⊗v)X](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/projection_matrix.png)
-    ![理解XVV^T](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/xvvt.png)
+    ![投影矩阵；注意v一直是列向量或者列矩阵或者多列矩阵。(22/23)和(25)区别是x是行还是列代表样本。标量投影Z=Xv，可以从行*列=值来理解 -> 向量投影Z=(Xv)v^T=X(v⊗v)；行向量X的投影可以从转置的角度理解；如果X是列向量代表一个样本点，则标量Z=v^TX,向量Z=(v^TX)v= v(v^TX)=(v⊗v)X](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/projection_matrix.png)
+    ![理解XVV^T](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/xvvt.png)
 - 正交矩阵：一个规范正交基
   - 正交矩阵的各列向量都是单位向量
   - `P222` 向量x 向一个列 v 方向投影，这可以视作x 向v 张起的向量空间span(v) 投影。同理，向量x 也可以向一个有序基构造的平面/超平面投影。这个有序基可以是正交基，可以是非正交基。数据科学和机器学习实践中，最常用的基底是**规范正交基**。正交矩阵的本身就是规范正交基。正交矩阵的每列向量都互相正交且都是单位向量，所以正交矩阵可以看成一些规范列正交基构成的矩阵，也就是张成的向量空间。
@@ -519,7 +519,7 @@ widgets:
   - `P223` 旋转矩阵，镜像矩阵，置换矩阵都是正交矩阵
   - `P224` G=V^TV 相当于正交矩阵V 的格拉姆矩阵，格拉姆矩阵包含原矩阵（的各个列向量）的所有向量模、向量两两夹角这两类信息
   - `P223` 正交矩阵乘法理解的第一视角：V^TV
-    ![正交矩阵乘法第一视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/orthogonal_view1.png)
+    ![正交矩阵乘法第一视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/orthogonal_view1.png)
   - `P225` 正交矩阵乘法理解的第二视角: VV^T
 
     VV^T = V^TV=I
@@ -544,20 +544,20 @@ widgets:
 
     投影向量还需要加一个方向： (XV)V^T, V^T是bxn，所以是nxb x (bxn)  = nxn. 之所以方向是V^T，是因为X是每行代表一个数据点。
 
-    ![理解XVV^T](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/xvvt.png)
+    ![理解XVV^T](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/xvvt.png)
 
-    ![正交矩阵乘法第二视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/orthogonal_view2.png)
-    ![正交矩阵乘法第二视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/orthogonal_view3.png)
-    ![正交矩阵乘法第二视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/orthogonal_view4.png)
-    ![正交矩阵乘法第二视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/orthogonal_view5.png)
+    ![正交矩阵乘法第二视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/orthogonal_view2.png)
+    ![正交矩阵乘法第二视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/orthogonal_view3.png)
+    ![正交矩阵乘法第二视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/orthogonal_view4.png)
+    ![正交矩阵乘法第二视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/orthogonal_view5.png)
 - 规范正交矩阵的性质
-  ![线性变换](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/understand_transform.png)
+  ![线性变换](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/understand_transform.png)
 
   `P227` 向量x经过正交矩阵V线性变换后，具有：1. 向量长度不变 2. 向量夹角不变
 
   `P227` 向量模的计算，学习下2个向量的运算:
 
-  ![向量模长](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/vector_dot_in_module.png)
+  ![向量模长](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/vector_dot_in_module.png)
 
   `P228` 正交矩阵的行列式为1或者-1，可以学到行列式运算的一些应用。（直接用到了行列式的一些性质）
 - 从投影角度看镜像：x关于对称轴(τ)的镜像得到z
@@ -581,12 +581,12 @@ widgets:
   `P237` 讲了多项式回归，通过列好设计矩阵X，也可以转换到帽子矩阵方法求系数矩阵b
   `P238` 如果有续基是正交基，那么帽子矩阵具有非常优雅的写法，也简洁说明了需要正交化的重要性
 
-  ![理解多元线性回归](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/regression.png)
-  ![理解多元线性回归](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula.png)
-  ![帽子矩阵类似投影矩阵，也可以通过帽子矩阵求得系数矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_2.png)
-  ![多项式回归的理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_3.png)
-  ![多项式回归](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_4.png)
-  ![正交矩阵的投影具有简洁的公式，和往一个单位方向投影的投影矩阵一样简洁](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_5.png)
+  ![理解多元线性回归](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/regression.png)
+  ![理解多元线性回归](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula.png)
+  ![帽子矩阵类似投影矩阵，也可以通过帽子矩阵求得系数矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_2.png)
+  ![多项式回归的理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_3.png)
+  ![多项式回归](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_4.png)
+  ![正交矩阵的投影具有简洁的公式，和往一个单位方向投影的投影矩阵一样简洁](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/linear_reg_in_formula_5.png)
 
 ---
 
@@ -601,9 +601,9 @@ widgets:
 
   `P242` 如果X为行向量代表数据点，V各列互相正交且是单位向量，则Z=XV表示X向V的各列有续基的标量投影，Z表示X在新的单位正交基下的坐标。需要记住这个结论，具体逻辑看上一章
 
-  ![Z的每一行的每个值，表示X在v1~vd下的投影坐标](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/Z%3DXV.png)
+  ![Z的每一行的每个值，表示X在v1~vd下的投影坐标](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/Z%3DXV.png)
 
-  ![从上一章延伸而来：从一般性投影到Z=XV](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/general_projection.png)
+  ![从上一章延伸而来：从一般性投影到Z=XV](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/general_projection.png)
 
 
 - 二特征数据投影：标准正交基[e1, e2]
@@ -612,29 +612,29 @@ widgets:
 
   XV表示标量投影和XVV^T表示向量投影，且恰好VV^T=I
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_h_1.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_h_2.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_h_3.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_h_4.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_v_1.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_in_v_2.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_combination_1.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_combination_2.png)
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/projection_combination_3.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_h_1.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_h_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_h_3.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_h_4.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_v_1.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_in_v_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_combination_1.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_combination_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/projection_combination_3.png)
 
 - 二特征数据投影：规范正交基和[e1, e2]类似，但旋转一定角度
   
   XV:表示往V方向的标量投影，XVV^T表示向量投影（在X原来的空间下的表示）
 
-  ![点A往v1,v2投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/proj_in_v1.png)
+  ![点A往v1,v2投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/proj_in_v1.png)
 
-  ![点A在v1方向的标量投影是5.33](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/proj_in_v1_2.png)
+  ![点A在v1方向的标量投影是5.33](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/proj_in_v1_2.png)
 
-  ![点A在v1方向的向量投影，在原来A的坐标系下的表示](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/proj_in_v1_3.png)
+  ![点A在v1方向的向量投影，在原来A的坐标系下的表示](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/proj_in_v1_3.png)
 
-  ![点A在v2方向的标量投影和向量投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/proj_in_v2.png)
+  ![点A在v2方向的标量投影和向量投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/proj_in_v2.png)
 
-  ![点A在v1/v2方向的向量投影，在A原来的坐标系下的表示， 还是等于点A](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch10/proj_in_all.png)
+  ![点A在v1/v2方向的向量投影，在A原来的坐标系下的表示， 还是等于点A](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch10/proj_in_all.png)
 
 - 数据正交化
   `P270` 原始数据X，其格拉姆矩阵G= X^TX，它不是一个对角阵。而经过V以后（V要求两两正交且是单位向量，但不一定要求V是方阵），即Z=XV后，Z的格拉姆矩阵Z^TZ=Λ就是个对角阵！不过这2个格拉姆矩阵的迹都是一样的。同时也要知道Z=XV以后，Z的列向量两两正交了！！
@@ -645,7 +645,7 @@ widgets:
 
 ### 矩阵分解
 
-![矩阵分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/matrix_decomposition.png)
+![矩阵分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/matrix_decomposition.png)
 
 - 矩阵分解：类似因式分解
   
@@ -659,7 +659,7 @@ widgets:
 
   `P280` scipy.linalg.lu()函数可以进行LU分解，默认进行的是PLU分解，即A=PLU，其中P是置换矩阵，作用是交换矩阵的行、列。注意所有的方阵都可以进行PLU 分解。
 
-  ![PLU分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/PLU.png)
+  ![PLU分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/PLU.png)
 
 
 - Cholesky分解：适用于正定矩阵
@@ -676,41 +676,41 @@ widgets:
 
   完全型QR分解： X_(nxd) = Q_(nxn)R_(nxd)，其中 Q是方阵且是正交矩阵（正交矩阵的含义是方阵，且列向量两两正交且列向量都是单位向量）。QR分解结果不唯一，但是，如果X 列满秩，且R 的对角元素为正实数的情况下QR 分解唯一。
 
-  ![完全型QR分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/complete_QR.png)
+  ![完全型QR分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/complete_QR.png)
 
-  ![缩略型QR分解。此时Q不是方阵，但各列两两正交](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/reduced_QR.png)
+  ![缩略型QR分解。此时Q不是方阵，但各列两两正交](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/reduced_QR.png)
 
-  ![P285 QR分解的几何意义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/understanding_QR.png)
+  ![P285 QR分解的几何意义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/understanding_QR.png)
 
 
 - 特征值分解：刻画矩阵映射的特征
   
   `P286` 特征值和特征向量的定义。不是所有方阵都可以进行特征值分解，只有可对角化矩阵才能进行特征值分解
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/eigen_decompsition.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/eigen_decompsition.png)
 
-  ![Ax=0，如果x不是零向量的话，则A的行列式比==0， 否则A就是各列线性无关，这种情况x必须是0](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/Ax_0.png)
+  ![Ax=0，如果x不是零向量的话，则A的行列式比==0， 否则A就是各列线性无关，这种情况x必须是0](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/Ax_0.png)
 
   对称矩阵 V^T = V^-1, 前提是逆矩阵存在
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/eigen_decomposition_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/eigen_decomposition_2.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/characteristic_equation.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/characteristic_equation.png)
 
-  ![普分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/spectral_decomposition.png)
+  ![普分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/spectral_decomposition.png)
 
-  ![对称矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/explain_symmetric_matrix.png)
+  ![对称矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/explain_symmetric_matrix.png)
 
-  ![特征值分解的几何视角](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/understanding_eigen_decomposition.png)
+  ![特征值分解的几何视角](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/understanding_eigen_decomposition.png)
 
 
 - 奇异值分解：适用于任何实数矩阵
   
   如果特征值分解是“大菜”，奇异值分解绝对就是矩阵分解中的“头牌”
 
-  ![svd定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/svd_definition.png)
+  ![svd定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/svd_definition.png)
 
-  ![svd和特征值的关系](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch11/characteristic_equation.png)
+  ![svd和特征值的关系](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch11/characteristic_equation.png)
 
   `P291` 给出了手算svd的一个容易理解的案例
 
@@ -726,7 +726,7 @@ widgets:
 
   `P297` 正定矩阵的定义，同时指出只有正定矩阵才能进行Cholesky分解。正定矩阵都是对称方阵，且特征值都>0，且必满秩(正定矩阵满秩，都是线性无关的各列)
   
-  ![正定矩阵定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch12/positive_define_matrix.png)
+  ![正定矩阵定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch12/positive_define_matrix.png)
 
   `P298` 给出了常见的正定型对应的几何图形
 
@@ -749,11 +749,11 @@ widgets:
   
   `P309~P312`鸢尾花数据集X=[x1, x2, x3, x4]，总共有4个特征，150个样本点（150行）。可以用X的格拉姆矩阵G=X^TX=4x4矩阵来表示x1,x2,x3,x4之间的关系。这里格拉姆矩阵是个4x4矩阵，包含4个向量两两长度和夹角余弦信息。对G矩阵再次进行Cholesky分解，可以得到更好更简洁的R矩阵(4x4)，包含信息等价于上面的格拉姆矩阵。
 
-  ![格拉姆矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch12/grammar_matrix.png)
+  ![格拉姆矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch12/grammar_matrix.png)
 
   `P311` 由于格拉姆矩阵含有向量长度信息，余弦相似度矩阵C只包含列向量的两两夹角cos信息。 相似度矩阵S和格拉姆矩阵的转换公式是: C= S^-1GS^-1
 
-  ![余弦相似度矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch12/cosine_similarity_matrix.png)
+  ![余弦相似度矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch12/cosine_similarity_matrix.png)
 
 ---
 
@@ -773,22 +773,22 @@ widgets:
 
 - 几何角度看特征值分解
   
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/transform_exam_1.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/transform_exam_1.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/transform_exam_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/transform_exam_2.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/transform_exam_3.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/transform_exam_3.png)
 
 
 - 旋转 -> 缩放 -> 旋转
   
   `P318-P320` 特殊的矩阵：对称方阵的特征值分解，即谱分解来理解其几何意义
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/roate_scale_rotate.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/roate_scale_rotate.png)
 
-  ![Aw=VΛV^-1w：对w先旋转V^-1在缩放Λ，再旋转V。图中的v1,v2是特征向量，所以结果这个过程后，方向一致，只是大小变量，其他单位圆上的向量方向都不一致。](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/roate_scale_rotate_2.png)
+  ![Aw=VΛV^-1w：对w先旋转V^-1在缩放Λ，再旋转V。图中的v1,v2是特征向量，所以结果这个过程后，方向一致，只是大小变量，其他单位圆上的向量方向都不一致。](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/roate_scale_rotate_2.png)
 
-  ![特征值分解各个分量的含义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/understandint_ev_meaning.png)
+  ![特征值分解各个分量的含义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/understandint_ev_meaning.png)
 
   `P288` 特征向量一般是单位向量，除非特殊说明
 
@@ -802,7 +802,7 @@ widgets:
 
   如果A可以对角化，则可以利用特征值分解，方便计算矩阵A的n次幂
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/diagonalizable.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/diagonalizable.png)
 
   `P324` 如果矩阵A不仅可对角化，而且是对称矩阵，则可以将特征值分解 A=VDV^-1写成 A=VDV^T -> 这就是谱分解
 
@@ -812,32 +812,32 @@ widgets:
     - 可以用于解释||y_i||_2 = ||Xv_i||_x = λ_i。
     - 这个可以用于最优化
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/spectral_decomposition.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/spectral_decomposition.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/spectral_decomposition_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/spectral_decomposition_2.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/spectral_decomposition_3.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/spectral_decomposition_3.png)
 
 
   `P325` 同时以格拉姆矩阵为例来说明谱分析（以格拉姆矩阵为对称矩阵进行的案例）
 
   `P326` 从几何视角来理解格拉姆矩阵（以格拉姆矩阵为对称矩阵的案例）的谱分析，来说明特征值大小对特征值分解的重要性
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/glammer_spec_decomposition.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/glammer_spec_decomposition.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/glammer_spec_decomposition_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/glammer_spec_decomposition_2.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/spec_decomposition_exam1.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/spec_decomposition_exam1.png)
 
-  ![案例：这里的X是数据矩阵, vj是X的格拉姆矩阵的特征值分解的V的各个特征向量。yj=Xvj，V各个列向量是相互垂直的。同时Xvj，把X分解开就是各个样本点, y1 = x1vj; y2 = x2vj ; ...](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/spectral_decomposition_4.png)
+  ![案例：这里的X是数据矩阵, vj是X的格拉姆矩阵的特征值分解的V的各个特征向量。yj=Xvj，V各个列向量是相互垂直的。同时Xvj，把X分解开就是各个样本点, y1 = x1vj; y2 = x2vj ; ...](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/spectral_decomposition_4.png)
 
 - 聊聊特征值
   
   `P328` 从几何角度来看，对角化实际上就是，平行四边形转化为矩形，或者，平行六面体转化为立方体的过程，这恰好和行列式联系起来。 作者这里用的是举例计算并推广的方法，从而得出 det(A)=det(Λ)。
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/dia_in_geo.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/dia_in_geo.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch13/dia_in_geo2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch13/dia_in_geo2.png)
 
 
   `P329` 列出了矩阵A的特征值的一些重要性质，如λA, A^n, A^-1的特征值和行列式的关系
@@ -855,7 +855,7 @@ widgets:
 
 `P334` 汇总了特征值分解的应用场景
 
-![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/ev_application.png)
+![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/ev_application.png)
 
 - 方阵开方
 
@@ -879,11 +879,11 @@ widgets:
   
   `P342` 瑞利商的定义
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/rayleigh_quotient.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/rayleigh_quotient.png)
 
   `P343` 后面用分母为1，即x_1^2 + x_2^2 = 1来举例，求瑞利商的最大值和最小值。
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/rayleigh_quotient_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/rayleigh_quotient_2.png)
 
 
 - 再谈椭圆：特征值分解
@@ -892,11 +892,11 @@ widgets:
 
   也可以把这个过程理解为先缩放-> 剪切的过程，这个正好对应LDL分解。最后的结论用图标表示如下：
 
-  ![这里的Λ以及V不是来自对称矩阵A的特征值分解，而是来自Q=(AA^T)^-1的特征值分解。书中也讲解了最后A对z的作用，即x=Az，相当于x=VΛ^(-1/2)z。这里没提到平移，平移是最后的。](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/tuoyuan_1.png)
+  ![这里的Λ以及V不是来自对称矩阵A的特征值分解，而是来自Q=(AA^T)^-1的特征值分解。书中也讲解了最后A对z的作用，即x=Az，相当于x=VΛ^(-1/2)z。这里没提到平移，平移是最后的。](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/tuoyuan_1.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/tuoyuan_2.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/tuoyuan_2.png)
 
-  ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch14/tuoyuan_3.png)
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch14/tuoyuan_3.png)
 
 ---
 
@@ -908,7 +908,7 @@ widgets:
 
   X = USV^T
 
-  ![奇异值定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch15/svd_definition.png)
+  ![奇异值定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch15/svd_definition.png)
 
   `P356` 任何实数矩阵都可以进行奇异值分解
 
@@ -925,7 +925,7 @@ widgets:
   `P361` 对方阵XX^T 进行特征值分解，可以发现U 的列向量是特征向量，而SS^T 是XX^T 的特征值矩阵
   `P362` XX^T 进行特征值分解得到正交矩阵U = [u1, u2, ..., un] 是个规范正交基，张起的空间为R^n。对完全型SVD分解，U和V都是正交矩阵，详见上面的定义。
 
-  ![奇异值定义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch15/svc_qr.png)
+  ![奇异值定义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch15/svc_qr.png)
 
 - 右奇异向量矩阵V
   
@@ -939,7 +939,7 @@ widgets:
   
   `P365` XV=US -> Xv_j= s_j * u_j -> X 向vj 投影，结果为s_j * u_j
 
-  ![PCA主成分分析](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch15/pca.png)
+  ![PCA主成分分析](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch15/pca.png)
 
   `P366` X可以看成是通过叠加还原原始数据矩阵，或者张量积的和
 
@@ -956,27 +956,27 @@ widgets:
 
 `P374` 截断型svd：近似
 
-![截断型svd](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/trunctated_svd.png)
+![截断型svd](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/trunctated_svd.png)
 
-![截断型svd](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/trunctated_svd_2.png)
+![截断型svd](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/trunctated_svd_2.png)
 
 `P375~P378` 经济型SVD 分解可以看成是一种张量积的和
 
-![svd的分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/thin_1.png)
+![svd的分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/thin_1.png)
 
-![svd中X的组成部分](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/thin_2.png)
+![svd中X的组成部分](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/thin_2.png)
 
-![svd的张量积](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/thin_3.png)
+![svd的张量积](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/thin_3.png)
 
-![svd的正交投影理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/thin_4.png)
+![svd的正交投影理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/thin_4.png)
 
 `P379~P381` 估计与误差：截断型SVD。把数据矩阵X 对应的热图看做一幅图像，本节介绍如何采用较少数据尽可能还原原始图像，并准确知道误差是多少，这也是主成分分析。同时有鸢尾花照片的PCA分析例子。
 
 `P382` 用SVD找到一个V，来理解Z=XV,即X->Z的过程是正交化的过程：Z各列两两正交
 
-![从SVD角度理解XV](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/orth_1.png)
+![从SVD角度理解XV](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/orth_1.png)
 
-![从SVD角度理解XV](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch16/orth_2.png)
+![从SVD角度理解XV](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch16/orth_2.png)
 
 ---
 
@@ -991,25 +991,25 @@ widgets:
   
   `P388` 一个多变量的函数的偏导数是函数关于其中一个变量的导数，而保持其他变量恒定。通俗地说，偏导数关注曲面某个特定方向上的变化率。换个角度，一元函数导数这个工具改造成偏导数后，可以用在多元函数上
 
-  ![P389~390 二元函数一阶偏导数的向量形式，也叫梯度向量(gradient vector)，在2个方向上的偏导数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/partial_derivative_vec_form.png)
+  ![P389~390 二元函数一阶偏导数的向量形式，也叫梯度向量(gradient vector)，在2个方向上的偏导数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/partial_derivative_vec_form.png)
 
   `P389~P391` 分别介绍一次多元函数(x1,x2项最高是一次方)，二次多元函数（最高项是二次方），以及二次型的(x^TQx)的矩阵形式的一阶偏导数有个总结，方便和Maxtrix Cookbook对照
 
   `P391~P392` 黑塞矩阵 (Hessian matrix) 是一个多元函数的二阶偏导数构成的方阵，黑塞矩阵描述了函数的局部曲率。本书后续会在优化问题中用到黑塞矩阵判断极值点
 
-  ![黑塞矩阵定义以及二阶偏导数顺序，以及二次型的黑塞矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/hessian_matrix.png)
+  ![黑塞矩阵定义以及二阶偏导数顺序，以及二次型的黑塞矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/hessian_matrix.png)
 
 - 梯度向量：上山方向
   
-  ![梯度向量：Nabla算子](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/gradient_vector_definition.png)
+  ![梯度向量：Nabla算子](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/gradient_vector_definition.png)
   
   `P393` 几何视角来看梯度向量，如图 2 所示，在坡面P 点处放置一个小球，轻轻松开手一瞬间，小球沿着坡面最陡峭方向 (绿色箭头) 滚下。瞬间滚动方向在平面上的投影方向便是梯度下降方向(direction of gradient descent)，也称“下山”方向。 数学中，下山方向的反方向即梯度向量方向，也称作“上山”方向。
   
   `P393` 梯度向量场的理解
 
-  ![梯度下降方向](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/gradient_descent.png)
+  ![梯度下降方向](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/gradient_descent.png)
 
-  ![梯度向量场](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/gradient_vector_field.png)
+  ![梯度向量场](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/gradient_vector_field.png)
 
   `P393~P395` 分别以一次函数、二次函数和复合函数的例子来解释梯度向量，来理解“局部”最大值和最小值。（局部最大值点附近，梯度向量均指向局部最大值点。局部最小值点附近，梯度向量均背离局部最小值点）
 
@@ -1019,9 +1019,9 @@ widgets:
   
   `P396` 给出了求法向量的公式，非常重要！重要视角：法向量向[x1, x2, x3...] 平面投影便得到f(x) 的梯度向量
 
-  ![法向量公式，之所以是-1，是因为▽F(x,y)是F对x求偏导，和对y求偏导](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/n_vector.png)
+  ![法向量公式，之所以是-1，是因为▽F(x,y)是F对x求偏导，和对y求偏导](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/n_vector.png)
 
-  ![梯度向量都是在自变量平面内](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/n_vector_2.png)
+  ![梯度向量都是在自变量平面内](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/n_vector_2.png)
 
   `P397` 还举例了不同的函数的法向量场以及在水平面上的投影，来说明最大最小值的梯度向量的特点
 
@@ -1029,17 +1029,17 @@ widgets:
   
   `P398` 光滑曲面 f(x1, x2) 某点的切线有无数条，而偏导数仅仅分析了其中两条切线的变化率，它们分别沿着x1 和x2 轴方向。方向性微分 (directional derivative)，它可以分析光滑曲面某点处不同方向切线的变化率
 
-  ![方向性微分](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/directional_derivative.png)
+  ![方向性微分](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/directional_derivative.png)
 
   `P398~402` 以曲面上的P点到Q点为例，如果根据P点近似得到Q点呢：可以用多元函数泰勒一阶展开来近似：在P点做一个切平面，然后沿着这个切平面移动△x1,△x2，就近似得到Q点
 
-  ![二元函数泰勒一阶展开](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/directional_derivative_2.png)
+  ![二元函数泰勒一阶展开](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/directional_derivative_2.png)
 
-  ![沿着x1,x2这个方向](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/directional_derivative_3.png)
+  ![沿着x1,x2这个方向](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/directional_derivative_3.png)
 
-  ![方向还是用单位向量来表示](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/directional_derivative_4.png)
+  ![方向还是用单位向量来表示](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/directional_derivative_4.png)
 
-  ![方向性微分和偏导数之间的关系：注意▽底下有个v](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/directional_derivative_5.png)
+  ![方向性微分和偏导数之间的关系：注意▽底下有个v](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/directional_derivative_5.png)
 
 
 - 泰勒展开：一元到多元
@@ -1048,24 +1048,24 @@ widgets:
   
   `P402` 回顾一元函数泰勒展开
 
-  ![一元函数泰勒展开](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png)
+  ![一元函数泰勒展开](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png)
 
   `P403` 多元函数的线性逼近，即一阶泰勒展开，并和一元函数的对比
 
-  ![多元函数的线性逼近(一次逼近)](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear.png)
+  ![多元函数的线性逼近(一次逼近)](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/mv_linear.png)
 
-  ![线性逼近](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear_2.png)
+  ![线性逼近](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/mv_linear_2.png)
 
 
   `P404` 给出了多元函数的二次逼近，即二阶泰勒展开，里面涉及到黑塞矩阵, 也部分涉及到正定性。注意二阶泰勒展开中的二次型是： 1/2(△x)^T* H* △x，这和黑塞矩阵的正定性有关联
 
-  ![多元函数的线性逼近(二次逼近)](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/second_order.png)
+  ![多元函数的线性逼近(二次逼近)](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/second_order.png)
 
   `P404~405` 利用法向量推导了二次曲线在某一点处的切平面公式并举例说明
 
-  ![二次曲面切平面](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/quad_curve_1.png)
+  ![二次曲面切平面](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/quad_curve_1.png)
 
-  ![二次曲面切平面](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/quad_curve_2.png)
+  ![二次曲面切平面](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch17/quad_curve_2.png)
 
 
 ### 拉格朗日乘子法
@@ -1077,7 +1077,7 @@ widgets:
   
   `P409` 一般情况下，标准优化问题都是最小化优化问题。最大化优化问题的目标函数取个负号便转化为最小化优化问题
 
-  ![含约束最小化优化问题](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/optimal_question.png)
+  ![含约束最小化优化问题](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/optimal_question.png)
 
 
 - 等式约束条件
@@ -1088,9 +1088,9 @@ widgets:
   
   根据该式求得的驻点(偏导数为零的点)x, 进一步判断驻点是极大值、极小值还是鞍点
 
-  ![理解拉格朗日乘子法：梯度一定是基于等高线的！](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/understanding_Lagrange_Multiplier.png)
+  ![理解拉格朗日乘子法：梯度一定是基于等高线的！](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/understanding_Lagrange_Multiplier.png)
 
-  ![理解拉格朗日乘子法](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/understanding_Lagrange_Multiplier_2.png)
+  ![理解拉格朗日乘子法](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/understanding_Lagrange_Multiplier_2.png)
 
 
 - 线性等式约束
@@ -1113,9 +1113,9 @@ widgets:
   
   `P420` 这一节介绍一些线性代数中会遇到的含约束优化问题。利用拉格朗日乘子法，它们最终都可以用特征值分解求解。包含二次型、瑞利商等的最优解。这回用到后面的矩阵范数中。
 
-  ![这个优化问题，会用到后面的矩阵范数中](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/SVD_in_opt.png)
+  ![这个优化问题，会用到后面的矩阵范数中](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/SVD_in_opt.png)
 
-  ![矩阵范数是max，这里是min。不过没关系，后面的svd中会讲到max/min对应最大特征值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/SVD_in_opt_2.png)
+  ![矩阵范数是max，这里是min。不过没关系，后面的svd中会讲到max/min对应最大特征值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/SVD_in_opt_2.png)
 
   特征值分解和奇异值分解有关系，特征值和奇异值是平方关系，特征值分解的分解矩阵也有关系，具体看SVD分解。
 
@@ -1125,15 +1125,15 @@ widgets:
   
   数据矩阵X 中任意行向量x(i) 在单位v向量 上投影，得到标量投影结果为y(i)。y(i) 就是x(i)在v 上坐标，h(i) 为x(i) 到v 的距离。整个数据矩阵X 在v 上投影得到向量y：Xv= y
 
-  ![一个样本点在某个方向的投影：这个方向必须是单位向量才是xv=y。(身高、体重、年龄)在(1/2身高、1体重、1年龄)方向上的投影：是个标量](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/SVD_in_opt.png)
+  ![一个样本点在某个方向的投影：这个方向必须是单位向量才是xv=y。(身高、体重、年龄)在(1/2身高、1体重、1年龄)方向上的投影：是个标量](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/SVD_in_opt.png)
 
-  ![数据矩阵X在v上的投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/SVD_in_opt_2.png)
+  ![数据矩阵X在v上的投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/SVD_in_opt_2.png)
 
   `P424` 在Xv=y中， 从优化问题角度，SVD 分解等价于最大化y(i) 平方和。其中X为数据矩阵，v为优化变量（只有一个方向）。
 
   `P424-425` 对一个数据矩阵X，SVD分解得到的V的含义是，X（所有样本点）往v1(V中的第一列，对应最大特征值λ1)投影等价于最大化投影结果y（||y1||==||Xv1||）的摸，且其值为开根号(λ1)。有了v1以后，再构造优化问题，求取X往v2投影的最大值: ||Xv2||=||y2||，满足条件是v1⊥v2且是单位向量。
 
-  ![特征值分解和SVD分解是有联系的，详细查看SVD分解那一章](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/understandint_ev_meaning.png)
+  ![特征值分解和SVD分解是有联系的，详细查看SVD分解那一章](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/understandint_ev_meaning.png)
 
   `P425` 数据矩阵X，其中心化数据矩阵表示为Xc。对中心化数据矩阵Xc进行SVD分解，会和协方差矩阵联系到一起。
 
@@ -1141,7 +1141,7 @@ widgets:
   
   `P426` 矩阵范数借鉴了向量范数。向量范数代表某种距离，矩阵A的范数，也需要向量x的参与计算
 
-  ![矩阵范数定义，这用到了上面提到的优化问题，只不过那边是min，这里是max，正好是对应最小/最大特征值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/matrix_norm.png)
+  ![矩阵范数定义，这用到了上面提到的优化问题，只不过那边是min，这里是max，正好是对应最小/最大特征值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/matrix_norm.png)
 
   `P428` 介绍了矩阵F范数。一些知识点：矩阵A 的所有元素平方和就是A 的格拉姆矩阵的迹。矩阵的迹等于其特征值之和。
 
@@ -1149,7 +1149,7 @@ widgets:
   
   `P428` 数据矩阵X(假设是150x2，150个样本点，2个特征)，可以往一个规范正交基V=[v1, v2]上投影，往v1方向标量投影得到y1=Xv1, 往v2方向标量投影得到y2=Xv2。y1是个150x1的列向量，y2也是如此。
 
-  ![数据正交投影](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/X_proj_in_x1_x2.png)
+  ![数据正交投影](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/X_proj_in_x1_x2.png)
 
   `P430` y1,y2向量有内积，夹角，余弦值可以用来衡量y1,y2之间的关系。y1和y2两个列向量随theta(v1和x轴夹角)而变换，即上述几个量值(内积、夹角、余弦值)会随着theta变换。有了变化，就会有最大值、最小值，这就进入了优化视角。
 
@@ -1157,48 +1157,48 @@ widgets:
 
   `P430` 统计视角，y1,y2本身有均值(E(y1), E(y2))，方差(var(y1),var(y2))，标准差(std(y1), std(y2))；而y1, y2之间也有协方差cov(y1,y2)，相关性系数corr(y1,y2)。上述所有这些统计量同样随着theta变换。
 
-  ![y1,y2的统计特征](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/y1_y2_character_vector.png)
+  ![y1,y2的统计特征](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/y1_y2_character_vector.png)
 
-  ![y1,y2的统计特征](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/cov_y1_y2.png)
+  ![y1,y2的统计特征](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/cov_y1_y2.png)
 
   `P432` 列出了y1,y2各个量化指标随正交投影的投影方向theta的变化图。其中一些曲线特点，用到了矩阵trace特性，也讲到如果V是来自特征值分解的一些曲线特征。
 
-  ![y1,y2的统计特征](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/understanding_y1_y2.png)
+  ![y1,y2的统计特征](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/understanding_y1_y2.png)
 
 
 - (补充<数学要素>)标准差：离散程度
   
   `P424` 标准差描述一组数值以均值 µ 为基准的分散程度
 
-  ![方差，最后取均值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/standard_d.png)
+  ![方差，最后取均值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/standard_d.png)
 
 
 - (补充<数学要素>)协方差：联合变化程度
   
   `P425-P427` 协方差 (covariance) 描述的是随机变量联合变化程度。白话讲，以花瓣长度和宽度数据关系为例，我们发现如果样本数据的花瓣长度越长，其花瓣宽度很大可能也越宽。这就是联合变化。而协方差以量化的方式来定量分析这种联合变化程度。备注：花瓣长度用的是一个列向量表示（一组随机变量）、花瓣宽度同理。协方差描述的就是这2组样本特征向量的联合变化关系。
 
-  ![协方差定义：是个平均值的概念。统计的时候是每朵花的2个特征和这2个特征的均值差做面积，然后再取平均值](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/covariance_definition.png)
+  ![协方差定义：是个平均值的概念。统计的时候是每朵花的2个特征和这2个特征的均值差做面积，然后再取平均值](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/covariance_definition.png)
 
-  ![协方差](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/understanding_covariance.png)
+  ![协方差](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/understanding_covariance.png)
 
-  ![协方差矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/covariance_matrix_1.png)
+  ![协方差矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/covariance_matrix_1.png)
 
-  ![协方差](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/covariance_matrix_2.png)
+  ![协方差](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/covariance_matrix_2.png)
 
 
 - (补充<数学要素>)线性相关系数：线性关系强弱
   
   `P429` 可以根据两个随机变量（随机变量特征1的样本向量，随机变量特征2的样本向量）的协方差，定义线性相关系数。线性相关系数也叫皮尔逊相关系数，它刻画随机变量线性关系的强度。线性相关系数相当于协方差归一化，归一化的线性相关系数比协方差更适合横向比较。
 
-  ![线性相关系数](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/linear_corr_coef_1.png)
+  ![线性相关系数](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/linear_corr_coef_1.png)
 
-  ![线性相关系数：几何含义](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/linear_corr_coef_2.png)
+  ![线性相关系数：几何含义](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/linear_corr_coef_2.png)
 
   `P430` 相关性系数构成的矩阵叫做相关性系数矩阵
 
-  ![相关性系数矩阵](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/correlation_matrix_1.png)
+  ![相关性系数矩阵](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/correlation_matrix_1.png)
 
-  ![相关性系数矩阵2](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch18/correlation_matrix_2.png)
+  ![相关性系数矩阵2](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch18/correlation_matrix_2.png)
 
 
 ---
@@ -1209,9 +1209,9 @@ widgets:
   
   `P439~P440` 切向量用τ表示，单位切向量用hat(τ)。切向量可以用来描述平面直线和三维空间直线等
 
-  ![切向量定义直线](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch19/line_in_plane.png)
+  ![切向量定义直线](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch19/line_in_plane.png)
 
-  ![切向量定义直线](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch19/line_in_3d_plane.png)
+  ![切向量定义直线](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch19/line_in_3d_plane.png)
 
 
 - 法向量：定义直线、平面、超平面
@@ -1231,14 +1231,14 @@ widgets:
   
   `P446` 超平面函数，即多元一次函数 f(x)=w^Tx+b的梯度向量正好是w，即超平面的法向量
 
-  ![平面与梯度向量](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch19/plane_grandient.png)
+  ![平面与梯度向量](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch19/plane_grandient.png)
 
 
 - 中垂线：用向量求解析式
   
   `P451` 利用向量求解中垂线的解析式
 
-  ![中垂线：向量减法的直观理解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch19/perpendicular_bisector.png)
+  ![中垂线：向量减法的直观理解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch19/perpendicular_bisector.png)
 
 - 用向量计算距离
   
@@ -1264,21 +1264,21 @@ widgets:
 
   `P462~P463` 给出了：单位圆通过“缩放+平移”，得到圆心位于c且半径为r的圆的图解。
 
-  ![z和x的变换关系，带动了原来的正圆到一般正圆的图形变换](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/z_x_relations_in_circle.png)
-  ![从单位圆到一般正圆：z1/z2是正圆在坐标系，x1/x2是一般正圆的坐标系, x1/x2和z1/z2有变换关系：z先等比例缩放再平移得到x](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/unit_circle_to_general_circle.png)
+  ![z和x的变换关系，带动了原来的正圆到一般正圆的图形变换](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/z_x_relations_in_circle.png)
+  ![从单位圆到一般正圆：z1/z2是正圆在坐标系，x1/x2是一般正圆的坐标系, x1/x2和z1/z2有变换关系：z先等比例缩放再平移得到x](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/unit_circle_to_general_circle.png)
 
 
 - 单位圆到旋转椭圆：缩放 -> 旋转 -> 平移
 
   `P463` 正圆坐标系z变换到椭圆坐标系x下的公式
 
-  ![z和x的变换关系，带动了原来的正圆到椭圆的图形变换: z->x的过程是缩放->旋转->平移的过程](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/axix_with_elippse.png)
+  ![z和x的变换关系，带动了原来的正圆到椭圆的图形变换: z->x的过程是缩放->旋转->平移的过程](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/axix_with_elippse.png)
 
-  ![从正圆到椭圆的变换：z是单位正圆，x是椭圆坐标系](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/transform_to_ellipse.png)
+  ![从正圆到椭圆的变换：z是单位正圆，x是椭圆坐标系](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/transform_to_ellipse.png)
 
   `P465` 椭圆x->单位正圆z的过程是：平移->旋转->缩放的过程
 
-  ![x->z的过程，以及椭圆解析式](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/x_to_z.png)
+  ![x->z的过程，以及椭圆解析式](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/x_to_z.png)
 
   `P465` 已经知道z和x的关系，这里进行带入，可以得到旋转椭圆x的表达式，化简为 (x-c)^T Q(x-c) - 1 = 0
 
@@ -1294,27 +1294,27 @@ widgets:
 
   `P468` 多元高斯分布的概念，其中有部分结构和旋转椭圆解析式一致，其中的Σ取不同形态还会一想到椭圆的形状
 
-  ![多元高斯分布，其中Σ是协方差矩阵，P468](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/PDF_1.png)
+  ![多元高斯分布，其中Σ是协方差矩阵，P468](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/PDF_1.png)
 
   `P469` 对协方差矩阵进行特征值分解，并化简多元高斯分布中的椭圆解析式。化简后的椭圆解析式中的平移、旋转、缩放参数和特征值分解的V和Λ有关，并用一元高斯分布的概率密度函数做举例。其实都是前面二次型而二次曲线的关系的应用。
 
-  ![对PDF中的部分进行特征值分解](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/PDF_2.png)
+  ![对PDF中的部分进行特征值分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/PDF_2.png)
 
-  ![从N(μ,Σ) -> N(0,I)](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/PDF_3.png)
+  ![从N(μ,Σ) -> N(0,I)](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/PDF_3.png)
 
   `P470` 可以将 （x-μ）^TΣ^(-1)(x-μ) 写成L^2范数平方的形式，从而得到马氏距离。注意马氏距离的表达式，其实是欧拉距离x^Tx的扩宽，总之都有距离信息。马氏距离，也叫马哈距离 (Mahal distance)，全称马哈拉诺比斯距离 (Mahalanobis distance)。马氏距离是机器学习中重要的距离度量。马氏距离的独特之处在于，它通过引入协方差矩阵在计算距离时考虑了数据的分布。此外，马氏距离无量纲量 (unitless 或dimensionless)，它将各个特征数据标准化
 
-  ![马氏距离定义，针对多元高斯分布的](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/definition_mahal_distance.png)
+  ![马氏距离定义，针对多元高斯分布的](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/definition_mahal_distance.png)
 
   `P471` 中用鸢尾花的2个特征为案例，对比了欧氏距离和马氏距离
 
-  ![欧氏距离和马氏距离](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/mahal_distance.png)
+  ![欧氏距离和马氏距离](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/mahal_distance.png)
 
   `P472` 左图所示的两个同心圆距离质心μ 为1 cm 和2 cm。欧氏距离显然没有考虑数据之间的亲疏关系。举个例子，左图中红色点 ● 距离质心的欧氏距离略大于1 cm。但是对于整体样本数据，● 显得鹤立鸡群，格格不入。右图中红色点 ●，它的马氏距离远大于2。也就是说，考虑整体数据分布亲疏情况，红色点 ● 离样本数据“远的多。可以用scipy.spatial.distance.mahalanobis() 函数计算马氏距离，Scikit-Learn 库中也有计算马氏距离的函数。
 
   `P472` 将马氏距离d 代入多元高斯分布概率密度函数，看到高斯函数把“距离度量”转化成“亲近度”
 
-  ![高斯函数和马氏距离](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/gaussian_function.png)
+  ![高斯函数和马氏距离](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/gaussian_function.png)
 
   `P473` 解释了多元高斯分布的概率密度函数的**分母**中的|Σ|^(1/2)的理解，，对应到分子就是|Σ|^(-1/2)。这里关键是|Σ^(-1)|表示行列式，注意行列式是这个变换(Σ^-1)的体积
 
@@ -1322,7 +1322,7 @@ widgets:
 
   `P474` 汇总了PDF的直观理解
 
-  ![高斯函数和马氏距离。分母的|Σ|的理解，关键是知道行列式是表示体积](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/understanding_pdf.png)
+  ![高斯函数和马氏距离。分母的|Σ|的理解，关键是知道行列式是表示体积](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/understanding_pdf.png)
 
 - 从单位双曲线到旋转双曲线
   
@@ -1341,13 +1341,13 @@ widgets:
 
   补充知识：椭圆切向量(一般圆锥曲线切向量)的理解
 
-  ![椭圆切向量公式](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/understand_tangent.png)
+  ![椭圆切向量公式](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/understand_tangent.png)
 
-  ![切向量理解1：直接求导](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/tangent_1.png)
+  ![切向量理解1：直接求导](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/tangent_1.png)
 
-  ![切向量理解1：直接求导](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/tangent_2.png)
+  ![切向量理解1：直接求导](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/tangent_2.png)
 
-  ![切向量理解2：对构造的f进行求导的理解，注意切线和f没关系，是x1,x2之间的关系](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch20/tangent_3.png)
+  ![切向量理解2：对构造的f进行求导的理解，注意切线和f没关系，是x1,x2之间的关系](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/tangent_3.png)
 
 
 ---
@@ -1359,7 +1359,7 @@ widgets:
   `P483` 正定性的定义，以及判定矩阵是否为正定矩阵的2种方法：特征值分解(要求对称矩阵)和Cholesky分解
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵" style="width:100%;">
     <div style="width: 100%;"></div>
   </div>
 
@@ -1386,8 +1386,8 @@ widgets:
 
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/Hessian_positive.png" alt="一般多元函数判断，联合梯度和黑塞矩阵判断极值点" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/understanding_extream_value.png" alt="黑塞矩阵正定性和特征值分析" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch21/Hessian_positive.png" alt="一般多元函数判断，联合梯度和黑塞矩阵判断极值点" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch21/understanding_extream_value.png" alt="黑塞矩阵正定性和特征值分析" style="width:100%;">
   </div>
 
 ---
@@ -1402,8 +1402,8 @@ widgets:
   `P503` 均值，以鸢尾花数据集X为例，就是每个特征的均值，有4个特征（4列），所以有4个均值。 E(x_j) = E(Xj)= 标量。 j表示第几个特征，或者第几列。
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/centroid_1.png" alt="均值的定义" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/understand_Ex_I.png" alt="xj向量在1方向的投影和均值E(xj) 关系" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/centroid_1.png" alt="均值的定义" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/understand_Ex_I.png" alt="xj向量在1方向的投影和均值E(xj) 关系" style="width:100%;">
   </div>
 
 - 质心：均值排列成向量
@@ -1413,8 +1413,8 @@ widgets:
   `P506-507` 质心是各个特征的均值构成的列向量, μX是列向量。这本书还将E(X)定义为行向量，等于 (μX)^T。但同时本书也说明了，E(chi)还是列向量。
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/centroid_2.png" alt="质心的列向量符号约定" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/centroid_3.png" alt="质心的行向量符号约定" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/centroid_2.png" alt="质心的列向量符号约定" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/centroid_3.png" alt="质心的行向量符号约定" style="width:100%;">
   </div>
 
 
@@ -1431,7 +1431,7 @@ widgets:
 - 分类数据：加标签
 - 方差：均值向量没有解释的部分
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/variance.png" alt="方差和均值的关系" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/variance.png" alt="方差和均值的关系" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 - 协方差和相关性系数
@@ -1439,14 +1439,14 @@ widgets:
   `P514` 协方差定义。 x^Ty=y^Tx=标量。理解的时候，把x和y理解成数据矩阵X的一列(e.g, 第一列，第3列)，x和y的每行都是一个样本的某个特征值
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/deduce_cov_2.png" alt="协方差的矩阵写法和代数写法.(40)中也给出了协方差和方差/相关系数的关系" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/deduce_cov.jpg" alt="协方差矩阵推导" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/deduce_cov_2.png" alt="协方差的矩阵写法和代数写法.(40)中也给出了协方差和方差/相关系数的关系" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/deduce_cov.jpg" alt="协方差矩阵推导" style="width:100%;">
   </div>
 
   `P515~P516` 给出了相关性系数、协方差的定义及向量写法。同时说明了相关性系数和余弦相似度类似，取值范围都是[-1,1]。最后总结了2个随机变量的方差和协方差的关系、这个关系和余弦定理类似。或者说余弦定理可以用在向量内积和协方差上。
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/cosine_rule.png" alt="余弦定理可以用在向量内积和协方差上" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/cosine_rule.png" alt="余弦定理可以用在向量内积和协方差上" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1459,8 +1459,8 @@ widgets:
   `P517` 对协方差矩阵求二次型，x^TΣx，其图像是一般椭圆(不带平移，带平移的话就是(x-μ)$^TΣ(x-μ))，然后对Σ进行特征值分解后带入x^TΣx并新增变换y=V^Tx进行简化，会得到一般旋转椭圆(x坐标系)到正椭圆(y坐标系)的几何转换
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/covariance_maxtrix_definition.png" alt="" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch22/covariance_matrix_curve.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/covariance_maxtrix_definition.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch22/covariance_matrix_curve.png" alt="" style="width:100%;">
   </div>
 
   `P518` 相关性系数矩阵定义
@@ -1474,7 +1474,7 @@ widgets:
   `P526 ` 再次明确了本书的各类符号
   
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch23/notation.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch23/notation.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1487,7 +1487,7 @@ widgets:
   `P528` 总结前面所学，再次来认识完全型SVD分解
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch23/understand_svd.png" alt="S叫奇异值矩阵" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch23/understand_svd.png" alt="S叫奇异值矩阵" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
   
@@ -1495,13 +1495,13 @@ widgets:
 - 紧凑型SVD分解：剔除零空间
 
   `P529~531` 从紧凑型SVD分解讲解4个空间
-  [4个空间.excalidraw](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/4_spaces.excalidraw)
+  [4个空间.excalidraw](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/4_spaces.excalidraw)
 
 - 几何视角说空间
   
   `P532~536` 用实际例子解释了 XV=US 以及 X^TU=VS^T。如何找到U和V呢，可以用SVD和特征值分解，注意特征值分解也可以得到U和V，不是过不是直接对X特征值分解，而是对XX^T特征值分解 -> U; X^TX特征值分解可以得到V
 
-  需要重新理解下：[XV和XVV^T的理解.drawio](https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/power-of-matrix.drawio)
+  需要重新理解下：[XV和XVV^T的理解.drawio](https://github.com/wumin199/wm-blog-image/blob/raw/main/images/2023/power-of-matrix/power-of-matrix.drawio)
 
   可以对任意矩阵进行SVD并得到UVS，而只能对可对角化矩阵进行特征值分解，所以这里构造了XX^T和X^TX来得到U和V
 
@@ -1521,7 +1521,7 @@ widgets:
   对G和H特征值分解的结果：2个分解的非零特征值都一样，且和X的奇异值是开根号的关系
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch23/gram_matrix.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch23/gram_matrix.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1531,7 +1531,7 @@ widgets:
   `P541` 介绍了标准差向量，可以用于协方差矩阵中。标准差向量是认为构造出来的
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch23/standard_deriva_vector.png" alt="标准差向量：以E(x)为起点，以x1为终点，长度为标准差的向量。其中的sqrt(n-1)应该是没有用的，是为了让其平方就等于δ^2" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch23/standard_deriva_vector.png" alt="标准差向量：以E(x)为起点，以x1为终点，长度为标准差的向量。其中的sqrt(n-1)应该是没有用的，是为了让其平方就等于δ^2" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1545,7 +1545,7 @@ widgets:
 ### 数据分解
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/data_decomposition.png" alt="" style="width:100%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/data_decomposition.png" alt="" style="width:100%;">
   <div style="width:100%;"></div>
 </div>
 
@@ -1555,27 +1555,27 @@ widgets:
 
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_1.png" alt="" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_2.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/decomposition_1.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/decomposition_2.png" alt="" style="width:100%;">
   </div>
 
   `P552` 谱分解、特征值分解和奇异值分解的关系
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/relation_decomposition.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/relation_decomposition.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
   `P554` 介绍了本书中用到的会对其进行分解的矩阵，如X，Σ，G等
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/related_X.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/related_X.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
   `P555` 各类矩阵(X、Xc、Zx、G、Σ、P)和矩阵分解之间的关系
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/matrix_and_matrix_decomposition.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch24/matrix_and_matrix_decomposition.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1617,7 +1617,7 @@ widgets:
   `P572` 介绍了二元随机变换，如果是线性映射，其期望和方差之间的关系
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch25/2_variable_X.png" alt="" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch25/2_variable_X.png" alt="" style="width:100%;">
     <div style="width:100%;"></div>
   </div>
 
@@ -1632,10 +1632,10 @@ widgets:
   var(hat(y)) = v^T(Σ_X)v
 
   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch25/single_direction.png" alt="投影和降维" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch25/Ex_single_direction.png" alt="期望" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch25/var_single_direction.png" alt="方差，是个变量" style="width:100%;">
-    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch25/understandign_single_direction.png" alt="几何视角" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch25/single_direction.png" alt="投影和降维" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch25/Ex_single_direction.png" alt="期望" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch25/var_single_direction.png" alt="方差，是个变量" style="width:100%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch25/understandign_single_direction.png" alt="几何视角" style="width:100%;">
   </div>
 
 - 线性回归
@@ -1697,18 +1697,18 @@ widgets:
 
   如本书中的：
 
-  ![鸢尾花数据矩阵X](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png)
+  ![鸢尾花数据矩阵X](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch01/IrisDataSet.png)
 
   我们常见的Ax=b -> 这里的x是一个列向量，即一个样本点（花萼长宽/花瓣长宽），b也是一个列向量(样本点)。 A的每一列可以看成是新的坐标系的坐标轴的值，b是x在新坐标系下的每个坐标的坐标值。如果是很多个样本点，则是AX=B。
 
   <div style="display: flex;">
-  <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/coordinate-values.png" alt="坐标值的理解" style="width: 100%;">
-  <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch07/matrix-basis.png" alt="坐标系和坐标值" style="width: 100%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/coordinate-values.png" alt="坐标值的理解" style="width: 100%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch07/matrix-basis.png" alt="坐标系和坐标值" style="width: 100%;">
   </div>
 
   <div style="display: flex;">
-  <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/geo_view.png" alt="旋转矩阵1和矩阵乘向量理解1" style="width: 100%;">
-  <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/geo_view2.png" alt="旋转矩阵1和矩阵乘向量理解2" style="width: 100%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/geo_view.png" alt="旋转矩阵1和矩阵乘向量理解1" style="width: 100%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/geo_view2.png" alt="旋转矩阵1和矩阵乘向量理解2" style="width: 100%;">
   </div>
 
   但如果用行向量表示一个样本点，从上面的(Ax)^T=b^T = (x^T)(A^T)=b^T，此时x^T是行向量，表示一个样本点， b^T也是一个行向量，表示样本点。 A^T和原来的A也已经是转置的关系。
@@ -1726,7 +1726,7 @@ widgets:
       - 坐标系发生线性变换，那么依赖于原先坐标系的x，也会发生相应的线性变换(y) -> Mx=y  (x这里是列向量，M是线性变换或者新的坐标系)
       - 旋转矩阵、缩放矩阵、置换矩阵、镜像矩阵、方程组的系数矩阵...
       - [几何变换](#ch08_geometric_ransformation)
-      ![线性变换](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/understand_transform.png)
+      ![线性变换](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch09/understand_transform.png)
     - 数据矩阵X：
       - 鸢尾花数据矩阵，可以是每行表示一个样本点（花瓣长宽、花萼长宽）；也可以是每列表示一个样本点
     - 高阶含义：
@@ -1751,7 +1751,7 @@ widgets:
         - 降维是降低样本点特征的维度，样本点的数量不会减少
         - 这里的v和z仍然是列向量
         - v是表示如何将多维数据矩阵X变换为一维，z表示降低为1维的每个样本点的新数据
-          ![P128](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/Xv.png)
+          ![P128](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/Xv.png)
         - 一个数据和很多个样本数据，降维运算是一样的
           - 1x4(X) * 4x1(v) = 1x1(z)   <--  --> 1个样本点，4个维度  * v（4x1） = 1个样本点，1个维度
           - 150x4(X) * 4x1(v) = 150x1(z)   <--  --> 150个样本点，4个维度  * v（4x1） = 1个样本点，1个维度
@@ -1763,12 +1763,12 @@ widgets:
           - 150x4(X) * 4x2(V) = 150x2(Z)   <--  --> 150个样本点，4个维度  * v（4x2） = 150个样本点，2个维度
           - 1x4(X) * 4x4(V) = 1x4(Z)   <--  --> 1个样本点，4个维度  * v（4x4） = 1个样本点，4个维度
           - 150x4(X) * 4x4(V) = 1x4(Z)   <--  --> 150个样本点，4个维度  * v（4x4） = 150个样本点，4个维度
-        ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/XV.png)
-        ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/XV2.png)
+        ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/XV.png)
+        ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/XV2.png)
       - 将上面的V看成M，则 XV=Z
     - 一般理解的MX=Y，这里的X是每列是一个样本点
       - (MX)^T=Y^T = X^TM^T=Y^T  -> 这样就把X^T存在左边了
-      ![](https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch05/MX.png)
+      ![](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch05/MX.png)
 
 
 

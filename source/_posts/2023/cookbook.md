@@ -1,7 +1,7 @@
 ---
 title: cookbook
 date: 2023-06-18 10:36:14
-tags: 生活笔记
+tags: 生活
 toc: true
 comment: false
 widgets:

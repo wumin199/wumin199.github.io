@@ -1,7 +1,7 @@
 ---
 title: 矩阵知识快查
 date: 2024-01-18 22:06:48
-tags: 读书笔记
+tags: 笔记
 toc: true
 comment: true
 widgets:

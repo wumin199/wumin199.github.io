@@ -1,7 +1,7 @@
 ---
 title: 设计模式
 date: 2023-04-03 14:18:28
-tags: 编程笔记
+tags: 编程
 toc: true
 password: target2023
 comment: false

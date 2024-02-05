@@ -2,7 +2,7 @@
 title: 读书笔记-新手经理必修课
 date: 2023-05-26 23:24:04
 toc: true
-tags: 读书笔记
+tags: 笔记
 comment: false
 widgets:
   - type: toc

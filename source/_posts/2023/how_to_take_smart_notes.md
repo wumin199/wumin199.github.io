@@ -1,7 +1,7 @@
 ---
 title: 笔记规范
 date: 2023-07-11 23:04:43
-tags: 读书笔记
+tags: 笔记
 toc: true
 comment: false
 widgets:

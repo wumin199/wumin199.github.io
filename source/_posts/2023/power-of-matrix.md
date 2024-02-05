@@ -1,7 +1,7 @@
 ---
 title: 《矩阵力量》课程笔记
 date: 2023-07-16 22:05:15
-tags: 读书笔记
+tags: 笔记
 toc: true
 comment: true
 widgets:

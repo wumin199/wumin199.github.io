@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>矩阵知识快查 - wumin199</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="wumin199"><meta name="msapplication-TileImage" content="/images/icon/M_2_256.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="wumin199"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="矩阵直觉和知识快查"><meta property="og:type" content="blog"><meta property="og:title" content="矩阵知识快查"><meta property="og:url" content="https://wumin199.github.io/post/20240118220648.html"><meta property="og:site_name" content="wumin199"><meta property="og:description" content="矩阵直觉和知识快查"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/coordinate_transform.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/euclidian_trans.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rot_maxtix.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx_summary.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/jog_abc.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/camera_calib.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_1.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_2.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/related_X.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/relation_decomposition.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear_2.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/second_order.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/hessian_matrix.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_4.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_6.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_8.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_9.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png"><meta property="og:image" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png"><meta property="article:published_time" content="2024-01-18T22:06:48.000Z"><meta property="article:modified_time" content="2024-02-05T06:18:05.478Z"><meta property="article:author" content="wumin199"><meta property="article:tag" content="读书笔记"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/coordinate_transform.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://wumin199.github.io/post/20240118220648.html"},"headline":"矩阵知识快查","image":["https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/coordinate_transform.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/euclidian_trans.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rot_maxtix.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx_summary.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/jog_abc.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/camera_calib.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_1.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_2.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/related_X.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/relation_decomposition.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear_2.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/second_order.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/hessian_matrix.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_4.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_6.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_8.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_9.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png","https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png"],"datePublished":"2024-01-18T22:06:48.000Z","dateModified":"2024-02-05T06:18:05.478Z","author":{"@type":"Person","name":"wumin199"},"publisher":{"@type":"Organization","name":"wumin199","logo":{"@type":"ImageObject","url":"https://wumin199.github.io/images/icon/M_2_256.png"}},"description":"矩阵直觉和知识快查"}</script><link rel="canonical" href="https://wumin199.github.io/post/20240118220648.html"><link rel="icon" href="/images/icon/M_2_256.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/icon/M_2_256.png" alt="wumin199" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-01-18T22:06:48.000Z" title="1/18/2024, 10:06:48 PM">2024-01-18</time>发表</span><span class="level-item"><time dateTime="2024-02-05T06:18:05.478Z" title="2/5/2024, 6:18:05 AM">2024-02-05</time>更新</span><span class="level-item">23 分钟读完 (大约3474个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">矩阵知识快查</h1><div class="content"><p>矩阵直觉和知识快查</p>
+<span id="more"></span>
+
+<article class="message message-immersive is-primary" style="margin: 10px;">
+<div class="message-body">
+可以从 <矩阵力量> 笔记中做进一步检索
+</div>
+</article>
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://excalidraw.com/">在线白板</a>(书写50%，看：30%~40%)</li>
+</ul>
+<h2 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h2><ol>
+<li><p>线性变换和坐标变换</p>
+<ul>
+<li>网格线平行且等距，@TODO:补充3Blue1Brown</li>
+<li>对坐标系的“变换” or “拉扯”，坐标系中的图像也跟着“变换”或“拉扯”</li>
+</ul>
+<div style="display: flex; justify-content: center; align-items: center;">
+<img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/coordinate_transform.png" alt="" style="width:100%;">
+<div style="width: 100%;"></div>
+</div>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/coordinate_transform.excalidraw">坐标变换.excalidraw</a></p>
+</li>
+<li><p>齐次变换T含义</p>
+<ul>
+<li>齐次矩阵&#x2F;齐次变换含义：表示先旋转再平移，而不是先平移再旋转<ul>
+<li>y&#x3D;Ax+b；而不是y&#x3D;A(x+b) <div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/euclidian_trans.png" alt="" style="width:100%;">
+ <div style="width: 100%;"></div>
+ </div></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#3760afb9e2264a2ba257d12ade122926">notion: 仿射变换 4x4 Affine transformation 链式法则</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#15e5ef09d85240b89b4023ec6d0e14ff">notion: 线性变换 欧式变换 刚体变换 仿射变换 齐次矩阵 Isometry</a></li>
+</ul>
+</li>
+<li><p>Sxyz和Rxyz</p>
+<ol>
+<li>s:static; r:relative<ul>
+<li>RPY &#x3D; Sxyz，少部分厂家的RPY定义比较奇葩</li>
+<li>一般说欧拉角，最有可能说的是relative类型的(但也不一定)</li>
+</ul>
+</li>
+<li>对多次进行旋转操作 → 叠加的最终的旋转矩阵 → 左固右动<ul>
+<li>左乘 → (固)定轴     &lt; - - - - - - - -<ul>
+<li>固定轴：左乘</li>
+</ul>
+</li>
+<li>右乘 → 动轴 →  - - - - - - - - &gt;<ul>
+<li>旋转轴：右乘</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>sxyz和rxyz<div style="display: flex; justify-content: center; align-items: center;">
+<img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rot_maxtix.png" alt="" style="width:100%;">
+<img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx.png" alt="" style="width:100%;">
+<img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/rxyz_szyx_summary.png" alt="" style="width:100%;">
+</div>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#3a51f6f96dc64e53894e47b084e6a008">notion: 欧拉角与旋转</a></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>注册抓取&#x2F;跟踪抓取<br><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/register_pick.excalidraw">注册抓取.excalidraw</a></p>
+<ol>
+<li>物体在哪里(vision捕捉)，就去哪里抓</li>
+<li>LeapMotion(跟踪抓取)：手势在哪里，机械臂就走到哪里</li>
+</ol>
+</li>
+<li><p>点动机器人；眼在手上和眼在手外标定</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/jog_abc.png" alt="点动机器人" style="width:100%;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2024/matrix_note/camera_calib.png" alt="眼在手上和眼在手外标定" style="width:100%;">
+ </div>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#5b28af54a9ce43b3b311ec580fcb5b6f">notion:点动机器人</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/6511ccacc7bd42298c1554ba79d354f7?pvs=4#d4a7fd160d00442485caade091bc79f5">notion: 眼在手上和眼在手外标定</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="正定-二次型-圆锥曲线-圆-椭圆-优化问题-距离-面积-体积-行列式"><a href="#正定-二次型-圆锥曲线-圆-椭圆-优化问题-距离-面积-体积-行列式" class="headerlink" title="正定&#x2F;二次型&#x2F;圆锥曲线&#x2F;圆&#x2F;椭圆&#x2F;优化问题&#x2F;距离&#x2F;面积(体积)&#x2F;行列式"></a>正定&#x2F;二次型&#x2F;圆锥曲线&#x2F;圆&#x2F;椭圆&#x2F;优化问题&#x2F;距离&#x2F;面积(体积)&#x2F;行列式</h2><article class="message message-immersive is-primary" style="margin: 10px;">
+<div class="message-body">
+相关案例：x^x, x^TQx, (x-μ)^TQ(x-μ), (x-μ)^TΣ^(-1)(x-μ)
+
+<p>x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋转椭圆等，Q可以是单位矩阵、Σ^(-1)等</p>
+</div>
+</article>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/EVD_ellipse.excalidraw">特征值分解和椭圆.excalidraw</a></p>
+<ol>
+<li><p>距离：x^Tx，general版本都可以往距离上考虑：x^TQx，(x-μ)^TQ(x-μ)  -&gt; 这里有二次型</p>
+<ol>
+<li>一些变种：x^Ty, (x-μ)^T(Σ)^(-1)(x-μ)</li>
+</ol>
+<p>案例：</p>
+<ol start="2">
+<li>两个点(a,b)的欧式距离 d &#x3D; sqrt((a-b)*(a-b)) &#x3D; (a-b)^T(a-b) &#x3D; sqrt(△x1 * △x1 + △x2 * △x2 + △x3 * △x3)<ol>
+<li>这里的点向量形如(x,y,z)，如长宽高</li>
+</ol>
+</li>
+<li>还有一种情况，就是x向量的每一行，其实是一个样本，含义都一样，而不是类似长宽高<ol>
+<li>这时候 x^Tx，含义是所有样本点的值^2的和，或者说距离平分和，因为开根号以后也可以理解成距离</li>
+<li>本质上其实也是类似上面的d，只不过这里是把所有样本点的距离平方都加起来后再开根号</li>
+<li><code>方差，协方差都是来自于距离的概念：距离平分</code></li>
+</ol>
+</li>
+<li><code>&lt;矩阵力量&gt; P471</code> 多元高斯分布中的马氏&#x2F;马哈距离。马哈距离的独特之处在于，它通过引入协方差矩阵在计算距离时考虑了数据的分布</li>
+</ol>
+</li>
+<li><p>体积：行列式：|A|</p>
+<p>行列式相关：</p>
+<ol>
+<li>只有方阵才有行列式</li>
+<li>行列式的几何含义：以A的各列构成的面积&#x2F;体积，是为行列式的值，可正可负</li>
+<li><code>&lt;矩阵力量&gt; P104</code> 通过特征值分解，可以将平行四边形&#x2F;平行六面体变成长方形&#x2F;长方体（特征向量都互相垂直），也即行列式的值等于特征值的乘积</li>
+</ol>
+<p>案例：</p>
+<ol start="4">
+<li><code>&lt;矩阵力量&gt; P473</code> 高斯多元分布中的分母的|Σ|^(1&#x2F;2)，这里就是用到行列式中体积变换的含义（这里进行了开根号）</li>
+</ol>
+</li>
+<li><p>圆、椭圆、椭球等，都是圆锥曲线的一种，都可以用二次型来表示 -&gt; 这里有二次型</p>
+<p>x^Tx是正圆，x^TQx是一般的旋转椭圆，从这个角度理解(x-μ)^TΣ^(-1)(x-μ)，是个一般的旋转椭圆</p>
+<p>案例：</p>
+<ol>
+<li><code>&lt;矩阵力量&gt; P517~P521</code> 给出了 xΣx，即协方差矩阵和椭圆的关系，及椭圆图像和样本点的直观关系</li>
+<li><code>&lt;矩阵力量&gt; P468~469</code> 给出的多元高斯分布中 (x-μ)^TΣ^(-1)(x-μ) 和样本点的图形表示</li>
+</ol>
+</li>
+<li><p>在圆变成椭圆的过程中，圆上的某些点构成了特征向量，这些特征向量经过旋转和缩放后，还是和原来的向量方向一致，二者正好是椭圆的长轴和短轴。这就是特征值分解和椭圆曲线的联系之一。</p>
+</li>
+<li><p>只有可对角化的矩阵才能进行特征值分解，而且如果矩阵是恰好直接是对称矩阵，则可以得到谱分解</p>
+</li>
+<li><p>矩阵正定性主要和二次型 有关系，即x^TAx，其中的x是多元向量，如x&#x3D;(x1,x2,x3)。而这正好和优化问题产生关系，因为多元泰勒展开的二次项，即黑塞矩阵，就是二次型！ -&gt; 这里有二次型</p>
+</li>
+<li><p>判断正定性的方法：</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch21/check_possitive.png" alt="判定正定矩阵，注意特征值又和行列式有关系" style="width:100%;">
+ <div style="width: 100%;"></div>
+ </div>
+ 第一点，如果不满秩，则特征值会有0的部分，则不是正定矩阵，最多半正定！</li>
+<li><p>旋转矩阵是正交矩阵</p>
+</li>
+<li><p>对称矩阵起到缩放作用</p>
+</li>
+</ol>
+<h2 id="特殊矩阵"><a href="#特殊矩阵" class="headerlink" title="特殊矩阵"></a>特殊矩阵</h2><ul>
+<li>雅克比矩阵</li>
+<li>黑塞矩阵<br>多元函数的二阶偏导数构成的矩阵，黑塞矩阵描述了函数的局部曲率，可以在优化问题中用到黑塞矩阵判断极值点</li>
+<li>Hermit矩阵</li>
+</ul>
+<h2 id="各种分解"><a href="#各种分解" class="headerlink" title="各种分解"></a>各种分解</h2><ol>
+<li><p>常见矩阵分解的使用场景</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_1.png" alt="" style="width:100%;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/decomposition_2.png" alt="" style="width:100%;">
+</div>
+</li>
+<li><p>&lt;矩阵力量&gt;中用到的会被进行矩阵分解的相关数据<br><code>P554</code> 介绍了本书中用到的会对其进行分解的矩阵，如X，Σ，G等</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/related_X.png" alt="" style="width:100%;">
+   <div style="width:100%;"></div>
+</div>
+</li>
+<li><p>谱分解、特征值分解、SVD分解</p>
+<ul>
+<li><p><strong>对A特征值分解和奇异值分解和最优化关系：A可以分解为一些二次型及其变种，其中含有<code>对角阵</code>：特征值矩阵&#x2F;奇异值矩阵；而特征值&#x2F;奇异值有大小之分，对这些分解展开后，然后放缩法可以找到最大最小边界，最大的边界一般是特征值&#x2F;奇异值最大的时候；从几何角度理解，这些分解都可以找到一些正交投影矩阵，数据往这些投影矩阵投影的一些效果和特征值&#x2F;奇异值大小有关；最优解利用了对应的特征值&#x2F;奇异值下的特征向量或奇异向量</strong></p>
+</li>
+<li><p><code>&lt;矩阵力量&gt; P552</code> 谱分解、特征值分解和奇异值分解的关系</p>
+ <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch24/relation_decomposition.png" alt="" style="width:100%;">
+    <div style="width:100%;"></div>
+ </div>
+</li>
+<li><p>谱分解：针对对称矩阵的特征值分解</p>
+<ul>
+<li>对称矩阵有：X^TX，Σ矩阵，Z范数等</li>
+<li><code>&lt;矩阵力量&gt; P324-P325</code> 谱分解总要特性：Λ&#x3D;V^TAV，其中A是对称矩阵</li>
+<li>如果A是X^TX，并通过Y&#x3D;XV过度，可以得到 Y^TY&#x3D;Λ，如果选取v，则y&#x3D;Xv，最大的y^Ty对应最大的特征值</li>
+<li>这就是对X^TX谱分析的几何含义：找到一个单位向量v，使得X 在v 上投影结果y 的模最大</li>
+<li><code>&lt;矩阵力量&gt; P561</code>如果A是协方差Σ矩阵，则对应的几何含义：对协方差矩阵特征值分解，就是要找到一个单位向量v，使得中心化数据Xc在v 上投影结果yc 的方差最大</li>
+</ul>
+</li>
+<li><p><code>&lt;矩阵力量&gt; P340 P420~P424, P551</code> 列出了一些和这2个分解有关的最优化的问题，如瑞利商等</p>
+</li>
+<li><p>SVD和特征值分解<br> <code>&lt;矩阵力量&gt; P539</code> 特征值分解可以知道SVD分解中的U和V，且特征值非零部分都一样（其他的都是零，零的数量不一样）</p>
+<ul>
+<li>X的格拉姆矩阵有G_(DxD)&#x3D;X^TX和H_(nxn)&#x3D;XX^T</li>
+<li>对G特征值分解 -&gt; V，获取行空间和零空间，即特征空间(花瓣长、宽。。)</li>
+<li>对H特征值分解 -&gt; U，获取列空间和左零空间</li>
+<li>对G和H特征值分解的结果：2个分解的非零特征值都一样，且和X的奇异值是开根号的关系</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="优化-正交-投影"><a href="#优化-正交-投影" class="headerlink" title="优化&#x2F;正交&#x2F;投影"></a>优化&#x2F;正交&#x2F;投影</h2><p>集合了投影，正定性等的综合结论</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/4_spaces.excalidraw">4个空间.excalidraw</a>(包含对XV和X^TU的理解，以及<code>&lt;矩阵力量&gt; P538</code>对X^TX和XX^T理解)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/power-of-matrix.drawio">XV和XVV^T的理解.drawio</a></p>
+<p>优化问题也和统计问题有关系，比如示教TCP工具，就用到4点法，可以理解为4个原本</p>
+<ol>
+<li><p>泰勒展开可以用于一元&#x2F;多元函数的逼近，包括一次逼近(线性逼近)和二次逼近。</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/single_value_taylor_expansion.png" alt="一元函数的泰勒展开" style="width: 100%; height: auto;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear_2.png" alt="从一元到二元的线性逼近" style="width: 100%; height: auto;">
+ </div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/mv_linear.png" alt="多元函数的线性逼近(一次逼近)" style="width: 100%; height: auto;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/second_order.png" alt="多元函数的二次逼近" style="width: 100%; height: auto;">
+ </div>
+
+</li>
+<li><p>多元函数的一阶导数 -&gt; 梯度<strong>向量</strong>； 多元函数的二阶导数 -&gt; 黑塞<strong>矩阵</strong></p>
+<p>梯度下降方向 – 下山方向</p>
+<p>梯度向量（gradient vector） – 上山方向</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector.png" alt="梯度定义" style="width:100%;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/Ch01-gradient-vector-2.png" alt="梯度向量--上山方向" style="width:100%;">
+</div>
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch17/hessian_matrix.png" alt="黑塞矩阵" style="width:100%;">
+ <div style="width: 100%;">黑塞矩阵，图片中的(19)指的是对f(x)=x^TQx记性对x求二阶偏导</div>
+</div>
+</li>
+<li><p>可以根据梯度向量和黑塞矩阵，判断多元函数极值。要判断 1&#x2F;2(△x)^T* H* △x 的正负值，就需要判断黑塞矩阵的正定性</p>
+</li>
+<li><p>多项式回归(拟合)，可以从投影的角度理解。</p>
+<p><strong>投影向量和原来的向量的残差是最小的</strong></p>
+<ul>
+<li><p>1个点(是个向量)，往一个方向，如坐标轴x方向回归&#x2F;拟合 -&gt; 一元线性回归</p>
+ <div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_4.png" alt="一元线性回归" style="width:100%;">
+   <div style="width: 100%;">1个点的一元线性回归(二维)，hat(y)=bx，其中x,y都是向量！，x表示横坐标，如用向量(1,0)表示, y是空间一点，比如（4，5）, hat(y)表示y点往x正交投影的结果为hat(y), 如(4,0)。当然中间会有残差，就是y-hat(y)</div>
+ </div>
+</li>
+<li><p>1个点(是个向量)，往多个方向，如x1方向(第一个方向),x2方向(第二个方向)回归&#x2F;拟合 -&gt; 多元线性回归</p>
+ <div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_6.png" alt="多元线性回归" style="width:100%;">
+   <div style="width: 100%;">是个三维空间，往二维平面投影。注意hat(y)=Xb，表示y往X各列span的空间投影，得到的线性组合是b</div>
+ </div>
+</li>
+<li><p>现实中，可能是采样了很多个点(x1时刻的y1，x2时刻的y2，x3时刻的y3)，然后绘制这个曲线，发现不太像直线，可能考虑用多项式拟合 -&gt; 这时候也可以转换为正交投影理解</p>
+<p> 可以通过列成矩阵的形式，转换为正交投影的理解。然后利用多元线性回归的相关工具，求出线性组合b。详细见 <code>&lt;矩阵力量&gt;中的正交投影 章节</code></p>
+ <article class="message message-immersive is-primary" style="margin: 10px;">
+ <div class="message-body">
+ 3次多项式拟合n个数据，设计矩阵X就是个n x (3+1)，3次多项式可以贡献4个特征(方向)：b0,b1,b2,b3。n就是样本点个数。这里正交投影就是hat(y)=Xb,找到这样的b，使得hat(y)和y的gap最小。用到了帽子矩阵来求b，因为y-hat(y),即 y-正交投影的y,误差肯定是最小的！
+ </div>
+ </article>
+
+ <div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_8.png" alt="多项式拟合" style="width:100%;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch09/summary_9.png" alt="采集到的其实是y，而不是hat(y)，两者之间其实有gap，就是残差。注意hat(y)=Xb的公式同上面，图片中最左边的是hat(y)]，就是[y1,y2,y3..]^T。注意这个公式和多元线性回归的图是一致的" style="width:100%;">
+ </div></li>
+</ul>
+</li>
+<li><p>拉格朗日乘子法：拉格朗日乘子法就是一种能够把有约束优化问题转化成无约束优化问题的方法</p>
+</li>
+<li><p>特征值分解和奇异值分解和最优化关系：</p>
+<ul>
+<li>特征值分解和奇异值分解和最优化关系：找正交投影矩阵，且特征值&#x2F;奇异值有大小之分</li>
+<li><code>&lt;矩阵力量&gt; P420~P424, P551</code> 列出了一些和这2个分解有关的最优化的问题</li>
+</ul>
+</li>
+</ol>
+<h2 id="方差-标准差-协方差"><a href="#方差-标准差-协方差" class="headerlink" title="方差&#x2F;标准差&#x2F;协方差"></a>方差&#x2F;标准差&#x2F;协方差</h2><p><a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/blob/main/images/2023/power-of-matrix/covariance.excalidraw">协方差.excalidraw</a></p>
+<ol>
+<li><p>涉及到这些统计量的，都是有很多个样本。一个典型的数据矩阵X是[x1, x2, x3, …] 或者 [x, y, z, …]，其中x1&#x2F;x2&#x2F;x3或者x&#x2F;y&#x2F;z都是列向量，每一列都是一个特征的n个样本集合。比如x是150个样本的花瓣长列向量， y是150个样本的花瓣宽列向量</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/IrisDataSet.png" alt="数据矩阵X" style="width:100%;">
+   <img src="https://raw.githubusercontent.com/wumin199/wm-blog-image/main/images/2023/power-of-matrix/ch01/X_notation.png" alt="" style="width:100%;">
+</div>
+</li>
+<li><p>记住一个：统计学中x, y都是某个特征的n个样本集合：<strong>相同特征都放到一个列向量中即可，每个特征都是由很多个样本组成的</strong></p>
+</li>
+<li><p>我们可以单独研究某个特征，比如均值，方差；我们也可以研究2个特征之间的关系（如研究花瓣长和花瓣宽之间的关系），如协方差</p>
+<ol>
+<li>所以涉及这些的计算，用代数表示的话会包含Σ求和，用矩阵的话包含x^Tx运算，因为所有样本点都要参与计算。</li>
+<li>具体可以参考前文关于距离的论述</li>
+</ol>
+</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>矩阵知识快查</p><p><a href="https://wumin199.github.io/post/20240118220648.html">https://wumin199.github.io/post/20240118220648.html</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>wumin199</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-01-18</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-02-05</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/post/20240129175108.html"><i class="level-item fas fa-chevron-left"></i><span class="level-item">git速查表</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/20230716220515.html"><span class="level-item">《矩阵力量》课程笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#参考"><span class="level-left"><span class="level-item">1</span><span class="level-item">参考</span></span></a></li><li><a class="level is-mobile" href="#坐标变换"><span class="level-left"><span class="level-item">2</span><span class="level-item">坐标变换</span></span></a></li><li><a class="level is-mobile" href="#正定-二次型-圆锥曲线-圆-椭圆-优化问题-距离-面积-体积-行列式"><span class="level-left"><span class="level-item">3</span><span class="level-item">正定/二次型/圆锥曲线/圆/椭圆/优化问题/距离/面积(体积)/行列式</span></span></a></li><li><a class="level is-mobile" href="#特殊矩阵"><span class="level-left"><span class="level-item">4</span><span class="level-item">特殊矩阵</span></span></a></li><li><a class="level is-mobile" href="#各种分解"><span class="level-left"><span class="level-item">5</span><span class="level-item">各种分解</span></span></a></li><li><a class="level is-mobile" href="#优化-正交-投影"><span class="level-left"><span class="level-item">6</span><span class="level-item">优化/正交/投影</span></span></a></li><li><a class="level is-mobile" href="#方差-标准差-协方差"><span class="level-left"><span class="level-item">7</span><span class="level-item">方差/标准差/协方差</span></span></a></li></ul></div></div><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/icon/M_2_256.png" alt="wumin199" height="28"></a><p class="is-size-7"><span>&copy; 2024 wumin199</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

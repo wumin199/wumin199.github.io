@@ -2,7 +2,7 @@
 title: 读书笔记-普通人的职场进阶课
 date: 2023-03-07 21:49:29
 toc: true
-tags: 读书笔记
+tags: 笔记
 widgets:
   - type: toc
     position: right

@@ -266,12 +266,12 @@ widgets:
             # E-mail:
             #     icon: fa-solid fa-envelope
             #     url: mailto:wumin199@126.com
-            Trello:
-                icon: fa-brands fa-trello
-                url: https://trello.com/u/wumin199/boards
-            Confluence:
-                icon: fa-brands fa-confluence
-                url: https://wumin199.atlassian.net/wiki/home
+            # Trello:
+            #     icon: fa-brands fa-trello
+            #     url: https://trello.com/u/wumin199/boards
+            # Confluence:
+            #     icon: fa-brands fa-confluence
+            #     url: https://wumin199.atlassian.net/wiki/home
             Notion:
                 icon: fa-solid fa-n
                 url: https://www.notion.so/wumin199/35bc8808c2184e2fb9e20fc925fc51e1

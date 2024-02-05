@@ -1,7 +1,7 @@
 ---
 title: 工欲善其事
 date: 2023-03-09 21:48:52
-tags: 工欲善其事
+tags: 工具
 toc: true
 password: target2023
 comment: false

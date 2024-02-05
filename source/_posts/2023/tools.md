@@ -47,6 +47,20 @@ widgets:
   - [YouTubeDownloader](https://en.savefrom.net/383/)
   - [YouTube字幕下载](https://downsub.com/)
 
+---
+
+## 图片
+
+- [GitHub Proxy](https://ghproxy.com/)
+- [Linux下如何简单拼接图片：ImageMagick](https://www.mintos.org/soft/combine-pictures.html)
+  
+  ``` powershell
+  # 横轴拼接
+  convert 01.jpg 02.jpg +append 11.jpg
+  # 众轴拼接
+  convert 01.jpg 02.jpg -append 22.jpg
+  ```
+
 ## 办公
 
 - [ILovePDF](https://www.ilovepdf.com/)
@@ -80,6 +94,10 @@ widgets:
   - [Tutorial](https://typst.app/docs/tutorial/)
   - [Ref > Math](https://typst.app/docs/reference/math/), [Ref > Syntax](https://typst.app/docs/reference/syntax/#math), [Ref -> Symbols](https://typst.app/docs/reference/symbols/sym/)
   - [awesome-typst-cn](https://github.com/typst-cn/awesome-typst-cn)
+
+- [在线白板](https://excalidraw.com/)
+
+---
 
 ## 其他
 

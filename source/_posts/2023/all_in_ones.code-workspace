@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "../../.."
+        },
+        {
+            "path": "../../../../wm-test-case"
+        },
+        {
+            "path": "../../../../../workspace/wm-blog-image"
+        },
+        {
+            "path": "../../../../../workspace/wm-power-of-matrix"
+        }
+    ]
+}

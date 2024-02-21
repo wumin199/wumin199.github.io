@@ -322,6 +322,8 @@ Matrix Calculus
 
     (P17) 如果标量函数y(X)中的参数X是对称矩阵，则黑塞矩阵有特殊性质。不过这个推导我没看懂
 
+    ad
+
 ---
 
 ### The Matrix Calculus You Need For Deep Learning

@@ -1296,6 +1296,8 @@ widgets:
 
   ![多元高斯分布，其中Σ是协方差矩阵，P468](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/PDF_1.png)
 
+  多元高斯分布中的x，其实是多元函数的各个变量，如x=(花瓣长、花瓣宽、花萼长、花萼宽)。公式里面的x是个变量，可以画出曲线。一个样本点(含有4个特征)，是一个x的特定值。
+
   `P469` 对协方差矩阵进行特征值分解，并化简多元高斯分布中的椭圆解析式。化简后的椭圆解析式中的平移、旋转、缩放参数和特征值分解的V和Λ有关，并用一元高斯分布的概率密度函数做举例。其实都是前面二次型而二次曲线的关系的应用。
 
   ![对PDF中的部分进行特征值分解](https://github.com/wumin199/wm-blog-image/raw/main/images/2023/power-of-matrix/ch20/PDF_2.png)

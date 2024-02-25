@@ -1,5 +1,5 @@
 ---
-title: Optimization-Models-in-Engineering
+title: 工程优化模型
 date: 2024-02-25 10:06:48
 tags: 笔记
 toc: true
@@ -13,7 +13,7 @@ widgets:
     depth: 3
 ---
 
-UCB - EECS 127/227A - Optimization Models in Engineering
+UCB - Optimization Models in Engineering | EECS 127/227A
 
 <!-- more -->
 

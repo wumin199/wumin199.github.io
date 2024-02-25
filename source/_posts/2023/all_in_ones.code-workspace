@@ -11,6 +11,9 @@
         },
         {
             "path": "../../../../../workspace/wm-power-of-matrix"
+        },
+        {
+            "path": "../../../../wm-tutorial"
         }
     ]
 }

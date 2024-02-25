@@ -94,6 +94,8 @@ widgets:
 ## 职业
 
 - [ ] [EECS127](https://eecs127.github.io/)(综合课程：线性代数+机器学习+最优化，网上有作业答案)
+- [ ] [16-745: Optimal Control & Reinforcement Learning](https://optimalcontrol.ri.cmu.edu/)(Julia编程+数值优化的基本入门(merit function)+控制+DP+凸集凸优化)
+    - [知乎课程介绍](https://zhuanlan.zhihu.com/p/544119652)(课程主要讲的是基于数值方法的控制，也就是说把一个控制问题转换成一个数值优化问题来解决。)
 - [ ] wm-world
 - [ ] wm-ruckig
 - [ ] wm-kinco-test

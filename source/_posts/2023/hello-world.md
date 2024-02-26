@@ -29,6 +29,10 @@ npm -v
 # 安装hexo
 npm install -g hexo-cli
 hexo -v
+
+# 安装依赖
+cd package_root_path
+npm install
 ```
 
 ```bash

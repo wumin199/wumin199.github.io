@@ -23,6 +23,14 @@ UCB - Optimization Models in Engineering | EECS 127/227A
    
    Some optimization problems, such as nonlinear optimization, require an initial guess. Other types of problems, such as quadratic programming, mixed-integer optimization, etc,  can be solved faster if a good initial guess is provided. The user could provide an initial guess as an input argument in Solve function. If no initial guess is provided, Drake will use a zero-valued vector as the initial guess.
 
+   Solving an NLP requires an initial guess on all the decision variables
+  
+- QP
+  
+  AddQuadraticCost
+  AddQuadraticErrorCost
+  Add2NormSquaredCost
+
 
 ### 参考资料
 
@@ -34,11 +42,17 @@ UCB - Optimization Models in Engineering | EECS 127/227A
 
 
 
-### EECS 127/227A
+## EECS 127/227A
 
 
 
-## 参考资料
+### 参考资料
 
 - [Home Page](https://eecs127.github.io/)
 - [Bili](https://www.bilibili.com/video/BV1pM411c7Jc/?spm_id_from=333.337.search-card.all.click&vd_source=991bc0898d44d84ddbbb0469ce816e70)
+
+
+## 关键概念
+
+1. 凸/非凸
+2. 

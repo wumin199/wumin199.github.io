@@ -71,7 +71,10 @@ Matrix Calculus
 - [Online Matrix Calculus](https://www.matrixcalculus.org/matrixCalculus)(当矩阵变元是对称矩阵时，结果是错误的。（对于非对称的矩阵变元，可以放心使用）)
 - [Calculus Cheat Sheet](https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_calculus/calculus_cheat_sheet.pdf)
 - [The Matrix Cookbook](https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf)
+- [Harold’s Taylor Series Cheat Sheet](https://www.toomey.org/tutor/harolds_cheat_sheets/Harolds_Taylor_Series_Cheat_Sheet_2022.pdf)
+  - [本地pdf](https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_calculus/Harolds_Taylor_Series_Cheat_Sheet_2022.pdf)
 - [矩阵求导知识点总结](https://www.cnblogs.com/gyhhaha/p/11782212.html)
+- [WolframAlpha](https://www.wolframalpha.com/)
 
 ### 其他资料
 

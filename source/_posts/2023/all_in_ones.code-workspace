@@ -15,5 +15,11 @@
         {
             "path": "../../../../wm-tutorial"
         }
-    ]
+    ],
+    "settings": {
+        "files.associations": {
+            "uniform": "cpp",
+            "vertexarraystate": "cpp"
+        }
+    }
 }

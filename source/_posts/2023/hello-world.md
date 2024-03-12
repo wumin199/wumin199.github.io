@@ -52,6 +52,18 @@ git push
 
 ```
 
+有时候需要切换端口
+
+```bash
+hexo server -p 5612
+# 或者
+hexo s -p 5612
+```
+
+有时候打不开网页，可以尝试如下方法：
+- 切换到Edge浏览器或者Firefox浏览器
+- ``https://localhost:5612/`` -> ``http://localhost:5612/``
+
 ## 选择Hexo
 
 * [X] 选择Jeklly或者Hexo -> Hexo胜出

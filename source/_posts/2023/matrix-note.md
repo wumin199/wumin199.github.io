@@ -150,7 +150,7 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
 - Hermit矩阵
 - 伴随矩阵
 
-## 各种分解
+## 各种分解及其应用
 
 1. 常见矩阵分解的使用场景
    
@@ -193,7 +193,18 @@ x^TQx是一般的二次曲面，根据Q的不同，可以是单位正圆、旋�
       - 对G特征值分解 -> V，获取行空间和零空间，即特征空间(花瓣长、宽。。)
       - 对H特征值分解 -> U，获取列空间和左零空间
       - 对G和H特征值分解的结果：2个分解的非零特征值都一样，且和X的奇异值是开根号的关系
+4. 条件数：对Ax = b，如果b变化一点(扰动)，那么求解的x会有很大变换么？A(x + δx) = b + δb
+      <div style="display: flex; justify-content: center; align-items: center;">
+         <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/condition_number_1.png" alt="" style="width:100%;">
+         <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/matrix_note/condition_number_2.png" alt="" style="width:100%;">
+      </div>
    
+   条件数越小越好，条件数 >=1
+   
+   - [what is the condition number of a matrix?](https://www.phys.uconn.edu/~rozman/Courses/m3511_18s/downloads/condnumber.pdf)
+   - [What is the Condition Number of a Matrix?](https://blogs.mathworks.com/cleve/2017/07/17/what-is-the-condition-number-of-a-matrix/?from=cn)
+   - [Norms and Condition Numbers](https://www.cse.iitd.ac.in/~dheerajb/CS210_lect07.pdf)(条件数的一些性质)
+
 ## 优化/正交/投影
 
 集合了投影，正定性等的综合结论

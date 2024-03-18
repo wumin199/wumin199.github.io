@@ -307,4 +307,6 @@ git cherry-pick commit-id # 来源于上面那个唯一的commit_id
 
 **案例2：将release/0.11 rebase到master**
 
-TODO
+release/0.11一般有很多个PR(很多个PR的commit)，将其合并到master的时候，需要选择``Fast Forward``，这样master中的commit才是原本的commit。如果选择``Squash``，则release/0.11中所有的commit都将合并成一条。
+
+如果是单次PR，则选择Squash合并策略即可，否则会有很多commit信息被合并到分支中。

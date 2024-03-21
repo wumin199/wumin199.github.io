@@ -150,7 +150,7 @@ widgets:
 
 可以借助以下工具来直观了解某个概念：
 
-- YouTube，B站，知乎，优秀书籍，工具书等
+- YouTube，B站，知乎，优秀书籍，工具书，Chat GPT等
 - 外国优秀教材和中译本
 - [GeoGebra数学教学软件](https://www.geogebra.org/)
 

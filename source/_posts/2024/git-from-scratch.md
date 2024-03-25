@@ -84,6 +84,21 @@ git merge master
 
 TODO
 
+
+1. wm-studio是交付软件，对应wm-studio这个repo
+2. wm-studio有很多依赖，比如wm-control
+3. wm-studio的大版本规定了，各个依赖的大版本也规定了
+4. wm-studio升级了大版本，则
+
+```
+wm-studio 10.0(release/10.0)
+- wm-control release/1.0
+- wm-video release/0.5
+- wm-test release/0.3
+```
+
+现在假设 wm-studio 10.0(release/10.0) -> wm-studio 11.0(release/11.0)
+
 ### 使用rebase合并
 
 **案例1：将所有的commit合并成1个**
@@ -310,3 +325,8 @@ git cherry-pick commit-id # 来源于上面那个唯一的commit_id
 release/0.11一般有很多个PR(很多个PR的commit)，将其合并到master的时候，需要选择``Fast Forward``，这样master中的commit才是原本的commit。如果选择``Squash``，则release/0.11中所有的commit都将合并成一条。
 
 如果是单次PR，则选择Squash合并策略即可，否则会有很多commit信息被合并到分支中。
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_rebase_master.png" alt="" style="width:50%;">
+  <div style="width: 50%;"></div>
+</div>

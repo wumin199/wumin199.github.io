@@ -84,6 +84,35 @@ git merge master
 
 TODO
 
+
+1. wm-studio是交付软件，对应wm-studio这个repo
+2. wm-studio有很多依赖，比如wm-control
+3. wm-studio的大版本规定了，各个依赖的大版本也规定了
+4. wm-studio升级了大版本，则
+
+```
+wm-studio 10.0(release/10.0)
+- wm-control release/1.0
+- wm-video release/0.5
+- wm-test release/0.3
+```
+
+现在假设 wm-studio 10.0(release/10.0) -> wm-studio 11.0(release/11.0)
+
+
+---
+max 1.5 -> release/0.9
+max 1.6.0 -> release/0.10 -> 1.6.0Production已发，但是还有现场再用这个的staging，所以重要bug也需要修复（如通讯bug）
+max 1.6.1 -> release/0.11 -> （目前在master，等发1.6.1正式版后再开release/0.11)，（现在已经有release/0.11了，有了release/xx后就应该往这里面发，不要往master发)
+                    0.11.1 -> max 1.6.2
+max 1.7.0 -> 1.0.0
+
+---
+新的： 有人在群里喊了，要升级max到1.7，需要先升级个repo，之后再升级xyz-studio-max（最高级的layer）
+
+1. 将release/0.11.1和release/truck-0.9 rebase到master
+2. 
+
 ### 使用rebase合并
 
 **案例1：将所有的commit合并成1个**
@@ -310,3 +339,18 @@ git cherry-pick commit-id # 来源于上面那个唯一的commit_id
 release/0.11一般有很多个PR(很多个PR的commit)，将其合并到master的时候，需要选择``Fast Forward``，这样master中的commit才是原本的commit。如果选择``Squash``，则release/0.11中所有的commit都将合并成一条。
 
 如果是单次PR，则选择Squash合并策略即可，否则会有很多commit信息被合并到分支中。
+
+```bash
+git checkout release/wm-1.0
+git checkout -b "rebase_release/wm-1.0"
+git rebase -i master
+################################
+# 如果有冲突，则
+################################
+# git add .
+# git continue
+# git abort
+
+git push
+
+```

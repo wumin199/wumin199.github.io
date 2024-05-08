@@ -35,6 +35,9 @@
 *.[rR][aA][rR] binary
 *.[7z] binary
 *.[iI][sS][oO] binary
+*.plantuml binary
+*.excalidraw binary
+*.drawio binary
 
 # Make sure windows batch files preserve CRLF ending
 *.bat text eol=crlf

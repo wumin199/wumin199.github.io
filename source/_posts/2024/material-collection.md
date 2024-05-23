@@ -29,6 +29,8 @@ widgets:
 - [robot toolbox](https://petercorke.com/toolboxes/robotics-toolbox/)(可以用来验证FK、IK、雅可比矩阵)
   - [robotics-toolbox-python](https://github.com/petercorke/robotics-toolbox-python)
   - [Ducumentation python](https://petercorke.github.io/robotics-toolbox-python/index.html)
+- [sophus](https://github.com/strasdat/Sophus)(李群李代数c++库)
+- [drake](https://drake.mit.edu/)(Model-Based Design and Verification for Robotics)(里面有一部分插值的东西)
 
 ### 其他
 

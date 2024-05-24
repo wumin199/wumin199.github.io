@@ -125,7 +125,9 @@ cheatsheets
 
 - [9. 摩擦力]()
   
-  常见的摩擦力包含静摩擦和动摩擦立：[friction](https://physics.info/friction/summary.shtml)、[Determining the Coefficient of Friction](https://nfsi.org/wp-content/uploads/2013/10/Determining.pdf)
+  库仑摩擦就是静摩擦力和滑动摩擦力的统称。
+
+  常见的摩擦力包含静摩擦和动摩擦：[friction](https://physics.info/friction/summary.shtml)、[Determining the Coefficient of Friction](https://nfsi.org/wp-content/uploads/2013/10/Determining.pdf)、[（概念区分）静摩擦、动摩擦、库仑摩擦和粘性摩擦](https://zhuanlan.zhihu.com/p/446328872)
 
 ## 数学相关
 

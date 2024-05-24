@@ -16,6 +16,17 @@ plain, understandable and intuitive materials
 
 <!-- more -->
 
+## key_words
+
+overview/review
+summary
+examples/questions
+introduction/preparation
+definition/application/question/assignment/homework/course
+characteristics/characteriaztion
+cheatsheets
+
+
 ## 机器人相关
 
 ### 核心资料
@@ -66,7 +77,25 @@ plain, understandable and intuitive materials
 
 - [3. 逆动力学 Computing the inertia matrix in OpenRAVE](https://scaron.info/robotics/computing-the-inertia-matrix.html)
   
-  逆动力学的概念,就是根据toque和q计算出动力学方程的M和C矩阵的过程. 这里还提到用CRBA的方法计算逆动力学.使用该方法的库包括Pinocchio, RBDL等
+  逆动力学的概念,就是根据toque和q计算出动力学方程的M和C矩阵的过程. 这里还提到用CRBA的方法计算逆动力学.使用该方法的库包括Pinocchio, RBDL等。
+
+  这里描述的有点问题：
+
+  pinocchio中是这样说的：
+
+    实现的主要算法：
+
+   正向运动学（forward kinematics）：给定机器人构型，计算每个关节的空间位置并将其存储为坐标变换。如果给定速度或加速度，将计算每个关节的空间速度（以局部坐标系表示）。
+
+   运动学雅可比矩阵（kinematic jacobian）：在机械臂运动学中用来计算机械臂末端执行器的速度与各个关节运动速度之间的关系。
+
+   逆动力学（inverse dynamics）：采用Recursive Newton-Euler Algorithm (RNEA) 计算逆动力学。即给定所需的机器人构型(各个轴角度)、速度(各个速度)、加速度(各个轴加速度)，计算并存储执行该运动所需的扭矩。
+
+   关节空间惯性矩阵（Joint space inertia matrix）：采用Compostie rigid body algortihm (CRBA)算法，计算关节空间惯性矩阵。(M和C矩阵)
+
+   前向动力学（forward dynamics）：采用Articulated Body Algorithm（ABA）计算无约束的前向动力学。即给定机器人构型、速度、扭矩和外力的情况下，可以计算出由此产生的关节加速度。
+
+   其他算法：其他算法包括约束正运动学，脉冲动力学，逆关节空间惯性矩阵，向心动力学。
 
 - [4. 前向Forward dynamics](https://scaron.info/robotics/forward-dynamics.html)
   
@@ -74,8 +103,98 @@ plain, understandable and intuitive materials
 
   需要先用到逆动力学求出M和C,然后再计算出关节a.方法有RNEA(pinocchio)或者ABA(bullet/Dart)
 
+- [5. 常见振动系统和公式](https://ccrma.stanford.edu/CCRMA/Courses/152/vibrating_systems.html)
+
+- [6. 常见的关节动图](https://gepettoweb.laas.fr/doc/stack-of-tasks/pinocchio/master/doxygen-html/md_doc_c-maths_b-joints.html#autotoc_md64)
+
+- path和trajectory
+  
+  path是几何路径，trajectory是包含vel, acc和t
+
+  path一般给的是关键点，trajcectory会走到这些关键点。所以为了更光滑，需要对path进行插值，如toppra中的spline插值
+
+  path -> add_constraint(vel, acc) -> toppra -> trajectory
+
+  ![](https://github.com/wumin199/wm-blog-image/raw/main/images/material_collection/imgs/path-notation.png)
+
+- toppra中的插值
+  
+  All toppra interpolators try to match all given waypoints, and hence it can lead to large fluctuation if the waypoints change rapidly. In this case, it is recommended to smooth the waypoints prior to using toppra using for example scipy.interpolation.
+
+  see: [Minimum requirement on path smoothness](https://hungpham2511.github.io/toppra/notes.html#minimum-requirement-on-path-smoothness)
+
+- 摩擦力
+  
+  常见的摩擦力包含静摩擦和动摩擦立：[friction](https://physics.info/friction/summary.shtml)、[Determining the Coefficient of Friction](https://nfsi.org/wp-content/uploads/2013/10/Determining.pdf)
 
 ## 数学相关
+
+
+- [1. 数值积分 integration_basics](https://gafferongames.com/post/integration_basics/)
+  
+  The RK4 is a fourth order integrator, which means its accumulated error is on the order of the fourth derivative. This makes it very accurate. Much more accurate than explicit and implicit euler which are only first order.
+
+  有个龙格库塔法的具体案例, 案例用到了
+  
+  [5. 常见振动系统和公式](https://ccrma.stanford.edu/CCRMA/Courses/152/vibrating_systems.html)
+  
+  [龙格库塔法介绍](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
+
+  重点是,里面的
+  ```c++
+    struct State
+    {
+        float x;      // position
+        float v;      // velocity
+    };
+
+    struct Derivative
+    {
+        float dx;      // 速度, 应该用dx/dt更直观
+        float dv;      // 加速度, 应该用dv/dt表示更直观
+    };
+   Derivative evaluate( const State & initial, 
+                         double t, 
+                         float dt, 
+                         const Derivative & d )
+    {
+        State state;
+        state.x = initial.x + d.dx*dt; // x = x0+v*dt
+        state.v = initial.v + d.dv*dt; // v = v0 + a*vt
+
+        Derivative output;
+        output.dx = state.v; // 注意这里是v
+        output.dv = acceleration( state, t+dt ); // 这里是a
+        return output;
+    }
+
+    float acceleration( const State & state, double t )
+    {
+        // see: https://ccrma.stanford.edu/CCRMA/Courses/152/vibrating_systems.html
+        // ma + bv+kx=0,假设m=1 --> a = -kx-bv
+        const float k = 15.0f;
+        const float b = 0.1f;
+        return -k * state.x - b * state.v; // 返回a
+    }
+
+    // y = State
+    // dy/dt = Derivative == State的导数
+    // dy/dt = evaluate(t, dy/dt, initial_y)
+  ```
+
+  作者同时说明了如何选择积分器
+
+  这里也给出了从加速度积分到速度,再积分到位置的案例: [Physics in 3D](https://gafferongames.com/post/physics_in_3d/)
+
+
+- [2. 差分公式](https://www.dam.brown.edu/people/alcyew/handouts/numdiff.pdf)
+  
+  APMA 0160 (A. Yew) Spring 2011, Numerical differentiation: finite differences
+
+https://scaron.info/blog/conversion-from-least-squares-to-quadratic-programming.html
+
+https://scaron.info/blog/quadratic-programming-in-python.html
+
 
 
 ## 编程相关

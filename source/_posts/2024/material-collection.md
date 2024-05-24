@@ -107,7 +107,7 @@ cheatsheets
 
 - [6. 常见的关节动图](https://gepettoweb.laas.fr/doc/stack-of-tasks/pinocchio/master/doxygen-html/md_doc_c-maths_b-joints.html#autotoc_md64)
 
-- path和trajectory
+- [7. path和trajectory]()
   
   path是几何路径，trajectory是包含vel, acc和t
 
@@ -117,13 +117,13 @@ cheatsheets
 
   ![](https://github.com/wumin199/wm-blog-image/raw/main/images/material_collection/imgs/path-notation.png)
 
-- toppra中的插值
+- [8. toppra中的插值]()
   
   All toppra interpolators try to match all given waypoints, and hence it can lead to large fluctuation if the waypoints change rapidly. In this case, it is recommended to smooth the waypoints prior to using toppra using for example scipy.interpolation.
 
   see: [Minimum requirement on path smoothness](https://hungpham2511.github.io/toppra/notes.html#minimum-requirement-on-path-smoothness)
 
-- 摩擦力
+- [9. 摩擦力]()
   
   常见的摩擦力包含静摩擦和动摩擦立：[friction](https://physics.info/friction/summary.shtml)、[Determining the Coefficient of Friction](https://nfsi.org/wp-content/uploads/2013/10/Determining.pdf)
 
@@ -190,6 +190,13 @@ cheatsheets
 - [2. 差分公式](https://www.dam.brown.edu/people/alcyew/handouts/numdiff.pdf)
   
   APMA 0160 (A. Yew) Spring 2011, Numerical differentiation: finite differences
+
+- [3. 样条曲线]()
+  
+  3次样条也叫cubic spline，就是分段3次多项式
+  B样条中间用的不是3次多项式，而是伯恩斯坦表达方式。 This basis is generally more computationally stable than the power basis and is useful for a variety of applications which include interpolation, regression and curve representation.
+
+
 
 https://scaron.info/blog/conversion-from-least-squares-to-quadratic-programming.html
 

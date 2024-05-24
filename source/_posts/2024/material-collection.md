@@ -194,7 +194,10 @@ cheatsheets
 - [3. 样条曲线]()
   
   3次样条也叫cubic spline，就是分段3次多项式
-  B样条中间用的不是3次多项式，而是伯恩斯坦表达方式。 This basis is generally more computationally stable than the power basis and is useful for a variety of applications which include interpolation, regression and curve representation.
+  B样条中间用的不是3次多项式，而是特殊形式的方式。 This basis is generally more computationally stable than the power basis and is useful for a variety of applications which include interpolation, regression and curve representation.
+  通过设置3阶B样条曲线的参数，比如k=3，且不用knot，则可以登记于3次样条曲线。
+
+  B-splines(scipy.BSpline) are often used for, for example, non-parametric regression problems, and Bernstein polynomials(scipy.BPoly) are used for constructing Bezier curves.
 
 
 

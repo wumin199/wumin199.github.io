@@ -129,6 +129,10 @@ cheatsheets
 
   常见的摩擦力包含静摩擦和动摩擦：[friction](https://physics.info/friction/summary.shtml)、[Determining the Coefficient of Friction](https://nfsi.org/wp-content/uploads/2013/10/Determining.pdf)、[（概念区分）静摩擦、动摩擦、库仑摩擦和粘性摩擦](https://zhuanlan.zhihu.com/p/446328872)
 
+- 连续性
+  
+  连续性至少需要考虑位置、速度和加速度。
+
 ## 数学相关
 
 

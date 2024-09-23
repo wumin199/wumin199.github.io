@@ -99,6 +99,11 @@ wm-studio 10.0(release/10.0)
 
 现在假设 wm-studio 10.0(release/10.0) -> wm-studio 11.0(release/11.0)
 
+设置策略：
+1. release/1.3，对于管理员可以push，但是不能push -f
+   1. 可以push的目的是添加新的版本号，不可以push -f的目的是，不允许强制覆盖很多提交历史，这非常危险
+   2. 管理员设置成可以push，但是不能push —f，否则可能一下子改变一大堆提交
+
 ### 使用rebase合并
 
 **案例1：将所有的commit合并成1个**
@@ -267,9 +272,50 @@ git rebase -i master
 git push -f
 ```
 
-### git reset
+### git reset 和 git revert
 
-TODO
+git revert 命令用于撤销一个已提交的更改。与 git reset 不同的是，git revert 会创建一个新的提交来撤销指定的更改，而不是直接删除提交记录。
+
+```bash
+git revert <commit-hash>
+# 如果有冲突, 解决冲突后添加文件
+git add <file>
+# 完成提交
+git commit
+```
+
+```bash
+# 此模式下，HEAD 会被重置到指定的提交，但索引区和工作目录的内容保持不变。更改会被保留在索引区中，准备好进行新的提交。
+git reset --soft <commit-hash>
+
+# 此模式下，HEAD、索引区和工作目录都会被重置到指定的提交。所有未提交的更改都会被丢弃。
+git reset --hard <commit-hash>
+```
+
+案例：
+
+`commit1 -> commit2 -> commit3 -> commit4 (HEAD)`
+
+```bash
+git reset --hard commit2
+```
+
+结果：`commit1 -> commit2 (HEAD)`
+
+git reset 是一个强大的命令，可以根据需要选择不同的模式来重置 HEAD、索引区和工作目录。使用时请谨慎，特别是 --hard 模式，因为它会丢弃所有未提交的更改。
+
+**案例1** get pull前需要git reset
+
+本地的branch历史可能和远端的不一样，直接git pull会冲突，推荐做法：
+
+```bash
+# 某branch在一个地方进行了
+get rebase release/1.3
+# 在另一个地方需要pull的话，不可以直接pull，否则会conflict，具体需要：
+get reset —hard HEAD~100
+git pull
+# 或删掉分支后再checkout
+```
 
 ### cherry-pick
 

@@ -26,27 +26,47 @@ npm -v
 # 如果不存在，则安装npm
 # https://nodejs.org/en/download/
 
-# 安装hexo
-npm install -g hexo-cli
+
+#
+# 安装project dependencies
+#
+cd  wumin199.github.io/
+npm install # 安装packages.json中的所有依赖， install all the dependencies in your project
+
+
+
+#
+# 安装npm包举例：
+#
+
+cd  wumin199.github.io/
+# Set-ExecutionPolicy Bypass -Scope Process -Force # 有些Windows电脑powershell没有权限，则需要执行这句
+npm install hexo-cli  # 安装到执行终端的目录
+# npm install -g hexo-cli  # -g表示将 hexo-cli安装在全局目录
 hexo -v
+
 ```
 
 说明：
 
-在windows下按照nodejs，如果不是安卓在C盘下，执行 `npm -v`的时候会报错：
+1. 在windows下按照nodejs，如果不是安卓在C盘下，执行 `npm -v`的时候会报错：
 
-```powershell
-PS C:\Users\wumin> npm -v
-npm : 无法加载文件 D:\installed\nodejs\npm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.co
-m/fwlink/?LinkID=135170 中的 about_Execution_Policies。
-所在位置 行:1 字符: 1
-+ npm -v
-+ ~~~
-    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
-    + FullyQualifiedErrorId : UnauthorizedAccess
-```
+    ```powershell
+    PS C:\Users\wumin> npm -v
+    npm : 无法加载文件 D:\installed\nodejs\npm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.co
+    m/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+    所在位置 行:1 字符: 1
+    + npm -v
+    + ~~~
+        + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+        + FullyQualifiedErrorId : UnauthorizedAccess
+    ```
 
-解决方法是在powershell中执行： `Set-ExecutionPolicy Bypass -Scope Process -Force`
+    解决方法是在powershell中执行： `Set-ExecutionPolicy Bypass -Scope Process -Force`
+
+    不过后续也会有其他问题，比如 npm install 会安装到其他目录中，而不是项目文件夹下
+
+2. Windows下可以通过程序与管理，卸载Nodejs
 
 
 ```bash

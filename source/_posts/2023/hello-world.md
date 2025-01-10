@@ -31,6 +31,24 @@ npm install -g hexo-cli
 hexo -v
 ```
 
+说明：
+
+在windows下按照nodejs，如果不是安卓在C盘下，执行 `npm -v`的时候会报错：
+
+```powershell
+PS C:\Users\wumin> npm -v
+npm : 无法加载文件 D:\installed\nodejs\npm.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/go.microsoft.co
+m/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 1
++ npm -v
++ ~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+```
+
+解决方法是在powershell中执行： `Set-ExecutionPolicy Bypass -Scope Process -Force`
+
+
 ```bash
 # 
 #

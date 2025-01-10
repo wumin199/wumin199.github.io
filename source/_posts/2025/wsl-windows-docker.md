@@ -1,5 +1,5 @@
 ---
-title: Windows WSL与Docker
+title: WSL与Windows Docker
 date: 2025-01-10 09:45:08
 tags: 编程
 toc: true
@@ -12,7 +12,7 @@ widgets:
     depth: 3
 ---
 
-WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows Container
+WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows/Linux based Container
 
 <!-- more -->
 

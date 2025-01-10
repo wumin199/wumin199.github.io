@@ -42,7 +42,7 @@ npm install # 安装packages.json中的所有依赖， install all the dependenc
 cd  wumin199.github.io/
 # Set-ExecutionPolicy Bypass -Scope Process -Force # 有些Windows电脑powershell没有权限，则需要执行这句
 npm install hexo-cli  # 安装到执行终端的目录
-# npm install -g hexo-cli  # -g表示将 hexo-cli安装在全局目录
+# npm install -g hexo-cli  # -g 表示将 hexo-cli安装在全局目录
 hexo -v
 
 ```
@@ -101,6 +101,11 @@ hexo s -p 5612
 有时候打不开网页，可以尝试如下方法：
 - 切换到Edge浏览器或者Firefox浏览器
 - ``https://localhost:5612/`` -> ``http://localhost:5612/``
+
+
+## Page说明
+
+1. 图片是放到 `wm-blog-image` 这个repo的main分支下
 
 ## 选择Hexo
 

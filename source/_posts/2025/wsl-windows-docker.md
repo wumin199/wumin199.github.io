@@ -31,6 +31,7 @@ WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows/Linux based Con
 ### 一些笔记
 
 - WSL就是可以让你在Windows下跑Ubuntu、Debian等系统
+- 最新是wsl2
 - WSL支持GUI
 - WSL支持GPU加速
 - 建议配合Windows Terminal
@@ -110,13 +111,13 @@ WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows/Linux based Con
 WSL 是一个强大的工具，让开发者可以轻松地在 Windows 上使用 Linux 的强大功能，而无需额外的硬件或复杂的配置。通过 WSL，你可以享受两种世界的最佳体验：Windows 的便利性和 Linux 的灵活性。
 
 
-### 安装
+### 使用教程
 
 现在最新的是wsl2，安装参考：[如何使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)
 
-以Win10为，用**管理器权限**打开
+以Win10为，用**管理器权限**打开 Powershell or Windows Terminal
 
-```shell
+```bash
 
 # 查看当前是否装有wsl
 wsl -v  # wsl --version
@@ -134,7 +135,7 @@ wsl --shutdown # 重启
 
 **安装Ubuntu**
 
-```shell
+```bash
 wsl --update #
 wsl --list --online
 wsl --install -d Ubuntu-20.04 
@@ -158,7 +159,11 @@ WSL 2 使 Linux GUI 应用程序在 Windows 上使用起来原生且自然。
 - 使用 alt-tab 在 Linux 应用和 Windows 应用之间切换
 - 跨 Windows 应用和 Linux 应用剪切并粘贴
 
-```shell
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-gui.png" alt="" style="width:100%;">
+</div>
+
+```bash
 
 # 这个功能对windows版本和驱动有一定要求，请看上面连接
 
@@ -208,8 +213,9 @@ sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb
 **常见指令**
 
 - [Install Debian](https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux)
+- [WSL 的基本命令](https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands)
 
-```shell
+```bash
 
 wsl --update # 更新wsl的同时，更新各种在线的Linux版本供后面的install
 wls --list # 查看已经安装的Linux系统
@@ -224,20 +230,47 @@ wsl --shutdown  # 关闭所有正在运行的，如果只想关闭一个，则 w
 wsl -d  Ubuntu-22.04 # 运行，也可以在开始菜单点击运行(Ubuntu22.04)
 # wsl -d Ubuntu-22.04 -u <username>
 
-wsl pwd # 查看当前宿主机挂载到wsl中的目录
-
-
-
 # 同时登录Debian和Ubuntu
 # 开Windows Terminal并登录即可
 ```
 
-### 开发要点
 
-1. 建议配合Windows Terminal，比Powershell更好用
-2. vscode
-3. 共享目录
-4. 
+**挂载宿主机磁盘**
+
+随着wsl和windows的升级，相关方法也可能升级
+
+概念：磁盘和分区
+
+磁盘是物理磁盘，如2块硬盘(SSD，机械硬盘)
+分区：一块SSD分区为C盘，一块机械硬盘分区为D盘和E盘
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/disk_partition.png" alt="" style="width:100%;">
+</div>
+
+系统默认挂载了所有的磁盘和分区
+
+```bash
+# 查看系统当前(默认)挂载了哪些磁盘
+wsl ls /mnt
+
+# 在Unbuntu/Debian中可以
+cd /mnt
+```
+
+详细研究参考：
+
+- [在 WSL 2 中装载 Linux 磁盘](https://learn.microsoft.com/zh-cn/windows/wsl/wsl2-mount-disk)
+- [在 Windows 和 WSL 2 中访问 Linux 文件系统](https://linux.cn/article-12608-1.html)
+
+
+**VSCode**
+
+通过"Remote Expore"，选择WSL Target进去即可。
+
+进去以后，根据需要在wsl中装对应的插件。
+
+vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当前的显示目录
 
 
 ## Windows Docker

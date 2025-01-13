@@ -275,5 +275,136 @@ vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当
 
 ## Windows Docker
 
+目标环境：
+
+1. python 3.12
+2. .NET 8 (C#12 + WPF), MSBuild+NuGet做构建和依赖管理
+3. C++17 + CMake + vcpkg + msvc2022
+
+
 ### 笔记
 
+- Docker 并非是一个通用的容器工具，它依赖于已存在并运行的 Linux 内核环境
+- 因此，Docker 必须部署在 Linux 内核的系统上。如果其他系统想部署 Docker 就必须安装一个虚拟 Linux 环境。
+  
+  Windows下的虚拟环境包括
+
+  - WSL2
+  - virtualbox or VMWare
+  - Hyper-V
+
+- windows container on windows 可以编译带GUI的api，但是跑不起来GUI
+  - 这一点和Linux不一样，Linux可以通过.x11跑起来GUI
+    - [Using Windows Containers to "Containerize" Existing Applications](https://learn.microsoft.com/en-us/virtualization/windowscontainers/quick-start/lift-shift-to-containers)
+    - [使用 Windows 容器“容器化”现有应用程序](https://learn.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/lift-shift-to-containers)
+    - [Is it possible to containerize a Windows GUI application on a Windows host?](https://stackoverflow.com/questions/54292215/is-it-possible-to-containerize-a-windows-gui-application-on-a-windows-host)
+
+    其他参考：
+
+    - [Run GUI app in linux docker container on windows host](https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde)
+    - [把 Windows 装进 Docker 容器里](https://blog.csdn.net/soulteary/article/details/136620602)
+
+
+### Windows Docker 安装
+
+参考：
+
+- [Install Docker Desktop on Windows](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+
+分为Linux容器模式和Windows容器模式
+
+Linux容器模式：docker中跑的是linux的image。相当于是在Windows上开发Linux的应用程序
+
+Windows容器模式：docker中跑的是windows的image（[Container Base Images](https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-base-images))，相当于是在Windows上开发Windows的应用程序
+
+使用Windows container条件：Win10 or Win11的Professional or Enterprise edition版本
+使用Linux container条件：Windows Home or Education editions only allow you to run Linux containers
+
+
+- Windows容器模式：HyperV
+  - 一旦启用，QEMU、VirtualBox 或 VMWare Workstation 15 及以下版本将无法使用！如果你必须在电脑上使用其他虚拟机（例如开发 Android 应用必须使用的模拟器），请不要使用 Hyper-V （但测试后发现可以使用Virtualbox，可能是因为Windows新版本进行了升级？）
+  - 但如果你是要在windows的docker下跑windows的image，则需要用到Hyper-V
+- Linux容器模式：WSL2
+
+Containers and images created with Docker Desktop are shared between all user accounts on machines where it is installed. This is because all Windows accounts use the same VM to build and run containers. Note that it is not possible to share containers and images between user accounts when using the Docker Desktop WSL 2 backend.
+
+---
+
+使用指令安装步骤：
+
+- 下载 [Docker Desktop for Windows - x86_64](https://docs.docker.com/desktop/release-notes/)
+- 准备脚本 `install_windows_docker.ps1`
+  
+  ```powershell
+    # 定义Docker的文件夹路径
+    # 之后docker pull的镜像也是放在这里的
+    $docker_dir = "D:/windows-docker"
+
+    # 创建目录，-Force 参数用于确保无论如何都会创建该目录
+    mkdir $docker_dir/overlay-ports -Force
+
+
+    # Enable HyperV
+    # Windows docker engine needs this one!
+    Enable-WindowsOptionalFeature -Online -FeatureName $("Microsoft-Hyper-V", "Containers") -All
+
+    # 启动 Docker Desktop 安装程序
+    Start-Process 'Docker Desktop Installer.exe' -Wait -ArgumentList @(
+        "install",
+        "--quiet",
+        "--accept-license",
+        "--installation-dir=$docker_dir",
+        "--backend=hyper-v"
+    )
+
+    # 以下设置有问题，必须启动Docker Desktop才行
+    # default settings
+    # invalid settings, must open and log in Docker Desktop first
+    # $docker_cli_path = "$docker_dir/DockerCli.exe"
+    # option: -SwitchLinuxEngine
+    # Start-Process $docker_cli_path -ArgumentList -SwitchWindowsEngine
+  ```
+
+- 将 `install_windows_docker.ps1` 放在和 `Docker Desktop Installer.exe`一个目录下
+- **管理员权限**打开powershell or Windows Terminal，执行
+  
+  ```powershell
+    # step1: 
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+
+    # step2: install docker for desktop
+    ./install_windows_docker.ps1
+
+    # step3: switch to windows docker mode
+    D:\windows-docker\DockerCli.exe --help
+    & D:\windows-docker\DockerCli.exe -SwitchWindowsEngine
+    # & D:\windows-docker\DockerCli.exe -SwitchLinuxEngine
+  ```
+
+- 测试是否安装成功
+  
+  ```powershell
+    docker --version
+    docker images
+  ```
+
+
+### 基础windows镜像
+
+
+
+
+### .NET8 安装
+
+参考：
+
+- [在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows?WT.mc_id=dotnet-35129-website#install-with-windows-package-manager-winget)
+
+
+
+
+### C++环境安装
+
+
+### python 安装

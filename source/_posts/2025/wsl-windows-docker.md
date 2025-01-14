@@ -376,9 +376,12 @@ Containers and images created with Docker Desktop are shared between all user ac
     # step2: install docker for desktop
     ./install_windows_docker.ps1
 
+    #
     # step3: switch to windows docker mode
-    D:\windows-docker\DockerCli.exe --help
-    & D:\windows-docker\DockerCli.exe -SwitchWindowsEngine
+    #
+    # set in install_windows_docker.ps1
+    # D:\windows-docker\DockerCli.exe --help
+    # & D:\windows-docker\DockerCli.exe -SwitchWindowsEngine
     # & D:\windows-docker\DockerCli.exe -SwitchLinuxEngine
   ```
 
@@ -391,6 +394,21 @@ Containers and images created with Docker Desktop are shared between all user ac
 
 
 ### 基础windows镜像
+
+参考：
+
+- [容器基础映像](https://learn.microsoft.com/zh-cn/virtualization/windowscontainers/manage-containers/container-base-images), [Container Base Images](https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-base-images)
+- [dockerhub-dotnet](https://hub.docker.com/r/microsoft/dotnet)
+
+
+Microsoft 提供多个映像（称为基础映像），你可以从其着手构建自己的容器映像：
+
+- Windows - 包含整套 Windows API 和系统服务（服务器角色除外）。
+- Windows Server - 包含整套 Windows API 和系统服务。
+- Windows Server Core - 一个较小的映像，包含部分 Windows Server API - 即完整的 .NET Framework。 它还包括大多数（但不是所有）服务器角色，例如不包含传真服务器。
+- Nano Server - 最小的 Windows Server 映像，包括支持 .NET Core API 和某些服务器角色
+
+如前所述，容器映像由一系列层组成。 每个层包含一组文件，这些文件重叠在一起时表示容器映像。 由于容器的分层特性，你不需始终以某个基础映像为目标来构建 Windows 容器， 而是可以以另一个已经携带你所需框架的映像为目标。 例如，.NET 团队发布了一个携带 .NET Core 运行时的 .NET Core 映像。 有了它，用户就不需重复 .NET Core 安装过程，只需重复使用该容器映像的层即可。 .NET Core 映像本身在 Nano Server 基础上构建。
 
 
 

@@ -389,6 +389,7 @@ Containers and images created with Docker Desktop are shared between all user ac
   
   ```powershell
     docker --version
+    docker version
     docker images
   ```
 
@@ -408,7 +409,6 @@ Microsoft 提供多个映像（称为基础映像），你可以从其着手构�
 - Windows Server - 包含整套 Windows API 和系统服务。
   - 3.1 GB
 - Windows Server Core - 一个较小的映像，包含部分 Windows Server API - 即完整的 .NET Framework。 它还包括大多数（但不是所有）服务器角色，例如不包含传真服务器。
-  - 
 - Nano Server - 最小的 Windows Server 映像，包括支持 .NET Core API 和某些服务器角色
 
 大小：Windows(3.4 GB) > Windows Server(3.1 GB) > Windows Server Core()
@@ -426,6 +426,52 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ```
 
 
+
+**Quick Start**
+
+
+
+``` powershell
+
+# 不需要管理员权限
+
+docker images
+docker pull mcr.microsoft.com/windows/servercore:ltsc2019   # xyz中使用的版本
+# docker rmi mcr.microsoft.com/windows/servercore:ltsc2019
+
+
+docker run --help
+
+# docker run -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell   # 启动较慢
+# docker run -it mcr.microsoft.com/windows/servercore:ltsc2019 cmd.exe  # 启动较慢
+docker run -it --name wm_w10 -v D:\docker_shared:C:\Users\ContainerUser\ws --workdir C:\Users\ContainerUser mcr.microsoft.com/windows/servercore:ltsc2019  powershell
+
+
+# 打印当前目录和文件夹
+dir
+ls
+# cd home
+cd ~ 
+# 显示网络配置信息
+ipconfig
+whoami
+
+exit
+
+docker ps -a
+docker start xxx    # 启动较慢
+docker attach xxx
+
+# attach在容器启动命令的终端，不会启动新的进程。
+# exec则是在容器中打开新的终端，并且可以启动新的进程。
+# 如果想直接在终端中查看启动命令的输出，用attach；其他情况使用exec
+
+```
+
+测试中发现：
+
+1. 用普通权限的PowerShell执行 docker run -it 效果比PowerShell ISE好，PowerShell的ISE可能会乱码
+2. Windows Docker启动较慢：`docker run; docker start`
 
 
 

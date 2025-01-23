@@ -509,6 +509,13 @@ docker attach xxx
 ### python 安装
 
 
+### 其他
+
+WinGet 命令行工具仅在 Windows 10 1709（版本 16299）或更高版本上受支持。
+
+WinGet the Windows Package Manager is available on Windows 11, modern versions of Windows 10, and Windows Server 2025 as a part of the **App Installer**. The App Installer is a System Component delivered and updated by the Microsoft store on Windows Desktop versions, and via Updates on Windows Server 2025.
+
+
 
 ## All In One 安装
 
@@ -521,3 +528,4 @@ docker attach xxx
 1. Visual Studio
 2. Winget/Chocolatey
 3. vcpkg python/ system python
+

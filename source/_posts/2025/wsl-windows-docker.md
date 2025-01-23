@@ -393,6 +393,13 @@ Containers and images created with Docker Desktop are shared between all user ac
     docker images
   ```
 
+- 卸载
+  
+  ```powershell
+  docker rmi mcr.microsoft.com/windows/servercore:ltsc2019
+  # 退出Docker Desktop
+  # Windows控制面板下卸载Docker Desktop
+  ```
 
 ### 基础windows镜像
 
@@ -488,7 +495,7 @@ docker attach xxx
 ### C++环境安装
 
 - MSVC，2022
-- ++17
+- c++17
 - CMake
 
 

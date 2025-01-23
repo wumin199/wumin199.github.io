@@ -515,3 +515,9 @@ docker attach xxx
 - 直接按照VS2022
 - 每部都是最少安装
 
+
+选择安装开关：支持安装
+
+1. Visual Studio
+2. Winget/Chocolatey
+3. vcpkg python/ system python

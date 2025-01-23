@@ -477,7 +477,7 @@ docker attach xxx
 
 测试中发现：
 
-1. 用普通权限的PowerShell执行 docker run -it 效果比PowerShell ISE好，PowerShell的ISE可能会乱码
+1. 用普通权限的PowerShell执行 docker run -it 效果比PowerShell ISE好，PowerShell的ISE可能会乱码。当然用Windows Terminal效果最好。
 2. Windows Docker启动较慢：`docker run; docker start`
 
 
@@ -490,6 +490,13 @@ docker attach xxx
 - [在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows?WT.mc_id=dotnet-35129-website#install-with-windows-package-manager-winget)
 
 
+与 .NET Framework 不同的是，.NET 与 Windows 版本无关。 只能在 Windows 上安装单个版本的 .NET Framework。 但 .NET 是独立的，可以安装在计算机的任何地方。 有些应用可能包含自己的 .NET 副本。
+
+默认情况下，.NET 安装在计算机上的 Program Files\dotnet 目录中，除非安装方法选择了不同的目录。
+
+.NET 由运行时和 SDK 组成。 运行时用于运行 .NET 应用，而 SDK 则用于创建应用。
+
+
 
 
 ### C++环境安装
@@ -497,8 +504,6 @@ docker attach xxx
 - MSVC，2022
 - c++17
 - CMake
-
-
 
 
 ### python 安装

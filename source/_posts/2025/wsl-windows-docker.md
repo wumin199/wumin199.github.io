@@ -391,6 +391,7 @@ Containers and images created with Docker Desktop are shared between all user ac
     docker --version
     docker version
     docker images
+    docker info
   ```
 
 - 卸载

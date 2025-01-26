@@ -273,6 +273,10 @@ cd /mnt
 vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当前的显示目录
 
 
+## Windows VirtualBox
+
+
+
 ## Windows Docker
 
 目标环境：

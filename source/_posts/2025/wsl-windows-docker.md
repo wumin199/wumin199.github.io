@@ -275,6 +275,27 @@ vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当
 
 ## Windows VirtualBox
 
+### 下载Win10/Win11镜像
+
+镜像：
+
+- [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
+- [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png" alt="" style="width:100%;">
+</div>
+
+下载后的原始镜像保存到了百度网盘： `通用软件/images`。这里面还放了不断优化的现成的win10和win11的virtualbox虚拟机。
+
+### 用VirtualBox制作虚拟机
+
+下载VirtualBox和Extension Pack并安装： [virtual box](https://www.virtualbox.org/wiki/Downloads)
+
+
+
+
 
 
 ## Windows Docker

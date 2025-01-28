@@ -28,7 +28,7 @@ npm -v
 
 
 #
-# 安装project dependencies
+# 安装project dependencies到项目目录/node_modules下
 #
 cd  wumin199.github.io/
 npm install # 安装packages.json中的所有依赖， install all the dependencies in your project
@@ -36,14 +36,19 @@ npm install # 安装packages.json中的所有依赖， install all the dependenc
 
 
 #
-# 安装npm包举例：
+# 举例：安装npm包
 #
 
 cd  wumin199.github.io/
 # Set-ExecutionPolicy Bypass -Scope Process -Force # 有些Windows电脑powershell没有权限，则需要执行这句
-npm install hexo-cli  # 安装到执行终端的目录
-# npm install -g hexo-cli  # -g 表示将 hexo-cli安装在全局目录
+
+# 一：全局安装 hexo-cli
+npm install -g hexo-cli  # -g 表示将 hexo-cli安装在全局目录
 hexo -v
+
+# 二：安装到执行终端的目录
+npm install hexo-cli
+npx hexo -v  # 执行项目下的npm模块的话，需要加npx
 
 ```
 
@@ -70,6 +75,13 @@ hexo -v
 
 
 ```bash
+
+#
+# npm install到项目文件夹而不是全局的话
+# 执行如下代码需要加 npx
+# 如 npx hexo clean
+#
+
 # 
 #
 hexo clean

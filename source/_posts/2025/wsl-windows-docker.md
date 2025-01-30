@@ -601,7 +601,7 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
    在“最大化界面”设置的基础上，设置如下：
 
       <div style="display: flex; justify-content: center; align-items: center;">
-      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png" alt="" style="width:33%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png" alt="允许拷贝" style="width:33%;">
       <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:33%;">
       <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:33%;">
       </div>

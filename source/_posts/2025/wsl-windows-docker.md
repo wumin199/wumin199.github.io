@@ -519,7 +519,7 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 
 
-## Windows VirtualBox
+## VirtualBox
 
 ### 下载Win10/Win11镜像
 
@@ -527,7 +527,8 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 - [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
 - [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)
-- [iTellYou各版本镜像](https://next.itellyou.cn/)
+- [iTellYou提供的Windows各版本镜像](https://next.itellyou.cn/)
+- [ROS-Industrial Training Images](https://rosi-images.d10.us.swri.org/)(需要用Firefox下载)
 
 
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -535,6 +536,13 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 </div>
 
 下载后的原始镜像保存到了百度网盘： `通用软件/images`。这里面还放了不断优化的现成的win10和win11的virtualbox虚拟机。
+
+百度网盘：通用软件 -> win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
+百度网盘：通用软件 -> win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
+百度网盘：通用软件 -> rosi_training_foxy_latest.ova: Foxy (ROS2) + Noetic (ROS1)
+百度网盘：通用软件 -> rosi_training_humble_latest.G0PVZOAY.ova: Humble Hawksbill (ROS2)
+百度网盘：通用软件 -> win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置
+百度网盘：通用软件 -> win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置
 
 ### 用VirtualBox制作虚拟机
 
@@ -545,12 +553,6 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 Ubuntu下安装Win10： 百度网盘：通用软件 -> win10_ubuntu_20250130.mkv
 Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
-
-
-百度网盘：通用软件 -> win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
-百度网盘：通用软件 -> win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
-百度网盘：通用软件 -> win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置
-百度网盘：通用软件 -> win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置
 
 
 要点：
@@ -581,9 +583,8 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
    Ubuntu镜像的操作同理，主要参考：[在 VirtualBox 中设置 Ubuntu 共享文件夹 - Windows 文件共享](https://unclesnote.com/zh/231106120100/seamless_windows_folder_sharing_with_ubuntu_vm_simplify_file_exchange), [pdf](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/%E5%9C%A8%20VirtualBox%20%E4%B8%AD%E8%AE%BE%E7%BD%AE%20Ubuntu%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20-%20Windows%20%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB.pdf)
 
    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition.png" alt="安装上面的视频教程，这一步应该已经有了" style="width:33.3%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png" alt="" style="width:33.3%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png" alt="需要管理员权限，2选一执行" style="width:33.3%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png" alt="安装上面的视频教程，这一步应该已经有了" style="width:50%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png" alt="需要管理员权限，2选一执行" style="width:50%;">
     </div>
 
    Ubuntu下还需要在terminal中执行:
@@ -600,9 +601,10 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
    在“最大化界面”设置的基础上，设置如下：
 
       <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:50%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:50%;">
-    </div>
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png" alt="" style="width:33%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:33%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:33%;">
+      </div>
 
 4. Ubuntu下安装输入法
    

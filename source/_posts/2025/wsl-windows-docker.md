@@ -604,6 +604,9 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
     <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:50%;">
     </div>
 
+4. Ubuntu下安装输入法
+   
+   主要参考：[Ubuntu安装搜狗输入法](https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42)
 
 ## All In One 安装
 

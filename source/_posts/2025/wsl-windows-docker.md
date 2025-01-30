@@ -273,91 +273,6 @@ cd /mnt
 vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当前的显示目录
 
 
-## Windows VirtualBox
-
-### 下载Win10/Win11镜像
-
-镜像：
-
-- [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
-- [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)
-- [iTellYou各版本镜像](https://next.itellyou.cn/)
-
-
-<div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png" alt="" style="width:100%;">
-</div>
-
-下载后的原始镜像保存到了百度网盘： `通用软件/images`。这里面还放了不断优化的现成的win10和win11的virtualbox虚拟机。
-
-### 用VirtualBox制作虚拟机
-
-下载VirtualBox和Extension Pack并安装： [virtual box](https://www.virtualbox.org/wiki/Downloads)
-
-
-视频教程：
-
-Ubuntu下安装Win10： 百度网盘：通用软件 -> win10_ubuntu_20250130.mkv
-Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
-
-
-百度网盘：通用软件 -> win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
-百度网盘：通用软件 -> win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
-百度网盘：通用软件 -> win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置
-百度网盘：通用软件 -> win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置
-
-
-要点：
-
-- Win10，不要启用 “显示” -> 硬件加速“启用3D加速”
-- Win11下，不同平台下可能有点不一样
-  - Ubuntu下，如果启动不起来，则需要选择：“系统” -> 芯片组：ICH9
-  - EFI，有些说要勾选，有些说不用
-- 作为开发的话建议用专业版，一般用家庭版即可
-  - 但是我这里给出的都是家庭版
-
-主要参考：
-
-- [VirtualBox 安装 Windows10 22H2 教程](https://icxzl.com/4449.html)，[pdf版本](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VirtualBox%20%E5%AE%89%E8%A3%85%20Windows10%2022H2%20%E6%95%99%E7%A8%8B.pdf)
-- [VirtualBox 安装 win11 虚拟机](https://blog.csdn.net/u010953609/article/details/122430836)
-- [VM VirtualBox虚拟机如何安装WIN11](https://zhuanlan.zhihu.com/p/548015254), [pdf版本](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VM%20VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85WIN11.pdf)
-
-
-基础设置：
-
-1. 显示大小
-   Windows桌面 -> 右键 -> 显示设置 -> 缩放设置 设置为 150%
-
-2. 最大化界面
-   
-   虚拟机中进入到Windows，VirtualBox菜单栏：设备 -> 安装增强选项，然后选中Windows的“此电脑”，和C盘并列的，可以看到**CD驱动器(D:)VirtualBox Guest Addition** -> 运行 VBoxWindowsAdditions -> 重启。
-
-   Ubuntu镜像的操作同理，主要参考：[在 VirtualBox 中设置 Ubuntu 共享文件夹 - Windows 文件共享](https://unclesnote.com/zh/231106120100/seamless_windows_folder_sharing_with_ubuntu_vm_simplify_file_exchange), [pdf](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/%E5%9C%A8%20VirtualBox%20%E4%B8%AD%E8%AE%BE%E7%BD%AE%20Ubuntu%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20-%20Windows%20%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB.pdf)
-
-   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition.png" alt="安装上面的视频教程，这一步应该已经有了" style="width:33.3%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png" alt="" style="width:33.3%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png" alt="需要管理员权限，2选一执行" style="width:33.3%;">
-    </div>
-
-   Ubuntu下还需要在terminal中执行:
-
-   ```shell
-   $USER
-   whoami
-
-   sudo gpasswd -a $USER vboxsf
-   ```
-
-3. 共享文件夹
-   
-   在“最大化界面”设置的基础上，设置如下：
-
-      <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:50%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:50%;">
-    </div>
-
 
 ## Windows Docker
 
@@ -602,6 +517,92 @@ WinGet 命令行工具仅在 Windows 10 1709（版本 16299）或更高版本上
 
 WinGet the Windows Package Manager is available on Windows 11, modern versions of Windows 10, and Windows Server 2025 as a part of the **App Installer**. The App Installer is a System Component delivered and updated by the Microsoft store on Windows Desktop versions, and via Updates on Windows Server 2025.
 
+
+
+## Windows VirtualBox
+
+### 下载Win10/Win11镜像
+
+镜像：
+
+- [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
+- [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)
+- [iTellYou各版本镜像](https://next.itellyou.cn/)
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png" alt="" style="width:100%;">
+</div>
+
+下载后的原始镜像保存到了百度网盘： `通用软件/images`。这里面还放了不断优化的现成的win10和win11的virtualbox虚拟机。
+
+### 用VirtualBox制作虚拟机
+
+下载VirtualBox和Extension Pack并安装： [virtual box](https://www.virtualbox.org/wiki/Downloads)
+
+
+视频教程：
+
+Ubuntu下安装Win10： 百度网盘：通用软件 -> win10_ubuntu_20250130.mkv
+Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
+
+
+百度网盘：通用软件 -> win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
+百度网盘：通用软件 -> win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
+百度网盘：通用软件 -> win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置
+百度网盘：通用软件 -> win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置
+
+
+要点：
+
+- Win10，不要启用 “显示” -> 硬件加速“启用3D加速”
+- Win11下，不同平台下可能有点不一样
+  - Ubuntu下，如果启动不起来，则需要选择：“系统” -> 芯片组：ICH9
+  - EFI，有些说要勾选，有些说不用
+- 作为开发的话建议用专业版，一般用家庭版即可
+  - 但是我这里给出的都是家庭版
+
+主要参考：
+
+- [VirtualBox 安装 Windows10 22H2 教程](https://icxzl.com/4449.html)，[pdf版本](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VirtualBox%20%E5%AE%89%E8%A3%85%20Windows10%2022H2%20%E6%95%99%E7%A8%8B.pdf)
+- [VirtualBox 安装 win11 虚拟机](https://blog.csdn.net/u010953609/article/details/122430836)
+- [VM VirtualBox虚拟机如何安装WIN11](https://zhuanlan.zhihu.com/p/548015254), [pdf版本](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VM%20VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85WIN11.pdf)
+
+
+基础设置：
+
+1. 显示大小
+   Windows桌面 -> 右键 -> 显示设置 -> 缩放设置 设置为 150%
+
+2. 最大化界面
+   
+   虚拟机中进入到Windows，VirtualBox菜单栏：设备 -> 安装增强选项，然后选中Windows的“此电脑”，和C盘并列的，可以看到**CD驱动器(D:)VirtualBox Guest Addition** -> 运行 VBoxWindowsAdditions -> 重启。
+
+   Ubuntu镜像的操作同理，主要参考：[在 VirtualBox 中设置 Ubuntu 共享文件夹 - Windows 文件共享](https://unclesnote.com/zh/231106120100/seamless_windows_folder_sharing_with_ubuntu_vm_simplify_file_exchange), [pdf](https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/%E5%9C%A8%20VirtualBox%20%E4%B8%AD%E8%AE%BE%E7%BD%AE%20Ubuntu%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20-%20Windows%20%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB.pdf)
+
+   <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition.png" alt="安装上面的视频教程，这一步应该已经有了" style="width:33.3%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png" alt="" style="width:33.3%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png" alt="需要管理员权限，2选一执行" style="width:33.3%;">
+    </div>
+
+   Ubuntu下还需要在terminal中执行:
+
+   ```shell
+   $USER
+   whoami
+
+   sudo gpasswd -a $USER vboxsf
+   ```
+
+3. 共享文件夹
+   
+   在“最大化界面”设置的基础上，设置如下：
+
+      <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:50%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:50%;">
+    </div>
 
 
 ## All In One 安装

@@ -19,6 +19,35 @@ WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows/Linux based Con
 更新日期：20250110
 测试平台：Win10
 
+## 目标
+
+Windows平台下：
+
+1. .NET8, WPF，NuGet
+   1. .NET 8 (C#12 + WPF), MSBuild+NuGet做构建和依赖管理
+2. Python及基础库（vcpkg的python、system python、conda的python）
+   1. python 3.12
+   2. pyside
+   3. pyqt
+3. C++ 17, vcpkg， msvc2022， CMake
+   1. qt
+4. Visual Studio
+5. Visual Studio Code
+6. Docker
+7. Winget/Chocolatey
+
+- 直接按照VS2022
+- 每部都是最少安装
+
+
+选择安装开关：支持安装
+
+1. Visual Studio
+2. Winget/Chocolatey
+3. vcpkg python/ system python
+
+
+
 
 ## WSL
 
@@ -610,15 +639,62 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
    
    主要参考：[Ubuntu安装搜狗输入法](https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42)
 
-## All In One 安装
 
-- 直接按照VS2022
-- 每部都是最少安装
+## 虚拟机下安装环境
+
+需要安装的有：
+
+- Windows terminal
+- WinGet
+  - [使用 WinGet 工具安装和管理应用程序](https://learn.microsoft.com/zh-cn/windows/package-manager/winget/)
+  - [安装应用安装程序:APP Installer](https://learn.microsoft.com/zh-cn/windows/msix/app-installer/install-update-app-installer)
+  - [使用 WinGet 工具安装和管理应用程序](https://learn.microsoft.com/zh-cn/windows/package-manager/winget/)
+- Chocolatey
 
 
-选择安装开关：支持安装
+### .NET 8
 
-1. Visual Studio
-2. Winget/Chocolatey
-3. vcpkg python/ system python
+参考资料：
 
+- [在 Windows 上安装 .NET](https://learn.microsoft.com/zh-cn/dotnet/core/install/windows?WT.mc_id=dotnet-35129-website#install-with-windows-package-manager-winget)
+- [下载 .NET](https://dotnet.microsoft.com/zh-cn/download/dotnet)
+
+
+> 与 .NET Framework 不同的是，.NET 与 Windows 版本无关。 只能在 Windows 上安装单个版本的 .NET Framework。 但 .NET 是独立的，可以安装在计算机的任何地方。 
+> 
+> 有些应用可能包含自己的 .NET 副本。
+> 
+> 默认情况下，.NET 安装在计算机上的 Program Files\dotnet 目录中，除非安装方法选择了不同的目录。
+> .NET 由运行时和 SDK 组成。 运行时用于运行 .NET 应用，而 SDK 则用于创建应用。
+>
+> 为了确保能够在 Windows 上运行所有 .NET 应用，请同时安装 ASP.NET Core Runtime 和 .NET Desktop Runtime。 ASP.NET Core Runtime 可运行基于 Web 的应用，而 .NET Desktop Runtime 可运行桌面应用，如 Windows Presentation Foundation (WPF) 或 Windows Forms 应用。
+
+
+
+```bash
+winget search WindowsTerminal
+winget search DotNet
+winget search DotNet | Select-String SDK
+winget install --id Microsoft.WindowsTerminal -e
+# 可以安装多版本
+winget install --id  Microsoft.DotNet.SDK.8 -e # 安装8的最新版本
+winget install --id  Microsoft.DotNet.SDK.8 -e --version 8.0.405
+winget install --id  Microsoft.DotNet.SDK.9 -e
+
+winget list --name WindowsTerminal # or "WindowsTerminal"
+winget list --name "SDK"
+winget list --name "SDK" | Select-String ".NET"
+
+winget show --id  Microsoft.WindowsTerminal
+winget show --id  Microsoft.DotNet.SDK.8
+winget show --id  Microsoft.DotNet.SDK.9
+dotnet --list-sdks
+dotnet --list-runtimes
+dotnet --info
+
+winget uninstall --id Microsoft.WindowsTerminal
+winget uninstall --id Microsoft.DotNet.SDK.8 -e
+winget uninstall --id Microsoft.DotNet.SDK.8 -e --version 8.0.405
+winget uninstall --id Microsoft.DotNet.SDK.9 -e
+
+```

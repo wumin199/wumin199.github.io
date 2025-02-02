@@ -798,3 +798,4 @@ Host github.com
 
 首次登录，vscode会在虚拟机中安装vscode server，大概会下载500M的内容，比较久，需要等待。
 
+之后就可以在Vscode的菜单栏中"File" -> "Open Folder"来打开虚拟机中对应的文件夹，然后在vscode的Extension中安装对应的插件并进行开发。

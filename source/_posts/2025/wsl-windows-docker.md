@@ -747,7 +747,7 @@ ipconfig
 
 手动启动windows的ssh服务参考：[Windows 10 开启ssh服务](https://blog.csdn.net/pariese/article/details/111604340), [适用于 Windows 的 OpenSSH 入门](https://learn.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse)
 
-这部分已经封装成ps1脚本，执行 `WM-CS-CASE`下的`openssh.ps1` 即可
+这部分已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
 
 **宿主机中的设置**
 

@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>WSL与Windows Docker - wumin199</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="wumin199"><meta name="msapplication-TileImage" content="/images/icon/M_2_256.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="wumin199"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows&amp;#x2F;Linux based Container"><meta property="og:type" content="blog"><meta property="og:title" content="WSL与Windows Docker"><meta property="og:url" content="https://wumin199.github.io/post/20250110094508.html"><meta property="og:site_name" content="wumin199"><meta property="og:description" content="WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows&amp;#x2F;Linux based Container"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-gui.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/disk_partition.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png"><meta property="og:image" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png"><meta property="article:published_time" content="2025-01-10T09:45:08.000Z"><meta property="article:modified_time" content="2025-02-02T04:27:11.026Z"><meta property="article:author" content="wumin199"><meta property="article:tag" content="编程"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-gui.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://wumin199.github.io/post/20250110094508.html"},"headline":"WSL与Windows Docker","image":["https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-gui.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/disk_partition.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png","https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png"],"datePublished":"2025-01-10T09:45:08.000Z","dateModified":"2025-02-02T04:27:11.026Z","author":{"@type":"Person","name":"wumin199"},"publisher":{"@type":"Organization","name":"wumin199","logo":{"@type":"ImageObject","url":"https://wumin199.github.io/images/icon/M_2_256.png"}},"description":"WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows&#x2F;Linux based Container"}</script><link rel="canonical" href="https://wumin199.github.io/post/20250110094508.html"><link rel="icon" href="/images/icon/M_2_256.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/images/icon/M_2_256.png" alt="wumin199" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">主页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-01-10T09:45:08.000Z" title="1/10/2025, 9:45:08 AM">2025-01-10</time>发表</span><span class="level-item"><time dateTime="2025-02-02T04:27:11.026Z" title="2/2/2025, 4:27:11 AM">2025-02-02</time>更新</span><span class="level-item">37 分钟读完 (大约5557个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">WSL与Windows Docker</h1><div class="content"><p>WSL用于在windows下跑ubuntu，Windows Docker用来跑Windows&#x2F;Linux based Container</p>
+<span id="more"></span>
+
+<p>更新日期：20250110<br>测试平台：Win10</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>Windows平台下：</p>
+<ol>
+<li>.NET8, WPF，NuGet<ol>
+<li>.NET 8 (C#12 + WPF), MSBuild+NuGet做构建和依赖管理</li>
+</ol>
+</li>
+<li>Python及基础库（vcpkg的python、system python、conda的python）<ol>
+<li>python 3.12</li>
+<li>pyside</li>
+<li>pyqt</li>
+</ol>
+</li>
+<li>C++ 17, vcpkg， msvc2022， CMake<ol>
+<li>qt</li>
+</ol>
+</li>
+<li>Visual Studio</li>
+<li>Visual Studio Code</li>
+<li>Docker</li>
+<li>Winget&#x2F;Chocolatey</li>
+</ol>
+<ul>
+<li>直接按照VS2022</li>
+<li>每部都是最少安装</li>
+</ul>
+<p>选择安装开关：支持安装</p>
+<ol>
+<li>Visual Studio</li>
+<li>Winget&#x2F;Chocolatey</li>
+<li>vcpkg python&#x2F; system python</li>
+</ol>
+<h2 id="WSL"><a href="#WSL" class="headerlink" title="WSL"></a>WSL</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux Documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/">适用于 Linux 的 Windows 子系统文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/gpu-compute">WSL 中 ML 的 GPU 加速入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/cpp/build/walkthrough-build-debug-wsl2?view=msvc-170">使用 WSL 2 和 Visual Studio 2022 生成和调试 C++</a></li>
+</ul>
+<h3 id="一些笔记"><a href="#一些笔记" class="headerlink" title="一些笔记"></a>一些笔记</h3><ul>
+<li>WSL就是可以让你在Windows下跑Ubuntu、Debian等系统</li>
+<li>最新是wsl2</li>
+<li>WSL支持GUI</li>
+<li>WSL支持GPU加速</li>
+<li>建议配合Windows Terminal</li>
+</ul>
+<h3 id="Why-WSL"><a href="#Why-WSL" class="headerlink" title="Why WSL"></a>Why WSL</h3><p>使用 WSL（Windows Subsystem for Linux）有许多好处，特别是对于开发者和需要在 Windows 环境中运行 Linux 工具的用户。以下是使用 WSL 的主要原因和优势：</p>
+<ol>
+<li><p>在 Windows 上轻松运行 Linux 工具和命令行</p>
+<p> WSL 允许你在 Windows 操作系统上运行 Linux 的命令行工具、脚本和程序，而无需安装完整的虚拟机或双系统。你可以直接在 Windows 中使用 Linux 的丰富生态系统，例如：</p>
+<ul>
+<li>Bash shell</li>
+<li>grep, awk, sed 等命令行工具</li>
+<li>git、curl、wget 等开发者工具</li>
+</ul>
+</li>
+<li><p>无需虚拟机，性能更高</p>
+<p> 与传统的虚拟机（如 VirtualBox、VMware）相比，WSL 的性能更高且资源占用更少，因为它直接利用 Windows 内核运行 Linux，不需要额外的虚拟化层。这意味着：</p>
+<ul>
+<li>更快的启动速度</li>
+<li>更低的内存和 CPU 消耗</li>
+<li>更高的文件系统性能（特别是 WSL2）</li>
+</ul>
+</li>
+<li><p>WSL2 提供真正的 Linux 内核</p>
+<p> WSL2 使用真正的 Linux 内核（通过轻量级虚拟化技术），与原生 Linux 系统一样支持完整的系统调用。这带来了更好的兼容性和性能，支持运行更复杂的程序，例如：</p>
+<ul>
+<li>Docker 容器</li>
+<li>数据库（如 MySQL、PostgreSQL）</li>
+<li>开发框架和工具（如 Node.js、Python、Ruby）</li>
+</ul>
+</li>
+<li><p>便捷的跨平台开发</p>
+<p> 如果你需要在 Windows 和 Linux 系统之间切换，WSL 提供了很好的桥梁。你可以在 Windows 中使用你熟悉的工具（如 VS Code、Notepad++），同时利用 Linux 环境的强大功能。这种结合在以下情况下非常有用：</p>
+<ul>
+<li>Web 开发（例如 Node.js、Ruby on Rails 等需要 Linux 环境的框架）</li>
+<li>跨平台应用开发（例如 Windows 上开发，然后部署到 Linux 服务器）</li>
+<li>测试和运行 Linux 特定的工具链或脚本</li>
+</ul>
+</li>
+<li><p>简单的安装和集成</p>
+<p> WSL 的安装和使用非常简单，且与 Windows 系统深度集成：</p>
+<ul>
+<li>通过 Windows Store 安装 Linux 发行版（如 Ubuntu、Debian、Fedora 等）</li>
+<li>无缝访问 Windows 文件系统（通过 &#x2F;mnt&#x2F;c 或直接访问路径）</li>
+<li>支持使用 Windows 应用程序直接编辑 Linux 文件，反之亦然</li>
+</ul>
+</li>
+<li><p>支持 GUI 应用程序</p>
+<p> WSL（尤其是 WSL2）现在支持运行 Linux GUI 应用程序（通过 WSLg）。这意味着你可以在 Windows 上运行 Linux 的图形界面程序，例如：</p>
+<ul>
+<li>图形化的 IDE（如 PyCharm）</li>
+<li>数据可视化工具</li>
+<li>图形化的 Linux 应用程序</li>
+</ul>
+</li>
+<li><p>Docker 和容器开发的支持<br> WSL2 对 Docker 和容器开发提供了原生支持，因为它具有完整的 Linux 内核。你可以使用 Docker Desktop for Windows 来管理容器，而 Docker 引擎实际上运行在 WSL2 的 Linux 环境中，这解决了以往在 Windows 上运行 Docker 的兼容性问题。</p>
+</li>
+<li><p>免费且开源</p>
+<p> WSL 是免费的，且内置于 Windows 10 和 Windows 11 中（需通过设置开启）。它是一个开源项目，微软和社区不断更新和优化。</p>
+</li>
+</ol>
+<p>以下是 WSL 的一些典型使用场景：</p>
+<ul>
+<li>Web 开发：在 Windows 中使用 Linux 的开发环境（如 LAMP、Node.js 等）。</li>
+<li>数据科学：运行 Python 和 R 等语言需要的 Linux 工具。</li>
+<li>云开发：测试和开发与 Linux 服务器一致的环境。</li>
+<li>学习 Linux：对于希望在不离开 Windows 的情况下学习 Linux 的用户来说，WSL 是一个理想的选择。</li>
+</ul>
+<p>总结</p>
+<p>WSL 是一个强大的工具，让开发者可以轻松地在 Windows 上使用 Linux 的强大功能，而无需额外的硬件或复杂的配置。通过 WSL，你可以享受两种世界的最佳体验：Windows 的便利性和 Linux 的灵活性。</p>
+<h3 id="使用教程"><a href="#使用教程" class="headerlink" title="使用教程"></a>使用教程</h3><p>现在最新的是wsl2，安装参考：<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install">如何使用 WSL 在 Windows 上安装 Linux</a></p>
+<p>以Win10为，用<strong>管理器权限</strong>打开 Powershell or Windows Terminal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 查看当前是否装有wsl</span></span><br><span class="line">wsl -v  <span class="comment"># wsl --version</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有安装，则</span></span><br><span class="line">wsl --install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果已经安装，则建议升级一下wsl</span></span><br><span class="line">wsl --version  <span class="comment"># wsl -v ，如果没有跳出来版本信息，则需要更新wsl到最新：</span></span><br><span class="line">wsl --set-default-version 2 <span class="comment"># 设置成wsl2</span></span><br><span class="line">wsl --update <span class="comment"># 保持wsl最新,  建议最好执行一下，否则后续在装Docker Desktop的时候会让</span></span><br><span class="line">wsl -v</span><br><span class="line">wsl --shutdown <span class="comment"># 重启</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>安装Ubuntu</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wsl --update <span class="comment">#</span></span><br><span class="line">wsl --list --online</span><br><span class="line">wsl --install -d Ubuntu-20.04 </span><br><span class="line">wsl --unregister Ubuntu-22.04 <span class="comment"># 卸载并删除</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>使用GUI</strong></p>
+<p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps">Run Linux GUI apps on the Windows Subsystem for Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/tutorials/gui-apps">在适用于 Linux 的 Windows 子系统上运行 Linux GUI 应用</a></li>
+</ul>
+<p>用于 Linux 的 Windows 子系统 (WSL) 现在支持在 Windows 上运行 Linux GUI 应用程序（X11 和 Wayland），提供了完全集成的桌面体验。</p>
+<p>WSL 2 使 Linux GUI 应用程序在 Windows 上使用起来原生且自然。</p>
+<ul>
+<li>从 Windows 的“开始”菜单启动 Linux 应用</li>
+<li>将 Linux 应用固定到 Windows 任务栏</li>
+<li>使用 alt-tab 在 Linux 应用和 Windows 应用之间切换</li>
+<li>跨 Windows 应用和 Linux 应用剪切并粘贴</li>
+</ul>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-gui.png" alt="" style="width:100%;">
+</div>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 这个功能对windows版本和驱动有一定要求，请看上面连接</span></span><br><span class="line"></span><br><span class="line">sudo apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 安装 Gnome 文本编辑器</span></span><br><span class="line"><span class="comment"># GNOME 文本编辑器取代 gedit 成为 Ubuntu 22.10 中 GNOME/Ubuntu 的默认文本编辑器。</span></span><br><span class="line">sudo apt install gnome-text-editor -y</span><br><span class="line"><span class="comment"># gnome-text-editor ~/.bashrc</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装 GIMP</span></span><br><span class="line"><span class="comment"># GIMP 是一种免费的开源光栅图形编辑器，用于图像操作和图像编辑、自由形态绘图、不同图像文件格式之间的转码，以及更专业的任务。</span></span><br><span class="line"><span class="comment"># 启动：gimp</span></span><br><span class="line">sudo apt install gimp -y</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装 Nautilus</span></span><br><span class="line"><span class="comment"># Nautilus 也称为 GNOME Files，是 GNOME 桌面的文件管理器。 （类似于 Windows 文件资源管理器）</span></span><br><span class="line"><span class="comment"># 启动：nautilus</span></span><br><span class="line">sudo apt install nautilus -y</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装 VLC</span></span><br><span class="line"><span class="comment"># VLC 是一种免费的开源跨平台多媒体播放器和框架，可播放大多数多媒体文件</span></span><br><span class="line"><span class="comment"># 启动：vlc</span></span><br><span class="line">sudo apt install vlc -y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 安装 X11 应用</span></span><br><span class="line"><span class="comment"># X11 是 Linux 窗口管理系统，这是随它一起提供的各种应用和工具的集合，例如 xclock、xcalc 计算器、用于剪切和粘贴的 xclipboard、用于事件测试的 xev 等</span></span><br><span class="line"><span class="comment"># 启动：xcalc、xclock、xeyes</span></span><br><span class="line">sudo apt install x11-apps -y</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Google Chrome</span></span><br><span class="line"><span class="comment"># 启动：google-chrome </span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</span><br><span class="line">sudo apt install --fix-missing ./google-chrome-stable_current_amd64.deb</span><br><span class="line"><span class="comment"># *--fix-missing 选项用于修复安装过程中可能出现的缺少依赖项</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>常见指令</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wiki.debian.org/InstallingDebianOn/Microsoft/Windows/SubsystemForLinux">Install Debian</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/basic-commands">WSL 的基本命令</a></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">wsl --update <span class="comment"># 更新wsl的同时，更新各种在线的Linux版本供后面的install</span></span><br><span class="line">wls --list <span class="comment"># 查看已经安装的Linux系统</span></span><br><span class="line">wsl --list --online  <span class="comment"># wsl -l -o # 查看当前支持的子系统，最新的可以从MicroSoft Store中下载</span></span><br><span class="line">wsl -l -v <span class="comment"># 查看当前正在跑的wsl</span></span><br><span class="line"></span><br><span class="line">wsl --install -d Ubuntu-20.04</span><br><span class="line"><span class="comment"># wsl --install -d Debian</span></span><br><span class="line">wsl --unregister Ubuntu-22.04 <span class="comment"># 卸载并删除</span></span><br><span class="line"></span><br><span class="line">wsl --shutdown  <span class="comment"># 关闭所有正在运行的，如果只想关闭一个，则 wsl --shutdown -d Ubuntu-22.04</span></span><br><span class="line">wsl -d  Ubuntu-22.04 <span class="comment"># 运行，也可以在开始菜单点击运行(Ubuntu22.04)</span></span><br><span class="line"><span class="comment"># wsl -d Ubuntu-22.04 -u &lt;username&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时登录Debian和Ubuntu</span></span><br><span class="line"><span class="comment"># 开Windows Terminal并登录即可</span></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>挂载宿主机磁盘</strong></p>
+<p>随着wsl和windows的升级，相关方法也可能升级</p>
+<p>概念：磁盘和分区</p>
+<p>磁盘是物理磁盘，如2块硬盘(SSD，机械硬盘)<br>分区：一块SSD分区为C盘，一块机械硬盘分区为D盘和E盘</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/disk_partition.png" alt="" style="width:100%;">
+</div>
+
+<p>系统默认挂载了所有的磁盘和分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统当前(默认)挂载了哪些磁盘</span></span><br><span class="line">wsl <span class="built_in">ls</span> /mnt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在Unbuntu/Debian中可以</span></span><br><span class="line"><span class="built_in">cd</span> /mnt</span><br></pre></td></tr></table></figure>
+
+<p>详细研究参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/wsl2-mount-disk">在 WSL 2 中装载 Linux 磁盘</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-12608-1.html">在 Windows 和 WSL 2 中访问 Linux 文件系统</a></li>
+</ul>
+<p><strong>VSCode</strong></p>
+<p>通过”Remote Expore”，选择WSL Target进去即可。</p>
+<p>进去以后，根据需要在wsl中装对应的插件。</p>
+<p>vscode中切换目录可以通过vscode的 File -&gt; Open Folder来切换vscode当前的显示目录</p>
+<h2 id="Windows-Docker"><a href="#Windows-Docker" class="headerlink" title="Windows Docker"></a>Windows Docker</h2><p>目标环境：</p>
+<ol>
+<li>python 3.12</li>
+<li>.NET 8 (C#12 + WPF), MSBuild+NuGet做构建和依赖管理</li>
+<li>C++17 + CMake + vcpkg + msvc2022</li>
+</ol>
+<h3 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h3><ul>
+<li><p>Docker 并非是一个通用的容器工具，它依赖于已存在并运行的 Linux 内核环境</p>
+</li>
+<li><p>因此，Docker 必须部署在 Linux 内核的系统上。如果其他系统想部署 Docker 就必须安装一个虚拟 Linux 环境。</p>
+<p>Windows下的虚拟环境包括</p>
+<ul>
+<li>WSL2</li>
+<li>virtualbox or VMWare</li>
+<li>Hyper-V</li>
+</ul>
+</li>
+<li><p>windows container on windows 可以编译带GUI的api，但是跑不起来GUI</p>
+<ul>
+<li><p>这一点和Linux不一样，Linux可以通过.x11跑起来GUI</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/virtualization/windowscontainers/quick-start/lift-shift-to-containers">Using Windows Containers to “Containerize” Existing Applications</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/lift-shift-to-containers">使用 Windows 容器“容器化”现有应用程序</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/54292215/is-it-possible-to-containerize-a-windows-gui-application-on-a-windows-host">Is it possible to containerize a Windows GUI application on a Windows host?</a></li>
+</ul>
+<p>其他参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.to/darksmile92/run-gui-app-in-linux-docker-container-on-windows-host-4kde">Run GUI app in linux docker container on windows host</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/soulteary/article/details/136620602">把 Windows 装进 Docker 容器里</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Windows-Docker-安装"><a href="#Windows-Docker-安装" class="headerlink" title="Windows Docker 安装"></a>Windows Docker 安装</h3><p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/setup/install/windows-install/">Install Docker Desktop on Windows</a></li>
+</ul>
+<p>分为Linux容器模式和Windows容器模式</p>
+<p>Linux容器模式：docker中跑的是linux的image。相当于是在Windows上开发Linux的应用程序</p>
+<p>Windows容器模式：docker中跑的是windows的image（<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-base-images">Container Base Images</a>)，相当于是在Windows上开发Windows的应用程序</p>
+<p>使用Windows container条件：Win10 or Win11的Professional or Enterprise edition版本<br>使用Linux container条件：Windows Home or Education editions only allow you to run Linux containers</p>
+<ul>
+<li>Windows容器模式：HyperV<ul>
+<li>一旦启用，QEMU、VirtualBox 或 VMWare Workstation 15 及以下版本将无法使用！如果你必须在电脑上使用其他虚拟机（例如开发 Android 应用必须使用的模拟器），请不要使用 Hyper-V （但测试后发现可以使用Virtualbox，可能是因为Windows新版本进行了升级？）</li>
+<li>但如果你是要在windows的docker下跑windows的image，则需要用到Hyper-V</li>
+</ul>
+</li>
+<li>Linux容器模式：WSL2</li>
+</ul>
+<p>Containers and images created with Docker Desktop are shared between all user accounts on machines where it is installed. This is because all Windows accounts use the same VM to build and run containers. Note that it is not possible to share containers and images between user accounts when using the Docker Desktop WSL 2 backend.</p>
+<hr>
+<p>使用指令安装步骤：</p>
+<ul>
+<li><p>下载 <a target="_blank" rel="noopener" href="https://docs.docker.com/desktop/release-notes/">Docker Desktop for Windows - x86_64</a></p>
+</li>
+<li><p>准备脚本 <code>install_windows_docker.ps1</code></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义Docker的文件夹路径</span></span><br><span class="line"><span class="comment"># 之后docker pull的镜像也是放在这里的</span></span><br><span class="line"><span class="variable">$docker_dir</span> = <span class="string">&quot;D:/windows-docker&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录，-Force 参数用于确保无论如何都会创建该目录</span></span><br><span class="line">mkdir <span class="variable">$docker_dir</span>/overlay<span class="literal">-ports</span> <span class="literal">-Force</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable HyperV</span></span><br><span class="line"><span class="comment"># Windows docker engine needs this one!</span></span><br><span class="line"><span class="built_in">Enable-WindowsOptionalFeature</span> <span class="literal">-Online</span> <span class="literal">-FeatureName</span> <span class="variable">$</span>(<span class="string">&quot;Microsoft-Hyper-V&quot;</span>, <span class="string">&quot;Containers&quot;</span>) <span class="literal">-All</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Docker Desktop 安装程序</span></span><br><span class="line"><span class="built_in">Start-Process</span> <span class="string">&#x27;Docker Desktop Installer.exe&#x27;</span> <span class="literal">-Wait</span> <span class="literal">-ArgumentList</span> <span class="selector-tag">@</span>(</span><br><span class="line">    <span class="string">&quot;install&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--quiet&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--accept-license&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--installation-dir=<span class="variable">$docker_dir</span>&quot;</span>,</span><br><span class="line">    <span class="string">&quot;--backend=hyper-v&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以下设置有问题，必须启动Docker Desktop才行</span></span><br><span class="line"><span class="comment"># default settings</span></span><br><span class="line"><span class="comment"># invalid settings, must open and log in Docker Desktop first</span></span><br><span class="line"><span class="comment"># $docker_cli_path = &quot;$docker_dir/DockerCli.exe&quot;</span></span><br><span class="line"><span class="comment"># option: -SwitchLinuxEngine</span></span><br><span class="line"><span class="comment"># Start-Process $docker_cli_path -ArgumentList -SwitchWindowsEngine</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 <code>install_windows_docker.ps1</code> 放在和 <code>Docker Desktop Installer.exe</code>一个目录下</p>
+</li>
+<li><p><strong>管理员权限</strong>打开powershell or Windows Terminal，执行</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># step1: </span></span><br><span class="line"><span class="built_in">Set-ExecutionPolicy</span> Bypass <span class="literal">-Scope</span> <span class="keyword">Process</span> <span class="literal">-Force</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># step2: install docker for desktop</span></span><br><span class="line">./install_windows_docker.ps1</span><br><span class="line"></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># step3: switch to windows docker mode</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># set in install_windows_docker.ps1</span></span><br><span class="line"><span class="comment"># D:\windows-docker\DockerCli.exe --help</span></span><br><span class="line"><span class="comment"># &amp; D:\windows-docker\DockerCli.exe -SwitchWindowsEngine</span></span><br><span class="line"><span class="comment"># &amp; D:\windows-docker\DockerCli.exe -SwitchLinuxEngine</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试是否安装成功</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="literal">--version</span></span><br><span class="line">docker version</span><br><span class="line">docker images</span><br><span class="line">docker info</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸载</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker rmi mcr.microsoft.com/windows/servercore:ltsc2019</span><br><span class="line"><span class="comment"># 退出Docker Desktop</span></span><br><span class="line"><span class="comment"># Windows控制面板下卸载Docker Desktop</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="基础windows镜像"><a href="#基础windows镜像" class="headerlink" title="基础windows镜像"></a>基础windows镜像</h3><p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/virtualization/windowscontainers/manage-containers/container-base-images">容器基础映像</a>, <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-base-images">Container Base Images</a></li>
+<li><a target="_blank" rel="noopener" href="https://hub.docker.com/r/microsoft/dotnet">dockerhub-dotnet</a></li>
+</ul>
+<p>Microsoft 提供多个映像（称为基础映像），你可以从其着手构建自己的容器映像：</p>
+<ul>
+<li>Windows - 包含整套 Windows API 和系统服务（服务器角色除外）。<ul>
+<li>3.4 GB</li>
+</ul>
+</li>
+<li>Windows Server - 包含整套 Windows API 和系统服务。<ul>
+<li>3.1 GB</li>
+</ul>
+</li>
+<li>Windows Server Core - 一个较小的映像，包含部分 Windows Server API - 即完整的 .NET Framework。 它还包括大多数（但不是所有）服务器角色，例如不包含传真服务器。</li>
+<li>Nano Server - 最小的 Windows Server 映像，包括支持 .NET Core API 和某些服务器角色</li>
+</ul>
+<p>大小：Windows(3.4 GB) &gt; Windows Server(3.1 GB) &gt; Windows Server Core()</p>
+<p>如前所述，容器映像由一系列层组成。 每个层包含一组文件，这些文件重叠在一起时表示容器映像。 由于容器的分层特性，你不需始终以某个基础映像为目标来构建 Windows 容器， 而是可以以另一个已经携带你所需框架的映像为目标。 例如，.NET 团队发布了一个携带 .NET Core 运行时的 .NET Core 映像。 有了它，用户就不需重复 .NET Core 安装过程，只需重复使用该容器映像的层即可。 .NET Core 映像本身在 Nano Server 基础上构建。</p>
+<p>Windows Server 映像 (3.1 GB) 的大小略小于 Windows 映像 (3.4 GB)。 Windows Server 映像还继承了 Server Core 映像的所有性能和可靠性改进，支持 GPU，并且没有 IIS 连接限制。 要使用最新的 Windows Server 映像，需要安装 Windows Server 2022。 Windows Server 2022 不支持 Windows 映像。</p>
+<p>@X@Y@Z中使用的是：</p>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> mcr.microsoft.com/windows/servercore:ltsc2019</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Quick Start</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 不需要管理员权限</span></span><br><span class="line"></span><br><span class="line">docker images</span><br><span class="line">docker pull mcr.microsoft.com/windows/servercore:ltsc2019   <span class="comment"># xyz中使用的版本</span></span><br><span class="line"><span class="comment"># docker rmi mcr.microsoft.com/windows/servercore:ltsc2019</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run <span class="literal">--help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># docker run -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell   # 启动较慢</span></span><br><span class="line"><span class="comment"># docker run -it mcr.microsoft.com/windows/servercore:ltsc2019 cmd.exe  # 启动较慢</span></span><br><span class="line">docker run <span class="literal">-it</span> <span class="literal">--name</span> wm_w10 <span class="literal">-v</span> D:\docker_shared:C:\Users\ContainerUser\ws <span class="literal">--workdir</span> C:\Users\ContainerUser mcr.microsoft.com/windows/servercore:ltsc2019  powershell</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印当前目录和文件夹</span></span><br><span class="line"><span class="built_in">dir</span></span><br><span class="line"><span class="built_in">ls</span></span><br><span class="line"><span class="comment"># cd home</span></span><br><span class="line"><span class="built_in">cd</span> ~ </span><br><span class="line"><span class="comment"># 显示网络配置信息</span></span><br><span class="line">ipconfig</span><br><span class="line">whoami</span><br><span class="line"></span><br><span class="line"><span class="keyword">exit</span></span><br><span class="line"></span><br><span class="line">docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br><span class="line">docker <span class="built_in">start</span> xxx    <span class="comment"># 启动较慢</span></span><br><span class="line">docker attach xxx</span><br><span class="line"></span><br><span class="line"><span class="comment"># attach在容器启动命令的终端，不会启动新的进程。</span></span><br><span class="line"><span class="comment"># exec则是在容器中打开新的终端，并且可以启动新的进程。</span></span><br><span class="line"><span class="comment"># 如果想直接在终端中查看启动命令的输出，用attach；其他情况使用exec</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>测试中发现：</p>
+<ol>
+<li>用普通权限的PowerShell执行 docker run -it 效果比PowerShell ISE好，PowerShell的ISE可能会乱码。当然用Windows Terminal效果最好。</li>
+<li>Windows Docker启动较慢：<code>docker run; docker start</code></li>
+</ol>
+<h3 id="NET8-安装"><a href="#NET8-安装" class="headerlink" title=".NET8 安装"></a>.NET8 安装</h3><p>参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/core/install/windows?WT.mc_id=dotnet-35129-website#install-with-windows-package-manager-winget">在 Windows 上安装 .NET</a></li>
+</ul>
+<p>与 .NET Framework 不同的是，.NET 与 Windows 版本无关。 只能在 Windows 上安装单个版本的 .NET Framework。 但 .NET 是独立的，可以安装在计算机的任何地方。 有些应用可能包含自己的 .NET 副本。</p>
+<p>默认情况下，.NET 安装在计算机上的 Program Files\dotnet 目录中，除非安装方法选择了不同的目录。</p>
+<p>.NET 由运行时和 SDK 组成。 运行时用于运行 .NET 应用，而 SDK 则用于创建应用。</p>
+<h3 id="C-环境安装"><a href="#C-环境安装" class="headerlink" title="C++环境安装"></a>C++环境安装</h3><ul>
+<li>MSVC，2022</li>
+<li>c++17</li>
+<li>CMake</li>
+</ul>
+<h3 id="python-安装"><a href="#python-安装" class="headerlink" title="python 安装"></a>python 安装</h3><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>WinGet 命令行工具仅在 Windows 10 1709（版本 16299）或更高版本上受支持。</p>
+<p>WinGet the Windows Package Manager is available on Windows 11, modern versions of Windows 10, and Windows Server 2025 as a part of the <strong>App Installer</strong>. The App Installer is a System Component delivered and updated by the Microsoft store on Windows Desktop versions, and via Updates on Windows Server 2025.</p>
+<h2 id="VirtualBox"><a href="#VirtualBox" class="headerlink" title="VirtualBox"></a>VirtualBox</h2><h3 id="下载Win10-Win11镜像"><a href="#下载Win10-Win11镜像" class="headerlink" title="下载Win10&#x2F;Win11镜像"></a>下载Win10&#x2F;Win11镜像</h3><p>镜像：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/software-download">Windows镜像</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/software-download/windows10ISO">Windows Image</a></li>
+<li><a target="_blank" rel="noopener" href="https://next.itellyou.cn/">iTellYou提供的Windows各版本镜像</a></li>
+<li><a target="_blank" rel="noopener" href="https://rosi-images.d10.us.swri.org/">ROS-Industrial Training Images</a>(需要用Firefox下载)</li>
+</ul>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/win11_download.png" alt="" style="width:100%;">
+</div>
+
+<p>下载后的原始镜像保存到了百度网盘： <code>通用软件/images</code>。这里面还放了不断优化的现成的win10和win11的virtualbox虚拟机。</p>
+<p>百度网盘：通用软件 -&gt; win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机<br>百度网盘：通用软件 -&gt; win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机<br>百度网盘：通用软件 -&gt; rosi_training_foxy_latest.ova: Foxy (ROS2) + Noetic (ROS1)<br>百度网盘：通用软件 -&gt; rosi_training_humble_latest.G0PVZOAY.ova: Humble Hawksbill (ROS2)<br>百度网盘：通用软件 -&gt; win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置<br>百度网盘：通用软件 -&gt; win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置</p>
+<h3 id="用VirtualBox制作虚拟机"><a href="#用VirtualBox制作虚拟机" class="headerlink" title="用VirtualBox制作虚拟机"></a>用VirtualBox制作虚拟机</h3><p>下载VirtualBox和Extension Pack并安装： <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">virtual box</a></p>
+<p>视频教程：</p>
+<p>Ubuntu下安装Win10： 百度网盘：通用软件 -&gt; win10_ubuntu_20250130.mkv<br>Ubuntu下安装Win11： 百度网盘：通用软件 -&gt; win11_ubuntu_20250130.mkv</p>
+<p>要点：</p>
+<ul>
+<li>Win10，不要启用 “显示” -&gt; 硬件加速“启用3D加速”</li>
+<li>Win11下，不同平台下可能有点不一样<ul>
+<li>Ubuntu下，如果启动不起来，则需要选择：“系统” -&gt; 芯片组：ICH9</li>
+<li>EFI，有些说要勾选，有些说不用</li>
+</ul>
+</li>
+<li>作为开发的话建议用专业版，一般用家庭版即可<ul>
+<li>但是我这里给出的都是家庭版</li>
+</ul>
+</li>
+</ul>
+<p>主要参考：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://icxzl.com/4449.html">VirtualBox 安装 Windows10 22H2 教程</a>，<a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VirtualBox%20%E5%AE%89%E8%A3%85%20Windows10%2022H2%20%E6%95%99%E7%A8%8B.pdf">pdf版本</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010953609/article/details/122430836">VirtualBox 安装 win11 虚拟机</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/548015254">VM VirtualBox虚拟机如何安装WIN11</a>, <a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/VM%20VirtualBox%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85WIN11.pdf">pdf版本</a></li>
+</ul>
+<p>基础设置：</p>
+<ol>
+<li><p>显示大小<br>Windows桌面 -&gt; 右键 -&gt; 显示设置 -&gt; 缩放设置 设置为 150%</p>
+</li>
+<li><p>最大化界面</p>
+<p>虚拟机中进入到Windows，VirtualBox菜单栏：设备 -&gt; 安装增强选项，然后选中Windows的“此电脑”，和C盘并列的，可以看到<strong>CD驱动器(D:)VirtualBox Guest Addition</strong> -&gt; 运行 VBoxWindowsAdditions -&gt; 重启。</p>
+<p>Ubuntu镜像的操作同理，主要参考：<a target="_blank" rel="noopener" href="https://unclesnote.com/zh/231106120100/seamless_windows_folder_sharing_with_ubuntu_vm_simplify_file_exchange">在 VirtualBox 中设置 Ubuntu 共享文件夹 - Windows 文件共享</a>, <a target="_blank" rel="noopener" href="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/%E5%9C%A8%20VirtualBox%20%E4%B8%AD%E8%AE%BE%E7%BD%AE%20Ubuntu%20%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9%20-%20Windows%20%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB.pdf">pdf</a></p>
+<div style="display: flex; justify-content: center; align-items: center;">
+ <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_1.png" alt="安装上面的视频教程，这一步应该已经有了" style="width:50%;">
+ <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/install_addition_2.png" alt="需要管理员权限，2选一执行" style="width:50%;">
+ </div>
+
+<p>Ubuntu下还需要在terminal中执行:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">USER</span></span><br><span class="line">whoami</span><br><span class="line"></span><br><span class="line">sudo gpasswd -a $USER vboxsf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>共享文件夹</p>
+<p>在“最大化界面”设置的基础上，设置如下：</p>
+   <div style="display: flex; justify-content: center; align-items: center;">
+   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/dual_setting.png" alt="允许拷贝" style="width:33%;">
+   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/ubuntu_in_windows.png" alt="ubuntu_in_windows" style="width:33%;">
+   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/windows_in_ubuntu.png" alt="windows_in_ubuntu" style="width:33%;">
+   </div>
+</li>
+<li><p>Ubuntu下安装输入法</p>
+<p>主要参考：<a target="_blank" rel="noopener" href="https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42">Ubuntu安装搜狗输入法</a></p>
+</li>
+</ol>
+<h2 id="虚拟机下安装环境"><a href="#虚拟机下安装环境" class="headerlink" title="虚拟机下安装环境"></a>虚拟机下安装环境</h2><p>需要安装的有：</p>
+<ul>
+<li>Windows terminal</li>
+<li>WinGet<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/package-manager/winget/">使用 WinGet 工具安装和管理应用程序</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/msix/app-installer/install-update-app-installer">安装应用安装程序:APP Installer</a></li>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/package-manager/winget/">使用 WinGet 工具安装和管理应用程序</a></li>
+</ul>
+</li>
+<li>Chocolatey</li>
+</ul>
+<h3 id="NET-8"><a href="#NET-8" class="headerlink" title=".NET 8"></a>.NET 8</h3><p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/dotnet/core/install/windows?WT.mc_id=dotnet-35129-website#install-with-windows-package-manager-winget">在 Windows 上安装 .NET</a></li>
+<li><a target="_blank" rel="noopener" href="https://dotnet.microsoft.com/zh-cn/download/dotnet">下载 .NET</a></li>
+</ul>
+<blockquote>
+<p>与 .NET Framework 不同的是，.NET 与 Windows 版本无关。 只能在 Windows 上安装单个版本的 .NET Framework。 但 .NET 是独立的，可以安装在计算机的任何地方。 </p>
+<p>有些应用可能包含自己的 .NET 副本。</p>
+<p>默认情况下，.NET 安装在计算机上的 Program Files\dotnet 目录中，除非安装方法选择了不同的目录。<br>.NET 由运行时和 SDK 组成。 运行时用于运行 .NET 应用，而 SDK 则用于创建应用。</p>
+<p>为了确保能够在 Windows 上运行所有 .NET 应用，请同时安装 ASP.NET Core Runtime 和 .NET Desktop Runtime。 ASP.NET Core Runtime 可运行基于 Web 的应用，而 .NET Desktop Runtime 可运行桌面应用，如 Windows Presentation Foundation (WPF) 或 Windows Forms 应用。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">winget search WindowsTerminal</span><br><span class="line">winget search DotNet</span><br><span class="line">winget search DotNet | Select-String SDK</span><br><span class="line">winget install --<span class="built_in">id</span> Microsoft.WindowsTerminal -e</span><br><span class="line"><span class="comment"># 可以安装多版本</span></span><br><span class="line">winget install --<span class="built_in">id</span>  Microsoft.DotNet.SDK.8 -e <span class="comment"># 安装8的最新版本</span></span><br><span class="line">winget install --<span class="built_in">id</span>  Microsoft.DotNet.SDK.8 -e --version 8.0.405</span><br><span class="line">winget install --<span class="built_in">id</span>  Microsoft.DotNet.SDK.9 -e</span><br><span class="line"></span><br><span class="line">winget list --name WindowsTerminal <span class="comment"># or &quot;WindowsTerminal&quot;</span></span><br><span class="line">winget list --name <span class="string">&quot;SDK&quot;</span></span><br><span class="line">winget list --name <span class="string">&quot;SDK&quot;</span> | Select-String <span class="string">&quot;.NET&quot;</span></span><br><span class="line"></span><br><span class="line">winget show --<span class="built_in">id</span>  Microsoft.WindowsTerminal</span><br><span class="line">winget show --<span class="built_in">id</span>  Microsoft.DotNet.SDK.8</span><br><span class="line">winget show --<span class="built_in">id</span>  Microsoft.DotNet.SDK.9</span><br><span class="line">dotnet --list-sdks</span><br><span class="line">dotnet --list-runtimes</span><br><span class="line">dotnet --info</span><br><span class="line">where.exe dotnet</span><br><span class="line"></span><br><span class="line">winget uninstall --<span class="built_in">id</span> Microsoft.WindowsTerminal</span><br><span class="line">winget uninstall --<span class="built_in">id</span> Microsoft.DotNet.SDK.8 -e</span><br><span class="line">winget uninstall --<span class="built_in">id</span> Microsoft.DotNet.SDK.8 -e --version 8.0.405</span><br><span class="line">winget uninstall --<span class="built_in">id</span> Microsoft.DotNet.SDK.9 -e</span><br><span class="line"></span><br></pre></td></tr></table></figure></div><div class="article-licensing box"><div class="licensing-title"><p>WSL与Windows Docker</p><p><a href="https://wumin199.github.io/post/20250110094508.html">https://wumin199.github.io/post/20250110094508.html</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>wumin199</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-01-10</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-02-02</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/post/20240205201100.html"><span class="level-item">矩阵微积分</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="level is-mobile" href="#目标"><span class="level-left"><span class="level-item">1</span><span class="level-item">目标</span></span></a></li><li><a class="level is-mobile" href="#WSL"><span class="level-left"><span class="level-item">2</span><span class="level-item">WSL</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#一些笔记"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">一些笔记</span></span></a></li><li><a class="level is-mobile" href="#Why-WSL"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">Why WSL</span></span></a></li><li><a class="level is-mobile" href="#使用教程"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">使用教程</span></span></a></li></ul></li><li><a class="level is-mobile" href="#Windows-Docker"><span class="level-left"><span class="level-item">3</span><span class="level-item">Windows Docker</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#笔记"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">笔记</span></span></a></li><li><a class="level is-mobile" href="#Windows-Docker-安装"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">Windows Docker 安装</span></span></a></li><li><a class="level is-mobile" href="#基础windows镜像"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">基础windows镜像</span></span></a></li><li><a class="level is-mobile" href="#NET8-安装"><span class="level-left"><span class="level-item">3.4</span><span class="level-item">.NET8 安装</span></span></a></li><li><a class="level is-mobile" href="#C-环境安装"><span class="level-left"><span class="level-item">3.5</span><span class="level-item">C++环境安装</span></span></a></li><li><a class="level is-mobile" href="#python-安装"><span class="level-left"><span class="level-item">3.6</span><span class="level-item">python 安装</span></span></a></li><li><a class="level is-mobile" href="#其他"><span class="level-left"><span class="level-item">3.7</span><span class="level-item">其他</span></span></a></li></ul></li><li><a class="level is-mobile" href="#VirtualBox"><span class="level-left"><span class="level-item">4</span><span class="level-item">VirtualBox</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#下载Win10-Win11镜像"><span class="level-left"><span class="level-item">4.1</span><span class="level-item">下载Win10/Win11镜像</span></span></a></li><li><a class="level is-mobile" href="#用VirtualBox制作虚拟机"><span class="level-left"><span class="level-item">4.2</span><span class="level-item">用VirtualBox制作虚拟机</span></span></a></li></ul></li><li><a class="level is-mobile" href="#虚拟机下安装环境"><span class="level-left"><span class="level-item">5</span><span class="level-item">虚拟机下安装环境</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#NET-8"><span class="level-left"><span class="level-item">5.1</span><span class="level-item">.NET 8</span></span></a></li></ul></li></ul></div></div><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/images/icon/M_2_256.png" alt="wumin199" height="28"></a><p class="is-size-7"><span>&copy; 2025 wumin199</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

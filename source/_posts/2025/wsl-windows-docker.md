@@ -699,3 +699,104 @@ winget uninstall --id Microsoft.DotNet.SDK.8 -e --version 8.0.405
 winget uninstall --id Microsoft.DotNet.SDK.9 -e
 
 ```
+
+### 远程到虚拟机
+
+宿主机：Ubuntu
+虚拟机：里面安装win10
+目标：宿主机中的vscode远程到虚拟机的win10
+
+
+参考：
+
+- [virtualbox 网络配置（局域网内任一主机ping通虚拟机）](https://blog.csdn.net/wqgdfkafj/article/details/131763157)(主要参考这篇)
+- [VirtualBox用RoboGuide测试fanuc机器人](https://www.notion.so/wumin199/Fanuc-893981e0a3d444f9bf1c6f3c00d423bf?pvs=4#b549441dd182489cbaee8a86708bc731)(同时参考这篇)
+- [Get started with OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse)(Enable OpenSSH章节中有windows下的防火墙脚本设置，主要是让22端口允许通过)
+- [Win10系统VScode远程连接VirtualBox安装的Ubuntu20.04.5](https://blog.csdn.net/five_east_west/article/details/137575488)
+- [linux宿主机ssh访问windows10虚拟机](https://blog.csdn.net/qq_38969070/article/details/124150764)
+
+**设置virtualbox网络**
+
+Virtualbox的网络中，需要设置2个网卡：一个用于虚拟机上网，一个用于宿主机ssh到虚拟机。
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_nat.png" alt="用于虚拟机上网" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_bridge.png" alt="用于宿主机ssh到虚拟机" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
+</div>
+
+**Windows虚拟机中的设置**
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/network_in_win10.png" alt="" style="width:100%;">
+</div>
+
+在windows下执行：
+
+```bash
+# 查看虚拟机的username，xxxx\username
+whoami
+# 查看虚拟机的ip地址
+ipconfig
+```
+
+从而得到：`wumin@192.168.2.18`
+
+
+除此之外，还需要在windows下开启ssh服务（宿主机是ssh客户端）
+
+手动启动windows的ssh服务参考：[Windows 10 开启ssh服务](https://blog.csdn.net/pariese/article/details/111604340), [适用于 Windows 的 OpenSSH 入门](https://learn.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse)
+
+这部分已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
+
+**宿主机中的设置**
+
+打开vscode，**Ctrl+Shift+P**，先配置远程的ssh地址
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting1.png" alt="" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting2.png" alt="配置文件保存地址，请看下文重要提示！" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="" style="width:33%;">
+</div>
+
+重要提示：
+
+由于ssh默认的端口号是22，因此把配置文件保存在 `~/.ssh/config`中，可能会影响到git的使用。
+
+
+如果远程连接到虚拟机后，本地git无法push或pull，可能的原因是上面配置的config文件把github的ssh配置给覆盖掉。
+
+```shell
+ssh -T git@ssh.github.com
+ssh -T -p 443 git@ssh.github.com
+```
+
+可以在config文件下添加类似代码
+
+```bash
+Host github.com
+    Hostname ssh.github.com
+    Port 22 # or 443
+    User git
+```
+
+在虚拟机启动的情况下，远程连接到虚拟机
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting4.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting5.png" alt="" style="width:50%;">
+</div>
+
+弹窗中做对应的选择
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting6.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting7.png" alt="" style="width:50%;">
+</div>
+
+其中的密码，是宿主机的开机密码。（或者宿主机的登录密码）(其他树莓派设备等，是树莓派自己的登录用户名和密码，和虚拟机略有区别)
+
+
+首次登录，vscode会在虚拟机中安装vscode server，大概会下载500M的内容，比较久，需要等待。
+
+之后就可以在Vscode的菜单栏中"File" -> "Open Folder"来打开虚拟机中对应的文件夹，然后在vscode的Extension中安装对应的插件并进行开发。

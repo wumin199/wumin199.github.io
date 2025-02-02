@@ -794,7 +794,8 @@ Host github.com
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting7.png" alt="" style="width:50%;">
 </div>
 
-其中的密码，是宿主机的开机密码。（或者宿主机的登录密码）
+其中的密码，是宿主机的开机密码。（或者宿主机的登录密码）(其他树莓派设备等，是树莓派自己的登录用户名和密码，和虚拟机略有区别)
+
 
 首次登录，vscode会在虚拟机中安装vscode server，大概会下载500M的内容，比较久，需要等待。
 

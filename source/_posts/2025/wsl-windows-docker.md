@@ -691,6 +691,7 @@ winget show --id  Microsoft.DotNet.SDK.9
 dotnet --list-sdks
 dotnet --list-runtimes
 dotnet --info
+where.exe dotnet
 
 winget uninstall --id Microsoft.WindowsTerminal
 winget uninstall --id Microsoft.DotNet.SDK.8 -e

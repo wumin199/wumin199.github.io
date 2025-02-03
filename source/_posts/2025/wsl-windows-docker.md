@@ -760,6 +760,17 @@ ipconfig
 同时，为了保证port 22（ssh默认端口）不被防火墙拦截，一种方法是把防火墙都关闭掉；另一种是设置防火墙端口号通行策略。详细参考：[杂项：Windows服务器openssh连接(含ssh免密登录)](https://blog.csdn.net/weixin_44570083/article/details/109435794)
 
 
+在虚拟机中装git，并添加github的ssh认证后，有可能 `ssh -T git@ssh.github.com` 会失败，原因同下面宿主机中遇到的情况，是因为 `~/.ssh/config`中缺少了如下内容：
+
+```bash
+Host github.com
+    Hostname ssh.github.com
+    Port 22 # or 443
+    User git
+```
+
+如果`~/.ssh/config` 文件不存在，则新建。如果存在则附加上述内容。
+
 以上所有设置已经封装成ps1脚本，执行 `WM-OS-ENV`下的`openssh.ps1` 即可。
 
 其他：遇到位置网络问题，可以先将虚拟机的防火墙都关闭掉，再测试。
@@ -769,9 +780,12 @@ ipconfig
 打开vscode，**Ctrl+Shift+P**，先配置远程的ssh地址
 
 <div style="display: flex; justify-content: center; align-items: center;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting1.png" alt="" style="width:33%;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting2.png" alt="配置文件保存地址，请看下文重要提示！" style="width:33%;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting1.png" alt="" style="width:50%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting2.png" alt="配置文件保存地址，请看下文重要提示！" style="width:50%;">
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="github那个如果没有的话，要添加上，否则git会无法使用" style="width:50%;">
 </div>
 
 

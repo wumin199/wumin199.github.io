@@ -722,7 +722,7 @@ Virtualbox的网络中，需要设置2个网卡：一个用于虚拟机上网，
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_nat.png" alt="用于虚拟机上网" style="width:33%;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_bridge.png" alt="用于宿主机ssh到虚拟机" style="width:33%;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wifi.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
 </div>
 
 **Windows虚拟机中的设置**
@@ -747,7 +747,15 @@ ipconfig
 
 手动启动windows的ssh服务参考：[Windows 10 开启ssh服务](https://blog.csdn.net/pariese/article/details/111604340), [适用于 Windows 的 OpenSSH 入门](https://learn.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse)
 
-这部分已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
+
+可以从宿主机 ping 虚拟机 `ping 192.168.2.18`，也可以从虚拟机ping宿主机。如果宿主机ping不通虚拟机，则需要在虚拟机中进行一些设置：
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/fix-ping.png" alt="" style="width:50%;">
+</div>
+
+
+这部分的所有设置已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
 
 **宿主机中的设置**
 

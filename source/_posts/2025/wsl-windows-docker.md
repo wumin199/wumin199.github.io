@@ -552,7 +552,7 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 ### 下载Win10/Win11镜像
 
-镜像：
+**镜像**
 
 - [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
 - [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)

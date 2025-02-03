@@ -552,7 +552,7 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 ### 下载Win10/Win11镜像
 
-镜像：
+**镜像**
 
 - [Windows镜像](https://www.microsoft.com/zh-cn/software-download)
 - [Windows Image](https://www.microsoft.com/en-us/software-download/windows10ISO)
@@ -652,6 +652,8 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
 - Chocolatey
 
 
+安装脚本见 `WM-OS-ENV`的 `install.ps1`
+
 ### .NET 8
 
 参考资料：
@@ -702,9 +704,10 @@ winget uninstall --id Microsoft.DotNet.SDK.9 -e
 
 ### 远程到虚拟机
 
-宿主机：Ubuntu
-虚拟机：里面安装win10
+宿主机：Ubuntu，ssh的客户端
+虚拟机：里面安装win10，ssh的服务端
 目标：宿主机中的vscode远程到虚拟机的win10
+
 
 
 参考：
@@ -722,7 +725,7 @@ Virtualbox的网络中，需要设置2个网卡：一个用于虚拟机上网，
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_nat.png" alt="用于虚拟机上网" style="width:33%;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_bridge.png" alt="用于宿主机ssh到虚拟机" style="width:33%;">
-  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wifi.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
 </div>
 
 **Windows虚拟机中的设置**
@@ -747,7 +750,19 @@ ipconfig
 
 手动启动windows的ssh服务参考：[Windows 10 开启ssh服务](https://blog.csdn.net/pariese/article/details/111604340), [适用于 Windows 的 OpenSSH 入门](https://learn.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse)
 
-这部分已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
+
+可以从宿主机 ping 虚拟机 `ping 192.168.2.18`，也可以从虚拟机ping宿主机。如果宿主机ping不通虚拟机，则需要在虚拟机中进行一些设置：
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/fix-ping.png" alt="" style="width:50%;">
+</div>
+
+同时，为了保证port 22（ssh默认端口）不被防火墙拦截，一种方法是把防火墙都关闭掉；另一种是设置防火墙端口号通行策略。详细参考：[杂项：Windows服务器openssh连接(含ssh免密登录)](https://blog.csdn.net/weixin_44570083/article/details/109435794)
+
+
+以上所有设置已经封装成ps1脚本，执行 `WM-OS-ENV`下的`openssh.ps1` 即可。
+
+其他：遇到位置网络问题，可以先将虚拟机的防火墙都关闭掉，再测试。
 
 **宿主机中的设置**
 
@@ -758,6 +773,16 @@ ipconfig
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting2.png" alt="配置文件保存地址，请看下文重要提示！" style="width:33%;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="" style="width:33%;">
 </div>
+
+
+一些测试：
+
+```bash
+# 宿主机ping虚拟机
+ping 192.168.2.18
+telnet 192.168.2.18 22 # port
+ssh wumin@192.168.2.18 # 密码是宿主机的用户密码
+```
 
 重要提示：
 

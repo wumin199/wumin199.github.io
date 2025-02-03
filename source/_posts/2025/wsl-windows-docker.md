@@ -755,8 +755,12 @@ ipconfig
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/fix-ping.png" alt="" style="width:50%;">
 </div>
 
+同时，为了保证port 22（ssh默认端口）不被防火墙拦截，一种方法是把防火墙都关闭掉；另一种是设置防火墙端口号通行策略。详细参考：[杂项：Windows服务器openssh连接(含ssh免密登录)](https://blog.csdn.net/weixin_44570083/article/details/109435794)
 
-这部分的所有设置已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可
+
+以上所有设置已经封装成ps1脚本，执行 `WM-TEST-CASE`下的`openssh.ps1` 即可。
+
+其他：遇到位置网络问题，可以先将虚拟机的防火墙都关闭掉，再测试。
 
 **宿主机中的设置**
 

@@ -702,9 +702,10 @@ winget uninstall --id Microsoft.DotNet.SDK.9 -e
 
 ### 远程到虚拟机
 
-宿主机：Ubuntu
-虚拟机：里面安装win10
+宿主机：Ubuntu，ssh的客户端
+虚拟机：里面安装win10，ssh的服务端
 目标：宿主机中的vscode远程到虚拟机的win10
+
 
 
 参考：
@@ -766,6 +767,16 @@ ipconfig
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting2.png" alt="配置文件保存地址，请看下文重要提示！" style="width:33%;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="" style="width:33%;">
 </div>
+
+
+一些测试：
+
+```bash
+# 宿主机ping虚拟机
+ping 192.168.2.18
+telnet 192.168.2.18 22 # port
+ssh wumin@192.168.2.18 # 密码是宿主机的用户密码
+```
 
 重要提示：
 

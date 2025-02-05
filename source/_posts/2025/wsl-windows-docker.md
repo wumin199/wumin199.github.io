@@ -835,7 +835,27 @@ Host github.com
 
 其中的密码，是宿主机的开机密码。（或者宿主机的登录密码）(其他树莓派设备等，是树莓派自己的登录用户名和密码，和虚拟机略有区别)
 
-
 首次登录，vscode会在虚拟机中安装vscode server，大概会下载500M的内容，比较久，需要等待。
 
 之后就可以在Vscode的菜单栏中"File" -> "Open Folder"来打开虚拟机中对应的文件夹，然后在vscode的Extension中安装对应的插件并进行开发。
+
+
+虚拟机移植到其他电脑，可能出现的问题：
+
+1. 如果将虚拟机迁移到其他平台，那么这个宿主机ssh登录虚拟机的密码不变！！和制作时的密码是一致的，不是新的宿主机的开机密码！！
+2. 如果报错：Permission denied (publickey,password,keyboard-interactiv)，则可以在宿主机运行一下 `openssh.ps1`
+3. 宿主机的ssh中配置的是虚拟机的username，不是宿主机的
+4. 虚拟机中的ip地址可能会经常变，如果连不上，需要登录到虚拟机，看下ipconfig
+5. 经常跳出" cannot reconnect. please reload the window"，让你重新输入密码。
+   
+   <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/reconnect.png" alt="频繁出现" style="width:50%;">
+  </div>
+
+   1. 解决方法：更新 vscode插件：remote-ssh
+   2. 删除虚拟机中的.vscode-server，然后宿主机重新远程进去，这会让虚拟机重新下载vscode-server。重新下载以后，vscode需要重新安装各类远程插件，如C#、Markdown、Copilot、Python、GitGraph等
+
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever1.png" alt=".vscode-server文件夹和vscode-server.zip都要删掉" style="width:50%;">
+    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever2.png" alt="" style="width:50%;">
+  </div>

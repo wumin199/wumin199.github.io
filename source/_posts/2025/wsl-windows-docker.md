@@ -639,7 +639,6 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
    
    主要参考：[Ubuntu安装搜狗输入法](https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42)
 
-
 ## 虚拟机下安装环境
 
 需要安装的有：
@@ -653,6 +652,8 @@ Ubuntu下安装Win11： 百度网盘：通用软件 -> win11_ubuntu_20250130.mkv
 
 
 安装脚本见 `WM-OS-ENV`的 `install.ps1`
+
+
 
 ### .NET 8
 
@@ -702,6 +703,7 @@ winget uninstall --id Microsoft.DotNet.SDK.9 -e
 
 ```
 
+
 ### 远程到虚拟机
 
 宿主机：Ubuntu，ssh的客户端
@@ -718,6 +720,7 @@ winget uninstall --id Microsoft.DotNet.SDK.9 -e
 - [Win10系统VScode远程连接VirtualBox安装的Ubuntu20.04.5](https://blog.csdn.net/five_east_west/article/details/137575488)
 - [linux宿主机ssh访问windows10虚拟机](https://blog.csdn.net/qq_38969070/article/details/124150764)
 
+
 **设置virtualbox网络**
 
 Virtualbox的网络中，需要设置2个网卡：一个用于虚拟机上网，一个用于宿主机ssh到虚拟机。
@@ -727,6 +730,8 @@ Virtualbox的网络中，需要设置2个网卡：一个用于虚拟机上网，
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/vb_bridge.png" alt="用于宿主机ssh到虚拟机" style="width:33%;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wifi.png" alt="桥接到宿主机正在使用的网卡" style="width:33%;">
 </div>
+
+
 
 **Windows虚拟机中的设置**
 
@@ -775,6 +780,8 @@ Host github.com
 
 其他：遇到位置网络问题，可以先将虚拟机的防火墙都关闭掉，再测试。
 
+
+
 **宿主机中的设置**
 
 打开vscode，**Ctrl+Shift+P**，先配置远程的ssh地址
@@ -787,6 +794,7 @@ Host github.com
 <div style="display: flex; justify-content: center; align-items: center;">
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/remote-ssh-setting3.png" alt="github那个如果没有的话，要添加上，否则git会无法使用" style="width:50%;">
 </div>
+
 
 
 一些测试：
@@ -840,6 +848,7 @@ Host github.com
 之后就可以在Vscode的菜单栏中"File" -> "Open Folder"来打开虚拟机中对应的文件夹，然后在vscode的Extension中安装对应的插件并进行开发。
 
 
+
 虚拟机移植到其他电脑，可能出现的问题：
 
 1. 如果将虚拟机迁移到其他平台，那么这个宿主机ssh登录虚拟机的密码不变！！和制作时的密码是一致的，不是新的宿主机的开机密码！！
@@ -848,20 +857,20 @@ Host github.com
 4. 虚拟机中的ip地址可能会经常变，如果连不上，需要登录到虚拟机，看下ipconfig
 5. 经常跳出" cannot reconnect. please reload the window"，让你重新输入密码。
    
-   <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/reconnect.png" alt="频繁出现" style="width:50%;">
-  </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/reconnect.png" alt="频繁出现" style="width:50%;">
+    </div>
 
-  如果输入密码后不能解决频繁跳出的问题：
+    如果输入密码后不能解决频繁跳出的问题：
 
-  可能问题是 宿主机的 `code --version` 和 虚拟机中 `~/.vscode-server` 中的版本不一致。
+    可能问题是 宿主机的 `code --version` 和 虚拟机中 `~/.vscode-server` 中的版本不一致。
 
-   1. 解决方法：更新 vscode插件：remote-ssh（删除）
-   2. 删除虚拟机中的 `~/.vscode-server`，然后宿主机重新远程进去，这会让虚拟机重新下载vscode-server。重新下载以后，vscode需要重新安装各类远程插件，如C#、Markdown、Copilot、Python、GitGraph等
+    1. 解决方法：更新 vscode插件：remote-ssh（删除）
+    2. 删除虚拟机中的 `~/.vscode-server`，然后宿主机重新远程进去，这会让虚拟机重新下载vscode-server。重新下载以后，vscode需要重新安装各类远程插件，如C#、Markdown、Copilot、Python、GitGraph等
 
-  <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever1.png" alt=".vscode-server文件夹和vscode-server.zip都要删掉" style="width:50%;">
-    <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever2.png" alt="" style="width:50%;">
-  </div>
-  
-  3. 远程下载C#等插件时，可能会继续报需要输入密码，原因可能是C#等插件太耗时。解决方法是临时先关掉虚拟机中的VPN
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever1.png" alt=".vscode-server文件夹和vscode-server.zip都要删掉" style="width:50%;">
+      <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever2.png" alt="" style="width:50%;">
+    </div>
+    
+    3. 远程下载C#等插件时，可能会继续报需要输入密码，原因可能是C#等插件太耗时。解决方法是临时先关掉虚拟机中的VPN

@@ -852,10 +852,16 @@ Host github.com
     <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/reconnect.png" alt="频繁出现" style="width:50%;">
   </div>
 
-   1. 解决方法：更新 vscode插件：remote-ssh
-   2. 删除虚拟机中的.vscode-server，然后宿主机重新远程进去，这会让虚拟机重新下载vscode-server。重新下载以后，vscode需要重新安装各类远程插件，如C#、Markdown、Copilot、Python、GitGraph等
+  如果输入密码后不能解决频繁跳出的问题：
+
+  可能问题是 宿主机的 `code --version` 和 虚拟机中 `~/.vscode-server` 中的版本不一致。
+
+   1. 解决方法：更新 vscode插件：remote-ssh（删除）
+   2. 删除虚拟机中的 `~/.vscode-server`，然后宿主机重新远程进去，这会让虚拟机重新下载vscode-server。重新下载以后，vscode需要重新安装各类远程插件，如C#、Markdown、Copilot、Python、GitGraph等
 
   <div style="display: flex; justify-content: center; align-items: center;">
     <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever1.png" alt=".vscode-server文件夹和vscode-server.zip都要删掉" style="width:50%;">
     <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/delete-vscode-srever2.png" alt="" style="width:50%;">
   </div>
+  
+  3. 远程下载C#等插件时，可能会继续报需要输入密码，原因可能是C#等插件太耗时。解决方法是临时先关掉虚拟机中的VPN

@@ -167,7 +167,7 @@ wsl --shutdown # 重启
 ```bash
 wsl --update #
 wsl --list --online
-wsl --install -d Ubuntu-20.04 
+wsl --install -d Ubuntu-22.04 
 wsl --unregister Ubuntu-22.04 # 卸载并删除
 ```
 
@@ -261,6 +261,7 @@ wsl -d  Ubuntu-22.04 # 运行，也可以在开始菜单点击运行(Ubuntu22.04
 
 # 同时登录Debian和Ubuntu
 # 开Windows Terminal并登录即可
+
 ```
 
 
@@ -300,6 +301,65 @@ cd /mnt
 进去以后，根据需要在wsl中装对应的插件。
 
 vscode中切换目录可以通过vscode的 File -> Open Folder来切换vscode当前的显示目录
+
+### WSL网络
+
+有时候在WSL里面执行 `sudo apt update` 会报无效的host或者连接超时，一顿折腾后，发现 `wsl --shutdown`后，重启电脑发现可以了。不一定和`sources.list`有关系
+
+
+[使用 WSL 访问网络应用程序](https://learn.microsoft.com/zh-cn/windows/wsl/networking#mirrored-mode-networking)(W10只支持NAT网络，W11支持镜像模式。镜像模式应该比NAT更方便)
+
+
+```bash
+# 
+# Win10的WSL默认的是NAT模式
+# 
+# 从windows角度，wsl的ip地址是
+#   宿主机WindowsTerminal执行:
+wsl -d Ubuntu-20.04 hostname -I
+#   WSL内部执行
+ifconfig
+
+# 从WSL角度，宿主机的ip地址是
+#   宿主机WindowsTerminal执行：
+ip route show | grep -i default | awk '{ print $3}'
+#   WSL内部执行
+ipconfig /all  # （ vEthernet (WSL):）
+```
+
+
+**案例1**
+
+需求：Win10下，我在宿主机安装了WSL，然后开了服务，我想：
+
+- [x] 在WSL服务这个服务
+- [x] 在宿主机服务这个服务
+- [ ] 和宿主机同一网段的其他电脑也要访问这服务
+
+答案：第三点暂时做不到，前两点可以
+
+原因：WSL默认的NAT支持前2者比较方便，第三者比较复杂。一定要用win10的wsl实现，建议是：
+
+- 一个是在win上用nginx反向代理，但也比较复杂
+- 再就是用服务器部署，固定ip访问
+
+
+其他要点：
+
+服务应该和端口号绑定，测试时可以先封闭防火墙，这会放行所有的端口号。或者不关闭防火墙，在通行策略中放行特定端口。
+
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2025/wsl-docker/wsl-network-status.png" alt="" style="width:100%;">
+</div>
+
+wsl下，可以观察到，这里并没有网关。
+
+NAT下，WSL和宿主机是互相访问的，但是并不需要网关，但是和宿主机同网段的却解析不了WSL，因为没有网关。
+
+建议这种情况下用桥接，桥接相当于直接接到网络上，也有IP地址和网关，同网段可以互相访问。
+
+针对这个案例，目前解决方法是用虚拟机，然后采用桥接模式。
 
 
 
@@ -568,8 +628,8 @@ WinGet the Windows Package Manager is available on Windows 11, modern versions o
 
 百度网盘：通用软件 -> win10_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
 百度网盘：通用软件 -> win11_x64_wm199_20250126.ova: ubuntu下的定制化过的win10虚拟机
-百度网盘：通用软件 -> rosi_training_foxy_latest.ova: Foxy (ROS2) + Noetic (ROS1)
-百度网盘：通用软件 -> rosi_training_humble_latest.G0PVZOAY.ova: Humble Hawksbill (ROS2)
+百度网盘：通用软件 -> rosi_training_foxy_latest.ova: Foxy (ROS2) + Noetic (ROS1)：密码ros-industrial
+百度网盘：通用软件 -> rosi_training_humble_latest.G0PVZOAY.ova: Humble Hawksbill (ROS2)：密码ros-industrial
 百度网盘：通用软件 -> win10_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win10，没有进行过任何设置
 百度网盘：通用软件 -> win11_64_ubuntu_basic_20250130.ova: ubuntu下的基础的win11，没有进行过任何设置
 
@@ -874,3 +934,9 @@ Host github.com
     </div>
     
     3. 远程下载C#等插件时，可能会继续报需要输入密码，原因可能是C#等插件太耗时。解决方法是临时先关掉虚拟机中的VPN
+
+
+## 镜像汇总
+
+
+ubuntu20.04: wumin199/ab6

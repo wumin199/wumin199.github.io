@@ -16,6 +16,72 @@ hello git
 
 <!-- more -->
 
+### git ssh
+
+Windows下，建议先用Git Bash操作 
+
+**配置第1个**
+
+```bash
+# open Git Bash
+
+cd ~/.ssh
+ssh-keygen -t ed25519 -C "wumin199@126.com" 
+
+# 输入名称
+github_wm 
+
+# 之后用Everything找到 github_wm和github_wm.pub所在的地方
+# 默认一般是在打开Git Bash的文件夹
+# 将 github_wm和github_wm.pub 复制到 ~/.ssh下
+
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/github_wm  # 注意没有.pub
+
+# 新建config文件
+cd ~/.ssh
+touch config
+
+# config下放入如下内容
+Host github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/github_wm   # 这里没有.pub
+
+# 复制.pub 到gitlab
+cat ~/.ssh/github_wm.pub | clip
+
+
+ssh -T git@github.com  # 名字要和config下的Host名称一样
+
+# 测试git clone一个仓库
+```
+
+说明：如果在git clone时弹出需要输入密码，则是ssh没配置好。可以先把本机的其他ssh备份后都删除进行测试。
+
+![](/images/2024/ssh-error.png)
+
+
+**配置第2个**
+
+同上，只不过 `config`下需要新增。
+
+假设这是配置的是内网的一个gitlab, 内网GitLab服务器地址 `172.12.34.xxx`
+
+```bash
+Host gitlab.com
+    Hostname 172.12.34.xxx
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/gitlab_wm
+	
+Host github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/github_wm
+```
+
+
+
+
+
 ### rebase和merge区别
 
 当前开发者在 feature 分支，现在想和master同步，让自己的分支包含master所有最新的内容

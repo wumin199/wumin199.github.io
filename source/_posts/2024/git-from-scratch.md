@@ -25,15 +25,13 @@ Windows下，建议先用Git Bash操作
 ```bash
 # open Git Bash
 
+# 先cd到~/.ssh，这会让生成的密钥放在当前目录下，省得拷贝来拷贝去
+# 否则就得用EveryThing去找，然后人为拷贝到~/.ssh目录下
 cd ~/.ssh
 ssh-keygen -t ed25519 -C "wumin199@126.com" 
 
 # 输入名称
 github_wm 
-
-# 之后用Everything找到 github_wm和github_wm.pub所在的地方
-# 默认一般是在打开Git Bash的文件夹
-# 将 github_wm和github_wm.pub 复制到 ~/.ssh下
 
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/github_wm  # 注意没有.pub
@@ -61,25 +59,24 @@ ssh -T git@github.com  # 名字要和config下的Host名称一样
 ![](/images/2024/ssh-error.png)
 
 
+
 **配置第2个**
 
 同上，只不过 `config`下需要新增。
 
-假设这是配置的是内网的一个gitlab, 内网GitLab服务器地址 `172.12.34.xxx`
+假设这是配置的是内网的一个gitlab, 内网GitLab服务器地址 `10.2.x.x`
 
 ```bash
-Host gitlab.com
-    Hostname 172.12.34.xxx
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/gitlab_wm
-	
-Host github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/github_wm
+# 如果有ssh端口转发的问题，需要映射Port，否则不需要
+# 如在docker中重定向端口号了
+Host 10.2.x.x
+  Port 12222
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/gitlab_xs
+  IdentitiesOnly yes
 ```
 
-
-
+SST测试：`ssh -T git@10.2.x.x`，名字要和config下的Host名称一样
 
 
 ### rebase和merge区别
@@ -442,3 +439,79 @@ release/0.11一般有很多个PR(很多个PR的commit)，将其合并到master�
   <img src="https://github.com/wumin199/wm-blog-image/raw/main/images/2024/git/git_rebase_master.png" alt="" style="width:50%;">
   <div style="width: 50%;"></div>
 </div>
+
+### git mirror移库
+
+场景：我需要
+
+### git submodule
+
+submodule在主项目下的管控只基于commit的(一种理解就是基于tag)
+
+在项目主目录下，有个文件 `.gitmodules`
+
+```bash
+[submodule "WMProject/Submodules/wm-robot-core"]
+	path = WMProject/Submodules/wm-robot-core
+	url = ssh://git@10.2.x.x:12222/wm-toolkit-dev/wm-robot-core.git
+[submodule "WMProject/Submodules/wm-controls"]
+	path = WMProject/Submodules/wm-controls
+	url = ssh://git@10.2.x.x:12222/wm-toolkit-dev/wm-controls.git
+```
+
+解释：
+
+- `[submodule "WMProject/Submodules/wm-robot-core"]`: 子模块的标识符/名称，用于在 Git 中识别这个子模块。这个名称通常与路径保持一致，但这不是强制的。
+- `path`: 指定这个子模块在主项目中的存放路径
+- `url`: git仓库地址
+
+在自己的分支下，通过如下方法拉取子模块代码：
+
+```
+git submodule update --init --recursive
+```
+之后自己的分支下就会出现 `WMProject/Submodules/wm-robot-core`文件夹
+
+
+风险点：
+
+- 不要在主项目的子模块目录下修改并push，可以会导致子模块被推送这些东西进去
+- 也不要自己在子模块下修改定制，否则后续很难和子模块最新代码同步（如果未来你需要同步升级的话）
+- 除非真的需要自己维护子模块，不用子模块的最新更新了
+
+使用方法：
+
+在本分支下，如果想升级submodule到某个特定的commit：
+
+```shell
+cd WMProject/Submodules/wm-robot-core
+# 查看当前submodule是基于哪个commit的(or tag)
+git branch
+
+# 升级submodule到对应的commit，如
+git checkout v1.0.0
+
+# 回到项目主目录下
+cd ../../
+git add .
+git commit -am "update submodule to v.1.0.0
+git push
+```
+
+如果自己的分支submodule还没更新，但是master的submodule更新了：
+
+```shell
+# 切换到主分支
+git checkout master
+# git reset HEAD~10
+git pull
+git submodule update --init --recursive
+# 如果git pull不会自动更新submoduel，则可以先删了master，然后再重新进行如上的
+
+# 切换到我的分支
+git checkout my_branch
+cd WMProject/Submodules/wm-robot-core
+git checkout v.1.0.0 # 切换到和master同一个commit
+cd ../..
+git submodule update --init --recursive
+```

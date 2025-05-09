@@ -442,7 +442,33 @@ release/0.11一般有很多个PR(很多个PR的commit)，将其合并到master�
 
 ### git mirror移库
 
-场景：我需要
+场景：我需要将本地服务器上的gitlab代码仓库移到github或者公司的gitlab上，包含当前服务器上的所有分支和分支的commit历史
+
+参考资料：
+
+- [GitHub:复制仓库](https://docs.github.com/zh/repositories/creating-and-managing-repositories/duplicating-a-repository)
+- [使用 Git Mirror 無痛轉移 Git Server](https://dinos80152.wordpress.com/2015/09/21/%E4%BD%BF%E7%94%A8-git-mirror-%E7%84%A1%E7%97%9B%E8%BD%89%E7%A7%BB-git-server/)
+- [解决Gitlab报错You are not allowed to force push code to a protected branch on this project.](https://blog.csdn.net/weixin_35757704/article/details/128900218)
+
+```shell
+# 先创建原有的镜像克隆
+git clone --mirror git@github.com:wumin199/old.git
+cd old
+
+#
+# 然后在提前在github上建好项目：github.com:new-user/new.git 
+#
+git remote set-url --push origin git@github.com:new-user/new.git
+
+# 这会开始推送
+git push --mirror
+```
+
+注意事项：
+
+必须是有权限的人才能执行 git push --mirror，因为
+
+
 
 ### git submodule
 
@@ -515,3 +541,11 @@ git checkout v.1.0.0 # 切换到和master同一个commit
 cd ../..
 git submodule update --init --recursive
 ```
+
+### 部署GitLab
+
+TODO
+
+方法：
+1. 用docker
+2. 正常安装

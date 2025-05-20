@@ -493,10 +493,25 @@ submodule在主项目下的管控只基于commit的(一种理解就是基于tag)
 
 在自己的分支下，通过如下方法拉取子模块代码：
 
-```
+```bash
 git submodule update --init --recursive
 ```
 之后自己的分支下就会出现 `WMProject/Submodules/wm-robot-core`文件夹
+
+
+如果是需要新添加submodule，需要执行下：
+
+```bash
+mkdir -p WMProject/Submodules
+git submodule add ssh://git@10.2.x.x/wm-toolkit-dev/wm-robot-core.git WMProject/Submodules/wm-robot-core.git
+git submodule add ssh://git@10.2.x.x/wm-toolkit-dev/wm-controls.git WMProject/Submodules/wm-controls.git
+```
+
+之后执行更新才会进行下载
+
+```bash
+git submodule update --init --recursive
+```
 
 
 风险点：

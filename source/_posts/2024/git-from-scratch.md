@@ -503,8 +503,7 @@ git submodule update --init --recursive
 
 ```bash
 mkdir -p WMProject/Submodules
-git submodule add ssh://git@10.2.x.x/wm-toolkit-dev/wm-robot-core.git WMProject/Submodules/wm-robot-core.git
-git submodule add ssh://git@10.2.x.x/wm-toolkit-dev/wm-controls.git WMProject/Submodules/wm-controls.git
+git submodule add ssh://git@10.2.x.x:12222/wm-toolkit-dev/wm-robot-core.git WMProject/Submodules/wm-robot-core
 ```
 
 之后执行更新才会进行下载

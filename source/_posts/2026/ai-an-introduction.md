@@ -97,6 +97,8 @@ NotebookLM 负责**“写对”（符合教材），Gemini 负责“写多”**�
 - [gemini cli](https://geminicli.com/)
 
 
+
+
 ## CLI or/and IDE extenson
 
 Query and edit large codebases, generate apps from images or PDFs, and automate complex workflows—all from your terminal with Gemini 3
@@ -442,6 +444,9 @@ TODO
 
 
 ## Terminology
+
+### MCP
+
 
 - MCP
 - Agent

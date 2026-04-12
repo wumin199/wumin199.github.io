@@ -97,6 +97,7 @@ NotebookLM 负责**“写对”（符合教材），Gemini 负责“写多”**�
   - [Agent模式概览](https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer?hl=zh-cn)(MCP Server, GEMINI.md)
   - [在 GitHub 上设置 Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/set-up-code-assist-github?hl=zh-cn)(可以在Github的PR界面用@bot进行review)
 - [gemini cli](https://geminicli.com/)
+  - [gemini cli docs](https://geminicli.com/docs/)(quick start, cheat sheet, best practices)
   - [github gemini cli](https://github.com/google-gemini/gemini-cli)
 
 
@@ -553,6 +554,11 @@ Roo Code (Roo Cline)：Cline 的增强版，同样支持配置 MCP Server。
 - MCP
 - Agent
 - Skills
+
+
+https://cli.github.com/
+
+https://docs.github.com/en/codespaces
 
 
 Claude Code，方案思路一般，编程最强，但容易封号。VScode 插件没有Gpt(Codex)或Gemini做得好用

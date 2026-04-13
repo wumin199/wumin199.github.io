@@ -566,6 +566,27 @@ Gpt或者Gemini：思路方案框架较强，Codex编程略差Claude,Genimi再�
 
 antigravity
 
+## Codex
+
+codex的key：sk-dnRT6j3Y7E8FgyOJmHlDxyMuWmE5TSrEksmWxMSL1nZwTn2L
+
+- [Codex](https://chatgpt.com/codex)
+- [PP Codex Cli教程](https://ncn2tixwfspn.feishu.cn/wiki/FqCPwuUrpiwJPWkD2P2cXSKInDb)
+- [Codex 技术客服&&配置教程](https://ucn9uf8devd7.feishu.cn/wiki/XUrvw5RbCihuh4kEPrdcvFHNnhd)
+
+配额：2400配额（400次请求）
+使用教程：PP Codex Cli教程
+记录查询：https://code.ppchat.vip/
+带图评论~免费加200次请求
+体验卡有400次请求
+升级VIP月卡每日可用高达500次，长期更划算～
+
+
+
+
+
+
+
 ## 最佳实践
 
 1. 一般问题用deepseek或者豆包问，节省token

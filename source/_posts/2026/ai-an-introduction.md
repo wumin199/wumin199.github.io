@@ -546,6 +546,10 @@ Roo Code (Roo Cline)：Cline 的增强版，同样支持配置 MCP Server。
 
 ### Skill
 
+- [Get started with Agent Skills](https://geminicli.com/docs/cli/tutorials/skills-getting-started/)
+
+skill库
+
 
 ### OpenRouter
 

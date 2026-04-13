@@ -550,6 +550,15 @@ Roo Code (Roo Cline)：Cline 的增强版，同样支持配置 MCP Server。
 
 skill库
 
+### plan
+
+Standard LLMs have a limited context window and can “forget” the original goal after 10 turns of code generation. Task planning provides:
+
+- Visibility: You see exactly what the agent plans to do before it starts.
+- Focus: The agent knows exactly which step it’s working on right now.
+- Resilience: If the agent gets stuck, the plan helps it get back on track.
+
+- [Plan tasks with todos](https://geminicli.com/docs/cli/tutorials/task-planning/)
 
 ### OpenRouter
 
@@ -595,3 +604,8 @@ codex的key：sk-dnRT6j3Y7E8FgyOJmHlDxyMuWmE5TSrEksmWxMSL1nZwTn2L
 
 1. 一般问题用deepseek或者豆包问，节省token
 2. 可以用gemini等的mcp server来节省和github的交互，加强review等
+3. [Manage context and memory](https://geminicli.com/docs/cli/tutorials/memory-management/#best-practices)
+   
+   - Keep it focused: Avoid adding excessive content to GEMINI.md. Keep instructions actionable and relevant to code generation.
+   - Use negative constraints: Explicitly telling the agent what not to do (for example, “Do not use class components”) is often more effective than vague positive instructions.
+   - Review often: Periodically check your GEMINI.md files to remove outdated rules.

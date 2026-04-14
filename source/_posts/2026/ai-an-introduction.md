@@ -464,6 +464,9 @@ TODO
 
 ### MCP
 
+- [gemini cli mcp setup](https://geminicli.com/docs/cli/tutorials/mcp-setup/)
+- [gemini code assist MCP setup](https://developers.google.com/gemini-code-assist/docs/use-agentic-chat-pair-programmer?hl=zh-cn)
+
 MCP (Model Context Protocol, 模型上下文协议) 是一种开源标准，它的核心作用是作为 AI 助手（如 Claude Desktop、Cursor 等）与你的本地数据/工具之间的“安全桥梁”。
 
 在没有 MCP 之前，如果你想让 AI 帮你分析本地的 C++ 代码或查阅 PDF，你需要手动把代码或文字复制粘贴给 AI。有了 MCP Server 后，你可以授权 AI 直接“看”到你指定的本地文件夹、数据库或调用特定的本地脚本。
@@ -474,71 +477,6 @@ MCP (Model Context Protocol, 模型上下文协议) 是一种开源标准，它�
 - Git/GitHub：允许 AI 直接读取你的 Git 仓库状态、提交记录等。
 - Database (数据库)：允许 AI 查询本地SQLite/PostgreSQL数据。
 
-在你的场景下的配置建议
-
-观察你的工作区目录，你有两个主要项目：
-
-- wm-cpp-case：一个包含 CMake、行为树 (behavior_tree) 和 Python 脚本的 C++ 项目。
-- wumin199.github.io：一个基于Node.js/Hexo的个人博客。
-对于你的场景，最实用的是配置一个 本地文件系统 (Filesystem) MCP Server。这样，当你使用支持 MCP 的客户端（比如 Claude Desktop）时，可以直接问：“帮我分析一下 wm-cpp-case/src/behavior_tree 里的实现” 或者 “帮我在博客源文件里新建一篇关于行为树的草稿”。
-
-如果你使用的是 Claude Desktop，你可以通过修改它的配置文件来添加这个 MCP Server。
-
-步骤：
-- 安装 Node.js（如果你还没有安装的话，不过看你有博客项目应该已经有了）。
-- 配置 MCP：在你的系统中找到对应的配置文件。对于 Linux，通常位于： ~/.config/Claude/claude_desktop_config.json
-你可以创建一个这样的配置：
-
-```json
-{
-  "mcpServers": {
-    "my-workspace": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/home/wumin199/wm-cpp-case",
-        "/home/wumin199/wumin199.github.io",
-        "/home/wumin199/docker_shared"
-      ]
-    }
-  }
-}
-```
-
-这个配置的作用：
-它使用 npx 启动了官方的文件系统 MCP 服务，并将你的 C++ 项目、博客项目以及 docker_shared 目录暴露给了 AI。启动后，你的 AI 客户端将自动获得以下能力（Tools）：
-
-- read_file: 直接读取你项目里的 C++ 源码或 Markdown 博客。
-- list_directory: 浏览你的项目目录结构。
-- search_files: 在这些项目里搜索特定的代码或文本。
-你需要我帮你直接在你的环境里创建/写入这个配置文件吗？ 如果需要，请告诉我你使用的是哪个 AI 客户端（如 Claude Desktop、Cursor、Windsurf等），我可以帮你把配置写到正确的位置。
-
-
-MCP（Model Context Protocol，模型上下文协议）是由 Anthropic 提出的一种开源标准协议。你可以把它理解为 AI 的“通用数据接口”。
-
-简单来说，AI 模型本身只懂文字，不知道你的本地电脑里有什么。MCP Server 就是一座桥梁：它可以连接你的本地文件、数据库、甚至公司内部的 API，然后按照标准格式喂给 AI，让 AI 能够“看到”和“操作”你指定的本地资源。
-
-针对你的场景：你在 VS Code 中使用的是 GitHub Copilot
-这里有一个关键点：目前 GitHub Copilot 原生并不支持 MCP 协议。
-
-Copilot 有自己的一套上下文收集机制（比如它会自动读取你当前打开的标签页、终端输出，以及通过 @workspace 读取整个项目）。它目前不支持像 Claude Desktop 或 Cursor 那样，通过简单写一个 JSON 配置文件就能外接一个 MCP Server。
-
-因此，我们无法直接为 GitHub Copilot 创建一个 MCP 配置文件，因为它目前“听不懂” MCP 协议。
-
-如果你想在 VS Code 里体验 MCP Server，该怎么办？
-虽然 Copilot 不支持，但 VS Code 本身是一个极其强大的平台。如果你想体验 MCP 的强大能力（比如让 AI 直接连上你的本地数据库并执行 SQL，或者自动读取某个外部 API 文档），你可以安装支持 MCP 的其他 AI 插件：
-
-Cline (以前叫 Claude Dev)：目前 VS Code 上最火的开源 AI 编程助手插件之一，完美支持 MCP。
-Roo Code (Roo Cline)：Cline 的增强版，同样支持配置 MCP Server。
-如果你只是想让 Copilot 更好地理解你的项目： 你不需要 MCP。你只需要在 VS Code 的 Copilot Chat 中多使用：
-
-@workspace：让它搜索全局代码。
-把相关的参考代码或文档（比如你截图里的博客文章）直接在编辑器中保持打开状态，Copilot 会自动将它们作为上下文。
-总结一下：MCP Server 是给支持该协议的 AI（如 Claude Desktop, Cursor, Cline 等）外接本地能力用的。因为你用的是官方的 GitHub Copilot，它目前不支持这个协议，所以你不需要、也没办法为它配置 MCP。 专心利用好 Copilot 自带的 @workspace 和多开 tab 页即可！
-
-
-- [gemini cli mcp setup](https://geminicli.com/docs/cli/tutorials/mcp-setup/)
 
 ### Agent
 
@@ -575,6 +513,8 @@ Plan Mode is a read-only environment for architecting robust solutions before im
 - Design: Understand problems, evaluate trade-offs, and choose a solution.
 - Plan: Align on an execution strategy before any code is modified.
 
+
+参考：
 
 
 - [Use Plan Mode with model steering for complex tasks](https://geminicli.com/docs/cli/tutorials/plan-mode-steering/)

@@ -537,6 +537,9 @@ Roo Code (Roo Cline)：Cline 的增强版，同样支持配置 MCP Server。
 把相关的参考代码或文档（比如你截图里的博客文章）直接在编辑器中保持打开状态，Copilot 会自动将它们作为上下文。
 总结一下：MCP Server 是给支持该协议的 AI（如 Claude Desktop, Cursor, Cline 等）外接本地能力用的。因为你用的是官方的 GitHub Copilot，它目前不支持这个协议，所以你不需要、也没办法为它配置 MCP。 专心利用好 Copilot 自带的 @workspace 和多开 tab 页即可！
 
+
+- [gemini cli mcp setup](https://geminicli.com/docs/cli/tutorials/mcp-setup/)
+
 ### Agent
 
 
@@ -559,6 +562,23 @@ Standard LLMs have a limited context window and can “forget” the original go
 - Resilience: If the agent gets stuck, the plan helps it get back on track.
 
 - [Plan tasks with todos](https://geminicli.com/docs/cli/tutorials/task-planning/)
+
+
+Architecting a complex solution requires precision. By combining Plan Mode’s structured environment with model steering’s real-time feedback, you can guide Gemini CLI through the research and design phases to ensure the final implementation plan is exactly what you need.
+
+
+Plan Mode lets you collaborate with Gemini CLI to design a solution before Gemini CLI takes action.
+
+Plan Mode is a read-only environment for architecting robust solutions before implementation. With Plan Mode, you can:
+
+- Research: Explore the project in a read-only state to prevent accidental changes.
+- Design: Understand problems, evaluate trade-offs, and choose a solution.
+- Plan: Align on an execution strategy before any code is modified.
+
+
+
+- [Use Plan Mode with model steering for complex tasks](https://geminicli.com/docs/cli/tutorials/plan-mode-steering/)
+- [plan mode](https://geminicli.com/docs/cli/plan-mode/)
 
 ### OpenRouter
 

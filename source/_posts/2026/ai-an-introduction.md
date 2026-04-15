@@ -555,6 +555,18 @@ codex的key：sk-dnRT6j3Y7E8FgyOJmHlDxyMuWmE5TSrEksmWxMSL1nZwTn2L
 升级VIP月卡每日可用高达500次，长期更划算～
 
 
+```sh
+# 如果是vscode 远程到另一台主机的docker，需要先确保remote中可以访问外网
+# ref： https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42
+# 如果是vscode 远程到本地的docker，则不需要特别设置（除了开clash）
+
+# 先安装codex
+curl -fsSL http://47.115.148.185/codex/codex-install.sh | bash
+# 再安装vscode的codex插件
+# vscode：reload window
+```
+
+
 
 
 

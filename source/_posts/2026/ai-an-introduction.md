@@ -30,7 +30,6 @@ AI工具使用指南
 - [Gemini](https://gemini.google.com/app)
 - [Gemini Code Assist](https://codeassist.google/)(包含CLI和IDE插件两种模式)
 
-没问题，这就为你转换成清晰的 Markdown 表格格式：
 
 | 维度 | NotebookLM (笔记本模式) | Gemini Gems (定制助手) |
 | :--- | :--- | :--- |
@@ -101,25 +100,19 @@ NotebookLM 负责**“写对”（符合教材），Gemini 负责“写多”**�
   - [github gemini cli](https://github.com/google-gemini/gemini-cli)
 
 
+## Codex
 
-1. Tools (Internal AI Capabilities):
-
-What they are: These are the specific actions I (the AI) can perform on your behalf. Examples include read_file, grep_search, run_shell_command, replace, and ask_user.
-How they are used: You do not use slash syntax (like /read_file) for these. You simply ask me to do something in plain English (e.g., "Find all the CSS files," "Read the README," "Run the tests"), and I will automatically select and use the correct internal tools to fulfill your request.
-2. Commands (CLI User Controls):
-
-What they are: These are special instructions you type directly into the prompt to control the CLI application itself, bypassing normal AI conversation. They always start with a slash /.
-How they are used: You type them exactly as written. Examples include:
-/help: Shows you the general help menu.
-/tools: Shows you the list of tools I have available.
-/bug: Lets you report an issue with the CLI.
-/clear: Clears the chat history.
+- [Codex](https://chatgpt.com/codex)
+- [PP Codex Cli教程](https://ncn2tixwfspn.feishu.cn/wiki/FqCPwuUrpiwJPWkD2P2cXSKInDb)
+- [Codex 技术客服&&配置教程](https://ucn9uf8devd7.feishu.cn/wiki/XUrvw5RbCihuh4kEPrdcvFHNnhd)
 
 
-## CLI or/and IDE extenson
-
-Query and edit large codebases, generate apps from images or PDFs, and automate complex workflows—all from your terminal with Gemini 3
-
+```sh
+# 先安装codex(可重复覆盖安装)
+curl -fsSL http://47.115.148.185/codex/codex-install.sh | bash
+# 再安装vscode的codex插件
+# vscode：reload window
+```
 
 
 ## 学习方法论
@@ -181,7 +174,7 @@ Query and edit large codebases, generate apps from images or PDFs, and automate 
 > 正负号与下标： 在处理长达 10 步以上的复杂推导时（如多变量正态分布的矩推导 ），它可能会在某一步漏掉一个负号或转置符号。
 > 维数盲区： 它有时会忽略矩阵乘法的维数兼容性（$m \times n$ 与 $n \times p$） 
 
-在处理复杂的矩阵恒等式（如公式 156 或 259）时，AI 容易在**长距离代数变换**中犯错（漏掉负号、转置变逆等） [cite: 166, 813]。Wolfram 的加入提供了以下价值：
+在处理复杂的矩阵恒等式（如公式 156 或 259）时，AI 容易在**长距离代数变换**中犯错（漏掉负号、转置变逆等）。Wolfram 的加入提供了以下价值：
 
 * **绝对严谨性**：Wolfram 不会产生“幻觉”，它基于严格的数学内核运行，确保推导的每一步都符合代数法则。
 * **符号化简**：当你面对像 $A+iB$ 这种复杂的复数矩阵求逆时（公式 259），手动展开极其痛苦，Wolfram 可以瞬间给出最简的解析形式。
@@ -232,13 +225,13 @@ Query and edit large codebases, generate apps from images or PDFs, and automate 
 第一步：建立边界 (NotebookLM)
 
 数值算法不是万能的。
-* **动作：** 上传教材，询问：“根据教材，Gauss-Seidel 迭代法对系数矩阵 $A$ 有什么严格要求？如果矩阵不是严格对角占优（Strictly Diagonally Dominant）会发生什么？” [cite: 851, 1029]
+* **动作：** 上传教材，询问：“根据教材，Gauss-Seidel 迭代法对系数矩阵 $A$ 有什么严格要求？如果矩阵不是严格对角占优（Strictly Diagonally Dominant）会发生什么？”
 * **目的：** 确保你在写代码前，知道算法的“死穴”在哪里。
 
 第二步：视觉化逻辑推理 (Gemini Gem)
 
 理解算法为什么能“慢慢靠近”正确答案。
-* **动作：** 问 Gem：“请用几何语言描述迭代法是如何一步步逼近 $Ax=b$ 的真实解的？它和直接求逆相比，为什么更适合超大规模矩阵？” [cite: 852, 854]
+* **动作：** 问 Gem：“请用几何语言描述迭代法是如何一步步逼近 $Ax=b$ 的真实解的？它和直接求逆相比，为什么更适合超大规模矩阵？”
 * **目的：** 建立直觉，理解“时间复杂度”与“空间复杂度”的权衡。
 
 
@@ -253,9 +246,9 @@ Query and edit large codebases, generate apps from images or PDFs, and automate 
 数值分析不看代码运行结果，看**“误差曲线”**。
 * **动作：** 让 Code Assist 写一段 Python 脚本：
     1. 实现 Gauss-Seidel 迭代。
-    2. 改变矩阵的“条件数”（Condition Number） [cite: 476, 484]。
+    2. 改变矩阵的“条件数”（Condition Number）
     3. 绘制“迭代次数 vs 误差”的半对数坐标图。
-* **实验推理：** 当你手动调大条件数，看到误差曲线开始剧烈震荡甚至不收敛时，你才会真正理解教材里说的“病态矩阵”（Ill-conditioned matrix）是什么意思。 [cite: 481, 482]
+* **实验推理：** 当你手动调大条件数，看到误差曲线开始剧烈震荡甚至不收敛时，你才会真正理解教材里说的“病态矩阵”（Ill-conditioned matrix）是什么意思。
 
 
 **数值分析学习的最佳实践建议**
@@ -306,11 +299,11 @@ C. 从解析推导过渡到矩阵化实现
 
 * **代数化简**：自动将 $(x+y)^2$ 展开为 $x^2 + 2xy + y^2$，或者反过来进行因式分解。
 * **精确求导与积分**：它不是通过斜率近似导数，而是根据微积分法则（如链式法则）推导出导数的**解析表达式**。例如，输入 `diff(sin(x^2), x)`，它会逻辑推导出 $2x \cos(x^2)$。
-* **矩阵恒等式推导**：正如我们之前讨论的，它可以处理未赋值的矩阵变量 $A, B$，帮你验证 $(AB)^{-1} = B^{-1}A^{-1}$ 是否成立 [cite: 32, 35, 492]。
+* **矩阵恒等式推导**：正如我们之前讨论的，它可以处理未赋值的矩阵变量 $A, B$，帮你验证 $(AB)^{-1} = B^{-1}A^{-1}$ 是否成立
 * **解方程组**：它能给出方程的解析解（如求出 $x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$），而不是只给你一个具体的数值坐标。
 
 
-1. 为什么符号计算对你“硬核学习”至关重要？
+3. 为什么符号计算对你“硬核学习”至关重要？
 
 结合你提到的学习痛点，符号计算的作用在于：
 
@@ -318,13 +311,13 @@ C. 从解析推导过渡到矩阵化实现
 
 **建立理论标杆**：在“数值分析”中，符号计算提供的是**“真值（Ground Truth）”。你先用符号计算算出精确的解析解，再用 C++ 或 Python 算数值解，两者一减，就是你这门课最关心的**“误差”**。
 
-**公式验证**：《Matrix Cookbook》中有很多复杂的性质，比如关于迹（Trace）的导数 [cite: 14, 287, 293]。手动推导极易出错，而符号计算可以 100% 严谨地帮你核对每一个转置符号和正负号。
+**公式验证**：《Matrix Cookbook》中有很多复杂的性质，比如关于迹（Trace）的导数。手动推导极易出错，而符号计算可以 100% 严谨地帮你核对每一个转置符号和正负号。
 
 
 常用工具推荐
 
 * **WolframAlpha / Mathematica**：符号计算的行业标准，内置了几乎人类已知的所有数学公式和推理规则。
-* **SymPy (Python)**：非常适合程序员。如果你在写代码时需要一段复杂的数学公式，可以用 SymPy 推导出来，然后直接生成 Python 代码。
+* **SymPy**：非常适合程序员。如果你在写代码时需要一段复杂的数学公式，可以用 SymPy 推导出来，然后直接生成 Python 代码。
 * **Maple**：在数学证明和教学领域非常强大，逻辑展示极其清晰。
 
 **总结一句话：**
@@ -393,7 +386,6 @@ C. 从解析推导过渡到矩阵化实现
 * **Wolfram/SymPy** 确保你没算错步骤。
 * **Code Assist** 确保你没用错场景。
 
-你现在想针对《现代机器人学》或《Matrix Cookbook》中哪一个让你头疼的“硬骨头”尝试跑一遍这个闭环？我可以作为你的“逻辑引导员”开始第一步。
 
 ### 现代机器人学
 
@@ -426,16 +418,64 @@ TODO
 - [Expert-C-2nd-edition](https://github.com/PacktPublishing/Expert-C-2nd-edition)
 - [Expert-CPP](https://github.com/PacktPublishing/Expert-CPP)
 - [Expert C++的个人翻译](https://github.com/xiaoweiChen/Expert-Cpp)
-
-
-
 - [David Spule 系列作品](https://www.aussieai.com/book/free-pdf)
 - [C++ low talency: multithreading and hotpath Optimizations](https://www.aussieai.com/pdf/CPP-Low%20Latency-Spuler-2025.pdf)
 - [C++ Ultra-Low Latency](https://www.aussieai.com/pdf/CPP-Ultra-Low-Latency-Spuler-2025.pdf)
 - [C++ AVX Optimization CPU SIMD Vectorization](https://www.aussieai.com/pdf/CPP-AVX-Optimizations-Spuler-2025.pdf)
 
 
+学习方法:
 
+- NotebookLM管理pdf和和相关资料(包含代码)
+- 用ai辅助阅读附录的repo(如有)
+- 测试(UTest,Google Benchmark, 系统性能检测工具如perf, 其他评测工具等)
+
+
+学习《C++ Low Latency: Multithreading and Hotpath Optimizations》这种专注于**高性能、底层优化**的软件工程教材，学习逻辑必须从“数学推理”转向**“硬件感知”与“性能实证”**。
+
+在低延迟（Low Latency）领域，**“逻辑上的正确”**只是门槛，**“时钟周期的节省”**才是目标。针对这类书籍，我为你定制了一套基于“性能反馈环”的学习策略：
+
+| 工具 | 扮演角色 | 针对低延迟 C++ 的核心任务 |
+| :--- | :--- | :--- |
+| **NotebookLM** | **标准与架构手册** | 厘清复杂的 C++ 标准定义（如 Memory Barrier、Atomic 语义）及硬件架构（Cache Line、NUMA）的影响。 |
+| **Gemini Gem** | **底层逻辑翻译官** | 解释“为什么”要这么优化。例如：为什么分支预测失败（Branch Misprediction）比多算几步加法更费时？ |
+| **Compiler Explorer (Compiler Explorer)** | **汇编代码监视器** | **（新增核心）** 观察 C++ 代码如何被转化为汇编指令。这是验证“热路径（Hotpath）”是否被优化的最直接手段。 |
+| **Code Assist** | **性能实验室** | 编写微基准测试（Micro-benchmarking），对比不同代码写法的执行耗时。 |
+
+
+高效学习四步法：以“缓存友好与无锁编程”为例
+
+第一阶段：硬件原理对齐 (NotebookLM + Gem)
+
+低延迟优化的本质是顺着 CPU 的脾气干活。
+* **NotebookLM 动作**：上传教材，询问：“本书提到的‘缓存行填充（Cache Line Padding）’是为了解决什么问题？它如何避免 False Sharing？”
+* **Gem 动作**：问 Gem：“请用‘超市排队’的类比解释什么是缓存一致性协议（MESI）？为什么频繁修改同一个缓存行会导致性能暴跌？”
+
+
+第二阶段：汇编级验证 (Compiler Explorer) —— **学习低延迟的灵魂**
+
+在低延迟领域，你必须看到编译器到底生成了什么。
+* **操作**：打开 `godbolt.org`。
+* **实战推理**：将教材中的两种写法（如：普通循环 vs 展开后的循环，或 `std::atomic` 的不同 `memory_order`）贴进去。
+* **观察点**：看汇编指令中是否有不必要的跳转（Jump）、是否有昂贵的内存屏障指令（如 `mfence`）。这能帮你建立“每一行 C++ 对应多少 CPU 时钟周期”的直觉。
+
+第三阶段：微基准测试 (Code Assist + Google Benchmark)
+不要相信直觉，只相信数据。
+* **动作**：让 **Code Assist** 辅助你使用 `Google Benchmark` 库编写测试。
+* **指令示例**：> “请为教材中提到的‘分支预测优化（Likely/Unlikely）’编写一个基准测试。对比在随机数据和有序数据下，这段逻辑的执行耗时差异。”
+* **实验**：通过实际运行数据，验证教材说的“Hotpath 优化”在你的 CPU 架构上是否真的有效。
+
+第四阶段：系统级 Profiling (Gemini Gem + Linux Perf)
+代码在真实系统中运行，会受到中断、上下文切换的影响。
+* **动作**：问 Gem：“如何使用 Linux `perf` 工具定位 C++ 程序的缓存缺失（Cache Miss）和分支预测失败率？”
+* **进阶**：根据 `perf` 的反馈，回过头来调整代码。这种**“测量 -> 优化 -> 再测量”**的闭环是软件工程高级话题的唯一真理。
+
+总结：你的“捷径”公式
+
+- **NotebookLM(定义)**：理清硬件架构与 C++ 标准的约束。
+- **Gem(逻辑)**：建立“时钟周期”层面的物理直觉。
+- **Compiler Explorer(推导)**：完成“C++ 到汇编”的逻辑推理。
+- **Code Assist + Profiling(实证)**：通过基准测试和性能分析，用数据说话。
 
 
 ## Vibe Coding，程序员还需要学习么
@@ -446,10 +486,10 @@ TODO
 
 ## AI出现后，如何开发大型项目
 
+TODO
+
 - 可以用于重构
 - 单元测试
-
-TODO
 
 遇到的一些问题：
 
@@ -490,6 +530,10 @@ MCP (Model Context Protocol, 模型上下文协议) 是一种开源标准，它�
 - [Get started with Agent Skills](https://geminicli.com/docs/cli/tutorials/skills-getting-started/)
 
 skill库
+
+- pdf阅读
+- mermaid渲染
+- draw.io渲染
 
 ### plan
 
@@ -536,40 +580,6 @@ https://docs.github.com/en/codespaces
 
 Claude Code，方案思路一般，编程最强，但容易封号。VScode 插件没有Gpt(Codex)或Gemini做得好用
 Gpt或者Gemini：思路方案框架较强，Codex编程略差Claude,Genimi再差一点，这两不封号
-
-antigravity
-
-## Codex
-
-codex的key：sk-dnRT6j3Y7E8FgyOJmHlDxyMuWmE5TSrEksmWxMSL1nZwTn2L
-
-- [Codex](https://chatgpt.com/codex)
-- [PP Codex Cli教程](https://ncn2tixwfspn.feishu.cn/wiki/FqCPwuUrpiwJPWkD2P2cXSKInDb)
-- [Codex 技术客服&&配置教程](https://ucn9uf8devd7.feishu.cn/wiki/XUrvw5RbCihuh4kEPrdcvFHNnhd)
-
-配额：2400配额（400次请求）
-使用教程：PP Codex Cli教程
-记录查询：https://code.ppchat.vip/
-带图评论~免费加200次请求
-体验卡有400次请求
-升级VIP月卡每日可用高达500次，长期更划算～
-
-
-```sh
-# 如果是vscode 远程到另一台主机的docker，需要先确保remote中可以访问外网
-# ref： https://www.notion.so/wumin199/12d514e8cada807c96a2c4fc60322e42
-# 如果是vscode 远程到本地的docker，则不需要特别设置（除了开clash）
-
-# 先安装codex
-curl -fsSL http://47.115.148.185/codex/codex-install.sh | bash
-# 再安装vscode的codex插件
-# vscode：reload window
-```
-
-
-
-
-
 
 
 ## 最佳实践

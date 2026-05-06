@@ -1,5 +1,5 @@
 ---
-title: 高效笔记规范
+title: 知识管理必知必会
 date: 2026-05-03 19:00:00
 toc: true
 password: target2026
@@ -12,9 +12,6 @@ widgets:
     depth: 3
 ---
 
-高效,直觉,可视化,快速定位,简洁而非冗长,归档
-
-<!-- more -->
 
 ## 痛点
 
@@ -118,14 +115,15 @@ widgets:
 - 不断反思，做笔记效率和笔记价值，如果某个事情无法持续或陷入混乱，必有问题
   - 如一个教材/教程，你学习起来很辛苦或者很漫长，说明这个教材/方法暂时不适合你，请继续寻找
 
+--
 
-### 推荐学习过程
+**推荐学习过程**
 
 参考以下各章节论述以及[AI工具使用指南](https://wumin199.github.io/post/20260404160908.html),大致是:
 
 whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案例 + 编程
 
-**模板轻量化一点**,遇到不懂的shy再完善可视化或直觉
+**模板轻量化一点**, 模板主要参考下面的[参考笔记]章节, 遇到不懂的再完善可视化或直觉
 
 如果遇到问题,必须停下来反省
 
@@ -526,11 +524,11 @@ whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案�
 
 ## 参考笔记
 
-- [Path2AGI](https://github.com/datawhalechina/Path2AGI/tree/main)
+先从Path2AGI模板开始,遇到不懂的在扩展到whole map和cheat sheat以及可视化上
+
+- [Path2AGI](https://github.com/datawhalechina/Path2AGI/tree/main)(目前模板参考这个!每个章节的笔记不宜过长)
   - [02-linear-algebra](https://github.com/datawhalechina/Path2AGI/blob/main/02-linear-algebra.md)
   - [微积分与优化理论](https://github.com/datawhalechina/Path2AGI/blob/main/03-calculus-and-optimization.md)
-- [arvix](https://arxiv.org/)
-  - summary, intuition, 
 - whole map
   - [The-Art-of-Linear-Algebra](https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra)
 - cheat sheat
@@ -539,3 +537,5 @@ whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案�
   - [linear-algebra_ep4_PythonCheatSheet](https://allthemath.org/wp-content/uploads/2023/08/linear-algebra_ep4_PythonCheatSheet.pdf)
   - [Matrix-Cheat-Sheet](https://www.scribd.com/document/909447203/Matrix-Cheat-Sheet)
 - [Visualize-ML](https://github.com/Visualize-ML)
+- [arvix](https://arxiv.org/)
+  - summary, intuition

@@ -2,7 +2,7 @@
 title: 高效笔记规范
 date: 2026-05-03 19:00:00
 toc: true
-password: wumin199
+password: target2026
 comment: false
 widgets:
   - type: toc
@@ -18,11 +18,117 @@ widgets:
 
 ## 痛点
 
+痛点:
 - 笔记混乱,查找困难
-- 笔记内容太多,充满各种细节,没有归档
-- 笔记无法快速回顾,缺少整体图
+- 笔记内容太多/分散, 笔记充满各种细节, 无法快速回顾
+- 回顾笔记耗费大量时间, 缺少可视化/汇总/推导笔记等
 - 学习时长无法控制
 - 代码案例没有最小可执行单元,充满各种注释和背景知识
+- 笔记分散滞后,没有定期整理归档
+- 没有建立直觉,无法随机应变
+
+
+## 所谓直觉
+
+形式逻辑: 主要遵循的是演绎推理和归纳推理，典型是亚里士多德的三段论：大前提A包含了小前提B，通过A和B同时推出结论C。
+  - 教学/学习理解: 直观 <—>  凝练/升华: 数学抽象
+
+数学高度抽象(形式逻辑),对一般人本身很难理解, 可以通过几个方面去拓展抽象数学的直觉意义:
+- 几何意义   —> 直观
+- 代数意义
+- 应用中的意义(案例)  —> 明确
+    - 物理意义: 机器人领域, 力学领域, 数字图像处理领域
+    - 统计学意义: 经济学, 社会学, 人口学, 消费学, 心理学, 各类开源数据集(Iris)等
+    - …
+
+一些可以辅助的检索词或技巧:
+
+  - Cheet sheet, Table
+      - Formula Sheet Moments of Inertia
+      - Table of Moment of Inertia
+  - 数据集
+  - Formula, Equation
+      - Fundamental Equations of Dynamics Kinematics
+  - tutorial, summary, for dummies, flow, chart,  class notes, c++, python, demo
+  - mathematical/math/Mathematics view ,  solution, example,
+  - viz/visual, interactive
+  - In applied mathematics
+  - overview, summary, cheet sheet, review, notes, introduction
+  - Explained, Tools, Methods
+      - CI/CD explained: Methods, tools, pipelines, and beyond
+      - Tools for CI/CD
+  - Best Practices, Everything you need to know
+      - CI/CD for Kubernetes - Overview, Tools and Best Practices
+      - CI/CD pipelines explained: Everything you need to know
+  - Use Cases
+      - What is CI/CD? – Overview, Benefits, and Use Cases
+  - You Must know
+      - Best 14 CI/CD Tools You Must Know
+  - 最佳实践
+
+可视化工具:
+
+- whole map
+  - mermaid
+  - xml的drawio
+  - excalidraw
+- 公式推导
+  - 数值计算:scipy/numpy/pandas
+  - 符号计算:SymPy
+  - [wolframalpha](https://www.wolframalpha.com/)
+  - [katex](https://katex.org/docs/node)
+  - [typst](https://typst.app/)
+- 交互式和图表等
+  - [streamlit](https://streamlit.io/) or [gradio](https://www.gradio.app/)
+  - matplotlib/plotly/Altair
+  - [manim](https://www.manim.community/)
+  - [3b1b/manim](https://github.com/3b1b/manim)
+
+代码测试工具:
+- utest + google benchmark
+- 第三方测评工具:如 perf等
+
+
+
+## 最佳实践
+
+**高效**
+
+- 约束时长
+   - 参考深蓝学院的课程难度/作业量来评估
+   - 如3天(一个礼拜)是一个中等难度专题的学习时间, 6-8个礼拜是一门硬核课程的学习时间
+   - 如果做不到,请反思下教程选择,难度选择,或者学习方法选择上是否有问题
+- 关注核心概念,二八法则,而不是无限发散纠结所有细节
+  如线性代数中的: 相似矩阵, 矩阵微积分, PVD , SVD, 对角化, 雅科比矩阵, Hessian矩阵 etc
+- 回顾笔记高效, whole map, 可视化, 可交互
+  
+**简洁**
+- 不要记住/摘抄所有的资料内容, 可以附上相关补充资料并说明章节
+- 定位高效, 笔记不要分散,定期整理归档
+  - 可以做成可发布或查阅的页面
+- 代码或案例保持最小可执行单元和依赖,收敛主题
+
+
+**建立直觉**
+
+
+**反省**
+
+- 定期学习ai知识并运用
+- 不断反思，做笔记效率和笔记价值，如果某个事情无法持续或陷入混乱，必有问题
+  - 如一个教材/教程，你学习起来很辛苦或者很漫长，说明这个教材/方法暂时不适合你，请继续寻找
+
+
+### 推荐学习过程
+
+参考以下各章节论述以及[AI工具使用指南](https://wumin199.github.io/post/20260404160908.html),大致是:
+
+whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案例 + 编程
+
+**模板轻量化一点**,遇到不懂的shy再完善可视化或直觉
+
+如果遇到问题,必须停下来反省
+
 
 ## 临时笔记(fleeting notes)
 
@@ -166,7 +272,7 @@ widgets:
             update: 2022-06-15 18:42:26
             ------
             
-            ### bitbucket-pipelines.yml
+            **bitbucket-pipelines.yml**
             total:8
             ```yml
             @Study: C++中的CI，export参数，make并进行单元测试和代码风格检查
@@ -179,7 +285,7 @@ widgets:
             @Study: 在CD中进行git tag
             ```
             
-            ### CMakeLists.txt
+            **CMakeLists.txt**
             total:8
             ```yml
             @Study: CPMAddPackage下载xyz-cmake-scripts 并使用里面的cmake宏函数
@@ -192,7 +298,7 @@ widgets:
             @Study: header only的代码，可以直接安装，没有target
             ```
             
-            ### include/xyz_msgs/converter/basic_converter.h
+            **include/xyz_msgs/converter/basic_converter.h**
             total:5
             ```yml
             @Study: header-only的头文件, 不需要CMakeLists.txt，直接install就行 -> 确保xyz_msgs这个包被编译并安装
@@ -202,26 +308,26 @@ widgets:
             @Study: probobuf添加repeated的值
             ```
             
-            ### proto/xyz_msgs/visualization_msgs/Marker.proto
+            **proto/xyz_msgs/visualization_msgs/Marker.proto**
             total:1
             ```yml
             @Study: protobuf中定义enum
             ```
             
-            ### proto/xyz_msgs/visualization_msgs/MenuEntry.proto
+            **proto/xyz_msgs/visualization_msgs/MenuEntry.proto**
             total:1
             ```yml
             @Study: 用protocolbuf定义树形结构
             ```
             
-            ### test/CMakeLists.txt
+            **test/CMakeLists.txt**
             total:2
             ```yml
             @Study: 添加Eigen3/Boost的include到target
             @Study: add_test:指定测试名称，可以随意指定； 指定测试命令行 -> 执行utest_converter这个target
             ```
             
-            ### tools/code_style_check.sh
+            **tools/code_style_check.sh**
             total:1
             ```yml
             @Study: code_style_check进行cpplint检查，前提是1: 有CPPLINT.cfg; 2:安装了cpplint。 手动自己检查
@@ -417,17 +523,14 @@ widgets:
         echo -e "${NC}generate $comment_file done ${NC}"
         ```
 
-## 建立直觉
 
+## 参考笔记
 
-
-
-这里只列出一些核心笔记需要关注的核心痛点:
-
-- 没有建立直觉,无法随机应变
-- 回顾笔记耗费大量时间, 缺少可视化的东西
-  - 如mermaid
-  - 可视化的引擎
+- [Path2AGI](https://github.com/datawhalechina/Path2AGI/tree/main)
+  - [02-linear-algebra](https://github.com/datawhalechina/Path2AGI/blob/main/02-linear-algebra.md)
+  - [微积分与优化理论](https://github.com/datawhalechina/Path2AGI/blob/main/03-calculus-and-optimization.md)
+- [arvix](https://arxiv.org/)
+  - summary, intuition, 
 - whole map
   - [The-Art-of-Linear-Algebra](https://github.com/kenjihiranabe/The-Art-of-Linear-Algebra)
 - cheat sheat
@@ -436,81 +539,3 @@ widgets:
   - [linear-algebra_ep4_PythonCheatSheet](https://allthemath.org/wp-content/uploads/2023/08/linear-algebra_ep4_PythonCheatSheet.pdf)
   - [Matrix-Cheat-Sheet](https://www.scribd.com/document/909447203/Matrix-Cheat-Sheet)
 - [Visualize-ML](https://github.com/Visualize-ML)
-- [manim](https://www.manim.community/)
-- [3b1b/manim](https://github.com/3b1b/manim)
-- python
-  - streamlit or gradio
-  - matplotlib/plotly/Altair
-  - 数值计算:scipy/numpy/pandas
-  - 符号计算:SymPy
-
-
-- 形式逻辑: 形式逻辑主要遵循的是演绎推理和归纳推理，典型是亚里士多德的三段论：大前提A包含了小前提B，通过A和B同时推出结论C。
-    - 教学/学习理解: 直观 <—>  凝练/升华: 数学抽象
-
-- 数学高度抽象(形式逻辑),对一般人本身很难理解, 可以通过几个方面去拓展抽象数学的直觉意义:
-  - 几何意义   —> 直观
-  - 代数意义
-  - 应用中的意义  —> 明确
-      - 物理意义: 机器人领域, 力学领域, 数字图像处理领域
-      - 统计学意义: 经济学, 社会学, 人口学, 消费学, 心理学等
-      - …(欢迎补充)
-  - 最佳实践
-- whole map -> sections -> chapters
-
-区分cheat sheet和学习,学习的话重点介绍自己不懂的或者核心概念.刚开始不需要大而且,慢慢补充代码或者可视化
-
-## 共性问题
-
-- 快速定位: 可以快速定位笔记
-- 简洁: 笔记不宜非常庞大且复杂,可以通过附录来链接
-  - 有必要保持笔记的简介
-- 高效检索: 可以快速复盘和逻辑整理
-- 建立直觉: 多关注直觉性的东西,多用mermaid/案例/代码测试/几何含义等来辅助理解
-  - 案例代码解耦: 如每个测试单元尽量最小可执行单元, 自解释, 不追求所有细节, 少依赖其他笔记的内容
-- 高效学习: 不求大而全,核心概念和主要应用还是遵守二八法则,学习也一样
-- 整体面貌,到具体章节,到细节
-  - 严格定义,数据集(应用案例),编程实现,可视化,几何含义
-- 利用ai和专业工具:
-  - notebook lm
-  - 优秀开源库
-
-二次创作
-
-- utest + google benchmark
-
-找对教材 + cheat sheat + 直觉 + 案例 + 应用 + 编程
-
-不要复制粘贴那些容易获取的东西,关注你不知道的东西
-
-可学习和发布的课程!
-
-不可拖太长,有个时间
-
-痛点:学习时长要规定,一般按照全职学习的花,3~5天算是比较长的一门课程来.参考深蓝学院里面的课程量和难度来评估,以及参考
-
-- [streamlit](https://streamlit.io/)
-- [katex](https://katex.org/docs/node)
-- [typst](https://typst.app/)
-
-## 参考笔记
-
-- [Path2AGI](https://github.com/datawhalechina/Path2AGI/tree/main)
-  - [02-linear-algebra](https://github.com/datawhalechina/Path2AGI/blob/main/02-linear-algebra.md)
-  - [微积分与优化理论](https://github.com/datawhalechina/Path2AGI/blob/main/03-calculus-and-optimization.md)
-- 可视化工具
-  - mermaid
-  - xml的drawio
-  - excalidraw
-- 公式推导
-  - 符号推导: scipy等
-  - [wolframalpha](https://www.wolframalpha.com/)
-- [arvix](https://arxiv.org/)
-  - summary, intuition, 
-
-
-## Skills
-
-- pdf
-- mermaid
-- draw.io

@@ -101,6 +101,11 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: icarus
 
+# Security
+encrypt:
+  kdf:
+    iterations: 600000
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

@@ -11,7 +11,9 @@ widgets:
     collapsed: false
     depth: 3
 ---
+如果你想做某件事，别先去学技能，要边干边学，通过做那件事来提升自己，这是一条被严重低估的人生建议。 — Sam Altman
 
+<!-- more -->
 
 ## 痛点
 
@@ -274,7 +276,7 @@ whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案�
             total:8
             ```yml
             @Study: C++中的CI，export参数，make并进行单元测试和代码风格检查
-            @Study: make cpplint, make check-format(clang-format检查) -> 通过CPMAddPackage(NAME xyz-cmake-scripts)引入的target -> 在其中的static-check.cmake，都是add_custom_target
+            @Study: make cpplint, make check-format(clang-format检查) -> 通过CPMAddPackage(NAME cmake-scripts)引入的target -> 在其中的static-check.cmake，都是add_custom_target
             @Study: 启用检查方法1：CMakeLists.txt中enable_clang_tidy()/enable_cpplint()； 方法2： CI中make clang-tidy make cpplint
             @Study: make -j2进行编译, 2个并行jobs进行检查
             @Study: ctest 等价于make test
@@ -286,33 +288,33 @@ whole map -> sections -> chapters -> 核心概念的cheat sheat + 直觉 + 案�
             **CMakeLists.txt**
             total:8
             ```yml
-            @Study: CPMAddPackage下载xyz-cmake-scripts 并使用里面的cmake宏函数
-            @Study: 这些宏函数就来自于xyz-cmake-scripts -> cxx_17() enable_clang_tidy() enable_all_warnings()
+            @Study: CPMAddPackage下载cmake-scripts 并使用里面的cmake宏函数
+            @Study: 这些宏函数就来自于cmake-scripts -> cxx_17() enable_clang_tidy() enable_all_warnings()
             @Study: 启动clang-tidy检查方法1：enable_clang_tidy()； 方法2： CI中make clang-tidy。2选1即可
             @Study: set缓存变量, 类型是PATH(也可以是STRING，PATH，BOOL,LEPATH等)
             @Study: CMAKE_INSTALL_PREFIX的标准写法
-            @Study: protobuf默认是用bazel编译，通过导入XYZMsgGen，可以用Make来编译 -> add_service_files()和generate_services()
-            @Study: 使用XYZMsgGen.cmake提供的宏编译生成protobuf
+            @Study: protobuf默认是用bazel编译，通过导入MsgGen，可以用Make来编译 -> add_service_files()和generate_services()
+            @Study: 使用MsgGen.cmake提供的宏编译生成protobuf
             @Study: header only的代码，可以直接安装，没有target
             ```
             
-            **include/xyz_msgs/converter/basic_converter.h**
+            **include/msgs/converter/basic_converter.h**
             total:5
             ```yml
-            @Study: header-only的头文件, 不需要CMakeLists.txt，直接install就行 -> 确保xyz_msgs这个包被编译并安装
-            @Study: 模板返回值是T的用法 auto cloud_msgs = xyz_msgs::converter::convert(pcloud.cloud);
+            @Study: header-only的头文件, 不需要CMakeLists.txt，直接install就行 -> 确保msgs这个包被编译并安装
+            @Study: 模板返回值是T的用法 auto cloud_msgs = msgs::converter::convert(pcloud.cloud);
             @Study: protobuf设置对象Vector3d的值 -> 基础数据类型
             @Study: protobuf设置Pose下面的orientation的值 -> 不是基础数据类型
             @Study: probobuf添加repeated的值
             ```
             
-            **proto/xyz_msgs/visualization_msgs/Marker.proto**
+            **proto/msgs/visualization_msgs/Marker.proto**
             total:1
             ```yml
             @Study: protobuf中定义enum
             ```
             
-            **proto/xyz_msgs/visualization_msgs/MenuEntry.proto**
+            **proto/msgs/visualization_msgs/MenuEntry.proto**
             total:1
             ```yml
             @Study: 用protocolbuf定义树形结构

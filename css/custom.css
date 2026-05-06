@@ -1,0 +1,31 @@
+/* Keep long Markdown code blocks scrollable inside the article column. */
+article.article .content figure.highlight {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+article.article .content figure.highlight table {
+  width: max-content;
+  max-width: none;
+}
+
+article.article .content figure.highlight td.code {
+  min-width: 0;
+}
+
+article.article .content figure.highlight td.code pre,
+article.article .content pre code {
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+article.article .content figure.highlight::-webkit-scrollbar {
+  height: 10px;
+}
+
+article.article .content figure.highlight::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, .25);
+  border-radius: 999px;
+}
